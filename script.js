@@ -741,7 +741,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('img[alt*="Pacific"], img[src*="maison3"]').forEach(function(img) { img.src = images['model3']; });
             }
             if (images['model4']) {
-                document.querySelectorAll('img[alt*="Venice"], img[src*="maison4"]').forEach(function(img) { img.src = images['model4']; });
+                document.querySelectorAll('img[alt*="Venice"], img[src*="photo3"]').forEach(function(img) { img.src = images['model4']; });
             }
             if (images['daniel']) {
                 document.querySelectorAll('img[alt*="Daniel"], img[src*="daniel"]').forEach(function(img) { img.src = images['daniel']; });
@@ -763,4 +763,145 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('recruitment-table')) renderRecruitment();
         loadCMS();
     }
+
+    // --- 23. INTERACTIVE 3D FLOOR PLANS ---
+    var floorPlans = document.querySelectorAll('.floor-plan-3d');
+
+    floorPlans.forEach(function(planWrapper) {
+        planWrapper.classList.add('interactive');
+
+        var container = planWrapper.querySelector('.plan-container');
+        if (!container) return;
+
+        var defaultRotX = 55;
+        var defaultRotZ = -45;
+        var rotX = defaultRotX;
+        var rotZ = defaultRotZ;
+        var isDragging = false;
+        var startX = 0;
+        var startY = 0;
+
+        // Store state on the element for reset access
+        planWrapper._planState = { rotX: rotX, rotZ: rotZ, container: container };
+
+        function applyTransform() {
+            container.style.transform = 'rotateX(' + rotX + 'deg) rotateZ(' + rotZ + 'deg)';
+            planWrapper._planState.rotX = rotX;
+            planWrapper._planState.rotZ = rotZ;
+        }
+
+        function hideHint() {
+            var hint = planWrapper.querySelector('.plan-drag-hint');
+            if (hint && !hint.classList.contains('hidden')) {
+                hint.classList.add('hidden');
+                setTimeout(function() { hint.style.display = 'none'; }, 500);
+            }
+        }
+
+        // Mouse events
+        planWrapper.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            container.style.transition = 'none';
+            hideHint();
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            var deltaX = e.clientX - startX;
+            var deltaY = e.clientY - startY;
+            rotZ = Math.max(-90, Math.min(0, rotZ + deltaX * 0.3));
+            rotX = Math.max(20, Math.min(75, rotX - deltaY * 0.3));
+            applyTransform();
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        document.addEventListener('mouseup', function() {
+            if (isDragging) {
+                isDragging = false;
+                container.style.transition = 'transform 0.6s ease';
+            }
+        });
+
+        // Touch events
+        planWrapper.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                container.style.transition = 'none';
+                hideHint();
+            }
+        }, { passive: true });
+
+        planWrapper.addEventListener('touchmove', function(e) {
+            if (!isDragging || e.touches.length !== 1) return;
+            var deltaX = e.touches[0].clientX - startX;
+            var deltaY = e.touches[0].clientY - startY;
+            rotZ = Math.max(-90, Math.min(0, rotZ + deltaX * 0.3));
+            rotX = Math.max(20, Math.min(75, rotX - deltaY * 0.3));
+            applyTransform();
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            e.preventDefault();
+        }, { passive: false });
+
+        planWrapper.addEventListener('touchend', function() {
+            isDragging = false;
+            container.style.transition = 'transform 0.6s ease';
+        });
+
+        // Apply initial transform
+        applyTransform();
+    });
+
+    // Reset buttons
+    document.querySelectorAll('.plan-reset-btn').forEach(function(resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            var parent = this.closest('.house-detail') || this.closest('[style*="margin-top"]');
+            if (!parent) parent = this.parentElement.parentElement;
+            parent.querySelectorAll('.floor-plan-3d').forEach(function(fp) {
+                if (fp._planState) {
+                    fp._planState.rotX = 55;
+                    fp._planState.rotZ = -45;
+                    fp._planState.container.style.transition = 'transform 0.6s ease';
+                    fp._planState.container.style.transform = 'rotateX(55deg) rotateZ(-45deg)';
+                }
+            });
+        });
+    });
+
+    // --- 24. FLOOR PLAN OPTION TABS ---
+    document.querySelectorAll('.plan-option-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var parent = this.closest('.house-detail') || this.closest('[style*="margin-top"]');
+            if (!parent) parent = this.parentElement.parentElement;
+
+            // Deactivate all buttons in this section
+            parent.querySelectorAll('.plan-option-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            this.classList.add('active');
+
+            // Show corresponding variant
+            var variantId = this.getAttribute('data-variant');
+            parent.querySelectorAll('.plan-variant').forEach(function(v) {
+                v.classList.remove('active');
+            });
+            var target = parent.querySelector('.plan-variant[data-variant="' + variantId + '"]');
+            if (target) {
+                target.classList.add('active');
+                // Re-initialize visible plans
+                target.querySelectorAll('.floor-plan-3d').forEach(function(fp) {
+                    if (fp._planState) {
+                        fp._planState.container.style.transform = 'rotateX(' + fp._planState.rotX + 'deg) rotateZ(' + fp._planState.rotZ + 'deg)';
+                    }
+                });
+            }
+        });
+    });
+
 });

@@ -56,25 +56,52 @@
                 <!-- 3D FLOOR PLAN MALIBU -->
                 <div style="margin-top: 40px;">
                     <h4 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-drafting-compass" style="color: var(--terracotta);"></i> Plan 3D — Malibu 20m²</h4>
-                    <div class="floor-plan-3d">
-                        <div class="plan-container" style="padding-bottom: 80%;">
-                            <!-- Salon/Cuisine -->
-                            <div class="plan-room salon" style="left: 5%; top: 5%; width: 55%; height: 55%;">
-                                <div>Salon<br>Cuisine<br><small>12m²</small></div>
-                            </div>
-                            <!-- Chambre -->
-                            <div class="plan-room chambre" style="left: 62%; top: 5%; width: 33%; height: 40%;">
-                                <div>Chambre<br><small>6m²</small></div>
-                            </div>
-                            <!-- SDB -->
-                            <div class="plan-room sdb" style="left: 62%; top: 47%; width: 33%; height: 20%;">
-                                <div>SDB<br><small>3m²</small></div>
-                            </div>
-                            <!-- Terrasse -->
-                            <div class="plan-room terrasse" style="left: 5%; top: 62%; width: 90%; height: 25%;">
-                                <div>Terrasse<br><small>5m²</small></div>
+                    <div class="plan-options">
+                        <button class="plan-option-btn active" data-variant="malibu-a">Option A — Classique</button>
+                        <button class="plan-option-btn" data-variant="malibu-b">Option B — Suite Ouverte</button>
+                    </div>
+                    <!-- Option A -->
+                    <div class="plan-variant active" data-variant="malibu-a">
+                        <div class="floor-plan-3d" style="position: relative;">
+                            <div class="plan-drag-hint"><i class="fas fa-hand-pointer"></i> Cliquez et glissez pour pivoter</div>
+                            <div class="plan-container" style="padding-bottom: 80%;">
+                                <div class="plan-room salon" style="left: 5%; top: 5%; width: 55%; height: 55%;">
+                                    <div>Salon<br>Cuisine<br><small>12m²</small></div>
+                                </div>
+                                <div class="plan-room chambre" style="left: 62%; top: 5%; width: 33%; height: 40%;">
+                                    <div>Chambre<br><small>6m²</small></div>
+                                </div>
+                                <div class="plan-room sdb" style="left: 62%; top: 47%; width: 33%; height: 20%;">
+                                    <div>SDB<br><small>3m²</small></div>
+                                </div>
+                                <div class="plan-room terrasse" style="left: 5%; top: 62%; width: 90%; height: 25%;">
+                                    <div>Terrasse<br><small>5m²</small></div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <!-- Option B -->
+                    <div class="plan-variant" data-variant="malibu-b">
+                        <div class="floor-plan-3d" style="position: relative;">
+                            <div class="plan-drag-hint"><i class="fas fa-hand-pointer"></i> Cliquez et glissez pour pivoter</div>
+                            <div class="plan-container" style="padding-bottom: 80%;">
+                                <div class="plan-room salon" style="left: 5%; top: 5%; width: 45%; height: 55%;">
+                                    <div>Salon<br>Cuisine<br><small>10m²</small></div>
+                                </div>
+                                <div class="plan-room chambre" style="left: 52%; top: 5%; width: 43%; height: 35%;">
+                                    <div>Suite<br>Parentale<br><small>8m²</small></div>
+                                </div>
+                                <div class="plan-room sdb" style="left: 52%; top: 42%; width: 43%; height: 20%;">
+                                    <div>SDB<br><small>3m²</small></div>
+                                </div>
+                                <div class="plan-room terrasse" style="left: 5%; top: 62%; width: 90%; height: 25%;">
+                                    <div>Terrasse<br><small>5m²</small></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-controls">
+                        <button class="plan-reset-btn"><i class="fas fa-undo"></i> Réinitialiser la vue</button>
                     </div>
                     <div class="plan-legend">
                         <span><span class="legend-color" style="background: rgba(232,236,233,0.8);"></span> Salon/Cuisine</span>
@@ -110,28 +137,65 @@
                 <!-- 3D FLOOR PLAN PALM SPRING -->
                 <div style="margin-top: 40px;">
                     <h4 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-drafting-compass" style="color: var(--terracotta);"></i> Plan 3D — Palm Spring 35m²</h4>
-                    <div class="floor-plan-3d">
-                        <div class="plan-container" style="padding-bottom: 65%;">
-                            <div class="plan-room salon" style="left: 3%; top: 5%; width: 50%; height: 60%;">
-                                <div>Salon<br>Cuisine<br><small>18m²</small></div>
-                            </div>
-                            <div class="plan-room chambre" style="left: 55%; top: 5%; width: 42%; height: 45%;">
-                                <div>Chambre<br><small>10m²</small></div>
-                            </div>
-                            <div class="plan-room sdb" style="left: 55%; top: 52%; width: 20%; height: 25%;">
-                                <div>SDB<br><small>4m²</small></div>
-                            </div>
-                            <div class="plan-room" style="left: 77%; top: 52%; width: 20%; height: 25%; background: rgba(255,235,200,0.5);">
-                                <div>WC<br><small>2m²</small></div>
-                            </div>
-                            <div class="plan-room terrasse" style="left: 3%; top: 67%; width: 94%; height: 25%;">
-                                <div>Grande Terrasse<br><small>8m²</small></div>
+                    <div class="plan-options">
+                        <button class="plan-option-btn active" data-variant="palm-a">Option A — 1 Chambre</button>
+                        <button class="plan-option-btn" data-variant="palm-b">Option B — 2 Chambres</button>
+                    </div>
+                    <!-- Option A -->
+                    <div class="plan-variant active" data-variant="palm-a">
+                        <div class="floor-plan-3d" style="position: relative;">
+                            <div class="plan-drag-hint"><i class="fas fa-hand-pointer"></i> Cliquez et glissez pour pivoter</div>
+                            <div class="plan-container" style="padding-bottom: 65%;">
+                                <div class="plan-room salon" style="left: 3%; top: 5%; width: 50%; height: 60%;">
+                                    <div>Salon<br>Cuisine<br><small>18m²</small></div>
+                                </div>
+                                <div class="plan-room chambre" style="left: 55%; top: 5%; width: 42%; height: 45%;">
+                                    <div>Chambre<br><small>10m²</small></div>
+                                </div>
+                                <div class="plan-room sdb" style="left: 55%; top: 52%; width: 20%; height: 25%;">
+                                    <div>SDB<br><small>4m²</small></div>
+                                </div>
+                                <div class="plan-room" style="left: 77%; top: 52%; width: 20%; height: 25%; background: rgba(255,235,200,0.5);">
+                                    <div>WC<br><small>2m²</small></div>
+                                </div>
+                                <div class="plan-room terrasse" style="left: 3%; top: 67%; width: 94%; height: 25%;">
+                                    <div>Grande Terrasse<br><small>8m²</small></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Option B -->
+                    <div class="plan-variant" data-variant="palm-b">
+                        <div class="floor-plan-3d" style="position: relative;">
+                            <div class="plan-drag-hint"><i class="fas fa-hand-pointer"></i> Cliquez et glissez pour pivoter</div>
+                            <div class="plan-container" style="padding-bottom: 65%;">
+                                <div class="plan-room salon" style="left: 3%; top: 5%; width: 45%; height: 60%;">
+                                    <div>Salon<br>Cuisine<br><small>14m²</small></div>
+                                </div>
+                                <div class="plan-room chambre" style="left: 50%; top: 5%; width: 23%; height: 45%;">
+                                    <div>Ch. 1<br><small>8m²</small></div>
+                                </div>
+                                <div class="plan-room chambre" style="left: 75%; top: 5%; width: 22%; height: 45%;">
+                                    <div>Ch. 2<br><small>7m²</small></div>
+                                </div>
+                                <div class="plan-room sdb" style="left: 50%; top: 52%; width: 23%; height: 25%;">
+                                    <div>SDB<br><small>4m²</small></div>
+                                </div>
+                                <div class="plan-room" style="left: 75%; top: 52%; width: 22%; height: 25%; background: rgba(255,235,200,0.5);">
+                                    <div>WC<br><small>2m²</small></div>
+                                </div>
+                                <div class="plan-room terrasse" style="left: 3%; top: 79%; width: 94%; height: 17%;">
+                                    <div>Terrasse<br><small>6m²</small></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-controls">
+                        <button class="plan-reset-btn"><i class="fas fa-undo"></i> Réinitialiser la vue</button>
+                    </div>
                     <div class="plan-legend">
                         <span><span class="legend-color" style="background: rgba(232,236,233,0.8);"></span> Salon/Cuisine</span>
-                        <span><span class="legend-color" style="background: rgba(212,165,154,0.2);"></span> Chambre</span>
+                        <span><span class="legend-color" style="background: rgba(212,165,154,0.2);"></span> Chambre(s)</span>
                         <span><span class="legend-color" style="background: rgba(173,216,230,0.3);"></span> SDB</span>
                         <span><span class="legend-color" style="background: rgba(144,238,144,0.2);"></span> Terrasse</span>
                     </div>
@@ -163,34 +227,71 @@
                 <!-- 3D FLOOR PLAN PACIFIC PALISSADE -->
                 <div style="margin-top: 40px;">
                     <h4 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-drafting-compass" style="color: var(--terracotta);"></i> Plan 3D — Pacific Palissade 60m²</h4>
-                    <div class="floor-plan-3d">
-                        <div class="plan-container" style="padding-bottom: 55%;">
-                            <div class="plan-room salon" style="left: 3%; top: 5%; width: 45%; height: 55%;">
-                                <div>Salon<br><small>20m²</small></div>
-                            </div>
-                            <div class="plan-room" style="left: 3%; top: 62%; width: 25%; height: 30%; background: rgba(255,235,200,0.5);">
-                                <div>Cuisine<br><small>10m²</small></div>
-                            </div>
-                            <div class="plan-room chambre" style="left: 50%; top: 5%; width: 23%; height: 42%;">
-                                <div>Ch. 1<br><small>10m²</small></div>
-                            </div>
-                            <div class="plan-room chambre" style="left: 75%; top: 5%; width: 22%; height: 42%;">
-                                <div>Ch. 2<br><small>9m²</small></div>
-                            </div>
-                            <div class="plan-room sdb" style="left: 50%; top: 49%; width: 25%; height: 22%;">
-                                <div>SDB<br><small>5m²</small></div>
-                            </div>
-                            <div class="plan-room" style="left: 77%; top: 49%; width: 20%; height: 22%; background: rgba(200,200,200,0.3);">
-                                <div>WC<br><small>2m²</small></div>
-                            </div>
-                            <div class="plan-room terrasse" style="left: 30%; top: 73%; width: 67%; height: 22%;">
-                                <div>Terrasse panoramique<br><small>12m²</small></div>
+                    <div class="plan-options">
+                        <button class="plan-option-btn active" data-variant="pacific-a">Option A — Familial</button>
+                        <button class="plan-option-btn" data-variant="pacific-b">Option B — Bureau + Suite</button>
+                    </div>
+                    <!-- Option A -->
+                    <div class="plan-variant active" data-variant="pacific-a">
+                        <div class="floor-plan-3d" style="position: relative;">
+                            <div class="plan-drag-hint"><i class="fas fa-hand-pointer"></i> Cliquez et glissez pour pivoter</div>
+                            <div class="plan-container" style="padding-bottom: 55%;">
+                                <div class="plan-room salon" style="left: 3%; top: 5%; width: 45%; height: 55%;">
+                                    <div>Salon<br><small>20m²</small></div>
+                                </div>
+                                <div class="plan-room" style="left: 3%; top: 62%; width: 25%; height: 30%; background: rgba(255,235,200,0.5);">
+                                    <div>Cuisine<br><small>10m²</small></div>
+                                </div>
+                                <div class="plan-room chambre" style="left: 50%; top: 5%; width: 23%; height: 42%;">
+                                    <div>Ch. 1<br><small>10m²</small></div>
+                                </div>
+                                <div class="plan-room chambre" style="left: 75%; top: 5%; width: 22%; height: 42%;">
+                                    <div>Ch. 2<br><small>9m²</small></div>
+                                </div>
+                                <div class="plan-room sdb" style="left: 50%; top: 49%; width: 25%; height: 22%;">
+                                    <div>SDB<br><small>5m²</small></div>
+                                </div>
+                                <div class="plan-room" style="left: 77%; top: 49%; width: 20%; height: 22%; background: rgba(200,200,200,0.3);">
+                                    <div>WC<br><small>2m²</small></div>
+                                </div>
+                                <div class="plan-room terrasse" style="left: 30%; top: 73%; width: 67%; height: 22%;">
+                                    <div>Terrasse panoramique<br><small>12m²</small></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Option B -->
+                    <div class="plan-variant" data-variant="pacific-b">
+                        <div class="floor-plan-3d" style="position: relative;">
+                            <div class="plan-drag-hint"><i class="fas fa-hand-pointer"></i> Cliquez et glissez pour pivoter</div>
+                            <div class="plan-container" style="padding-bottom: 55%;">
+                                <div class="plan-room salon" style="left: 3%; top: 5%; width: 55%; height: 50%;">
+                                    <div>Salon<br>Cuisine Ouverte<br><small>25m²</small></div>
+                                </div>
+                                <div class="plan-room chambre" style="left: 60%; top: 5%; width: 37%; height: 35%;">
+                                    <div>Suite<br>Parentale<br><small>14m²</small></div>
+                                </div>
+                                <div class="plan-room" style="left: 60%; top: 42%; width: 37%; height: 15%; background: rgba(255,235,200,0.5);">
+                                    <div>Bureau<br><small>8m²</small></div>
+                                </div>
+                                <div class="plan-room sdb" style="left: 3%; top: 57%; width: 25%; height: 15%;">
+                                    <div>SDB<br><small>5m²</small></div>
+                                </div>
+                                <div class="plan-room" style="left: 30%; top: 57%; width: 15%; height: 15%; background: rgba(200,200,200,0.3);">
+                                    <div>WC<br><small>2m²</small></div>
+                                </div>
+                                <div class="plan-room terrasse" style="left: 3%; top: 74%; width: 94%; height: 20%;">
+                                    <div>Terrasse panoramique<br><small>10m²</small></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-controls">
+                        <button class="plan-reset-btn"><i class="fas fa-undo"></i> Réinitialiser la vue</button>
+                    </div>
                     <div class="plan-legend">
                         <span><span class="legend-color" style="background: rgba(232,236,233,0.8);"></span> Salon</span>
-                        <span><span class="legend-color" style="background: rgba(255,235,200,0.5);"></span> Cuisine</span>
+                        <span><span class="legend-color" style="background: rgba(255,235,200,0.5);"></span> Cuisine/Bureau</span>
                         <span><span class="legend-color" style="background: rgba(212,165,154,0.2);"></span> Chambres</span>
                         <span><span class="legend-color" style="background: rgba(173,216,230,0.3);"></span> SDB</span>
                         <span><span class="legend-color" style="background: rgba(144,238,144,0.2);"></span> Terrasse</span>
@@ -202,9 +303,9 @@
             <div class="house-detail" style="margin-bottom: 40px;">
                 <div class="grid-split">
                     <div class="text-block" style="order: 1;">
-                        <span class="tag" style="position: static; display: inline-block; margin-bottom: 15px;">Urbain · Compact</span>
+                        <span class="tag" style="position: static; display: inline-block; margin-bottom: 15px;">Urbain · Duplex</span>
                         <h3 style="font-size: 2rem;">Venice</h3>
-                        <p class="lead" style="font-size: 1.1rem;">Compact et astucieux. Parfait pour les environnements urbains denses ou comme extension locative.</p>
+                        <p class="lead" style="font-size: 1.1rem;">Un duplex compact et astucieux sur deux niveaux. Parfait pour les environnements urbains denses ou comme extension locative.</p>
                         <ul class="checklist" style="margin: 20px 0;">
                             <li><i class="fas fa-ruler-combined"></i> <strong>25m²</strong> — Déclaration préalable selon hauteur</li>
                             <li><i class="fas fa-bed"></i> 1 chambre mezzanine · 1 SDB · Cuisine ouverte · Balcon</li>
@@ -216,32 +317,96 @@
                     </div>
                     <div style="order: 2;">
                         <div class="card-img" style="height: auto; border-radius: 16px; overflow: hidden;">
-                            <img src="assets/maison4.jpg" alt="Venice" class="zoomable" style="width: 100%; border-radius: 16px;">
+                            <img src="assets/photo3.jpeg" alt="Venice Duplex" class="zoomable" style="width: 100%; border-radius: 16px;">
                         </div>
                     </div>
                 </div>
-                <!-- 3D FLOOR PLAN VENICE -->
+                <!-- 3D FLOOR PLAN VENICE DUPLEX -->
                 <div style="margin-top: 40px;">
-                    <h4 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-drafting-compass" style="color: var(--terracotta);"></i> Plan 3D — Venice 25m²</h4>
-                    <div class="floor-plan-3d">
-                        <div class="plan-container" style="padding-bottom: 75%;">
-                            <div class="plan-room salon" style="left: 5%; top: 5%; width: 60%; height: 50%;">
-                                <div>Salon<br>Cuisine<br><small>14m²</small></div>
+                    <h4 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-drafting-compass" style="color: var(--terracotta);"></i> Plan 3D — Venice Duplex 25m²</h4>
+                    <div class="plan-options">
+                        <button class="plan-option-btn active" data-variant="venice-a">Option A — Duplex Classique</button>
+                        <button class="plan-option-btn" data-variant="venice-b">Option B — Duplex Ouvert</button>
+                    </div>
+                    <!-- Option A : Duplex Classique -->
+                    <div class="plan-variant active" data-variant="venice-a">
+                        <div class="duplex-floors">
+                            <div>
+                                <div class="duplex-floor-label">Rez-de-chaussée — 15m²</div>
+                                <div class="floor-plan-3d" style="position: relative;">
+                                    <div class="plan-drag-hint"><i class="fas fa-hand-pointer"></i> Glissez pour pivoter</div>
+                                    <div class="plan-container" style="padding-bottom: 60%;">
+                                        <div class="plan-room salon" style="left: 5%; top: 5%; width: 60%; height: 65%;">
+                                            <div>Salon<br>Cuisine<br><small>11m²</small></div>
+                                        </div>
+                                        <div class="plan-room sdb" style="left: 67%; top: 5%; width: 28%; height: 30%;">
+                                            <div>SDB<br><small>3m²</small></div>
+                                        </div>
+                                        <div class="plan-room" style="left: 67%; top: 37%; width: 28%; height: 30%; background: rgba(255,235,200,0.5);">
+                                            <div>Entrée<br>Escalier<br><small>3m²</small></div>
+                                        </div>
+                                        <div class="plan-room terrasse" style="left: 5%; top: 72%; width: 90%; height: 22%;">
+                                            <div>Balcon<br><small>4m²</small></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="plan-room sdb" style="left: 67%; top: 5%; width: 28%; height: 25%;">
-                                <div>SDB<br><small>3m²</small></div>
-                            </div>
-                            <div class="plan-room chambre" style="left: 67%; top: 32%; width: 28%; height: 25%;">
-                                <div>Mezz.<br><small>6m²</small></div>
-                            </div>
-                            <div class="plan-room terrasse" style="left: 5%; top: 57%; width: 90%; height: 22%;">
-                                <div>Balcon<br><small>4m²</small></div>
+                            <div>
+                                <div class="duplex-floor-label">Étage (Mezzanine) — 10m²</div>
+                                <div class="floor-plan-3d" style="position: relative;">
+                                    <div class="plan-container" style="padding-bottom: 45%;">
+                                        <div class="plan-room chambre" style="left: 5%; top: 8%; width: 55%; height: 80%;">
+                                            <div>Chambre<br>Parentale<br><small>8m²</small></div>
+                                        </div>
+                                        <div class="plan-room" style="left: 62%; top: 8%; width: 33%; height: 80%; background: rgba(255,235,200,0.5);">
+                                            <div>Dressing<br>Palier<br><small>4m²</small></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Option B : Duplex Ouvert -->
+                    <div class="plan-variant" data-variant="venice-b">
+                        <div class="duplex-floors">
+                            <div>
+                                <div class="duplex-floor-label">Rez-de-chaussée — 16m²</div>
+                                <div class="floor-plan-3d" style="position: relative;">
+                                    <div class="plan-drag-hint"><i class="fas fa-hand-pointer"></i> Glissez pour pivoter</div>
+                                    <div class="plan-container" style="padding-bottom: 60%;">
+                                        <div class="plan-room salon" style="left: 5%; top: 5%; width: 70%; height: 65%;">
+                                            <div>Grand Salon<br>Cuisine Ouverte<br><small>13m²</small></div>
+                                        </div>
+                                        <div class="plan-room" style="left: 77%; top: 5%; width: 18%; height: 65%; background: rgba(255,235,200,0.5);">
+                                            <div>Escalier<br><small>2m²</small></div>
+                                        </div>
+                                        <div class="plan-room terrasse" style="left: 5%; top: 72%; width: 90%; height: 22%;">
+                                            <div>Balcon<br><small>4m²</small></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="duplex-floor-label">Étage — 9m²</div>
+                                <div class="floor-plan-3d" style="position: relative;">
+                                    <div class="plan-container" style="padding-bottom: 45%;">
+                                        <div class="plan-room chambre" style="left: 5%; top: 8%; width: 50%; height: 80%;">
+                                            <div>Chambre<br><small>6m²</small></div>
+                                        </div>
+                                        <div class="plan-room sdb" style="left: 57%; top: 8%; width: 38%; height: 80%;">
+                                            <div>SDB<br><small>3m²</small></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-controls">
+                        <button class="plan-reset-btn"><i class="fas fa-undo"></i> Réinitialiser la vue</button>
+                    </div>
                     <div class="plan-legend">
                         <span><span class="legend-color" style="background: rgba(232,236,233,0.8);"></span> Salon/Cuisine</span>
-                        <span><span class="legend-color" style="background: rgba(212,165,154,0.2);"></span> Mezzanine</span>
+                        <span><span class="legend-color" style="background: rgba(212,165,154,0.2);"></span> Chambre</span>
                         <span><span class="legend-color" style="background: rgba(173,216,230,0.3);"></span> SDB</span>
                         <span><span class="legend-color" style="background: rgba(144,238,144,0.2);"></span> Balcon</span>
                     </div>
@@ -268,8 +433,12 @@
             <!-- TOKENISATION OPTION -->
             <div class="glass-card" style="margin-top: 40px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
                 <h3><i class="fas fa-coins" style="color: var(--terracotta);"></i> Investir sans Acheter une Maison Entière</h3>
-                <p style="color: #666; margin: 15px 0;">Grâce à la tokenisation, achetez des parts de nos projets immobiliers dès 500€ et recevez des revenus locatifs automatiques.</p>
-                <a href="tokenisation.html" class="btn-primary">Découvrir la Tokenisation →</a>
+                <p style="color: #666; margin: 15px 0;">Grâce à la tokenisation, achetez des parts de nos projets immobiliers dès 500€ et recevez des revenus locatifs automatiques. <strong>C'est un peu comme acheter des parts d'une copropriété, mais en ligne.</strong></p>
+                <div class="payment-reminder" style="text-align: left;">
+                    <i class="fas fa-university"></i>
+                    <p><strong>Vous préférez un achat classique ?</strong> Pas de souci. Virement bancaire, crédit immobilier, paiement comptant — tous nos modèles sont accessibles par les voies traditionnelles. La tokenisation est 100% optionnelle.</p>
+                </div>
+                <a href="tokenisation.html" class="btn-primary">En savoir plus sur la Tokenisation →</a>
             </div>
         </div>
     </section>
