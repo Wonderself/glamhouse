@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYGLAMHOUSE | Habitat Modulaire Écologique & Tokenisé</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="artiste.html">L'ARTISTE</a></li>
+            <li><a href="construction.html">CONSTRUCTION</a></li>
+            <li><a href="collection.html">COLLECTION</a></li>
+            <li class="nav-dropdown"><a href="projets.html">PROJETS</a>
+                <div class="dropdown-menu">
+                    <a href="projets.html#maison-perso"><i class="fas fa-home"></i> Ma Maison Perso</a>
+                    <a href="projets.html#senior-normandie"><i class="fas fa-heart"></i> Résidence Senior</a>
+                    <a href="projets.html#ecovillage"><i class="fas fa-leaf"></i> ÉcoVillage</a>
+                </div>
+            </li>
+            <li><a href="tokenisation.html">TOKENISATION</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="video-wrapper">
+            <video autoplay muted loop playsinline id="heroVideo">
+                <source src="assets/maison.mp4" type="video/mp4">
+            </video>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <span class="badge-year badge-pulse">ÉTABLI EN 2023</span>
+            <h1>L'HABITAT DE DEMAIN<br>EST DÉJÀ LÀ.</h1>
+            <p class="hero-sub">Concept · LifeStyle · Nature · Écologique · Tokenisé</p>
+            <p class="signature">Une signature architecturale par Daniel Siboni</p>
+            <div style="margin-top: 30px;">
+                <p style="font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 10px;">100% START UP FRANÇAISE</p>
+                <p style="font-size: 0.8rem; opacity: 0.8;">Maisons passives, écologiques, recyclables, high tech. Dans le respect total de la nature.</p>
+            </div>
+            <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="collection.html" class="btn-primary btn-lg">DÉCOUVRIR</a>
+                <a href="tokenisation.html" class="btn-white">INVESTIR VIA BLOCKCHAIN →</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding bg-white text-center">
+        <div class="container">
+            <h2>Bienvenue chez MyGlamHouse</h2>
+            <p class="lead" style="max-width: 800px; margin: 0 auto 40px auto;">
+                Maison d'hôtes de luxe, Résidence principale, Maison de vacances, Investissement locatif.<br>
+                Nous réalisons vos projets de construction à ossature bois et blocs de chanvre, y compris l'isolation naturelle, adaptés à vos besoins.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="collection.html" class="btn-nav">DÉCOUVRIR LA COLLECTION</a>
+                <a href="aides.html" class="btn-outline">SIMULER MES AIDES <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Jusqu'à 65 000€ d'aides cumulables : MaPrimeRénov', Éco-PTZ, TVA 5,5%, exonération taxe foncière, aides locales...</span></span></a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="collection" class="section-padding bg-pastel-sage">
+        <div class="container">
+            <div class="section-title">
+                <h2>La Collection 2026</h2>
+                <p>Modèles modulables et personnalisables à l'infini</p>
+            </div>
+
+            <div class="models-grid">
+                <div class="house-card">
+                    <div class="card-img"><img src="assets/maison1.jpg" alt="Malibu" class="zoomable"><span class="tag">Best Seller</span></div>
+                    <div class="card-body"><h4>Malibu</h4><p>L'esprit surf chic. Compact et ouvert sur la nature.</p></div>
+                </div>
+                <div class="house-card">
+                    <div class="card-img"><img src="assets/maison2.jpg" alt="Palm Spring" class="zoomable"><span class="tag">Luxe</span></div>
+                    <div class="card-body"><h4>Palm Spring</h4><p>Architecture mid-century modern revisitée.</p></div>
+                </div>
+                <div class="house-card">
+                    <div class="card-img"><img src="assets/maison3.jpg" alt="Pacific Palissade" class="zoomable"><span class="tag">Villa</span></div>
+                    <div class="card-body"><h4>Pacific Palissade</h4><p>Grands volumes pour une résidence principale.</p></div>
+                </div>
+                <div class="house-card">
+                    <div class="card-img"><img src="assets/maison4.jpg" alt="Venice" class="zoomable"><span class="tag">Urbain</span></div>
+                    <div class="card-body"><h4>Venice</h4><p>Le loft modulaire parfait pour les petits terrains.</p></div>
+                </div>
+            </div>
+            <p class="custom-note text-center">*Ces modèles sont des exemples. Tout est personnalisable selon vos besoins.</p>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos trends</h2>
+                <p>Styles : Bungalow Beach, Palm Spring, Pacific Palisades</p>
+            </div>
+            <div class="slider-wrapper">
+                <div class="inspiration-slider">
+                    <img src="assets/inspiration1.jpg" alt="Inspi 1" class="zoomable">
+                    <img src="assets/inspiration2.jpg" alt="Inspi 2" class="zoomable">
+                    <img src="assets/inspiration3.jpg" alt="Inspi 3" class="zoomable">
+                    <img src="assets/inspiration4.jpg" alt="Inspi 4" class="zoomable">
+                    <img src="assets/inspiration5.jpg" alt="Inspi 5" class="zoomable">
+                    <img src="assets/inspiration6.jpg" alt="Inspi 6" class="zoomable" onerror="this.style.display='none'">
+                    <img src="assets/inspiration7.jpg" alt="Inspi 7" class="zoomable" onerror="this.style.display='none'">
+                </div>
+                <button class="scroll-right"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 PROJETS TEASER -->
+    <section class="section-padding bg-pastel-sand">
+        <div class="container">
+            <div class="section-title">
+                <h2>3 Façons d'Investir</h2>
+                <p>Choisissez le projet qui vous correspond</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="card-visual">
+                        <img src="assets/maison1.jpg" alt="Ma Maison">
+                        <span class="project-badge">OPTION 1</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ma Maison Personnalisée</h3>
+                        <p>Votre maison écologique sur mesure, seul(e) ou à plusieurs.</p>
+                        <div class="project-features">
+                            <span class="feature-tag">Personnalisable</span>
+                            <span class="feature-tag">Dès 59 000€</span>
+                            <span class="feature-tag">Aides cumulables</span>
+                        </div>
+                        <a href="projets.html#maison-perso" class="btn-primary" style="width: 100%;">Découvrir →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-visual">
+                        <img src="assets/maison3.jpg" alt="Résidence Senior">
+                        <span class="project-badge">OPTION 2</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Résidence Senior Normandie</h3>
+                        <p>Un village de colocation pour retraités, écologique et solidaire.</p>
+                        <div class="project-features">
+                            <span class="feature-tag">Colocation senior</span>
+                            <span class="feature-tag">Tokenisé</span>
+                            <span class="feature-tag">Normandie</span>
+                        </div>
+                        <a href="projets.html#senior-normandie" class="btn-primary" style="width: 100%;">Découvrir →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-visual">
+                        <img src="assets/maison2.jpg" alt="ÉcoVillage">
+                        <span class="project-badge">PROJET PHARE</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>ÉcoVillage Nouvelle Génération</h3>
+                        <p>Village écologique ultra-moderne avec un max d'aides État.</p>
+                        <div class="project-features">
+                            <span class="feature-tag">15-25 maisons</span>
+                            <span class="feature-tag">Autonome</span>
+                            <span class="feature-tag">Jusqu'à 45% aides</span>
+                        </div>
+                        <a href="projets.html#ecovillage" class="btn-primary" style="width: 100%;">Découvrir →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCALING & AIDES TEASER -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <span class="pill-new">CROISSANCE 2026-2028</span>
+                    <h2 style="margin-top: 15px;">Une Entreprise qui Grandit</h2>
+                    <p style="margin-top: 15px; color: #666; line-height: 1.8;">
+                        MyGlamHouse est <strong>modulable par nature</strong>. Notre système de préfabrication en atelier nous permet d'augmenter la capacité selon la demande.
+                    </p>
+                    <div class="counter-grid" style="margin: 30px 0; grid-template-columns: repeat(2, 1fr);">
+                        <div class="counter-item">
+                            <div class="counter-value">20</div>
+                            <div class="counter-label">Pipeline 2026</div>
+                        </div>
+                        <div class="counter-item">
+                            <div class="counter-value">50</div>
+                            <div class="counter-label">Objectif 2027</div>
+                        </div>
+                    </div>
+                    <a href="investir.html" class="btn-primary">Investir dans la Croissance →</a>
+                </div>
+                <div>
+                    <div class="glass-card" style="background: linear-gradient(135deg, #e8f5e9, #f1f8e9);">
+                        <h3><i class="fas fa-piggy-bank" style="color: #4caf50;"></i> Aides & Subventions</h3>
+                        <p style="color: #666; margin: 15px 0;">Nos maisons écologiques ouvrent droit à de nombreuses aides :</p>
+                        <ul class="checklist">
+                            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>MaPrimeRénov'</strong> — Jusqu'à 10 000€</li>
+                            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>Éco-PTZ</strong> — Prêt 0% jusqu'à 50 000€</li>
+                            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>TVA réduite 5,5%</strong> — Économie ~3-8 000€</li>
+                            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>Exonération taxe foncière</strong> — 2 à 5 ans</li>
+                        </ul>
+                        <a href="aides.html" class="btn-outline" style="margin-top: 15px;">Voir toutes les Aides →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="finance" class="section-padding bg-gradient-soft">
+        <div class="container">
+            <div class="finance-box">
+                <div class="finance-header">
+                    <span class="pill-new">INNOVATION 2026</span>
+                    <h2>Investissement et Finance</h2>
+                </div>
+                <div class="finance-content">
+                    <div class="col-finance">
+                        <h3><i class="fas fa-coins"></i> Tokenisation (Avril 2026)</h3>
+                        <p>Une révolution dans l'investissement locatif. Acquérez des parts de nos villas via la Blockchain, dès 500€. <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">La tokenisation permet de diviser un bien immobilier en parts numériques (tokens) sur la blockchain. Chaque token donne droit à une part des revenus locatifs. Légal en France (loi PACTE, AMF).</span></span></p>
+                        <form class="waiting-list">
+                            <input type="email" placeholder="Votre email pour la liste d'attente" required>
+                            <button type="submit">S'INSCRIRE</button>
+                        </form>
+                        <a href="tokenisation.html" style="display: inline-block; margin-top: 15px; color: var(--terracotta); font-weight: 600; font-size: 0.9rem;">En savoir plus sur la Tokenisation →</a>
+                    </div>
+                    <div class="col-finance border-left">
+                        <h3><i class="fas fa-university"></i> Modes de Paiement</h3>
+                        <p>Nous acceptons les virements bancaires classiques (Euros) pour tous les projets.</p>
+                        <hr class="divider-soft">
+                        <p class="crypto-option"><i class="fab fa-bitcoin"></i> <strong>Option Crypto :</strong> Paiement en Bitcoin/Ethereum/USDT accepté sur devis spécifique (Conformité KYC).</p>
+                        <div style="margin-top: 20px;">
+                            <a href="investir.html" style="color: var(--terracotta); font-weight: 600; font-size: 0.9rem;">Voir les options d'investissement →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="footer-form">
+                    <h3>Démarrer votre Projet</h3>
+                    <p>Configuration sur mesure ou investissement.</p>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nom complet" required>
+                            <input type="email" placeholder="Email professionnel" required>
+                        </div>
+                        <select>
+                            <option value="">Type de projet...</option>
+                            <option value="module">Achat Module < 20m²</option>
+                            <option value="villa">Projet Villa Assemblée</option>
+                            <option value="invest">Investissement / Tokenisation</option>
+                            <option value="senior">Projet Résidence Senior</option>
+                            <option value="ecovillage">Projet ÉcoVillage</option>
+                            <option value="partenariat">Partenariat / Groupe Immo</option>
+                        </select>
+                        <textarea placeholder="Détaillez votre demande..."></textarea>
+                        <button type="submit" class="btn-submit">ENVOYER LA DEMANDE</button>
+                    </form>
+                </div>
+
+                <div class="footer-info">
+                    <img src="assets/logo.jpg" alt="Logo MyGlamHouse" class="footer-logo">
+                    <p class="company-desc">MyGlamHouse conçoit et fabrique des habitats modulaires d'exception. Une fusion entre ingénierie française et design international.</p>
+
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <a href="projets.html" style="font-size: 0.85rem; color: #888;">Projets</a>
+                        <a href="tokenisation.html" style="font-size: 0.85rem; color: #888;">Tokenisation</a>
+                        <a href="investir.html" style="font-size: 0.85rem; color: #888;">Investir</a>
+                        <a href="aides.html" style="font-size: 0.85rem; color: #888;">Aides</a>
+                        <a href="collection.html" style="font-size: 0.85rem; color: #888;">Collection</a>
+                        <a href="construction.html" style="font-size: 0.85rem; color: #888;">Construction</a>
+                    </div>
+
+                    <div class="footer-legal">
+                        <a href="#">Mentions Légales</a>
+                        <a href="#">Politique de Confidentialité</a>
+                        <span>© 2023-2026 MyGlamHouse.fr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

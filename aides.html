@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aides & Subventions | MyGlamHouse</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container"><a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a></div>
+        <ul class="nav-links">
+            <li><a href="artiste.html">L'ARTISTE</a></li>
+            <li><a href="construction.html">CONSTRUCTION</a></li>
+            <li><a href="collection.html">COLLECTION</a></li>
+            <li><a href="projets.html">PROJETS</a></li>
+            <li><a href="tokenisation.html">TOKENISATION</a></li>
+            <li><a href="index.html#contact">CONTACT</a></li>
+        </ul>
+        <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="token-hero" style="background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%);">
+        <div class="container text-center">
+            <span class="badge-year badge-pulse" style="background: rgba(255,255,255,0.2);">GUIDE COMPLET 2026</span>
+            <h1 style="margin-top: 25px;">Toutes les Aides & Subventions</h1>
+            <p style="margin: 15px auto 0; max-width: 700px;">Maisons écologiques, habitat participatif, écovillage : vous avez droit à de nombreuses aides. Ce guide détaille chaque aide, ses conditions, et comment en bénéficier.</p>
+        </div>
+    </section>
+
+    <!-- RÉSUMÉ RAPIDE -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vos Aides en un Coup d'Œil</h2>
+                <p>Le montant total que vous pouvez obtenir selon votre situation</p>
+            </div>
+
+            <!-- ONGLETS PAR PROFIL -->
+            <div class="tabs-nav" style="justify-content: center;">
+                <button class="tab-btn active" data-tab="tab-primo">Primo-accédant</button>
+                <button class="tab-btn" data-tab="tab-senior">Senior / Retraité</button>
+                <button class="tab-btn" data-tab="tab-locatif">Investisseur Locatif</button>
+                <button class="tab-btn" data-tab="tab-ecovillage">Projet Collectif</button>
+            </div>
+            <div class="prob-legend">
+                <span><span class="probability prob-high">70%+</span> = très probable</span>
+                <span><span class="probability prob-medium">40-70%</span> = probable</span>
+                <span><span class="probability prob-low">&lt;40%</span> = possible</span>
+            </div>
+
+            <!-- TAB PRIMO -->
+            <div class="tab-content active" id="tab-primo">
+                <div class="glass-card" style="text-align: center; margin-bottom: 30px; background: linear-gradient(135deg, #e8f5e9, #f1f8e9);">
+                    <p style="font-size: 1rem; color: #666;">Estimation totale des aides pour un primo-accédant</p>
+                    <p style="font-size: 3rem; font-weight: 700; color: #2e7d32; margin: 10px 0;">15 000 — 65 000€</p>
+                    <p style="font-size: 0.9rem; color: #888;">Selon revenus, zone géographique et modèle choisi</p>
+                </div>
+                <div class="aides-grid">
+                    <div class="aide-card">
+                        <span class="aide-amount">10 000€ max</span>
+                        <h4><i class="fas fa-home" style="color: var(--terracotta);"></i> MaPrimeRénov' <span class="probability prob-medium">70%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Aide de l'ANAH pour les travaux d'amélioration de la performance énergétique. Pour les constructions neuves en bois, elle peut s'appliquer pour certains équipements (pompe à chaleur, isolation certifiée, etc.).</span></span></h4>
+                        <p>Aide nationale pour l'amélioration de la performance énergétique du logement. Le montant dépend de vos revenus et de la zone géographique.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Résidence principale, logement de plus de 15 ans (ou neuf avec équipements éligibles). Revenus modestes à intermédiaires. Demande sur maprimerenov.gouv.fr
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier à préparer</span>
+                        <div class="detail-content">
+                            <strong>Documents requis :</strong><br>
+                            — Justificatif d'identité (CNI ou passeport)<br>
+                            — Dernier avis d'imposition (revenus N-1)<br>
+                            — Devis détaillé du professionnel RGE<br>
+                            — Justificatif de propriété du logement<br>
+                            — RIB pour le virement<br>
+                            <strong>Où faire la demande :</strong> maprimerenov.gouv.fr (créer un compte France Connect)<br>
+                            <strong>Étapes :</strong> 1) Créer un compte → 2) Déposer le dossier + devis → 3) Attendre validation (2-4 sem) → 4) Faire les travaux → 5) Envoyer la facture → 6) Virement reçu sous 15 jours<br>
+                            <strong>Délai total :</strong> 2-4 semaines pour la réponse
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">50 000€ prêt</span>
+                        <h4><i class="fas fa-percentage" style="color: var(--terracotta);"></i> Éco-PTZ <span class="probability prob-high">85%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Éco-Prêt à Taux Zéro : prêt bancaire sans intérêts pour financer des travaux de rénovation énergétique ou une construction à haute performance. Remboursable sur 20 ans maximum.</span></span></h4>
+                        <p>Prêt à taux zéro pour financer la performance énergétique. Jusqu'à 50 000€ sur 20 ans sans intérêts. Cumulable avec MaPrimeRénov'.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Sans condition de revenus. Le logement doit atteindre un niveau de performance énergétique minimum. Demande auprès de votre banque.
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier à préparer</span>
+                        <div class="detail-content">
+                            <strong>Documents requis :</strong><br>
+                            — Formulaire « Emprunteur » de la banque<br>
+                            — Devis des travaux avec attestation RGE du professionnel<br>
+                            — Justificatif de domicile<br>
+                            — Pièce d'identité<br>
+                            — Descriptif et devis détaillés des travaux<br>
+                            <strong>Où faire la demande :</strong> Votre banque (toutes les banques proposent l'Éco-PTZ)<br>
+                            <strong>Étapes :</strong> 1) Obtenir les devis RGE → 2) Remplir le formulaire banque → 3) Déposer le dossier → 4) Accord sous 1-2 mois → 5) Déblocage des fonds<br>
+                            <strong>Astuce :</strong> Commencez par la banque où vous avez déjà un compte — c'est plus rapide
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">~3 000-8 000€</span>
+                        <h4><i class="fas fa-tag" style="color: var(--terracotta);"></i> TVA Réduite 5,5% <span class="probability prob-high">90%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Au lieu du taux normal de 20%, les travaux d'amélioration de la performance énergétique bénéficient d'une TVA à 5,5%. L'économie est significative sur le coût total.</span></span></h4>
+                        <p>TVA à taux réduit de 5,5% au lieu de 20% sur les travaux de performance énergétique et d'amélioration de l'habitat.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Logement achevé depuis plus de 2 ans. Travaux réalisés par un professionnel RGE (Reconnu Garant de l'Environnement).
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Comment en bénéficier</span>
+                        <div class="detail-content">
+                            <strong>Rien à faire !</strong> C'est automatique :<br>
+                            — Le professionnel RGE applique directement le taux de 5,5% sur sa facture<br>
+                            — Vous devez simplement signer une attestation confirmant que le logement a + de 2 ans<br>
+                            <strong>Document :</strong> Attestation simplifiée (fournie par le professionnel)<br>
+                            <strong>Attention :</strong> Vérifiez que le professionnel est bien certifié RGE sur france-renov.gouv.fr
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">2 ans</span>
+                        <h4><i class="fas fa-building" style="color: var(--terracotta);"></i> Exonération Taxe Foncière <span class="probability prob-high">95%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Les constructions neuves à haute performance énergétique (BBC, RE2020) peuvent bénéficier d'une exonération de taxe foncière de 2 à 5 ans selon la commune.</span></span></h4>
+                        <p>Exonération de la taxe foncière pendant 2 ans minimum pour toute construction neuve. Certaines communes étendent à 5 ans pour les constructions écologiques.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Construction neuve. Déclaration H1 à déposer dans les 90 jours suivant l'achèvement. Certaines communes offrent des exonérations supplémentaires.
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier à préparer</span>
+                        <div class="detail-content">
+                            <strong>Formulaire :</strong> Déclaration H1 (Cerfa 6650) pour les maisons individuelles<br>
+                            <strong>Où le déposer :</strong> Centre des Finances Publiques de votre commune<br>
+                            <strong>Délai IMPÉRATIF :</strong> Dans les 90 jours suivant l'achèvement des travaux<br>
+                            <strong>Documents joints :</strong><br>
+                            — Plan de la maison<br>
+                            — Permis de construire<br>
+                            — DPE (Diagnostic de Performance Énergétique)<br>
+                            <strong>Pour exonération éco :</strong> Demander à votre mairie si la commune a voté l'exonération pour les logements BBC/RE2020
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Variable</span>
+                        <h4><i class="fas fa-map-marker-alt" style="color: var(--terracotta);"></i> Aides Locales & Régionales <span class="probability prob-medium">40-60%</span></h4>
+                        <p>De nombreuses régions, départements et communes proposent des aides complémentaires pour la construction écologique ou l'achat de terrain.</p>
+                        <div class="aide-conditions">
+                            <strong>Exemples :</strong> Normandie Bois Énergie, Aide Île-de-France construction durable, Chèque énergie, etc. Consultez votre ADIL (Agence Départementale d'Information sur le Logement).
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Jusqu'à 10 000€</span>
+                        <h4><i class="fas fa-solar-panel" style="color: var(--terracotta);"></i> Prime Autoconsommation Solaire <span class="probability prob-high">80%</span></h4>
+                        <p>Si vous installez des panneaux solaires en autoconsommation, vous bénéficiez d'une prime à l'investissement de l'État + obligation d'achat EDF.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Installation par professionnel RGE. Puissance ≤ 100 kWc. Prime versée sur 5 ans. Contrat d'achat EDF OA sur 20 ans.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB SENIOR -->
+            <div class="tab-content" id="tab-senior">
+                <div class="glass-card" style="text-align: center; margin-bottom: 30px; background: linear-gradient(135deg, #e8f5e9, #f1f8e9);">
+                    <p style="font-size: 1rem; color: #666;">Estimation totale des aides pour un senior / retraité</p>
+                    <p style="font-size: 3rem; font-weight: 700; color: #2e7d32; margin: 10px 0;">20 000 — 75 000€</p>
+                    <p style="font-size: 0.9rem; color: #888;">Aides classiques + aides spécifiques autonomie et adaptation du logement</p>
+                </div>
+                <div class="aides-grid">
+                    <div class="aide-card">
+                        <span class="aide-amount">1 955€/mois max</span>
+                        <h4><i class="fas fa-hand-holding-heart" style="color: var(--terracotta);"></i> APA <span class="probability prob-high">70%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Allocation Personnalisée d'Autonomie : aide départementale pour les personnes de 60 ans et plus en perte d'autonomie. Peut financer l'adaptation du logement, l'aide à domicile, etc.</span></span></h4>
+                        <p>Allocation Personnalisée d'Autonomie. Aide mensuelle pour les personnes de 60+ ans en perte d'autonomie. Peut couvrir l'adaptation du logement.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> 60 ans et plus. GIR 1 à 4 (niveau de dépendance). Demande au Conseil Départemental. Pas de condition de revenus (mais participation selon ressources).
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier à préparer</span>
+                        <div class="detail-content">
+                            <strong>Documents requis :</strong><br>
+                            — Formulaire de demande APA (fourni par le département)<br>
+                            — Pièce d'identité<br>
+                            — Justificatif de domicile<br>
+                            — Dernier avis d'imposition<br>
+                            — Certificat médical du médecin traitant<br>
+                            — RIB<br>
+                            <strong>Où déposer :</strong> CCAS de votre mairie ou Conseil Départemental<br>
+                            <strong>Étapes :</strong> 1) Retirer le dossier au CCAS → 2) Le remplir avec le médecin → 3) Déposer → 4) Visite d'évaluation à domicile (équipe médico-sociale) → 5) Notification de décision<br>
+                            <strong>Délai :</strong> 2 mois maximum pour la réponse (légalement)
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Jusqu'à 6 000€</span>
+                        <h4><i class="fas fa-wheelchair" style="color: var(--terracotta);"></i> Aide CARSAT Adaptation Logement <span class="probability prob-medium">65%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">La Caisse d'Assurance Retraite et de la Santé au Travail propose une aide « Bien vieillir chez soi » pour adapter le logement (douche italienne, barres d'appui, volets motorisés).</span></span></h4>
+                        <p>Aide de la CARSAT pour adapter le logement aux besoins d'une personne âgée. Financement de travaux d'accessibilité et de confort.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Retraité du régime général. GIR 5 ou 6 (autonome). Ressources inférieures à un plafond. Kit « Bien vieillir chez soi ».
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier à préparer</span>
+                        <div class="detail-content">
+                            <strong>Documents requis :</strong><br>
+                            — Formulaire CARSAT « Aide à l'amélioration de l'habitat »<br>
+                            — Notification de retraite (montant de la pension)<br>
+                            — Avis d'imposition<br>
+                            — 2 devis de professionnels pour les travaux<br>
+                            — Plan du logement<br>
+                            <strong>Où faire la demande :</strong> CARSAT de votre région (par courrier ou en ligne sur lassuranceretraite.fr)<br>
+                            <strong>Étapes :</strong> 1) Contacter la CARSAT → 2) Visite d'évaluation → 3) Envoi du dossier + devis → 4) Accord → 5) Travaux → 6) Remboursement<br>
+                            <strong>Délai :</strong> 3-4 mois
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Jusqu'à 50%</span>
+                        <h4><i class="fas fa-home" style="color: var(--terracotta);"></i> Aide ANAH Habitat <span class="probability prob-medium">60%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">L'Agence Nationale de l'Habitat finance jusqu'à 50% des travaux d'adaptation pour les personnes modestes. Cumulable avec APA et CARSAT.</span></span></h4>
+                        <p>L'ANAH peut financer jusqu'à 50% des travaux d'adaptation du logement pour les personnes à revenus modestes ou très modestes.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Revenus inférieurs aux plafonds ANAH. Logement de plus de 15 ans. Travaux réalisés par un pro. Dossier via le site ANAH.
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier à préparer</span>
+                        <div class="detail-content">
+                            <strong>Documents requis :</strong><br>
+                            — Formulaire ANAH en ligne (monprojet.anah.gouv.fr)<br>
+                            — Pièce d'identité + justificatif propriété<br>
+                            — Avis d'imposition (2 dernières années)<br>
+                            — Devis détaillés des travaux<br>
+                            — Photos du logement (avant travaux)<br>
+                            — Diagnostic autonomie (si adaptation senior)<br>
+                            <strong>Où :</strong> En ligne sur monprojet.anah.gouv.fr ou via un opérateur-conseil<br>
+                            <strong>Astuce :</strong> Faites-vous accompagner par un opérateur-conseil ANAH (gratuit). Il monte le dossier pour vous.<br>
+                            <strong>Délai :</strong> 3-6 mois pour l'instruction
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">25% crédit</span>
+                        <h4><i class="fas fa-universal-access" style="color: var(--terracotta);"></i> Crédit d'Impôt Autonomie <span class="probability prob-high">85%</span></h4>
+                        <p>Crédit d'impôt de 25% (plafond 5 000€/personne, 10 000€/couple) pour les travaux d'accessibilité et d'adaptation du logement senior.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Travaux d'adaptation (douche PMR, monte-escalier, commandes à distance, etc.). Résidence principale. Facture professionnel.
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Variable</span>
+                        <h4><i class="fas fa-users" style="color: var(--terracotta);"></i> Aide Habitat Inclusif <span class="probability prob-medium">50%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">L'habitat inclusif est un mode d'habitation partagé entre personnes âgées ou handicapées. Le forfait habitat inclusif (180€/mois/personne) est financé par la CNSA.</span></span></h4>
+                        <p>Forfait habitat inclusif de la CNSA : 180€/mois/personne pour les projets de vie partagée entre seniors. Idéal pour la résidence en colocation.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Projet reconnu « habitat inclusif » par le département. Minimum 2 personnes. Convention avec le Conseil Départemental.
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Aides classiques</span>
+                        <h4><i class="fas fa-plus-circle" style="color: var(--terracotta);"></i> + Toutes les Aides Classiques</h4>
+                        <p>En plus des aides spécifiques senior, vous bénéficiez de toutes les aides classiques : MaPrimeRénov', Éco-PTZ, TVA 5,5%, exonération taxe foncière, etc.</p>
+                        <div class="aide-conditions">
+                            <strong>À retenir :</strong> Les aides senior sont CUMULABLES avec les aides classiques. C'est ce qui permet d'atteindre 75 000€+ d'aides totales.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB LOCATIF -->
+            <div class="tab-content" id="tab-locatif">
+                <div class="glass-card" style="text-align: center; margin-bottom: 30px; background: linear-gradient(135deg, #e8f5e9, #f1f8e9);">
+                    <p style="font-size: 1rem; color: #666;">Avantages fiscaux pour l'investissement locatif</p>
+                    <p style="font-size: 3rem; font-weight: 700; color: #2e7d32; margin: 10px 0;">Défiscalisation + Revenus</p>
+                    <p style="font-size: 0.9rem; color: #888;">Avantages fiscaux significatifs pour les investisseurs locatifs</p>
+                </div>
+                <div class="aides-grid">
+                    <div class="aide-card">
+                        <span class="aide-amount">Défiscalisation</span>
+                        <h4><i class="fas fa-landmark" style="color: var(--terracotta);"></i> Statut LMNP <span class="probability prob-high">90%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Loueur Meublé Non Professionnel : permet de déduire l'amortissement du bien et des meubles de vos revenus locatifs, réduisant fortement l'impôt sur les loyers perçus.</span></span></h4>
+                        <p>Le statut LMNP (Loueur Meublé Non Professionnel) permet d'amortir le bien et de réduire drastiquement l'imposition sur les revenus locatifs.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Location meublée. Revenus locatifs < 23 000€/an ou < 50% des revenus globaux. Déclaration au Greffe du Tribunal de Commerce.
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier à préparer</span>
+                        <div class="detail-content">
+                            <strong>Démarches :</strong><br>
+                            — Formulaire P0i (déclaration de début d'activité) au Greffe du Tribunal de Commerce<br>
+                            — Obtention d'un numéro SIRET<br>
+                            — Choix du régime fiscal : Micro-BIC (simple) ou Réel (plus avantageux si charges élevées)<br>
+                            — Déclaration annuelle des revenus BIC<br>
+                            <strong>Documents :</strong> CNI, justificatif domicile, description du bien<br>
+                            <strong>Coût :</strong> Gratuit (inscription au Greffe)<br>
+                            <strong>Conseil :</strong> Choisissez le régime Réel pour amortir le bien. Un expert-comptable spécialisé LMNP coûte ~300-500€/an et vous fait économiser bien plus
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Jusqu'à 21%</span>
+                        <h4><i class="fas fa-chart-bar" style="color: var(--terracotta);"></i> Dispositif Pinel / Denormandie <span class="probability prob-medium">60%</span></h4>
+                        <p>Réduction d'impôt jusqu'à 21% du prix d'achat (plafond 300 000€) pour location à loyer plafonné pendant 6, 9 ou 12 ans.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Zone éligible (A, A bis, B1). Plafonds de loyer et de ressources du locataire. Engagement de location 6/9/12 ans. Construction neuve RE2020.
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Déduction 10 700€</span>
+                        <h4><i class="fas fa-minus-circle" style="color: var(--terracotta);"></i> Déficit Foncier <span class="probability prob-high">85%</span></h4>
+                        <p>Les charges et travaux déductibles qui dépassent les revenus fonciers créent un déficit imputable sur le revenu global (jusqu'à 10 700€/an).</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Location nue. Engagement de location 3 ans minimum après imputation du déficit. Travaux d'entretien ou d'amélioration.
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Exonération</span>
+                        <h4><i class="fas fa-bed" style="color: var(--terracotta);"></i> Location Meublée Tourisme <span class="probability prob-high">75%</span></h4>
+                        <p>Les gîtes ruraux et meublés de tourisme bénéficient d'un abattement de 71% sur les revenus (micro-BIC) ou d'amortissements en réel.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Classement en meublé de tourisme. Déclaration en mairie. Plafond micro-BIC : 77 700€/an. Idéal pour nos modèles en zone touristique.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB ÉCOVILLAGE -->
+            <div class="tab-content" id="tab-ecovillage">
+                <div class="glass-card" style="text-align: center; margin-bottom: 30px; background: linear-gradient(135deg, #e8f5e9, #f1f8e9);">
+                    <p style="font-size: 1rem; color: #666;">Maximum d'aides cumulées pour un projet collectif/écovillage</p>
+                    <p style="font-size: 3rem; font-weight: 700; color: #2e7d32; margin: 10px 0;">Jusqu'à 45% du projet</p>
+                    <p style="font-size: 0.9rem; color: #888;">Fonds Vert + ADEME + subventions régionales + aides individuelles cumulées</p>
+                </div>
+                <div class="aides-grid">
+                    <div class="aide-card">
+                        <span class="aide-amount">Subvention</span>
+                        <h4><i class="fas fa-leaf" style="color: var(--terracotta);"></i> Fonds Vert <span class="probability prob-medium">45%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Programme national de 2 milliards € pour financer la transition écologique des collectivités. Un écovillage peut en bénéficier via la commune d'implantation.</span></span></h4>
+                        <p>Subvention nationale pour les projets de transition écologique portés par les collectivités. L'écovillage peut en bénéficier via un partenariat avec la mairie.</p>
+                        <div class="aide-conditions">
+                            <strong>Comment :</strong> La commune dépose le dossier auprès de la Préfecture. Nous préparons tout le dossier technique. Financement possible de 40-80% des aménagements collectifs.
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier à préparer (via la commune)</span>
+                        <div class="detail-content">
+                            <strong>MyGlamHouse prépare tout le dossier technique. La commune le dépose.</strong><br><br>
+                            <strong>Contenu du dossier :</strong><br>
+                            — Présentation du projet (description, plans, calendrier)<br>
+                            — Étude d'impact environnemental<br>
+                            — Plan de financement détaillé<br>
+                            — Délibération du conseil municipal (vote)<br>
+                            — Justificatifs de la commune (population, budget)<br>
+                            <strong>Où :</strong> Préfecture du département (service DETR/Fonds Vert)<br>
+                            <strong>Étapes :</strong> 1) Rendez-vous mairie → 2) Délibération conseil municipal → 3) Dépôt dossier Préfecture → 4) Commission d'attribution → 5) Notification → 6) Versement<br>
+                            <strong>Délai :</strong> 3-6 mois (les DETR sont attribuées en début d'année civile)
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">DETR</span>
+                        <h4><i class="fas fa-landmark" style="color: var(--terracotta);"></i> Dotation Équipement Territoires Ruraux <span class="probability prob-medium">55%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">DETR : Subvention de l'État réservée aux communes rurales (< 20 000 hab). Finance les équipements publics et peut contribuer à l'acquisition de terrain pour un projet d'intérêt général.</span></span></h4>
+                        <p>Subvention pour les communes rurales qui créent des équipements collectifs. Peut financer l'acquisition du terrain et les infrastructures.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Commune < 20 000 habitants. Projet d'intérêt général (habitat écologique, senior, social). Taux de subvention : 25 à 80%.
+                        </div>
+                        <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📋 Dossier DETR</span>
+                        <div class="detail-content">
+                            <strong>C'est la COMMUNE qui dépose le dossier (on le prépare pour elle) :</strong><br>
+                            — Formulaire DETR (cerfa disponible en Préfecture)<br>
+                            — Plan de situation et plan de masse<br>
+                            — Devis estimatifs des travaux<br>
+                            — Délibération du conseil municipal approuvant le projet<br>
+                            — Note explicative du projet d'intérêt général<br>
+                            <strong>Calendrier :</strong> Dossiers à déposer entre septembre et décembre pour l'année suivante<br>
+                            <strong>Astuce :</strong> Rencontrer le sous-préfet en amont pour présenter le projet. Les dossiers recommandés par la sous-préfecture sont souvent acceptés
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">DSIL</span>
+                        <h4><i class="fas fa-city" style="color: var(--terracotta);"></i> Dotation de Soutien à l'Investissement Local <span class="probability prob-medium">40%</span></h4>
+                        <p>Subvention complémentaire pour les projets de transition écologique, de rénovation thermique et de développement durable.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Projet de transition écologique. Dossier Préfecture. Souvent cumulable avec la DETR.
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Variable</span>
+                        <h4><i class="fas fa-solar-panel" style="color: var(--terracotta);"></i> ADEME — Transition Énergétique <span class="probability prob-medium">50%</span></h4>
+                        <p>L'ADEME finance les projets d'autonomie énergétique : panneaux solaires collectifs, phytoépuration, récupération d'eau, réseaux de chaleur.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Projet collectif avec objectif d'autonomie. Appels à projets réguliers. Études de faisabilité financées à 70%.
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">5 000€/logement</span>
+                        <h4><i class="fas fa-people-carry" style="color: var(--terracotta);"></i> Aide Habitat Participatif <span class="probability prob-medium">60%</span> <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Loi ALUR 2014 : reconnaît l'habitat participatif comme forme juridique de logement. Certaines régions (Île-de-France, Bretagne, Occitanie) proposent des aides spécifiques.</span></span></h4>
+                        <p>Certaines régions proposent des aides spécifiques pour l'habitat participatif reconnu par la loi ALUR : jusqu'à 5 000€ par logement.</p>
+                        <div class="aide-conditions">
+                            <strong>Conditions :</strong> Statut juridique reconnu (coopérative, SCI, etc.). Convention avec la commune. Projet de vie partagée formalisé.
+                        </div>
+                    </div>
+                    <div class="aide-card">
+                        <span class="aide-amount">Aides + individuelles</span>
+                        <h4><i class="fas fa-layer-group" style="color: var(--terracotta);"></i> Cumul avec Aides Individuelles</h4>
+                        <p>Chaque résident cumule ses propres aides individuelles (MaPrimeRénov', Éco-PTZ, TVA 5,5%) en plus des subventions collectives du projet.</p>
+                        <div class="aide-conditions">
+                            <strong>Résultat :</strong> C'est ce cumul qui permet d'atteindre jusqu'à 45% du coût total du projet financé par les aides publiques.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OBTENIR UN TERRAIN PAS CHER -->
+    <section class="section-padding bg-pastel-sage">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-map-marked-alt" style="color: var(--terracotta);"></i> Comment Obtenir un Terrain Pas Cher</h2>
+                <p>Notre méthode pour obtenir un terrain à prix réduit via les subventions communales</p>
+            </div>
+
+            <div class="grid-split">
+                <div>
+                    <h3>Le Dossier que Nous Montons pour le Maire</h3>
+                    <p>De nombreuses communes rurales disposent de terrains communaux non exploités. En montant un dossier complet qui démontre l'intérêt écologique et social du projet, le maire peut :</p>
+
+                    <ul class="checklist" style="margin: 20px 0;">
+                        <li><i class="fas fa-arrow-right"></i> <strong>Obtenir une subvention DETR</strong> qui finance l'achat du terrain</li>
+                        <li><i class="fas fa-arrow-right"></i> <strong>Obtenir un financement Fonds Vert</strong> pour les aménagements</li>
+                        <li><i class="fas fa-arrow-right"></i> <strong>Céder le terrain à prix symbolique</strong> (1€ ou prix de revient)</li>
+                        <li><i class="fas fa-arrow-right"></i> <strong>Proposer un bail emphytéotique</strong> de 99 ans à loyer modique</li>
+                        <li><i class="fas fa-arrow-right"></i> <strong>Bénéficier d'une image positive</strong> (commune verte, innovation)</li>
+                    </ul>
+
+                    <div class="info-banner">
+                        <i class="fas fa-lightbulb"></i>
+                        <p><strong>La commune y gagne aussi :</strong> Nouveaux habitants (taxe d'habitation, activité commerciale), image de commune innovante, création d'emplois locaux, subventions obtenues, attractivité renforcée.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="glass-card">
+                        <h4 style="text-align: center; margin-bottom: 20px;">Le Dossier Comprend :</h4>
+                        <div class="timeline" style="padding-left: 30px;">
+                            <div class="timeline-item">
+                                <div class="timeline-date">Document 1</div>
+                                <h4>Présentation du Projet</h4>
+                                <p>Description détaillée, plans, nombre de logements, population visée, calendrier.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Document 2</div>
+                                <h4>Étude d'Impact Environnemental</h4>
+                                <p>Bilan carbone, performance énergétique, matériaux ÉCOLABEL, biodiversité.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Document 3</div>
+                                <h4>Plan de Financement</h4>
+                                <p>Budget détaillé, subventions visées, apport des résidents, tokenisation.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Document 4</div>
+                                <h4>Dossier DETR / Fonds Vert</h4>
+                                <p>Formulaires pré-remplis, argumentaire réglementaire, pièces justificatives.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Document 5</div>
+                                <h4>Impact Socio-Économique</h4>
+                                <p>Création d'emplois, attraction de population, dynamisation de la commune.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZONES RECOMMANDÉES -->
+            <div style="margin-top: 50px;">
+                <h3 style="text-align: center; margin-bottom: 25px;">Zones Recommandées pour un Terrain Pas Cher</h3>
+                <div class="specs-container">
+                    <div class="spec-card">
+                        <div class="icon-box"><i class="fas fa-map-pin"></i></div>
+                        <h4>Normandie Rurale</h4>
+                        <p><strong>15-30€/m²</strong> en terrain constructible. Nombreuses communes éligibles DETR. Cadre de vie exceptionnel. Idéal pour la résidence senior.</p>
+                    </div>
+                    <div class="spec-card">
+                        <div class="icon-box"><i class="fas fa-map-pin"></i></div>
+                        <h4>Centre-Val de Loire</h4>
+                        <p><strong>10-25€/m²</strong> dans les zones rurales. Forte volonté politique pour l'écologie. Subventions régionales avantageuses.</p>
+                    </div>
+                    <div class="spec-card">
+                        <div class="icon-box"><i class="fas fa-map-pin"></i></div>
+                        <h4>Bretagne Intérieure</h4>
+                        <p><strong>20-40€/m²</strong>. Région pionnière en habitat participatif. Aides régionales spécifiques. Forte demande de logements écologiques.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULATEUR D'AIDES -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-calculator" style="color: var(--terracotta);"></i> Simulateur d'Aides</h2>
+                <p>Estimez rapidement le montant total de vos aides</p>
+            </div>
+
+            <div class="calculator-box">
+                <div class="calc-grid">
+                    <div class="calc-inputs">
+                        <label>Votre profil</label>
+                        <select id="aideProfile">
+                            <option value="primo">Primo-accédant (< 35 ans)</option>
+                            <option value="famille">Famille</option>
+                            <option value="senior">Senior / Retraité</option>
+                            <option value="investisseur">Investisseur locatif</option>
+                        </select>
+
+                        <label>Revenus du foyer</label>
+                        <select id="aideRevenus">
+                            <option value="modeste">Très modestes (< 22 461€)</option>
+                            <option value="intermediaire">Modestes (22 461 — 28 657€)</option>
+                            <option value="moyen">Intermédiaires (28 657 — 40 018€)</option>
+                            <option value="superieur">Supérieurs (> 40 018€)</option>
+                        </select>
+
+                        <label>Projet envisagé</label>
+                        <select id="aideProjet">
+                            <option value="individuel">Maison individuelle</option>
+                            <option value="senior">Résidence Senior Normandie</option>
+                            <option value="ecovillage">ÉcoVillage Moderne</option>
+                        </select>
+
+                        <label>Budget maison estimé</label>
+                        <select id="aideBudget">
+                            <option value="59000">Module 20m² (~59 000€)</option>
+                            <option value="89000">Module 35m² (~89 000€)</option>
+                            <option value="145000">Villa 60m² (~145 000€)</option>
+                        </select>
+
+                        <button class="btn-primary" onclick="calculateAides()" style="width:100%; margin-top: 10px;">SIMULER MES AIDES</button>
+                    </div>
+                    <div class="calc-result" id="aidesResult">
+                        <p style="color: #888; margin-bottom: 5px;">Total des aides estimées</p>
+                        <div class="total-after" id="totalAides">0€</div>
+                        <div style="margin-top: 20px; text-align: left;" id="aidesBreakdown">
+                            <p style="color: #888; font-size: 0.9rem;">Remplissez le formulaire et cliquez sur "Simuler" pour voir votre estimation personnalisée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ AIDES -->
+    <section class="section-padding bg-pastel-sand">
+        <div class="container">
+            <div class="section-title">
+                <h2>Questions sur les Aides</h2>
+            </div>
+            <div class="accordion" style="max-width: 800px; margin: 0 auto;">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Les aides sont-elles cumulables ?</span>
+                        <span class="acc-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Oui, la plupart des aides sont cumulables entre elles. Par exemple, vous pouvez cumuler MaPrimeRénov' + Éco-PTZ + TVA 5,5% + exonération taxe foncière + aides locales. Pour les projets collectifs, les aides individuelles se cumulent avec les subventions collectives (DETR, Fonds Vert). C'est ce qui permet d'atteindre jusqu'à 45% du projet financé.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>MyGlamHouse m'accompagne-t-il dans les démarches ?</span>
+                        <span class="acc-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Absolument. Nous avons une équipe dédiée qui vous accompagne de A à Z : identification des aides auxquelles vous avez droit, constitution des dossiers, suivi des demandes, relance si nécessaire. Pour les projets collectifs, nous montons intégralement le dossier de subvention pour la commune.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Combien de temps faut-il pour obtenir les aides ?</span>
+                        <span class="acc-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Les délais varient selon les aides. MaPrimeRénov' : 2-4 semaines pour l'accord. Éco-PTZ : dépend de votre banque (1-2 mois). Subventions DETR/Fonds Vert : 3-6 mois (cycle budgétaire). Nous recommandons de lancer les démarches dès la phase de conception du projet pour que les aides soient confirmées au moment de la construction.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Les maisons GlamHouse sont-elles éligibles à toutes ces aides ?</span>
+                        <span class="acc-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Nos maisons sont conçues pour maximiser l'éligibilité aux aides : certification ÉCOLABEL, conformité RE2020, isolation bois/chanvre performante, DPE classe A, matériaux biosourcés. Ces caractéristiques ouvrent les portes à la quasi-totalité des aides écologiques et énergétiques disponibles en France.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding bg-white text-center">
+        <div class="container">
+            <h2>Besoin d'Aide pour vos Démarches ?</h2>
+            <p style="max-width: 600px; margin: 20px auto; color: #666;">Notre équipe vous accompagne gratuitement dans l'identification et l'obtention de toutes vos aides.</p>
+            <a href="index.html#contact" class="btn-primary btn-lg">Être Rappelé par un Conseiller</a>
+        </div>
+    </section>
+
+    <footer style="padding-top: 50px; border-top: 1px solid #eee;">
+        <div class="container text-center">
+            <img src="assets/logo.jpg" alt="Logo" style="height: 50px; margin-bottom: 15px;">
+            <p>© 2023-2026 MyGlamHouse.fr — 100% Start-up Française</p>
+            <div style="margin-top: 15px; display: flex; gap: 20px; justify-content: center; font-size: 0.9rem; color: #888;">
+                <a href="#">Mentions Légales</a>
+                <a href="#">Politique de Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

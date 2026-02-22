@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | MyGlamHouse</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        .editable-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #f0f0f0;flex-wrap:wrap}
+        .editable-row:last-child{border-bottom:none}
+        .editable-row .todo-text{flex:1;min-width:200px}
+        .editable-row input[type=text],.editable-row select{padding:8px 12px;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;font-family:var(--font-body)}
+        .editable-row input[type=text]{flex:1;min-width:200px}
+        .editable-row select{width:auto;min-width:100px}
+        .btn-icon{width:32px;height:32px;border-radius:6px;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:0.8rem;transition:0.2s;flex-shrink:0}
+        .btn-icon.edit{background:#e3f2fd;color:#1976d2}.btn-icon.edit:hover{background:#1976d2;color:#fff}
+        .btn-icon.delete{background:#fde8e8;color:#e53e3e}.btn-icon.delete:hover{background:#e53e3e;color:#fff}
+        .btn-icon.save{background:#e8f5e9;color:#2e7d32}.btn-icon.save:hover{background:#2e7d32;color:#fff}
+        .btn-add{display:flex;align-items:center;gap:8px;padding:10px 20px;border:2px dashed #ccc;border-radius:8px;background:transparent;cursor:pointer;color:#888;font-size:0.9rem;width:100%;justify-content:center;transition:0.2s;margin-top:10px;font-family:var(--font-body)}
+        .btn-add:hover{border-color:var(--terracotta);color:var(--terracotta)}
+        .probability{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.75rem;font-weight:700;margin-left:8px}
+        .prob-high{background:#e8f5e9;color:#2e7d32}
+        .prob-medium{background:#fff8e1;color:#f57f17}
+        .prob-low{background:#fde8e8;color:#e53e3e}
+        .detail-toggle{cursor:pointer;color:var(--terracotta);font-size:0.85rem;font-weight:600;margin-top:8px;display:inline-block}
+        .detail-toggle:hover{text-decoration:underline}
+        .detail-content{display:none;margin-top:10px;padding:15px;background:#fafafa;border-radius:8px;border-left:3px solid var(--terracotta);font-size:0.88rem;color:#555;line-height:1.7}
+        .detail-content.open{display:block}
+        .cms-field{margin-bottom:20px}
+        .cms-field label{display:block;font-weight:600;margin-bottom:6px;font-size:0.9rem}
+        .cms-field input,.cms-field textarea{width:100%;padding:12px;border:2px solid #eee;border-radius:8px;font-family:var(--font-body);font-size:0.95rem;transition:0.2s}
+        .cms-field input:focus,.cms-field textarea:focus{border-color:var(--terracotta);outline:none}
+        .cms-field textarea{min-height:100px;resize:vertical}
+        .save-toast{position:fixed;bottom:30px;right:30px;background:#2e7d32;color:#fff;padding:14px 25px;border-radius:10px;font-weight:600;z-index:9999;display:none;box-shadow:0 5px 20px rgba(0,0,0,0.2);animation:slideUp 0.3s ease}
+        @keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+        .admin-login-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(44,62,80,0.95),rgba(0,0,0,0.9));z-index:10000;display:flex;align-items:center;justify-content:center}
+        .admin-login-overlay.hidden{display:none}
+        .admin-login-box{background:#fff;padding:50px 40px;border-radius:20px;text-align:center;max-width:400px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+        .admin-login-box h2{margin:0 0 5px;color:var(--charcoal)}
+        .admin-login-box input{width:100%;padding:14px 18px;border:2px solid #eee;border-radius:10px;font-size:1rem;margin-bottom:12px;font-family:var(--font-body);box-sizing:border-box}
+        .admin-login-box input:focus{border-color:var(--terracotta);outline:none}
+        .admin-login-box .btn-login{width:100%;padding:14px;background:var(--terracotta);color:#fff;border:none;border-radius:10px;font-size:1.1rem;font-weight:700;cursor:pointer;font-family:var(--font-heading);transition:0.2s}
+        .admin-login-box .btn-login:hover{opacity:0.9;transform:translateY(-1px)}
+        .btn-logout{position:fixed;top:15px;right:15px;z-index:999;background:#e53e3e;color:#fff;border:none;padding:8px 15px;border-radius:8px;cursor:pointer;font-size:0.85rem;font-weight:600}
+        .btn-logout:hover{background:#c62828}
+        .cms-img-box{border:2px dashed #ddd;border-radius:10px;padding:15px;text-align:center;margin-bottom:10px;background:#fafafa}
+        .cms-img-box img{max-height:120px;max-width:100%;border-radius:8px;margin-bottom:10px}
+        .cms-page-section{border:1px solid #eee;border-radius:12px;padding:20px;margin-bottom:15px;transition:0.2s}
+        .cms-page-section:hover{border-color:var(--terracotta)}
+        .cms-page-section h4{cursor:pointer;margin:0;display:flex;align-items:center;gap:10px}
+        .cms-page-section h4 i{color:var(--terracotta)}
+        .cms-page-section .cms-fields{display:none;margin-top:15px}
+        .cms-page-section .cms-fields.open{display:block}
+    </style>
+</head>
+<body>
+
+    <!-- LOGIN OVERLAY -->
+    <div id="adminLogin" class="admin-login-overlay">
+        <div class="admin-login-box">
+            <img src="assets/logo.jpg" alt="MyGlamHouse" style="height:50px;margin-bottom:20px">
+            <h2>Espace Admin</h2>
+            <p style="color:#888;margin-bottom:20px;font-size:0.9rem">Connectez-vous pour accéder au tableau de bord</p>
+            <input type="text" id="loginUser" placeholder="Identifiant" autocomplete="off">
+            <input type="password" id="loginPass" placeholder="Mot de passe" autocomplete="off" onkeypress="if(event.key==='Enter')doLogin()">
+            <button class="btn-login" onclick="doLogin()">SE CONNECTER</button>
+            <p id="loginError" style="color:#e53e3e;display:none;margin-top:15px;font-weight:600;font-size:0.9rem"><i class="fas fa-exclamation-circle"></i> Identifiant ou mot de passe incorrect</p>
+        </div>
+    </div>
+    <button class="btn-logout" id="btnLogout" style="display:none" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+
+    <nav class="navbar">
+        <div class="logo-container"><a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">SITE PUBLIC</a></li>
+            <li><a href="admin.html" style="color:var(--terracotta)"><i class="fas fa-lock"></i> ADMIN</a></li>
+        </ul>
+        <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </nav>
+
+    <section class="admin-hero">
+        <div class="container">
+            <h1><i class="fas fa-tachometer-alt"></i> Dashboard Administrateur</h1>
+            <p style="opacity:0.8;margin-top:10px">Tout est modifiable. Cliquez sur <i class="fas fa-pen" style="color:var(--terracotta)"></i> pour modifier, <i class="fas fa-trash" style="color:#e53e3e"></i> pour supprimer, <i class="fas fa-plus" style="color:var(--terracotta)"></i> pour ajouter.</p>
+        </div>
+    </section>
+
+    <div class="admin-grid">
+        <div class="admin-sidebar">
+            <a href="#" class="active" data-section="sec-overview"><i class="fas fa-chart-pie"></i> Vue d'ensemble</a>
+            <a href="#" data-section="sec-sas"><i class="fas fa-file-signature"></i> Création SAS</a>
+            <a href="#" data-section="sec-aides"><i class="fas fa-hand-holding-usd"></i> Aides Entreprise</a>
+            <a href="#" data-section="sec-bpi"><i class="fas fa-landmark"></i> BPI France</a>
+            <a href="#" data-section="sec-docs"><i class="fas fa-folder-open"></i> Documents Blockchain</a>
+            <a href="#" data-section="sec-todo-daniel"><i class="fas fa-tasks"></i> Todo Daniel</a>
+            <a href="#" data-section="sec-todo-tech"><i class="fas fa-code"></i> Todo Tech</a>
+            <a href="#" data-section="sec-todo-marketing"><i class="fas fa-bullhorn"></i> Todo Marketing</a>
+            <a href="#" data-section="sec-marketing"><i class="fas fa-rocket"></i> Stratégie Marketing</a>
+            <a href="#" data-section="sec-social"><i class="fas fa-share-alt"></i> Réseaux Sociaux</a>
+            <a href="#" data-section="sec-communaute"><i class="fab fa-discord"></i> Communauté</a>
+            <a href="#" data-section="sec-roadmap"><i class="fas fa-road"></i> Roadmap</a>
+            <a href="#" data-section="sec-construction"><i class="fas fa-hard-hat"></i> Process Construction</a>
+            <a href="#" data-section="sec-delegation"><i class="fas fa-sitemap"></i> Délégation & Scaling</a>
+            <a href="#" data-section="sec-blockchain"><i class="fas fa-cube"></i> État Blockchain</a>
+            <a href="#" data-section="sec-cms"><i class="fas fa-edit"></i> Modifier le Site</a>
+        </div>
+
+        <div class="admin-content">
+
+            <!-- ============ VUE D'ENSEMBLE ============ -->
+            <div class="admin-section active" id="sec-overview">
+                <h2>Vue d'Ensemble</h2>
+                <div class="dashboard-grid" style="margin:25px 0">
+                    <div class="stat-card"><div class="stat-value">20</div><div class="stat-label">Pipeline 2026</div></div>
+                    <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Projets actifs</div></div>
+                    <div class="stat-card"><div class="stat-value">35%</div><div class="stat-label">Financement Normandie</div></div>
+                    <div class="stat-card"><div class="stat-value">8%</div><div class="stat-label">Equity tokens vendus</div></div>
+                </div>
+                <div class="admin-card">
+                    <h3><i class="fas fa-exclamation-triangle" style="color:#ff9800"></i> Actions Prioritaires</h3>
+                    <div id="overview-actions"></div>
+                    <button class="btn-add" onclick="addTodoItem('overview-actions')"><i class="fas fa-plus"></i> Ajouter une action</button>
+                </div>
+            </div>
+
+            <!-- ============ CRÉATION SAS ============ -->
+            <div class="admin-section" id="sec-sas">
+                <h2><i class="fas fa-file-signature" style="color:var(--terracotta)"></i> Création de la SAS — Guide Complet</h2>
+
+                <div class="admin-card" style="background:linear-gradient(135deg,#fff8e1,#fff3e0);border-left:5px solid #ff9800">
+                    <h3><i class="fas fa-exclamation-circle" style="color:#ff9800"></i> IMPORTANT : Ce qu'il faut faire AVANT de créer la SAS</h3>
+                    <p style="color:#666;margin:10px 0">Certaines aides ne sont accessibles qu'aux entreprises en cours de création ou très récentes. Il est crucial de préparer les dossiers AVANT l'immatriculation.</p>
+
+                    <div class="timeline" style="margin-top:20px">
+                        <div class="timeline-item">
+                            <div class="timeline-date">AVANT la SAS — Étape 1</div>
+                            <h4>Préparer le Business Plan complet</h4>
+                            <p>Le BP doit être finalisé AVANT la création car il sera demandé par BPI, les banques, et les organismes d'aides.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Voir les détails</span>
+                            <div class="detail-content">
+                                <strong>Le Business Plan doit contenir :</strong><br>
+                                — Executive summary (1 page max)<br>
+                                — Présentation de l'équipe et compétences<br>
+                                — Étude de marché (habitat modulaire en France : marché de 2.3 Mds€, croissance 12%/an)<br>
+                                — Modèle économique (vente directe + tokenisation + licences)<br>
+                                — Plan financier sur 3 ans (CA, charges, BFR, trésorerie)<br>
+                                — Besoins de financement détaillés<br>
+                                — Planning de développement (roadmap)<br>
+                                <strong>Astuce :</strong> Faites relire le BP par un expert-comptable spécialisé startups AVANT de le soumettre.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">AVANT la SAS — Étape 2</div>
+                            <h4>Pré-demander le Prêt d'Honneur</h4>
+                            <p>Les réseaux Initiative France et France Active proposent des prêts d'honneur (0% intérêt, 10K-50K€) aux porteurs de projet PRÉ-CRÉATION. C'est plus facile à obtenir avant qu'après.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Voir les détails</span>
+                            <div class="detail-content">
+                                <strong>Comment faire :</strong><br>
+                                1. Contacter le réseau Initiative de votre département<br>
+                                2. Présenter le projet devant un comité (gratuit)<br>
+                                3. Le prêt d'honneur renforce vos fonds propres<br>
+                                4. Il fait effet de levier pour les prêts bancaires (x3 à x7)<br>
+                                <strong>Montant probable :</strong> 20 000 — 40 000€ pour un projet comme GlamHouse<br>
+                                <strong>Délai :</strong> 3-6 semaines après passage en comité
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">AVANT la SAS — Étape 3</div>
+                            <h4>Pré-qualifier la Bourse French Tech (BPI)</h4>
+                            <p>La Bourse French Tech est UNIQUEMENT pour les entreprises de moins d'1 an. Préparez le dossier AVANT pour le soumettre dès l'immatriculation.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Voir les détails</span>
+                            <div class="detail-content">
+                                <strong>Bourse French Tech :</strong><br>
+                                — Subvention jusqu'à 30 000€ (pas un prêt !)<br>
+                                — Réservée aux startups innovantes de moins d'1 an<br>
+                                — Dossier en ligne sur bpifrance.fr/creation<br>
+                                — Le dossier technique doit montrer l'innovation (blockchain + construction modulaire)<br>
+                                <strong>Astuce cruciale :</strong> Préparez le dossier complet MAINTENANT. Le jour de l'immatriculation, vous soumettez immédiatement. Le compteur d'1 an commence à la date d'immatriculation au RCS.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">AVANT la SAS — Étape 4</div>
+                            <h4>Identifier un expert-comptable spécialisé startups</h4>
+                            <p>L'expert-comptable doit connaître le CIR/CII, le statut JEI, et la structuration de tokens. Ne pas prendre n'importe qui.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Voir les détails</span>
+                            <div class="detail-content">
+                                <strong>Critères de choix :</strong><br>
+                                — Expérience avec des startups tech/fintech<br>
+                                — Connaissance du CIR et du statut JEI<br>
+                                — Capacité à structurer les dépenses R&D<br>
+                                — Idéalement : connaissance du cadre crypto/blockchain<br>
+                                <strong>Coût estimé :</strong> 200-400€/mois pour une SAS startup<br>
+                                <strong>Où chercher :</strong> Réseau BPI, accélérateurs (Station F, etc.), recommandations CCI
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">AVANT la SAS — Étape 5</div>
+                            <h4>Commencer à documenter la R&D</h4>
+                            <p>Même avant la création, documentez TOUT le travail de R&D : développement blockchain, design des maisons, innovation matériaux. Ce journal technique sera crucial pour le CIR.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Voir les détails</span>
+                            <div class="detail-content">
+                                <strong>Journal technique :</strong><br>
+                                — Date, nom du chercheur/développeur, description du travail<br>
+                                — Problème technique résolu, état de l'art, avancée réalisée<br>
+                                — Temps passé (en heures)<br>
+                                — Screenshots, commits git, schémas<br>
+                                <strong>Ce qui compte comme R&D :</strong> Développement smart contracts, algorithmes de distribution, interface blockchain, optimisation matériaux biosourcés, modélisation 3D paramétrique<br>
+                                <strong>Ce qui ne compte PAS :</strong> Marketing, commercial, administratif, intégration de solutions existantes sans modification
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3>Étapes de Création de la SAS</h3>
+                    <div class="timeline" style="margin-top:15px">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Jour J — Création</div>
+                            <h4>1. Rédiger les statuts de la SAS</h4>
+                            <p>Statuts adaptés à la tokenisation (clause d'agrément, tokens = parts, gouvernance). Budget : 500-1500€ si avocat spécialisé.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails importants</span>
+                            <div class="detail-content">
+                                <strong>Points clés des statuts pour la tokenisation :</strong><br>
+                                — Prévoir la possibilité d'émettre des tokens représentant 20% du capital<br>
+                                — Clause de gouvernance : droits de vote des détenteurs de tokens<br>
+                                — Clause de cession : possibilité de transférer les tokens sur la blockchain<br>
+                                — Capital social : minimum 1€ mais recommandé 1 000-5 000€<br>
+                                — Président : Daniel Siboni (personne physique)<br>
+                                — Objet social large : conception, fabrication, vente de maisons modulaires ; plateforme de tokenisation immobilière ; conseil en habitat<br>
+                                <strong>Conseil :</strong> Prenez un avocat qui connaît la loi PACTE et les security tokens. Coût : ~1 000-2 000€ mais ça évite des problèmes majeurs ensuite.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Jour J+1</div>
+                            <h4>2. Dépôt du capital + Immatriculation</h4>
+                            <p>Dépôt du capital sur un compte bloqué (banque ou notaire). Immatriculation au Greffe du Tribunal de Commerce via Inpi.fr (guichet unique).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Jour J+2</div>
+                            <h4>3. Soumettre IMMÉDIATEMENT la Bourse French Tech</h4>
+                            <p>Le dossier est déjà prêt (étape pré-SAS). Soumettez le jour même de la réception du Kbis. Le compteur d'1 an a commencé !</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Semaine 1</div>
+                            <h4>4. Déclaration JEI + choix du régime fiscal</h4>
+                            <p>Déclarer le statut JEI auprès de la DRFIP. Choisir le régime fiscal (IS à taux réduit 15% pour les PME). Ouvrir la comptabilité R&D dès le jour 1.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Mois 1-2</div>
+                            <h4>5. Déposer les dossiers BPI + Régionaux</h4>
+                            <p>Garantie BPI via la banque, Prêt Innovation si éligible, subventions régionales via CCI. Les avoir préparés avant accélère tout.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fas fa-tasks" style="color:var(--terracotta)"></i> Checklist Pré-Création</h3>
+                    <div id="sas-checklist"></div>
+                    <button class="btn-add" onclick="addTodoItem('sas-checklist')"><i class="fas fa-plus"></i> Ajouter un élément</button>
+                </div>
+            </div>
+
+            <!-- ============ AIDES ENTREPRISE (avec %) ============ -->
+            <div class="admin-section" id="sec-aides">
+                <h2><i class="fas fa-hand-holding-usd" style="color:var(--terracotta)"></i> Aides Disponibles pour l'Entreprise</h2>
+                <p style="color:#666;margin-bottom:20px">Le <span class="probability prob-high">% élevé</span> signifie > 70% de chances, <span class="probability prob-medium">% moyen</span> = 40-70%, <span class="probability prob-low">% faible</span> = < 40%.</p>
+
+                <div class="admin-card">
+                    <h3>Aides Directes</h3>
+                    <div class="aides-grid" style="margin-top:15px">
+                        <div class="aide-card">
+                            <span class="aide-amount">Jusqu'à 45%</span>
+                            <h4>JEI — Jeune Entreprise Innovante <span class="probability prob-high">85% probable</span></h4>
+                            <p>Exonération charges sociales R&D, impôts bénéfices, CFE/CVAE pendant 7 ans. Condition : 15%+ des charges en R&D.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails & sous-étapes</span>
+                            <div class="detail-content">
+                                <strong>Pourquoi 85% de chances :</strong> GlamHouse a clairement une composante R&D (blockchain, construction innovante). Si les dépenses R&D dépassent 15%, c'est quasi-automatique.<br><br>
+                                <strong>Sous-étapes :</strong><br>
+                                1. Faire le calcul : heures dev blockchain + design innovant + matériaux = X% des charges<br>
+                                2. Si X > 15% → déposer la demande JEI auprès de la DRFIP<br>
+                                3. Pas besoin d'agrément préalable, c'est déclaratif<br>
+                                4. Vérification possible par l'administration dans les 3 ans<br>
+                                <strong>Action immédiate :</strong> Lister TOUTES les dépenses R&D potentielles pour voir si on dépasse 15%.
+                            </div>
+                        </div>
+                        <div class="aide-card">
+                            <span class="aide-amount">30% des dépenses</span>
+                            <h4>CIR — Crédit Impôt Recherche <span class="probability prob-high">80% probable</span></h4>
+                            <p>30% des dépenses de R&D remboursées. Pour GlamHouse : blockchain, smart contracts, matériaux biosourcés.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails & sous-étapes</span>
+                            <div class="detail-content">
+                                <strong>Pourquoi 80% :</strong> Le développement de smart contracts et d'une plateforme blockchain est clairement de la R&D logicielle. L'innovation matériaux (chanvre) aussi.<br><br>
+                                <strong>Montant estimé pour GlamHouse :</strong><br>
+                                — Si 1 dev à 50K€/an travaille 80% sur la R&D → 40K€ éligible → 12K€ de CIR<br>
+                                — Si 2 devs + 1 ingénieur matériaux → ~30-40K€ de CIR/an<br>
+                                <strong>Sous-étapes :</strong><br>
+                                1. Ouvrir un journal technique de R&D dès maintenant<br>
+                                2. Séparer les tâches R&D des tâches opérationnelles<br>
+                                3. À la clôture comptable : déclaration Cerfa 2069-A<br>
+                                4. Le CIR est remboursable immédiatement pour les JEI et les PME de moins de 2 ans
+                            </div>
+                        </div>
+                        <div class="aide-card">
+                            <span class="aide-amount">20% des dépenses</span>
+                            <h4>CII — Crédit Impôt Innovation <span class="probability prob-high">75% probable</span></h4>
+                            <p>20% des dépenses d'innovation (plafond 80K€ de crédit). Complémentaire au CIR.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails</span>
+                            <div class="detail-content">
+                                <strong>Éligible si :</strong> Prototype de nouveau modèle de maison, design industriel, nouvelle collection.<br>
+                                <strong>Différence CIR/CII :</strong> Le CIR = recherche fondamentale/appliquée. Le CII = innovation produit (nouveau pour le marché).<br>
+                                <strong>Action :</strong> L'expert-comptable doit ventiler les dépenses entre CIR et CII.
+                            </div>
+                        </div>
+                        <div class="aide-card">
+                            <span class="aide-amount">Jusqu'à 30K€</span>
+                            <h4>Bourse French Tech <span class="probability prob-medium">55% probable</span></h4>
+                            <p>Subvention BPI pour startup innovante de moins d'1 an. Pas un prêt — c'est de l'argent gratuit.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails</span>
+                            <div class="detail-content">
+                                <strong>Pourquoi 55% :</strong> C'est compétitif (beaucoup de candidats). Mais GlamHouse a un très bon profil : double innovation (eco-construction + blockchain), impact social fort.<br>
+                                <strong>Pour augmenter les chances :</strong><br>
+                                — Mettre en avant la composante tech/blockchain<br>
+                                — Insister sur l'impact environnemental mesurable<br>
+                                — Montrer la traction (waiting list, premiers clients)<br>
+                                <strong>Délai :</strong> Réponse en 4-8 semaines
+                            </div>
+                        </div>
+                        <div class="aide-card">
+                            <span class="aide-amount">10K-50K€</span>
+                            <h4>Prêt d'Honneur <span class="probability prob-high">75% probable</span></h4>
+                            <p>Prêt à taux 0%, sans garantie, via Réseau Initiative ou France Active. Effet de levier pour les prêts bancaires.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails</span>
+                            <div class="detail-content">
+                                <strong>Pourquoi 75% :</strong> Les comités aiment les projets concrets avec un marché identifié. L'éco-construction coche toutes les cases.<br>
+                                <strong>Effet de levier :</strong> 1€ de prêt d'honneur = 3-7€ de prêt bancaire. Un prêt d'honneur de 30K€ peut débloquer 100-200K€ de prêt bancaire.<br>
+                                <strong>Action :</strong> Contacter Initiative France MAINTENANT, avant la création.
+                            </div>
+                        </div>
+                        <div class="aide-card">
+                            <span class="aide-amount">Garantie</span>
+                            <h4>Garantie BPI <span class="probability prob-high">70% probable</span></h4>
+                            <p>BPI garantit 40-60% de votre prêt bancaire. La banque prend moins de risque → prêt facilité.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails</span>
+                            <div class="detail-content">
+                                <strong>Comment ça marche :</strong> C'est votre BANQUE qui demande la garantie BPI, pas vous directement. Allez voir votre banquier avec le BP et dites "je souhaite un prêt avec garantie BPI".<br>
+                                <strong>Coût :</strong> ~1-2% du montant garanti (payé par vous)<br>
+                                <strong>Conseil :</strong> Faites le tour de 3-4 banques. Certaines sont plus habituées aux startups innovantes (BNP, Crédit Mutuel, LCL).
+                            </div>
+                        </div>
+                        <div class="aide-card">
+                            <span class="aide-amount">Variable</span>
+                            <h4>Subventions Régionales <span class="probability prob-medium">50% probable</span></h4>
+                            <p>Aides à la création, à l'embauche, au développement durable. Varient selon la région.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails</span>
+                            <div class="detail-content">
+                                <strong>Exemples selon la région :</strong><br>
+                                — Île-de-France : PM'up jusqu'à 250K€, Innov'up jusqu'à 100K€<br>
+                                — Normandie : Aide à l'innovation, aide éco-construction<br>
+                                — Toutes régions : aide NACRE (Nouvel Accompagnement Création/Reprise), aide ACRE (exonération charges 1 an)<br>
+                                <strong>Action :</strong> Contacter la CCI et le Conseil Régional de votre siège social.
+                            </div>
+                        </div>
+                        <div class="aide-card">
+                            <span class="aide-amount">Exonération 1 an</span>
+                            <h4>ACRE <span class="probability prob-high">95% probable</span></h4>
+                            <p>Exonération partielle des charges sociales pendant 1 an pour tout créateur d'entreprise. Quasi-automatique.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Détails</span>
+                            <div class="detail-content">
+                                <strong>Pourquoi 95% :</strong> L'ACRE est quasi-automatique pour tout créateur. Seule condition : ne pas en avoir bénéficié dans les 3 dernières années.<br>
+                                <strong>Économie estimée :</strong> ~3 000-6 000€ la première année<br>
+                                <strong>Action :</strong> Cocher la case lors de l'inscription URSSAF. C'est tout.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ BPI FRANCE ============ -->
+            <div class="admin-section" id="sec-bpi">
+                <h2><i class="fas fa-landmark" style="color:var(--terracotta)"></i> BPI France — Stratégie Complète</h2>
+                <div class="admin-card">
+                    <h3>Aides BPI</h3>
+                    <table class="roi-table" style="margin-top:15px">
+                        <thead><tr><th>Aide BPI</th><th>Montant</th><th>% Chances</th><th>Conditions</th><th>Action</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Bourse French Tech</strong></td><td class="highlight">Jusqu'à 30K€</td><td><span class="probability prob-medium">55%</span></td><td>Startup < 1 an</td><td>Dossier pré-rempli AVANT création SAS</td></tr>
+                            <tr><td><strong>Aide Innovation (i-Nov)</strong></td><td class="highlight">Jusqu'à 2M€</td><td><span class="probability prob-low">25%</span></td><td>Projet deeptech</td><td>Appel à projets — très compétitif</td></tr>
+                            <tr><td><strong>Prêt d'Honneur</strong></td><td class="highlight">10K — 50K€</td><td><span class="probability prob-high">75%</span></td><td>Taux 0%, sans garantie</td><td>Réseau Initiative — passage en comité</td></tr>
+                            <tr><td><strong>Garantie BPI</strong></td><td class="highlight">40-60% du prêt</td><td><span class="probability prob-high">70%</span></td><td>Via votre banque</td><td>Demande par la banque</td></tr>
+                            <tr><td><strong>Prêt Innovation</strong></td><td class="highlight">50K — 3M€</td><td><span class="probability prob-low">30%</span></td><td>PME > 3 ans</td><td>Pas éligible maintenant — objectif 2028</td></tr>
+                            <tr><td><strong>Concours i-Lab</strong></td><td class="highlight">Jusqu'à 600K€</td><td><span class="probability prob-low">15%</span></td><td>Projet deeptech de rupture</td><td>Annuel — à tenter pour la visibilité</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="admin-card">
+                    <h3>Conseils pour Maximiser les Chances</h3>
+                    <div class="info-banner"><i class="fas fa-key"></i><p><strong>Clé :</strong> BPI adore innovation tech + impact social/environnemental + scalabilité. GlamHouse coche les 3. Insistez sur la composante LOGICIELLE (plateforme tokenisation = tech company).</p></div>
+                    <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Voir tous les conseils détaillés</span>
+                    <div class="detail-content">
+                        <strong>Dans le dossier BPI, mettez en avant :</strong><br>
+                        1. <strong>Innovation double :</strong> construction modulaire + tokenisation blockchain<br>
+                        2. <strong>Impact environnemental :</strong> bilan carbone négatif, ÉCOLABEL<br>
+                        3. <strong>Impact social :</strong> logement accessible, habitat senior<br>
+                        4. <strong>Scalabilité :</strong> modèle d'atelier duplicable<br>
+                        5. <strong>Composante logicielle :</strong> plateforme propriétaire → ça fait "tech company"<br>
+                        6. <strong>Marché international :</strong> potentiel d'exportation<br><br>
+                        <strong>Astuce :</strong> Développez un vrai logiciel (configurateur 3D, dashboard investisseur, plateforme tokenisation). Ça augmente le CIR ET rend le dossier BPI beaucoup plus fort.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ DOCUMENTS BLOCKCHAIN ============ -->
+            <div class="admin-section" id="sec-docs">
+                <h2><i class="fas fa-folder-open" style="color:var(--terracotta)"></i> Gestion Documents Blockchain</h2>
+                <div class="admin-card">
+                    <h3>Ajouter un Document</h3>
+                    <p style="color:#666;margin-bottom:15px">Le document sera hashé (SHA-256), stocké sur IPFS, et le hash inscrit sur la blockchain.</p>
+                    <div class="upload-zone" id="uploadZone"><i class="fas fa-cloud-upload-alt"></i><p style="font-size:1.1rem;font-weight:600;margin:0">Glissez un fichier ou cliquez</p><p style="font-size:0.85rem;color:#888;margin-top:5px">PDF, JPG, PNG — Max 10MB</p></div>
+                    <div style="margin-top:20px">
+                        <label style="font-weight:600;display:block;margin-bottom:8px">Projet</label>
+                        <select style="margin-bottom:15px"><option>Résidence Senior Normandie</option><option>ÉcoVillage Moderne</option><option>Capital MyGlamHouse (Equity)</option><option>Maison individuelle client</option></select>
+                        <label style="font-weight:600;display:block;margin-bottom:8px">Type</label>
+                        <select style="margin-bottom:15px"><option>Titre de propriété</option><option>Expertise immobilière</option><option>Bail locatif</option><option>DPE</option><option>Assurance décennale</option><option>Permis de construire</option><option>Audit smart contract</option><option>Rapport financier</option><option>Autre</option></select>
+                        <button class="btn-primary" style="width:100%">HASHER & PUBLIER SUR LA BLOCKCHAIN</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TODO DANIEL ============ -->
+            <div class="admin-section" id="sec-todo-daniel">
+                <h2><i class="fas fa-tasks" style="color:var(--terracotta)"></i> Todo — Daniel Siboni (CEO / DA)</h2>
+                <div class="admin-card">
+                    <h3>Tâches <span style="font-size:0.8rem;color:#888;font-weight:400">— Cliquez sur une tâche pour la cocher. Modifiez ou supprimez librement.</span></h3>
+                    <div id="todo-daniel"></div>
+                    <button class="btn-add" onclick="addTodoItem('todo-daniel')"><i class="fas fa-plus"></i> Ajouter une tâche</button>
+                </div>
+            </div>
+
+            <!-- ============ TODO TECH ============ -->
+            <div class="admin-section" id="sec-todo-tech">
+                <h2><i class="fas fa-code" style="color:var(--terracotta)"></i> Todo — Créateur Tech (CTO)</h2>
+                <div class="admin-card">
+                    <h3>Tâches</h3>
+                    <div id="todo-tech"></div>
+                    <button class="btn-add" onclick="addTodoItem('todo-tech')"><i class="fas fa-plus"></i> Ajouter une tâche</button>
+                </div>
+            </div>
+
+            <!-- ============ TODO MARKETING ============ -->
+            <div class="admin-section" id="sec-todo-marketing">
+                <h2><i class="fas fa-bullhorn" style="color:var(--terracotta)"></i> Todo — Marketing</h2>
+                <div class="admin-card">
+                    <h3>Tâches</h3>
+                    <div id="todo-marketing"></div>
+                    <button class="btn-add" onclick="addTodoItem('todo-marketing')"><i class="fas fa-plus"></i> Ajouter une tâche</button>
+                </div>
+            </div>
+
+            <!-- ============ STRATÉGIE MARKETING ============ -->
+            <div class="admin-section" id="sec-marketing">
+                <h2><i class="fas fa-rocket" style="color:var(--terracotta)"></i> Stratégie Marketing Tokens</h2>
+                <div class="admin-card"><h3>Phase 1 : Pré-lancement</h3><div class="timeline" style="margin-top:15px"><div class="timeline-item"><div class="timeline-date">Sem. 1-2</div><h4>Teasing & Waiting List</h4><p>Emailing, posts "Coming Soon", compteur pré-inscriptions. Objectif : 500 inscrits.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 3-4</div><h4>Éducation du Marché</h4><p>Posts éducatifs, infographies, webinaire gratuit d'introduction tokenisation.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 5-6</div><h4>Communauté & Influence</h4><p>Discord ouvert, partenariats influenceurs, AMAs avec l'équipe.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 7-8</div><h4>Pré-vente Early Bird</h4><p>Accès anticipé -10%, 100 tokens early-bird uniquement.</p></div></div></div>
+                <div class="admin-card"><h3>Phase 2 : Lancement (Avril-Juin)</h3><ul class="checklist"><li><i class="fas fa-bullhorn"></i> Communiqué de presse national (Les Échos, BFM)</li><li><i class="fas fa-video"></i> Campagne vidéo visite virtuelle</li><li><i class="fas fa-ad"></i> Pub ciblée Facebook/Instagram/Google/LinkedIn</li><li><i class="fas fa-podcast"></i> Podcasts crypto + immo FR</li><li><i class="fas fa-calendar-alt"></i> Événement physique Paris</li><li><i class="fas fa-gift"></i> Programme parrainage 5% bonus tokens</li></ul></div>
+                <div class="admin-card"><h3>Phase 3 : Croissance (Juil 2026 → 2027)</h3><ul class="checklist"><li><i class="fas fa-chart-line"></i> Rapports trimestriels publics</li><li><i class="fas fa-building"></i> Photos/vidéos premières livraisons</li><li><i class="fas fa-money-bill-wave"></i> Annonce premiers loyers distribués</li><li><i class="fas fa-globe"></i> Ciblage investisseurs EU/Suisse/Belgique</li><li><i class="fas fa-trophy"></i> Candidature prix PropTech/BPI/CES</li></ul></div>
+            </div>
+
+            <!-- ============ RÉSEAUX SOCIAUX ============ -->
+            <div class="admin-section" id="sec-social">
+                <h2><i class="fas fa-share-alt" style="color:var(--terracotta)"></i> Réseaux Sociaux</h2>
+                <div class="admin-card"><h3>Stratégie par Canal</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px"><div style="background:var(--grey-light);padding:20px;border-radius:10px"><h4><i class="fab fa-instagram" style="color:#E4405F"></i> Instagram</h4><p style="font-size:0.85rem;color:#666;margin-top:8px"><strong>Cible:</strong> Particuliers, design. <strong>Contenu:</strong> Photos maisons, coulisses, reels. <strong>Freq:</strong> 4-5/sem</p></div><div style="background:var(--grey-light);padding:20px;border-radius:10px"><h4><i class="fab fa-tiktok"></i> TikTok</h4><p style="font-size:0.85rem;color:#666;margin-top:8px"><strong>Cible:</strong> 25-40 ans. <strong>Contenu:</strong> Vidéos virales construction, comparaisons. <strong>Freq:</strong> 3-5/sem</p></div><div style="background:var(--grey-light);padding:20px;border-radius:10px"><h4><i class="fab fa-linkedin" style="color:#0077B5"></i> LinkedIn</h4><p style="font-size:0.85rem;color:#666;margin-top:8px"><strong>Cible:</strong> Investisseurs, pros. <strong>Contenu:</strong> Articles PropTech, annonces. <strong>Freq:</strong> 3/sem</p></div><div style="background:var(--grey-light);padding:20px;border-radius:10px"><h4><i class="fab fa-youtube" style="color:#FF0000"></i> YouTube</h4><p style="font-size:0.85rem;color:#666;margin-top:8px"><strong>Cible:</strong> Tous. <strong>Contenu:</strong> Visites maisons, tutos aides. <strong>Freq:</strong> 1-2/sem</p></div><div style="background:var(--grey-light);padding:20px;border-radius:10px"><h4><i class="fab fa-twitter" style="color:#1DA1F2"></i> X (Twitter)</h4><p style="font-size:0.85rem;color:#666;margin-top:8px"><strong>Cible:</strong> Crypto/Web3. <strong>Contenu:</strong> Annonces token, threads. <strong>Freq:</strong> 5-7/sem</p></div><div style="background:var(--grey-light);padding:20px;border-radius:10px"><h4><i class="fab fa-facebook" style="color:#1877F2"></i> Facebook</h4><p style="font-size:0.85rem;color:#666;margin-top:8px"><strong>Cible:</strong> 40+ ans, retraités. <strong>Contenu:</strong> Aides, projet senior. <strong>Freq:</strong> 3-4/sem</p></div></div></div>
+            </div>
+
+            <!-- ============ COMMUNAUTÉ ============ -->
+            <div class="admin-section" id="sec-communaute">
+                <h2><i class="fab fa-discord" style="color:var(--terracotta)"></i> Communauté</h2>
+                <div class="admin-card"><h3>Discord</h3><div style="background:#36393f;color:#dcddde;border-radius:10px;padding:20px;font-family:'Courier New',monospace;font-size:0.85rem;line-height:2"><span style="color:#72767d"># BIENVENUE</span><br>&nbsp;&nbsp;📋 règles · 👋 présentations · 📢 annonces<br><br><span style="color:#72767d"># PROJETS</span><br>&nbsp;&nbsp;🏡 maison-perso · 👴 résidence-senior · 🌿 écovillage<br><br><span style="color:#72767d"># INVESTISSEMENT</span><br>&nbsp;&nbsp;🪙 tokenisation · 📊 rendements · ❓ questions<br><br><span style="color:#72767d"># CONSTRUCTION</span><br>&nbsp;&nbsp;🔨 chantiers · 📸 photos · 🏗️ technique<br><br><span style="color:#72767d"># COMMUNAUTÉ</span><br>&nbsp;&nbsp;💬 discussion · 🎉 événements · 💡 suggestions</div></div>
+            </div>
+
+            <!-- ============ ROADMAP ============ -->
+            <div class="admin-section" id="sec-roadmap">
+                <h2><i class="fas fa-road" style="color:var(--terracotta)"></i> Roadmap</h2>
+                <div class="admin-card"><h3>Phase 1 : Fondation (T1-T2 2026)</h3><div id="roadmap-p1"></div><button class="btn-add" onclick="addTodoItem('roadmap-p1')"><i class="fas fa-plus"></i> Ajouter</button></div>
+                <div class="admin-card"><h3>Phase 2 : Traction (T3-T4 2026)</h3><div id="roadmap-p2"></div><button class="btn-add" onclick="addTodoItem('roadmap-p2')"><i class="fas fa-plus"></i> Ajouter</button></div>
+                <div class="admin-card"><h3>Phase 3 : Croissance (2027)</h3><div id="roadmap-p3"></div><button class="btn-add" onclick="addTodoItem('roadmap-p3')"><i class="fas fa-plus"></i> Ajouter</button></div>
+                <div class="admin-card"><h3>Phase 4 : Consolidation (2028+)</h3><div id="roadmap-p4"></div><button class="btn-add" onclick="addTodoItem('roadmap-p4')"><i class="fas fa-plus"></i> Ajouter</button></div>
+            </div>
+
+            <!-- ============ CONSTRUCTION ============ -->
+            <div class="admin-section" id="sec-construction">
+                <h2><i class="fas fa-hard-hat" style="color:var(--terracotta)"></i> Process Construction</h2>
+                <div class="admin-card"><h3>8 Étapes</h3><div class="timeline" style="margin-top:15px"><div class="timeline-item"><div class="timeline-date">Sem. 0</div><h4>1. Signature & acompte (30%)</h4><p>Contrat signé. Étude personnalisée. Plans validés. Permis si > 20m².</p></div><div class="timeline-item"><div class="timeline-date">Sem. 1-3</div><h4>2. Préfabrication en atelier</h4><p>Découpe CNC ossature bois. Blocs chanvre. Pré-câblage. Menuiseries. Contrôle qualité.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 3</div><h4>3. Préparation terrain</h4><p>Terrassement. Fondations (plots/dalle/vide sanitaire). Raccordements réseaux.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 4</div><h4>4. Livraison & assemblage</h4><p>Transport camion. Assemblage 2-5 jours. Grue. Étanchéité. Fixation fondations.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 4-5</div><h4>5. Hors d'eau / Hors d'air</h4><p>Toiture. Menuiseries ext. Isolation chanvre. Bardage. Test étanchéité.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 5-7</div><h4>6. Second œuvre</h4><p>Électricité. Plomberie. PAC air-air. Placo. Cloisons. Isolation phonique.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 7-8</div><h4>7. Finitions</h4><p>Peinture naturelle. Parquet chêne. Cuisine équipée. SDB. Luminaires.</p></div><div class="timeline-item"><div class="timeline-date">Sem. 8+</div><h4>8. Contrôle & clés</h4><p>Contrôle final. DPE classe A. PV réception. Remise clés. Garantie décennale.</p></div></div></div>
+            </div>
+
+            <!-- ============ DÉLÉGATION ============ -->
+            <div class="admin-section" id="sec-delegation">
+                <h2><i class="fas fa-sitemap" style="color:var(--terracotta)"></i> Délégation & Scaling</h2>
+                <div class="admin-card">
+                    <h3>Recrutements <span style="font-size:0.8rem;color:#888;font-weight:400">— Modifiez, supprimez, ajoutez</span></h3>
+                    <div id="recruitment-table"></div>
+                    <button class="btn-add" onclick="addRecruitment()"><i class="fas fa-plus"></i> Ajouter un poste</button>
+                </div>
+                <div class="admin-card"><h3>Scaling Production</h3><div class="timeline" style="margin-top:15px"><div class="timeline-item"><div class="timeline-date">Actuel</div><h4>20 maisons/an — 1 atelier, 3-4 ouvriers</h4><p>Process semi-artisanal. Validation du modèle.</p></div><div class="timeline-item"><div class="timeline-date">T4 2026</div><h4>50 maisons/an — 2ème atelier, 8-10 ouvriers</h4><p>Début automatisation CNC. Process standardisé.</p></div><div class="timeline-item"><div class="timeline-date">2027</div><h4>100 maisons/an — industrialisation</h4><p>Machines CNC avancées. 15-20 ouvriers. Sous-traitance finitions.</p></div><div class="timeline-item"><div class="timeline-date">2028</div><h4>150+ maisons/an — multi-sites</h4><p>3-4 ateliers régionaux. 40+ employés. Licences partenaires.</p></div></div></div>
+            </div>
+
+            <!-- ============ ÉTAT BLOCKCHAIN ============ -->
+            <div class="admin-section" id="sec-blockchain">
+                <h2><i class="fas fa-cube" style="color:var(--terracotta)"></i> État de la Partie Blockchain</h2>
+
+                <div class="admin-card" style="border-left:5px solid #4caf50;background:linear-gradient(135deg,#e8f5e9,#fff)">
+                    <h3><i class="fas fa-check-circle" style="color:#4caf50"></i> Statut Actuel : DApp FONCTIONNELLE (Mode Demo + Prêt Mainnet)</h3>
+                    <p style="color:#666;margin:15px 0">La plateforme blockchain est maintenant <strong>100% interactive</strong>. En <strong>mode démo</strong>, toutes les fonctionnalités marchent via simulation locale (localStorage). Pour passer en <strong>mode réel</strong>, il suffit de déployer les smart contracts Solidity sur Polygon et de changer le mode dans blockchain.js.</p>
+
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0">
+                        <div style="background:#e8f5e9;padding:20px;border-radius:12px">
+                            <h4 style="color:#2e7d32;margin-bottom:10px"><i class="fas fa-check-circle"></i> FONCTIONNEL (Demo)</h4>
+                            <ul style="list-style:none;padding:0;font-size:0.9rem;color:#555;line-height:2">
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Connexion wallet (simulée + MetaMask)</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Vérification KYC complète (formulaire)</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Achat de tokens (3 projets)</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Portfolio investisseur en temps réel</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Distribution & claim dividendes</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Upload & vérification documents IPFS</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Marketplace P2P (listings simulés)</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Historique des transactions</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Gamification (niveaux + achievements)</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> Notifications en temps réel</li>
+                                <li><i class="fas fa-check" style="color:#4caf50;margin-right:8px"></i> 3 smart contracts Solidity écrits</li>
+                            </ul>
+                        </div>
+                        <div style="background:#fff3e0;padding:20px;border-radius:12px">
+                            <h4 style="color:#e65100;margin-bottom:10px"><i class="fas fa-clock"></i> Pour passer en PRODUCTION</h4>
+                            <ul style="list-style:none;padding:0;font-size:0.9rem;color:#555;line-height:2">
+                                <li><i class="fas fa-arrow-right" style="color:#ff9800;margin-right:8px"></i> Déployer les .sol sur Polygon testnet</li>
+                                <li><i class="fas fa-arrow-right" style="color:#ff9800;margin-right:8px"></i> Configurer Hardhat + Alchemy RPC</li>
+                                <li><i class="fas fa-arrow-right" style="color:#ff9800;margin-right:8px"></i> Intégrer KYC réel (Synaps/Sumsub)</li>
+                                <li><i class="fas fa-arrow-right" style="color:#ff9800;margin-right:8px"></i> Connecter IPFS réel (Pinata/nft.storage)</li>
+                                <li><i class="fas fa-arrow-right" style="color:#ff9800;margin-right:8px"></i> Conformité AMF / avocat crypto</li>
+                                <li><i class="fas fa-arrow-right" style="color:#ff9800;margin-right:8px"></i> Audit sécurité smart contracts</li>
+                                <li><i class="fas fa-arrow-right" style="color:#ff9800;margin-right:8px"></i> Changer CONFIG.mode en 'real'</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fas fa-file-code" style="color:var(--terracotta)"></i> Fichiers Blockchain Créés</h3>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:15px">
+                        <div style="background:#f0f4ff;padding:18px;border-radius:12px;border:1px solid #c8d6e5">
+                            <h4 style="color:#1565c0;font-size:0.95rem"><i class="fas fa-coins"></i> GlamToken.sol</h4>
+                            <p style="font-size:0.8rem;color:#666;margin:8px 0">ERC-20 Security Token avec KYC whitelist, pause, IPFS docs, holder tracking. ~290 lignes.</p>
+                            <code style="font-size:0.75rem;background:#e3f2fd;padding:2px 6px;border-radius:4px">contracts/GlamToken.sol</code>
+                        </div>
+                        <div style="background:#f0f4ff;padding:18px;border-radius:12px;border:1px solid #c8d6e5">
+                            <h4 style="color:#1565c0;font-size:0.95rem"><i class="fas fa-shopping-cart"></i> GlamSTO.sol</h4>
+                            <p style="font-size:0.8rem;color:#666;margin:8px 0">Security Token Offering multi-projets, early-bird bonus, soft/hard cap, refund auto. ~260 lignes.</p>
+                            <code style="font-size:0.75rem;background:#e3f2fd;padding:2px 6px;border-radius:4px">contracts/GlamSTO.sol</code>
+                        </div>
+                        <div style="background:#f0f4ff;padding:18px;border-radius:12px;border:1px solid #c8d6e5">
+                            <h4 style="color:#1565c0;font-size:0.95rem"><i class="fas fa-hand-holding-usd"></i> GlamDividends.sol</h4>
+                            <p style="font-size:0.8rem;color:#666;margin:8px 0">Distribution auto loyers, claim proportionnel, historique complet, multi-projet. ~230 lignes.</p>
+                            <code style="font-size:0.75rem;background:#e3f2fd;padding:2px 6px;border-radius:4px">contracts/GlamDividends.sol</code>
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px">
+                        <div style="background:#f5f0ff;padding:18px;border-radius:12px;border:1px solid #d1c4e9">
+                            <h4 style="color:#7b1fa2;font-size:0.95rem"><i class="fas fa-cogs"></i> blockchain.js</h4>
+                            <p style="font-size:0.8rem;color:#666;margin:8px 0">Moteur Web3 complet. Mode dual (simulation + real). Wallet, KYC, achats, dividendes, IPFS, gamification, marketplace, notifications.</p>
+                        </div>
+                        <div style="background:#fff8e1;padding:18px;border-radius:12px;border:1px solid #ffe082">
+                            <h4 style="color:#f57f17;font-size:0.95rem"><i class="fas fa-rocket"></i> tokenisation.html</h4>
+                            <p style="font-size:0.8rem;color:#666;margin:8px 0">Interface DApp interactive : 8 onglets (KYC, Acheter, Portfolio, Dividendes, IPFS, Marketplace, Historique, Niveaux).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fas fa-road" style="color:var(--terracotta)"></i> Prochaines Étapes pour le Mainnet</h3>
+                    <div class="timeline" style="margin-top:15px">
+                        <div class="timeline-item" style="border-left-color:#4caf50">
+                            <div class="timeline-date" style="color:#4caf50">Étape 1 — FAIT</div>
+                            <h4 style="text-decoration:line-through;color:#888">Écrire les smart contracts Solidity</h4>
+                            <p style="color:#4caf50;font-weight:600">3 contrats écrits : GlamToken.sol, GlamSTO.sol, GlamDividends.sol</p>
+                        </div>
+                        <div class="timeline-item" style="border-left-color:#4caf50">
+                            <div class="timeline-date" style="color:#4caf50">Étape 2 — FAIT</div>
+                            <h4 style="text-decoration:line-through;color:#888">Créer le frontend Web3 interactif</h4>
+                            <p style="color:#4caf50;font-weight:600">blockchain.js + interface DApp complète avec 8 fonctionnalités</p>
+                        </div>
+                        <div class="timeline-item" style="border-left-color:#4caf50">
+                            <div class="timeline-date" style="color:#4caf50">Étape 3 — FAIT</div>
+                            <h4 style="text-decoration:line-through;color:#888">KYC, IPFS, dividendes, gamification</h4>
+                            <p style="color:#4caf50;font-weight:600">Tout fonctionne en mode demo. Prêt pour intégration réelle.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Étape 4 — À FAIRE</div>
+                            <h4>Déployer sur testnet + Audit sécurité</h4>
+                            <p>Installer Hardhat, compiler les .sol, déployer sur Polygon Amoy testnet. Faire auditer par CertiK ou Hacken. Budget : 15-30K€.</p>
+                            <span class="detail-toggle" onclick="this.nextElementSibling.classList.toggle('open')">+ Commandes de déploiement</span>
+                            <div class="detail-content">
+                                <code>npm init -y</code><br>
+                                <code>npm install hardhat @nomicfoundation/hardhat-toolbox</code><br>
+                                <code>npx hardhat compile</code><br>
+                                <code>npx hardhat run scripts/deploy.js --network amoy</code><br><br>
+                                Puis mettre à jour les adresses dans <code>blockchain.js</code> CONFIG.contracts et changer <code>CONFIG.mode = 'real'</code>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Étape 5 — À FAIRE</div>
+                            <h4>Conformité juridique + Lancement mainnet</h4>
+                            <p>Avocat spécialisé blockchain, enregistrement PSAN/AMF, intégrer KYC réel (Synaps/Sumsub), IPFS réel (Pinata). Budget : 10-25K€.</p>
+                        </div>
+                    </div>
+                    <div class="info-banner" style="margin-top:20px;background:#e8f5e9;border-color:#4caf50">
+                        <i class="fas fa-check-circle" style="color:#4caf50"></i>
+                        <p><strong>Avancement :</strong> 60% du travail technique est fait. Reste : déploiement, audit et juridique. <strong>Budget restant :</strong> 25 000 — 55 000€ | <strong>Délai :</strong> 2-4 mois</p>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fas fa-trophy" style="color:var(--terracotta)"></i> Fonctionnalités Ludiques Intégrées</h3>
+                    <div class="aides-grid" style="margin-top:15px">
+                        <div class="aide-card" style="border-left:3px solid #4caf50">
+                            <h4><i class="fas fa-gamepad" style="color:#4caf50"></i> Gamification</h4>
+                            <p>5 niveaux (Débutant > Bronze > Argent > Or > Diamant) + 6 achievements débloquables. Intégré !</p>
+                        </div>
+                        <div class="aide-card" style="border-left:3px solid #4caf50">
+                            <h4><i class="fas fa-chart-line" style="color:#4caf50"></i> Dashboard Temps Réel</h4>
+                            <p>Stats live (total levé, investisseurs, tokens vendus), portfolio dynamique, notifications. Intégré !</p>
+                        </div>
+                        <div class="aide-card" style="border-left:3px solid #4caf50">
+                            <h4><i class="fas fa-hand-holding-usd" style="color:#4caf50"></i> Marketplace P2P</h4>
+                            <p>Listings simulés de revente entre investisseurs KYC. Interface prête pour connexion mainnet. Intégré !</p>
+                        </div>
+                        <div class="aide-card" style="border-left:3px solid #4caf50">
+                            <h4><i class="fas fa-cloud" style="color:#4caf50"></i> IPFS Documents</h4>
+                            <p>Upload, hash, vérification de documents on-chain. 5 documents pré-chargés + upload illimité. Intégré !</p>
+                        </div>
+                        <div class="aide-card" style="border-left:3px solid #667eea">
+                            <h4><i class="fas fa-vr-cardboard" style="color:#667eea"></i> Visite Virtuelle 3D</h4>
+                            <p>À développer. Configurateur 3D Three.js ou Matterport pour "visiter" sa maison.</p>
+                        </div>
+                        <div class="aide-card" style="border-left:3px solid #667eea">
+                            <h4><i class="fas fa-vote-yea" style="color:#667eea"></i> Gouvernance DAO</h4>
+                            <p>À développer. Token holders votent les décisions. Via Snapshot ou on-chain.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ CMS - MODIFIER LE SITE ============ -->
+            <div class="admin-section" id="sec-cms">
+                <h2><i class="fas fa-edit" style="color:var(--terracotta)"></i> Modifier le Contenu du Site</h2>
+                <p style="color:#666;margin-bottom:15px">Modifiez les textes, prix et images de chaque page. Tout est sauvegardé dans votre navigateur.</p>
+                <div class="info-banner"><i class="fas fa-info-circle"></i><p><strong>Mode d'emploi :</strong> 1) Cliquez sur une section pour l'ouvrir. 2) Modifiez les champs. 3) Cliquez "Sauvegarder". Pour les images : uploadez un nouveau fichier OU remplacez le fichier dans le dossier <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px">assets/</code> en gardant le même nom.</p></div>
+
+                <!-- GÉNÉRAL -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-globe"></i> Général (toutes les pages) <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields open">
+                        <div class="cms-field"><label>Nom du site</label><input type="text" id="cms-site-name" value="MyGlamHouse"></div>
+                        <div class="cms-field"><label>Slogan</label><input type="text" id="cms-baseline" value="L'habitat de demain, aujourd'hui"></div>
+                        <div class="cms-field"><label>Email de contact</label><input type="text" id="cms-email" value="contact@myglamhouse.fr"></div>
+                        <div class="cms-field"><label>Téléphone</label><input type="text" id="cms-phone" value="+33 1 23 45 67 89"></div>
+                        <div class="cms-field"><label>Logo du site</label>
+                            <div class="cms-img-box"><img src="assets/logo.jpg" id="preview-logo"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'logo')"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACCUEIL -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-home"></i> Page d'Accueil <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields">
+                        <div class="cms-field"><label>Titre Hero</label><input type="text" id="cms-hero-title" value="L'HABITAT DE DEMAIN EST DÉJÀ LÀ."></div>
+                        <div class="cms-field"><label>Sous-titre Hero</label><input type="text" id="cms-hero-sub" value="Concept · LifeStyle · Nature · Écologique · Tokenisé"></div>
+                        <div class="cms-field"><label>Texte de bienvenue</label><textarea id="cms-welcome" rows="4">Maison d'hôtes de luxe, Résidence principale, Maison de vacances, Investissement locatif. Nous réalisons vos projets de construction à ossature bois et blocs de chanvre.</textarea></div>
+                        <div class="cms-field"><label>Image de fond Hero (remplace la vidéo)</label>
+                            <div class="cms-img-box"><img src="assets/inspiration1.jpg" id="preview-hero-bg"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'hero-bg')"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLLECTION -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-th-large"></i> Collection — Les 4 Modèles <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields">
+                        <p style="color:#888;font-size:0.85rem;margin-bottom:15px">Modifiez noms, prix, descriptions et photos de chaque modèle.</p>
+                        <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:15px">
+                            <h5 style="margin:0 0 10px">Modèle 1 — Malibu</h5>
+                            <div class="cms-field"><label>Nom</label><input type="text" id="cms-model1-name" value="Malibu"></div>
+                            <div class="cms-field"><label>Surface</label><input type="text" id="cms-model1-surface" value="20m²"></div>
+                            <div class="cms-field"><label>Prix</label><input type="text" id="cms-model1-price" value="59 000€"></div>
+                            <div class="cms-field"><label>Description courte</label><textarea id="cms-model1-desc" rows="2">Studio compact et élégant. Idéal pour bureau de jardin, chambre d'amis ou investissement locatif.</textarea></div>
+                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="assets/maison1.jpg" id="preview-model1"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model1')"></div></div>
+                        </div>
+                        <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:15px">
+                            <h5 style="margin:0 0 10px">Modèle 2 — Palm Spring</h5>
+                            <div class="cms-field"><label>Nom</label><input type="text" id="cms-model2-name" value="Palm Spring"></div>
+                            <div class="cms-field"><label>Surface</label><input type="text" id="cms-model2-surface" value="35m²"></div>
+                            <div class="cms-field"><label>Prix</label><input type="text" id="cms-model2-price" value="89 000€"></div>
+                            <div class="cms-field"><label>Description courte</label><textarea id="cms-model2-desc" rows="2">T2 lumineux avec séjour ouvert. Parfait pour résidence principale solo ou couple.</textarea></div>
+                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="assets/maison2.jpg" id="preview-model2"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model2')"></div></div>
+                        </div>
+                        <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:15px">
+                            <h5 style="margin:0 0 10px">Modèle 3 — Pacific Palissade</h5>
+                            <div class="cms-field"><label>Nom</label><input type="text" id="cms-model3-name" value="Pacific Palissade"></div>
+                            <div class="cms-field"><label>Surface</label><input type="text" id="cms-model3-surface" value="60m²"></div>
+                            <div class="cms-field"><label>Prix</label><input type="text" id="cms-model3-price" value="145 000€"></div>
+                            <div class="cms-field"><label>Description courte</label><textarea id="cms-model3-desc" rows="2">Villa familiale, 2 chambres, grand séjour et terrasse. Le fleuron de la collection.</textarea></div>
+                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="assets/maison3.jpg" id="preview-model3"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model3')"></div></div>
+                        </div>
+                        <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:15px">
+                            <h5 style="margin:0 0 10px">Modèle 4 — Venice</h5>
+                            <div class="cms-field"><label>Nom</label><input type="text" id="cms-model4-name" value="Venice"></div>
+                            <div class="cms-field"><label>Surface</label><input type="text" id="cms-model4-surface" value="25m²"></div>
+                            <div class="cms-field"><label>Prix</label><input type="text" id="cms-model4-price" value="72 000€"></div>
+                            <div class="cms-field"><label>Description courte</label><textarea id="cms-model4-desc" rows="2">Module atypique et créatif. Design artistique inspiré de Venice Beach.</textarea></div>
+                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="assets/maison4.jpg" id="preview-model4"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model4')"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTISTE -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-user"></i> L'Artiste — Daniel Siboni <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields">
+                        <div class="cms-field"><label>Photo de Daniel</label><div class="cms-img-box"><img src="assets/daniel siboni.jpg" id="preview-daniel"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'daniel')"></div></div>
+                        <div class="cms-field"><label>Titre / Fonction</label><input type="text" id="cms-daniel-title" value="DIRECTION ARTISTIQUE & FONDATEUR"></div>
+                        <div class="cms-field"><label>Citation</label><textarea id="cms-daniel-quote" rows="2">L'architecture n'est pas seulement une construction, c'est une mise en scène de la vie.</textarea></div>
+                        <div class="cms-field"><label>Biographie</label><textarea id="cms-daniel-bio" rows="5">Photographe de mode de renommée internationale et Directeur Artistique, Daniel Siboni a passé plus de 20 ans aux États-Unis, capturant l'essence du glamour californien.</textarea></div>
+                    </div>
+                </div>
+
+                <!-- TOKENISATION -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-coins"></i> Tokenisation & Investissement <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields">
+                        <div class="cms-field"><label>Prix token Résidence Normandie</label><input type="text" id="cms-token-normandie" value="1 780€"></div>
+                        <div class="cms-field"><label>Prix token ÉcoVillage</label><input type="text" id="cms-token-eco" value="1 400€"></div>
+                        <div class="cms-field"><label>Prix equity token (capital)</label><input type="text" id="cms-token-equity" value="500€"></div>
+                        <div class="cms-field"><label>Rendement locatif estimé</label><input type="text" id="cms-rendement" value="6-8%"></div>
+                        <div class="cms-field"><label>% financement Normandie</label><input type="text" id="cms-fund-normandie" value="35%"></div>
+                        <div class="cms-field"><label>% financement ÉcoVillage</label><input type="text" id="cms-fund-eco" value="12%"></div>
+                        <div class="cms-field"><label>% equity offert (capital)</label><input type="text" id="cms-equity-pct" value="20%"></div>
+                        <div class="cms-field"><label>Nombre total equity tokens</label><input type="text" id="cms-equity-total" value="1 000"></div>
+                    </div>
+                </div>
+
+                <!-- PROJETS -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-project-diagram"></i> Projets <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields">
+                        <div class="cms-field"><label>Projet 1 — Nom</label><input type="text" id="cms-projet1-name" value="Ma Maison Personnalisée"></div>
+                        <div class="cms-field"><label>Projet 1 — Description</label><textarea id="cms-projet1-desc" rows="2">Choisissez votre modèle, personnalisez-le, nous le construisons sur votre terrain.</textarea></div>
+                        <div class="cms-field"><label>Projet 2 — Nom</label><input type="text" id="cms-projet2-name" value="Résidence Senior Normandie"></div>
+                        <div class="cms-field"><label>Projet 2 — Description</label><textarea id="cms-projet2-desc" rows="2">12 maisons en colocation pour retraités actifs en Normandie.</textarea></div>
+                        <div class="cms-field"><label>Projet 3 — Nom</label><input type="text" id="cms-projet3-name" value="ÉcoVillage Moderne"></div>
+                        <div class="cms-field"><label>Projet 3 — Description</label><textarea id="cms-projet3-desc" rows="2">Communauté de 20+ maisons écologiques avec espaces partagés.</textarea></div>
+                    </div>
+                </div>
+
+                <!-- CHIFFRES -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-chart-bar"></i> Chiffres & Scaling <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields">
+                        <div class="cms-field"><label>Pipeline 2026</label><input type="text" id="cms-pipeline-2026" value="20"></div>
+                        <div class="cms-field"><label>Objectif 2027</label><input type="text" id="cms-pipeline-2027" value="50"></div>
+                        <div class="cms-field"><label>Vision 2028</label><input type="text" id="cms-pipeline-2028" value="150"></div>
+                        <div class="cms-field"><label>Nombre d'ateliers</label><input type="text" id="cms-ateliers" value="1"></div>
+                        <div class="cms-field"><label>Nombre d'employés</label><input type="text" id="cms-employes" value="3-4"></div>
+                    </div>
+                </div>
+
+                <!-- CONSTRUCTION -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-hard-hat"></i> Construction <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields">
+                        <div class="cms-field"><label>Délai de construction</label><input type="text" id="cms-delai" value="8-10 semaines"></div>
+                        <div class="cms-field"><label>Garantie</label><input type="text" id="cms-garantie" value="Décennale (10 ans)"></div>
+                        <div class="cms-field"><label>Certification</label><input type="text" id="cms-certif" value="RE2020, ÉCOLABEL, DPE A"></div>
+                        <div class="cms-field"><label>Matériau principal</label><input type="text" id="cms-materiau" value="Ossature bois + blocs de chanvre"></div>
+                    </div>
+                </div>
+
+                <!-- PHOTOS & MÉDIAS -->
+                <div class="cms-page-section">
+                    <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-images"></i> Liste des Photos du Site <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
+                    <div class="cms-fields">
+                        <p style="color:#888;font-size:0.85rem;margin-bottom:15px"><strong>Méthode la plus simple :</strong> Remplacez le fichier dans le dossier <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px">assets/</code> en gardant le même nom. Le site utilisera automatiquement la nouvelle image.</p>
+                        <div style="background:#f8f9fa;padding:15px;border-radius:10px">
+                            <table style="width:100%;font-size:0.85rem;border-collapse:collapse">
+                                <tr style="border-bottom:1px solid #eee;font-weight:700"><td style="padding:8px">Fichier</td><td>Utilisé pour</td><td>Taille recommandée</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/logo.jpg</code></td><td>Logo du site (toutes pages)</td><td>200x60px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/maison1.jpg</code></td><td>Photo Malibu</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/maison2.jpg</code></td><td>Photo Palm Spring</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/maison3.jpg</code></td><td>Photo Pacific Palissade</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/maison4.jpg</code></td><td>Photo Venice</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/daniel siboni.jpg</code></td><td>Portrait Daniel Siboni</td><td>600x800px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/hero-video.mp4</code></td><td>Vidéo d'accueil</td><td>1920x1080 max 10MB</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/inspiration1-5.jpg</code></td><td>Photos slider inspiration</td><td>800x600px</td></tr>
+                                <tr><td style="padding:8px"><code>assets/construction*.jpg</code></td><td>Photos chantier/construction</td><td>800x600px</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+                    <button class="btn-primary btn-lg" style="flex:1;min-width:200px" onclick="saveCMS()"><i class="fas fa-save"></i> SAUVEGARDER</button>
+                    <button class="btn-primary btn-lg" style="flex:1;min-width:200px;background:var(--charcoal)" onclick="exportCMS()"><i class="fas fa-download"></i> EXPORTER (JSON)</button>
+                    <button class="btn-primary btn-lg" style="flex:1;min-width:200px;background:#e53e3e" onclick="if(confirm('Remettre toutes les valeurs par défaut ?')){localStorage.removeItem('glamhouse_cms');localStorage.removeItem('glamhouse_cms_images');location.reload()}"><i class="fas fa-undo"></i> RÉINITIALISER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAVE TOAST -->
+    <div class="save-toast" id="saveToast"><i class="fas fa-check-circle"></i> Sauvegardé !</div>
+
+    <footer style="padding-top:50px;border-top:1px solid #eee"><div class="container text-center"><p style="color:#888">Dashboard Admin — MyGlamHouse © 2026 — Accès Restreint</p></div></footer>
+
+    <div id="lightbox" class="lightbox"><span class="lightbox-close">&times;</span><img class="lightbox-content" id="lightbox-img"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
