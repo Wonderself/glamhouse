@@ -674,13 +674,57 @@
         /* Empty state */
         .empty-state { text-align: center; padding: 40px; color: #888; }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* ===== RESPONSIVE TABLETTE ===== */
+        @media (max-width: 968px) {
             .kyc-form { grid-template-columns: 1fr; }
-            .wallet-info { flex-direction: column; align-items: flex-start; }
-            .dapp-header { flex-direction: column; }
-            .market-listing { grid-template-columns: 1fr 1fr; font-size: 0.8rem; }
-            .dapp-tabs { overflow-x: auto; }
+            .wallet-info { flex-direction: column !important; align-items: flex-start !important; gap: 12px; display: flex !important; }
+            .dapp-header { flex-direction: column; align-items: flex-start; }
+            .market-listing { grid-template-columns: 1fr 1fr; font-size: 0.8rem; gap: 6px; }
+            .dapp-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; gap: 4px; padding-bottom: 8px; }
+            .dapp-tab { white-space: nowrap; padding: 8px 14px; font-size: 0.8rem; }
+            .dapp-tab i { display: none; }
+            .dapp-section { padding: 50px 0; }
+            #tab-buy > div { grid-template-columns: 1fr !important; gap: 20px !important; }
+            .buy-card { padding: 22px 18px; }
+            .buy-card.featured::before { top: 10px; right: -25px; font-size: 0.6rem; padding: 3px 30px; }
+            #tab-dividends > div { grid-template-columns: 1fr !important; }
+            #tab-ipfs > div { grid-template-columns: 1fr !important; }
+            #tab-game > div { grid-template-columns: 1fr !important; }
+            .level-card { padding: 24px 20px; }
+            .dapp-grid { grid-template-columns: 1fr; }
+        }
+        /* ===== RESPONSIVE PETIT TELEPHONE ===== */
+        @media (max-width: 520px) {
+            .dapp-section { padding: 35px 0; }
+            .dapp-card { padding: 18px 14px; border-radius: 12px; }
+            .dapp-card h3 { font-size: 0.95rem; }
+            .dapp-stat { font-size: 1.5rem; }
+            .dapp-tab { padding: 7px 10px; font-size: 0.72rem; }
+            .btn-wallet { padding: 10px 18px; font-size: 0.85rem; }
+            .wallet-detail span { font-size: 0.82rem; }
+            .kyc-field label { font-size: 0.8rem; }
+            .kyc-field input, .kyc-field select { padding: 9px 12px; font-size: 0.85rem; }
+            .buy-card h3 { font-size: 0.95rem; }
+            .buy-total { font-size: 1.1rem; }
+            .buy-btn { padding: 12px; font-size: 0.88rem; }
+            .portfolio-value { font-size: 1.2rem; }
+            .portfolio-card { padding: 16px; }
+            #dividendsAvailable { font-size: 1.8rem !important; }
+            .claim-btn { padding: 12px 24px; font-size: 0.88rem; }
+            .dividend-row { flex-wrap: wrap; gap: 6px; }
+            .dividend-amount { margin-left: 0; }
+            .upload-zone { padding: 25px 15px; }
+            .ipfs-doc { flex-wrap: wrap; gap: 10px; padding: 12px; }
+            .market-listing { grid-template-columns: 1fr !important; }
+            .market-listing:first-child { display: none; }
+            .tx-row { flex-wrap: wrap; gap: 8px; }
+            .tx-icon { width: 32px; height: 32px; }
+            .tx-desc { font-size: 0.82rem; }
+            .level-card { padding: 20px 16px; }
+            .level-icon { font-size: 2.2rem; }
+            .level-name { font-size: 1.1rem; }
+            .achievement { font-size: 0.75rem; padding: 6px 12px; }
+            .glam-notification { max-width: calc(100vw - 24px) !important; right: 12px !important; font-size: 0.82rem !important; }
         }
     </style>
 
