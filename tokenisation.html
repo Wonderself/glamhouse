@@ -676,11 +676,11 @@
 
         /* ===== RESPONSIVE TABLETTE ===== */
         @media (max-width: 968px) {
-            .kyc-form { grid-template-columns: 1fr; }
+            .kyc-form { grid-template-columns: 1fr !important; }
             .wallet-info { flex-direction: column !important; align-items: flex-start !important; gap: 12px; display: flex !important; }
-            .dapp-header { flex-direction: column; align-items: flex-start; }
-            .market-listing { grid-template-columns: 1fr 1fr; font-size: 0.8rem; gap: 6px; }
-            .dapp-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; gap: 4px; padding-bottom: 8px; }
+            .dapp-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px; }
+            .market-listing { grid-template-columns: 1fr 1fr !important; font-size: 0.8rem; gap: 6px; }
+            .dapp-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap !important; gap: 4px; padding-bottom: 8px; }
             .dapp-tab { white-space: nowrap; padding: 8px 14px; font-size: 0.8rem; }
             .dapp-tab i { display: none; }
             .dapp-section { padding: 50px 0; }
@@ -690,8 +690,12 @@
             #tab-dividends > div { grid-template-columns: 1fr !important; }
             #tab-ipfs > div { grid-template-columns: 1fr !important; }
             #tab-game > div { grid-template-columns: 1fr !important; }
+            #tab-marketplace > div { grid-template-columns: 1fr !important; }
+            #tab-portfolio > div { grid-template-columns: 1fr !important; }
             .level-card { padding: 24px 20px; }
-            .dapp-grid { grid-template-columns: 1fr; }
+            .dapp-grid { grid-template-columns: 1fr !important; }
+            /* Smart contracts section 3-col */
+            .dapp-section [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
         }
         /* ===== RESPONSIVE PETIT TELEPHONE ===== */
         @media (max-width: 520px) {
@@ -725,6 +729,10 @@
             .level-name { font-size: 1.1rem; }
             .achievement { font-size: 0.75rem; padding: 6px 12px; }
             .glam-notification { max-width: calc(100vw - 24px) !important; right: 12px !important; font-size: 0.82rem !important; }
+            /* Live stats bar → 2x2 */
+            .dapp-section [style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+            /* 5-col achievement grid → 2-col */
+            [style*="grid-template-columns: repeat(5"] { grid-template-columns: 1fr 1fr !important; gap: 6px !important; }
         }
     </style>
 
