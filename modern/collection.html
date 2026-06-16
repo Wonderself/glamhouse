@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&family=Fraunces:ital,opsz,wght@1,9..144,400;0,9..144,400&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="modern.css">
+<script>(function(){try{var t=localStorage.getItem("glam-theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 <style>
   .model-block + .model-block { margin-top: clamp(80px,11vw,170px); padding-top: clamp(80px,11vw,170px); border-top: 1px solid var(--line); }
@@ -37,6 +39,8 @@
     <li><a href="tokenisation.html">Tokenisation</a></li>
     <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
   </ul>
+  
+  <button class="theme-toggle" aria-label="Basculer theme" title="Theme clair / sombre"><i class="fas fa-sun"></i><i class="fas fa-moon"></i></button>
   <div class="burger"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu">
@@ -47,7 +51,7 @@
 <header class="section section--dark has-grid" style="padding-top:clamp(150px,16vw,220px)">
   <div class="container">
     <div class="eyebrow" data-reveal><span class="num">2026</span><span class="line"></span><span class="txt">Collection</span></div>
-    <h1 style="font-size:clamp(2.6rem,8vw,6.5rem);max-width:16ch" data-reveal>Quatre signatures. <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--accent);text-shadow:0 0 40px var(--glow)">Infiniment</span> personnalisables.</h1>
+    <h1 style="font-size:clamp(2.6rem,8vw,6.5rem);max-width:16ch" data-reveal>Six signatures. <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--accent);text-shadow:0 0 40px var(--glow)">Infiniment</span> personnalisables.</h1>
     <p style="color:var(--mute);max-width:62ch;margin-top:26px;font-size:1.15rem" data-reveal data-delay="1">Travail sur mesure à partir des modèles de base conçus par Daniel Siboni. Chaque maison est présentée en rendus haute définition — extérieur, intérieur, ambiance.</p>
     <div class="hero__tags" data-reveal data-delay="2" style="margin-top:30px">
       <span>Ossature bois + chanvre</span><span>DPE classe A</span><span>Maison passive</span><span>ÉCOLABEL</span>
@@ -182,6 +186,66 @@
       </div>
     </div>
 
+    <!-- ===================== TINY HOUSE 20 ===================== -->
+    <div class="model-block" id="tiny" data-reveal>
+      <div class="feature">
+        <div class="feature__media"><img src="../assets/photo1.jpg" alt="Tiny House 20 m²" class="zoomable"></div>
+        <div>
+          <div class="eyebrow"><span class="num">05</span><span class="line"></span><span class="txt">Nouveauté · Nomade</span></div>
+          <h3>Tiny House 20 m²</h3>
+          <p>La quintessence du compact. Tout le confort d'une GlamHouse dans 20 m² ingénieux — à poser où vous le souhaitez, mobile ou sur fondations.</p>
+          <ul class="check">
+            <li><i class="fas fa-ruler-combined"></i> <strong>20 m²</strong> — sans permis de construire</li>
+            <li><i class="fas fa-bed"></i> Pièce de vie · coin nuit · SDB · kitchenette</li>
+            <li><i class="fas fa-bolt"></i> DPE classe A — passive · ossature bois + chanvre</li>
+          </ul>
+          <div class="price-line"><span class="amount">Sur devis</span><span class="ttc">Disponible 2026</span></div>
+          <a href="index.html#contact" class="btn btn--accent" style="margin-top:26px">Demander une étude <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="render-grid" style="margin-top:clamp(28px,4vw,56px)">
+        <figure class="render-slot render-slot--video">
+          <span class="render-slot__tag">Film · Tiny 20 m²</span><span class="render-slot__frame"></span>
+          <figcaption class="ph"><i class="fas fa-film"></i><b>Vidéo à venir</b><small>Film Tiny House 20 m² en préparation</small></figcaption>
+        </figure>
+        <figure class="render-slot render-slot--video">
+          <span class="render-slot__tag">Rendu · Tiny 20 m²</span><span class="render-slot__frame"></span>
+          <img src="../assets/render-tiny.jpg" alt="Rendu Tiny House 20 m²" onerror="this.style.display='none'">
+          <figcaption class="ph"><i class="fas fa-cube"></i><b>Emplacement rendu</b><small>Banana Pro → ../assets/render-tiny.jpg</small></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- ===================== TRIPLEX PATIO VERRE ===================== -->
+    <div class="model-block" id="triplex" data-reveal>
+      <div class="feature feature--rev">
+        <div class="feature__media"><img src="../assets/maison4.jpg" alt="Triplex — 2 tiny houses + patio verre" class="zoomable"></div>
+        <div>
+          <div class="eyebrow"><span class="num">06</span><span class="line"></span><span class="txt">Nouveauté · Modulaire</span></div>
+          <h3>Triplex — Patio de verre</h3>
+          <p>Deux Tiny Houses de 20 m² réunies par un patio central en verre triplex. Un cœur lumineux qui double l'espace de vie, été comme hiver.</p>
+          <ul class="check">
+            <li><i class="fas fa-ruler-combined"></i> <strong>2 × 20 m² + patio</strong> — assemblage modulaire</li>
+            <li><i class="fas fa-bed"></i> 2 chambres · 2 SDB · patio central en verre triplex</li>
+            <li><i class="fas fa-sun"></i> Patio bioclimatique — lumière traversante, triple vitrage isolant</li>
+          </ul>
+          <div class="price-line"><span class="amount">Sur devis</span><span class="ttc">Disponible 2026</span></div>
+          <a href="index.html#contact" class="btn btn--accent" style="margin-top:26px">Demander une étude <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="render-grid" style="margin-top:clamp(28px,4vw,56px)">
+        <figure class="render-slot render-slot--video">
+          <span class="render-slot__tag">Film · Triplex patio</span><span class="render-slot__frame"></span>
+          <figcaption class="ph"><i class="fas fa-film"></i><b>Vidéo à venir</b><small>Film assemblage 2 tiny houses + patio verre</small></figcaption>
+        </figure>
+        <figure class="render-slot render-slot--video">
+          <span class="render-slot__tag">Rendu · Patio verre</span><span class="render-slot__frame"></span>
+          <img src="../assets/render-triplex.jpg" alt="Rendu Triplex patio verre" onerror="this.style.display='none'">
+          <figcaption class="ph"><i class="fas fa-cube"></i><b>Emplacement rendu</b><small>Banana Pro → ../assets/render-triplex.jpg</small></figcaption>
+        </figure>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -190,7 +254,7 @@
   <div class="container">
     <div class="statement" style="align-items:center">
       <div data-reveal>
-        <div class="eyebrow"><span class="num">05</span><span class="line"></span><span class="txt">Offre premier prix</span></div>
+        <div class="eyebrow"><span class="num">07</span><span class="line"></span><span class="txt">Offre premier prix</span></div>
         <h2 style="font-size:clamp(2.2rem,5vw,3.6rem)">Votre première GlamHouse,<br>dès 59 000€.</h2>
         <p style="color:var(--mute);margin-top:22px">1 chambre · 1 SDB · cuisine bar · terrasse — 20 m², sans permis de construire, 1,5 mois de chantier.</p>
         <p class="mono-label" style="color:var(--mute);margin-top:14px">*Prix applicable jusqu'à fin 2026 · hors fondations et transport.</p>

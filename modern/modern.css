@@ -435,3 +435,78 @@ select.field option { background: var(--surface-2); color: var(--text); }
     .hero__sub { flex-direction: column; align-items: flex-start; }
     .footer__bottom { flex-direction: column; }
 }
+
+/* ============================================================
+   VIDÉO (tuiles + emplacements "à venir")
+   ============================================================ */
+.video-tile { position: relative; aspect-ratio: 16/9; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #05070A; }
+.video-tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.render-slot--video { aspect-ratio: 16/9; }
+.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px,2vw,26px); }
+@media (max-width: 760px){ .video-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+.theme-toggle { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--text); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: .3s; margin-left: 6px; flex: 0 0 auto; }
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.theme-toggle .fa-moon { display: none; }
+html[data-theme="light"] .theme-toggle .fa-sun { display: none; }
+html[data-theme="light"] .theme-toggle .fa-moon { display: inline; }
+
+/* ============================================================
+   THÈME CLAIR
+   ============================================================ */
+html[data-theme="light"] {
+    --bg:        #F4F6F8;
+    --surface-1: #FFFFFF;
+    --surface-2: #EDF1F4;
+    --line:      rgba(11,14,18,0.12);
+    --line-2:    rgba(11,14,18,0.055);
+    --text:      #0B0E12;
+    --mute:      rgba(11,14,18,0.60);
+    --accent:     #0F9FC4;
+    --accent-deep:#0B7B98;
+    --violet:     #7C5CFF;
+    --glow:       rgba(15,159,196,0.22);
+    --cool-light: #FFFFFF;
+    --light-ink:  #0B0E12;
+    --light-mute: #5B6066;
+    --light-line: rgba(11,14,18,0.12);
+}
+html[data-theme="light"] body {
+    background-image:
+        radial-gradient(120% 80% at 85% -5%, rgba(15,159,196,0.07), transparent 55%),
+        radial-gradient(90% 70% at 0% 100%, rgba(124,92,255,0.05), transparent 55%);
+}
+html[data-theme="light"] ::selection { background: var(--accent); color: #fff; }
+/* accents sur fond clair : texte blanc sur pastilles colorées */
+html[data-theme="light"] .btn--accent,
+html[data-theme="light"] .pill,
+html[data-theme="light"] .pcard__badge,
+html[data-theme="light"] .tab.active,
+html[data-theme="light"] .tip { color: #fff; }
+html[data-theme="light"] .btn--accent:hover { background: var(--accent-deep); }
+/* NAV : barre claire translucide (toujours), texte sombre */
+html[data-theme="light"] .nav { background: rgba(244,246,248,0.82); backdrop-filter: blur(16px) saturate(140%); border-bottom: 1px solid var(--line); }
+html[data-theme="light"] .nav.solid { background: rgba(244,246,248,0.93); }
+html[data-theme="light"] .nav__brand { color: var(--text); }
+html[data-theme="light"] .nav__links a { color: var(--mute); }
+html[data-theme="light"] .nav__links a:hover { color: var(--text); }
+html[data-theme="light"] .nav__cta { color: var(--text) !important; border-color: var(--line) !important; }
+html[data-theme="light"] .nav__cta:hover { color: #fff !important; background: var(--accent); border-color: var(--accent) !important; }
+html[data-theme="light"] .burger span { background: var(--text); }
+html[data-theme="light"] .mobile-menu { background: var(--bg); }
+html[data-theme="light"] .mobile-menu a { color: var(--text); }
+html[data-theme="light"] .nav__menu { background: #fff; box-shadow: 0 30px 60px rgba(11,14,18,0.14); }
+html[data-theme="light"] .nav__menu a:hover { background: rgba(11,14,18,0.05); }
+/* cartes / surfaces : ombres douces au lieu du contraste sombre */
+html[data-theme="light"] .card,
+html[data-theme="light"] .pcard,
+html[data-theme="light"] .panel { box-shadow: 0 1px 0 rgba(11,14,18,0.02); }
+html[data-theme="light"] .card:hover,
+html[data-theme="light"] .pcard:hover { box-shadow: 0 24px 50px rgba(11,14,18,0.10); }
+html[data-theme="light"] .card__tag { background: rgba(255,255,255,0.78); color: var(--text); }
+html[data-theme="light"] .field { background: #fff; }
+html[data-theme="light"] .note { background: rgba(11,14,18,0.035); }
+/* le HERO reste cinématographique (vidéo sombre) dans les deux thèmes */

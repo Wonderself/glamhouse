@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&family=Fraunces:ital,opsz,wght@1,9..144,400;0,9..144,400&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="modern.css">
+<script>(function(){try{var t=localStorage.getItem("glam-theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 <style>
   .project-block + .project-block { margin-top: clamp(80px,11vw,170px); padding-top: clamp(80px,11vw,170px); border-top: 1px solid var(--line); }
@@ -48,6 +50,8 @@
     <li><a href="tokenisation.html">Tokenisation</a></li>
     <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
   </ul>
+  
+  <button class="theme-toggle" aria-label="Basculer theme" title="Theme clair / sombre"><i class="fas fa-sun"></i><i class="fas fa-moon"></i></button>
   <div class="burger"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu">

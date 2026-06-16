@@ -90,6 +90,15 @@
     });
   }
 
+  /* ---- Theme toggle ---- */
+  document.querySelectorAll('.theme-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('glam-theme', next); } catch (e) {}
+    });
+  });
+
   /* ---- Loader intro ---- */
   const loader = document.getElementById('loader');
   if (loader) {

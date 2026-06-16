@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&family=Fraunces:ital,opsz,wght@1,9..144,400;0,9..144,400&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="modern.css">
+<script>(function(){try{var t=localStorage.getItem("glam-theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 </head>
 <body>
@@ -42,6 +44,7 @@
     <li><a href="tokenisation.html">Tokenisation</a></li>
     <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
   </ul>
+  <button class="theme-toggle" aria-label="Basculer theme" title="Theme clair / sombre"><i class="fas fa-sun"></i><i class="fas fa-moon"></i></button>
   <div class="burger" aria-label="Menu"><span></span><span></span><span></span></div>
 </nav>
 
@@ -149,33 +152,34 @@
   </div>
 </section>
 
-<!-- 3D MODEL SHOWCASE -->
-<section class="section section--dark">
+<!-- VIDEO SHOWCASE -->
+<section class="section section--dark has-grid" id="films">
   <div class="container">
-    <div class="statement" style="align-items:center">
-      <div data-reveal>
-        <div class="eyebrow"><span class="num">03</span><span class="line"></span><span class="txt">Visualisation</span></div>
-        <h2 style="font-size:clamp(2.2rem,5vw,4rem)">Visualisez votre maison<br>avant qu'elle existe.</h2>
-        <p style="color:var(--mute);margin-top:24px;max-width:48ch">Chaque modèle est présenté en rendus haute définition et visuels d'ambiance. Explorez les volumes, les matériaux et la lumière — projetez-vous.</p>
-        <ul class="check" style="margin-top:30px;max-width:440px">
-          <li><i class="fas fa-cube"></i> Rendus 3D extérieurs &amp; intérieurs</li>
-          <li><i class="fas fa-ruler-combined"></i> Volumes et agencements pièce par pièce</li>
-          <li><i class="fas fa-solar-panel"></i> Panneaux solaires &amp; toiture végétalisée intégrés</li>
-        </ul>
-        <a href="collection.html" class="btn btn--accent" style="margin-top:14px">Explorer la collection <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div data-reveal data-delay="1">
-        <figure class="render-slot render-slot--wide">
-          <span class="render-slot__tag">Rendu · Malibu</span>
-          <span class="render-slot__frame"></span>
-          <img src="../assets/render-malibu.jpg" alt="Rendu 3D Malibu" onerror="this.style.display='none'">
-          <figcaption class="ph">
-            <i class="fas fa-cube"></i>
-            <b>Emplacement rendu 3D</b>
-            <small>Glissez ici votre visuel généré (Banana Pro) — fichier ../assets/render-malibu.jpg</small>
-          </figcaption>
-        </figure>
-      </div>
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="num">03</span><span class="line"></span><span class="txt">En mouvement</span></div>
+      <h2>Voir, c'est déjà s'y projeter.</h2>
+      <p>Films d'ambiance et visites animées de nos modèles. De nouveaux formats arrivent : la Tiny House 20 m² et le Triplex — deux tiny houses réunies par un patio en verre.</p>
+    </div>
+    <div class="video-grid">
+      <figure class="video-tile" data-reveal>
+        <span class="render-slot__tag">Film · Ambiance 01</span><span class="render-slot__frame"></span>
+        <video autoplay muted loop playsinline poster="../assets/maison3.jpg"><source src="../assets/videos/glam-film-1.mp4" type="video/mp4"></video>
+      </figure>
+      <figure class="video-tile" data-reveal data-delay="1">
+        <span class="render-slot__tag">Film · Ambiance 02</span><span class="render-slot__frame"></span>
+        <video autoplay muted loop playsinline poster="../assets/maison2.jpg"><source src="../assets/videos/glam-film-2.mp4" type="video/mp4"></video>
+      </figure>
+      <figure class="render-slot render-slot--video" data-reveal data-delay="2">
+        <span class="render-slot__tag">Tiny House · 20 m²</span><span class="render-slot__frame"></span>
+        <figcaption class="ph"><i class="fas fa-film"></i><b>Vidéo à venir</b><small>Tiny House 20 m² — film en préparation</small></figcaption>
+      </figure>
+      <figure class="render-slot render-slot--video" data-reveal data-delay="3">
+        <span class="render-slot__tag">Triplex · 2 × 20 m² + patio verre</span><span class="render-slot__frame"></span>
+        <figcaption class="ph"><i class="fas fa-film"></i><b>Vidéo à venir</b><small>Assemblage de 2 tiny houses 20 m² avec patio central en verre triplex</small></figcaption>
+      </figure>
+    </div>
+    <div style="margin-top:36px" data-reveal>
+      <a href="collection.html" class="btn btn--accent">Explorer la collection <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
