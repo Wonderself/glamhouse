@@ -60,7 +60,7 @@
     <!-- LOGIN OVERLAY -->
     <div id="adminLogin" class="admin-login-overlay">
         <div class="admin-login-box">
-            <img src="assets/logo.jpg" alt="MyGlamHouse" style="height:50px;margin-bottom:20px">
+            <img src="../assets/logo.jpg" alt="MyGlamHouse" style="height:50px;margin-bottom:20px">
             <h2>Espace Admin</h2>
             <p style="color:#888;margin-bottom:20px;font-size:0.9rem">Connectez-vous pour accéder au tableau de bord</p>
             <input type="text" id="loginUser" placeholder="Identifiant" autocomplete="off">
@@ -72,7 +72,7 @@
     <button class="btn-logout" id="btnLogout" style="display:none" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
 
     <nav class="navbar">
-        <div class="logo-container"><a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a></div>
+        <div class="logo-container"><a href="index.html"><img src="../assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a></div>
         <ul class="nav-links">
             <li><a href="index.html">SITE PUBLIC</a></li>
             <li><a href="admin.html" style="color:var(--terracotta)"><i class="fas fa-lock"></i> ADMIN</a></li>
@@ -653,7 +653,7 @@
             <div class="admin-section" id="sec-cms">
                 <h2><i class="fas fa-edit" style="color:var(--terracotta)"></i> Modifier le Contenu du Site</h2>
                 <p style="color:#666;margin-bottom:15px">Modifiez les textes, prix et images de chaque page. Tout est sauvegardé dans votre navigateur.</p>
-                <div class="info-banner"><i class="fas fa-info-circle"></i><p><strong>Mode d'emploi :</strong> 1) Cliquez sur une section pour l'ouvrir. 2) Modifiez les champs. 3) Cliquez "Sauvegarder". Pour les images : uploadez un nouveau fichier OU remplacez le fichier dans le dossier <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px">assets/</code> en gardant le même nom.</p></div>
+                <div class="info-banner"><i class="fas fa-info-circle"></i><p><strong>Mode d'emploi :</strong> 1) Cliquez sur une section pour l'ouvrir. 2) Modifiez les champs. 3) Cliquez "Sauvegarder". Pour les images : uploadez un nouveau fichier OU remplacez le fichier dans le dossier <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px">../assets/</code> en gardant le même nom.</p></div>
 
                 <!-- GÉNÉRAL -->
                 <div class="cms-page-section">
@@ -664,7 +664,7 @@
                         <div class="cms-field"><label>Email de contact</label><input type="text" id="cms-email" value="contact@myglamhouse.fr"></div>
                         <div class="cms-field"><label>Téléphone</label><input type="text" id="cms-phone" value="+33 1 23 45 67 89"></div>
                         <div class="cms-field"><label>Logo du site</label>
-                            <div class="cms-img-box"><img src="assets/logo.jpg" id="preview-logo"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'logo')"></div>
+                            <div class="cms-img-box"><img src="../assets/logo.jpg" id="preview-logo"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'logo')"></div>
                         </div>
                     </div>
                 </div>
@@ -677,7 +677,7 @@
                         <div class="cms-field"><label>Sous-titre Hero</label><input type="text" id="cms-hero-sub" value="Concept · LifeStyle · Nature · Écologique · Tokenisé"></div>
                         <div class="cms-field"><label>Texte de bienvenue</label><textarea id="cms-welcome" rows="4">Maison d'hôtes de luxe, Résidence principale, Maison de vacances, Investissement locatif. Nous réalisons vos projets de construction à ossature bois et blocs de chanvre.</textarea></div>
                         <div class="cms-field"><label>Image de fond Hero (remplace la vidéo)</label>
-                            <div class="cms-img-box"><img src="assets/inspiration1.jpg" id="preview-hero-bg"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'hero-bg')"></div>
+                            <div class="cms-img-box"><img src="../assets/inspiration1.jpg" id="preview-hero-bg"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'hero-bg')"></div>
                         </div>
                     </div>
                 </div>
@@ -693,7 +693,7 @@
                             <div class="cms-field"><label>Surface</label><input type="text" id="cms-model1-surface" value="20m²"></div>
                             <div class="cms-field"><label>Prix</label><input type="text" id="cms-model1-price" value="59 000€"></div>
                             <div class="cms-field"><label>Description courte</label><textarea id="cms-model1-desc" rows="2">Studio compact et élégant. Idéal pour bureau de jardin, chambre d'amis ou investissement locatif.</textarea></div>
-                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="assets/maison1.jpg" id="preview-model1"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model1')"></div></div>
+                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="../assets/maison1.jpg" id="preview-model1"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model1')"></div></div>
                         </div>
                         <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:15px">
                             <h5 style="margin:0 0 10px">Modèle 2 — Palm Spring</h5>
@@ -701,7 +701,7 @@
                             <div class="cms-field"><label>Surface</label><input type="text" id="cms-model2-surface" value="35m²"></div>
                             <div class="cms-field"><label>Prix</label><input type="text" id="cms-model2-price" value="89 000€"></div>
                             <div class="cms-field"><label>Description courte</label><textarea id="cms-model2-desc" rows="2">T2 lumineux avec séjour ouvert. Parfait pour résidence principale solo ou couple.</textarea></div>
-                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="assets/maison2.jpg" id="preview-model2"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model2')"></div></div>
+                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="../assets/maison2.jpg" id="preview-model2"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model2')"></div></div>
                         </div>
                         <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:15px">
                             <h5 style="margin:0 0 10px">Modèle 3 — Pacific Palissade</h5>
@@ -709,7 +709,7 @@
                             <div class="cms-field"><label>Surface</label><input type="text" id="cms-model3-surface" value="60m²"></div>
                             <div class="cms-field"><label>Prix</label><input type="text" id="cms-model3-price" value="145 000€"></div>
                             <div class="cms-field"><label>Description courte</label><textarea id="cms-model3-desc" rows="2">Villa familiale, 2 chambres, grand séjour et terrasse. Le fleuron de la collection.</textarea></div>
-                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="assets/maison3.jpg" id="preview-model3"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model3')"></div></div>
+                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="../assets/maison3.jpg" id="preview-model3"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model3')"></div></div>
                         </div>
                         <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:15px">
                             <h5 style="margin:0 0 10px">Modèle 4 — Venice</h5>
@@ -717,7 +717,7 @@
                             <div class="cms-field"><label>Surface</label><input type="text" id="cms-model4-surface" value="25m²"></div>
                             <div class="cms-field"><label>Prix</label><input type="text" id="cms-model4-price" value="72 000€"></div>
                             <div class="cms-field"><label>Description courte</label><textarea id="cms-model4-desc" rows="2">Module atypique et créatif. Design artistique inspiré de Venice Beach.</textarea></div>
-                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="assets/photo3.jpeg" id="preview-model4"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model4')"></div></div>
+                            <div class="cms-field"><label>Photo</label><div class="cms-img-box"><img src="../assets/photo3.jpeg" id="preview-model4"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'model4')"></div></div>
                         </div>
                     </div>
                 </div>
@@ -726,7 +726,7 @@
                 <div class="cms-page-section">
                     <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-user"></i> L'Artiste — Daniel Siboni <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
                     <div class="cms-fields">
-                        <div class="cms-field"><label>Photo de Daniel</label><div class="cms-img-box"><img src="assets/daniel siboni.jpg" id="preview-daniel"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'daniel')"></div></div>
+                        <div class="cms-field"><label>Photo de Daniel</label><div class="cms-img-box"><img src="../assets/daniel siboni.jpg" id="preview-daniel"><br><input type="file" accept="image/*" onchange="previewCMSImage(this,'daniel')"></div></div>
                         <div class="cms-field"><label>Titre / Fonction</label><input type="text" id="cms-daniel-title" value="DIRECTION ARTISTIQUE & FONDATEUR"></div>
                         <div class="cms-field"><label>Citation</label><textarea id="cms-daniel-quote" rows="2">L'architecture n'est pas seulement une construction, c'est une mise en scène de la vie.</textarea></div>
                         <div class="cms-field"><label>Biographie</label><textarea id="cms-daniel-bio" rows="5">Photographe de mode de renommée internationale et Directeur Artistique, Daniel Siboni a passé plus de 20 ans aux États-Unis, capturant l'essence du glamour californien.</textarea></div>
@@ -788,20 +788,20 @@
                 <div class="cms-page-section">
                     <h4 onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-images"></i> Liste des Photos du Site <span style="margin-left:auto;color:#888;font-size:0.8rem">cliquez pour ouvrir</span></h4>
                     <div class="cms-fields">
-                        <p style="color:#888;font-size:0.85rem;margin-bottom:15px"><strong>Méthode la plus simple :</strong> Remplacez le fichier dans le dossier <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px">assets/</code> en gardant le même nom. Le site utilisera automatiquement la nouvelle image.</p>
+                        <p style="color:#888;font-size:0.85rem;margin-bottom:15px"><strong>Méthode la plus simple :</strong> Remplacez le fichier dans le dossier <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px">../assets/</code> en gardant le même nom. Le site utilisera automatiquement la nouvelle image.</p>
                         <div style="background:#f8f9fa;padding:15px;border-radius:10px">
                             <table style="width:100%;font-size:0.85rem;border-collapse:collapse">
                                 <tr style="border-bottom:1px solid #eee;font-weight:700"><td style="padding:8px">Fichier</td><td>Utilisé pour</td><td>Taille recommandée</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/logo.jpg</code></td><td>Logo du site (toutes pages)</td><td>200x60px</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/maison1.jpg</code></td><td>Photo Malibu</td><td>800x600px</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/maison2.jpg</code></td><td>Photo Palm Spring</td><td>800x600px</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/maison3.jpg</code></td><td>Photo Pacific Palissade</td><td>800x600px</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/photo3.jpeg</code></td><td>Photo Venice Duplex</td><td>800x600px</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/maison4.jpg</code></td><td>Photo Résidence Senior (2 maisons)</td><td>800x600px</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/daniel siboni.jpg</code></td><td>Portrait Daniel Siboni</td><td>600x800px</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/hero-video.mp4</code></td><td>Vidéo d'accueil</td><td>1920x1080 max 10MB</td></tr>
-                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>assets/inspiration1-5.jpg</code></td><td>Photos slider inspiration</td><td>800x600px</td></tr>
-                                <tr><td style="padding:8px"><code>assets/construction*.jpg</code></td><td>Photos chantier/construction</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/logo.jpg</code></td><td>Logo du site (toutes pages)</td><td>200x60px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/maison1.jpg</code></td><td>Photo Malibu</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/maison2.jpg</code></td><td>Photo Palm Spring</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/maison3.jpg</code></td><td>Photo Pacific Palissade</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/photo3.jpeg</code></td><td>Photo Venice Duplex</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/maison4.jpg</code></td><td>Photo Résidence Senior (2 maisons)</td><td>800x600px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/daniel siboni.jpg</code></td><td>Portrait Daniel Siboni</td><td>600x800px</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/hero-video.mp4</code></td><td>Vidéo d'accueil</td><td>1920x1080 max 10MB</td></tr>
+                                <tr style="border-bottom:1px solid #eee"><td style="padding:8px"><code>../assets/inspiration1-5.jpg</code></td><td>Photos slider inspiration</td><td>800x600px</td></tr>
+                                <tr><td style="padding:8px"><code>../assets/construction*.jpg</code></td><td>Photos chantier/construction</td><td>800x600px</td></tr>
                             </table>
                         </div>
                     </div>

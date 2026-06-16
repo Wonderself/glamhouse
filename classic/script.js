@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
             playPromise.then(_ => {
             }).catch(error => {
                 console.log("Autoplay empêché, chargement de l'image de fond.");
-                document.querySelector('.video-wrapper').style.background = "url('assets/inspiration1.jpg') center/cover no-repeat";
+                document.querySelector('.video-wrapper').style.background = "url('../assets/inspiration1.jpg') center/cover no-repeat";
                 video.style.display = 'none';
             });
         }
 
         video.addEventListener('error', function() {
-            document.querySelector('.video-wrapper').style.background = "url('assets/inspiration1.jpg') center/cover no-repeat";
+            document.querySelector('.video-wrapper').style.background = "url('../assets/inspiration1.jpg') center/cover no-repeat";
             video.style.display = 'none';
         });
     }
@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 try {
                     localStorage.setItem('glamhouse_cms_images', JSON.stringify(images));
                 } catch(ex) {
-                    alert('Image trop volumineuse pour le stockage local. Réduisez la taille ou remplacez le fichier dans assets/.');
+                    alert('Image trop volumineuse pour le stockage local. Réduisez la taille ou remplacez le fichier dans ../assets/.');
                 }
             };
             reader.readAsDataURL(input.files[0]);

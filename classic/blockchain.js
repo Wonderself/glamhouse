@@ -53,7 +53,7 @@
                 totalTokens: 500,
                 description: '8-12 maisons · Colocation retraites',
                 rendement: '5-7%',
-                image: 'assets/maison1.jpg'
+                image: '../assets/maison1.jpg'
             },
             {
                 id: 1,
@@ -63,7 +63,7 @@
                 totalTokens: 2000,
                 description: '15-25 maisons · Village autonome',
                 rendement: '6-8%',
-                image: 'assets/maison2.jpg'
+                image: '../assets/maison2.jpg'
             },
             {
                 id: 2,
@@ -73,7 +73,7 @@
                 totalTokens: 1000,
                 description: '20% du capital · Equity tokens',
                 rendement: 'Variable',
-                image: 'assets/logo.jpg'
+                image: '../assets/logo.jpg'
             }
         ]
     };
