@@ -169,4 +169,67 @@
       }
     });
   });
+
+  /* ============================================================
+     FX avant-gardistes : aurora · grain · curseur · tilt
+     ============================================================ */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  // Aurora (hero + sections .has-grid)
+  const makeAurora = () => {
+    const a = document.createElement('div');
+    a.className = 'aurora';
+    a.innerHTML = '<b></b><b></b><b></b>';
+    a.setAttribute('aria-hidden', 'true');
+    return a;
+  };
+  document.querySelectorAll('.hero, .section.has-grid').forEach((host) => {
+    if (host.querySelector(':scope > .aurora')) return;
+    host.insertBefore(makeAurora(), host.firstChild);
+  });
+
+  // Grain overlay
+  if (!document.querySelector('.fx-grain')) {
+    const g = document.createElement('div');
+    g.className = 'fx-grain';
+    g.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(g);
+  }
+
+  // Cursor glow
+  if (!coarse && !reduced) {
+    const c = document.createElement('div');
+    c.className = 'fx-cursor';
+    c.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(c);
+    let tx = -9999, ty = -9999, cx = -9999, cy = -9999, raf;
+    const loop = () => {
+      cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
+      c.style.setProperty('--mx', cx + 'px');
+      c.style.setProperty('--my', cy + 'px');
+      raf = requestAnimationFrame(loop);
+    };
+    window.addEventListener('pointermove', (e) => {
+      tx = e.clientX; ty = e.clientY;
+      if (!raf) raf = requestAnimationFrame(loop);
+    }, { passive: true });
+  }
+
+  // Tilt 3D des cadres média
+  if (!coarse && !reduced) {
+    document.querySelectorAll('.render-slot, .video-tile').forEach((el) => {
+      el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        el.classList.add('tilting');
+        el.style.transform = 'perspective(1000px) rotateX(' + (-py * 6).toFixed(2) + 'deg) rotateY(' + (px * 7).toFixed(2) + 'deg)';
+      });
+      el.addEventListener('pointerleave', () => {
+        el.classList.remove('tilting');
+        el.style.transform = '';
+      });
+    });
+  }
 })();
