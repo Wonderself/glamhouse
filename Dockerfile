@@ -6,21 +6,15 @@ RUN rm /etc/nginx/conf.d/default.conf
 # Copier notre config Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copier le site entier
+# Copier le site entier (nouvelle arborescence : page de choix + 2 versions)
+# - index.html  : page d'entree (choix Classic / Moderne)
+# - assets/     : medias partages par les deux versions
+# - classic/    : version d'origine complete (HTML/CSS/JS + contracts)
+# - modern/     : nouvelle edition (design tech, emplacements images)
 COPY index.html /usr/share/nginx/html/
-COPY admin.html /usr/share/nginx/html/
-COPY aides.html /usr/share/nginx/html/
-COPY artiste.html /usr/share/nginx/html/
-COPY collection.html /usr/share/nginx/html/
-COPY construction.html /usr/share/nginx/html/
-COPY investir.html /usr/share/nginx/html/
-COPY projets.html /usr/share/nginx/html/
-COPY tokenisation.html /usr/share/nginx/html/
-COPY style.css /usr/share/nginx/html/
-COPY script.js /usr/share/nginx/html/
-COPY blockchain.js /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
-COPY contracts/ /usr/share/nginx/html/contracts/
+COPY classic/ /usr/share/nginx/html/classic/
+COPY modern/ /usr/share/nginx/html/modern/
 
 EXPOSE 80
 
