@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos Projets — MyGlamHouse</title>
+<meta name="description" content="Trois façons de vivre et d'investir avec MyGlamHouse : Ma Maison Personnalisée, la Résidence Senior en Normandie et l'ÉcoVillage nouvelle génération. Achat classique ou tokenisation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&family=Fraunces:ital,opsz,wght@1,9..144,400;0,9..144,400&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="modern.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+<style>
+  .project-block + .project-block { margin-top: clamp(80px,11vw,170px); padding-top: clamp(80px,11vw,170px); border-top: 1px solid var(--line); }
+  .aides-table { width:100%; border-collapse:collapse; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  .aides-table th, .aides-table td { text-align:left; padding:16px 18px; border-bottom:1px solid var(--line); font-size:0.92rem; color:var(--mute); vertical-align:top; }
+  .aides-table th { font-family:var(--mono); font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); background:rgba(86,225,255,0.05); }
+  .aides-table td strong { color:var(--text); font-weight:600; }
+  .aides-table .amount { font-family:var(--mono); color:var(--accent); white-space:nowrap; }
+  .aides-table tr.total td { background:rgba(86,225,255,0.07); border-bottom:none; }
+  .aides-table tr.total td strong { color:var(--accent); font-size:1.1rem; }
+  .compare-table { width:100%; border-collapse:collapse; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  .compare-table th, .compare-table td { text-align:left; padding:15px 16px; border-bottom:1px solid var(--line); border-right:1px solid var(--line-2); font-size:0.9rem; color:var(--mute); }
+  .compare-table thead th { font-family:var(--mono); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); background:rgba(86,225,255,0.05); }
+  .compare-table td:first-child, .compare-table th:first-child { font-family:var(--mono); font-size:0.74rem; color:var(--text); }
+  .compare-table td:first-child strong { color:var(--text); }
+  .compare-table .yes { color:var(--accent); }
+  .compare-table .no { color:var(--mute); opacity:0.5; }
+  .table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav__brand" href="index.html"><img src="../assets/logo.jpg" alt="MyGlamHouse"><span class="name">MY<b>GLAM</b>HOUSE</span></a>
+  <ul class="nav__links">
+    <li><a href="artiste.html">L'Artiste</a></li>
+    <li><a href="construction.html">Construction</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li class="nav__drop"><a href="projets.html">Projets ▾</a>
+      <div class="nav__menu">
+        <a href="projets.html#maison-perso"><i class="fas fa-home"></i> Ma Maison Perso</a>
+        <a href="projets.html#senior-normandie"><i class="fas fa-heart"></i> Résidence Senior</a>
+        <a href="projets.html#ecovillage"><i class="fas fa-leaf"></i> ÉcoVillage</a>
+      </div>
+    </li>
+    <li><a href="tokenisation.html">Tokenisation</a></li>
+    <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
+  </ul>
+  <div class="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <a href="artiste.html">L'Artiste</a><a href="construction.html">Construction</a><a href="collection.html">Collection</a><a href="projets.html">Projets</a><a href="tokenisation.html">Tokenisation</a><a href="index.html#contact">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<header class="section section--dark has-grid" style="padding-top:clamp(150px,16vw,220px)">
+  <div class="container">
+    <div class="eyebrow" data-reveal><span class="num">2026</span><span class="line"></span><span class="txt">3 formules d'investissement</span></div>
+    <h1 style="font-size:clamp(2.6rem,8vw,6.5rem);max-width:15ch" data-reveal>Choisissez votre <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--accent);text-shadow:0 0 40px var(--glow)">projet</span>.</h1>
+    <p style="color:var(--mute);max-width:64ch;margin-top:26px;font-size:1.15rem" data-reveal data-delay="1">Une maison individuelle, un projet de colocation senior en Normandie, ou un écovillage nouvelle génération. Trois façons de vivre — et d'investir — avec MyGlamHouse.</p>
+    <div class="hero__tags" data-reveal data-delay="2" style="margin-top:30px">
+      <span>Tokenisation optionnelle</span><span>Paiement classique accepté</span><span>Aides cumulables</span><span>Matériaux ÉCOLABEL</span>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>Tokenisation optionnelle</span><span>Paiement par virement</span><span>Blockchain sécurisée</span><span>Aides d'État cumulables</span><span>Matériaux ÉCOLABEL</span><span>Fabrication 100% française</span>
+    <span>Tokenisation optionnelle</span><span>Paiement par virement</span><span>Blockchain sécurisée</span><span>Aides d'État cumulables</span><span>Matériaux ÉCOLABEL</span><span>Fabrication 100% française</span>
+  </div>
+</div>
+
+<!-- ========================================================= -->
+<!-- OPTION 1 — MAISON PERSONNALISÉE -->
+<!-- ========================================================= -->
+<section class="section section--dark" id="maison-perso">
+  <div class="container">
+    <div class="project-block" data-reveal>
+      <div class="section-head">
+        <div class="eyebrow"><span class="num">01</span><span class="line"></span><span class="txt">Option 1 · Individuel</span></div>
+        <h2>Ma Maison Personnalisée</h2>
+        <p>Achetez seul(e) ou à plusieurs — votre maison écologique sur mesure.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature__media"><img src="../assets/maison1.jpg" alt="Maison personnalisée MyGlamHouse" class="zoomable"></div>
+        <div>
+          <h3>Votre maison, votre vision</h3>
+          <p>Choisissez parmi nos 4 modèles de base — Malibu, Palm Spring, Pacific Palisades, Venice — et personnalisez chaque détail : surface, agencement, finitions, équipements.</p>
+          <div class="info-banner" style="margin:24px 0">
+            <i class="fas fa-lightbulb"></i>
+            <p><strong>Achat groupé possible :</strong> regroupez-vous à 2, 3 ou 4 pour acheter ensemble sur un même terrain et bénéficier d'économies d'échelle importantes — jusqu'à -15% sur les fondations et raccordements.</p>
+          </div>
+          <h4 style="font-size:1.1rem;margin-top:10px">Ce qui est inclus</h4>
+          <ul class="check">
+            <li><i class="fas fa-check"></i> Étude personnalisée du projet avec architecte</li>
+            <li><i class="fas fa-check"></i> Plans 3D de votre maison avant fabrication</li>
+            <li><i class="fas fa-check"></i> Fabrication en atelier certifié <strong>ÉCOLABEL</strong></li>
+            <li><i class="fas fa-check"></i> Transport et assemblage sur site <strong>(1,5 à 4 mois)</strong></li>
+            <li><i class="fas fa-check"></i> Garantie décennale et assurance dommages-ouvrage</li>
+            <li><i class="fas fa-check"></i> Accompagnement aides et subventions <span class="tip" tabindex="0">?<span class="tip__box">Nous vous aidons à identifier et obtenir toutes les aides auxquelles vous avez droit : MaPrimeRénov', Éco-PTZ, TVA réduite, aides locales, etc.</span></span></li>
+          </ul>
+          <a href="collection.html" class="link-arrow" style="margin-top:6px">Voir les 4 modèles de base <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- PLAN 3D PLACEHOLDER -->
+      <figure class="render-slot render-slot--wide" data-reveal style="margin-top:clamp(28px,4vw,56px)">
+        <span class="render-slot__tag">Plan 3D · Maison personnalisée</span><span class="render-slot__frame"></span>
+        <img src="../assets/render-maison-perso.jpg" alt="Plan 3D maison personnalisée" onerror="this.style.display='none'">
+        <figcaption class="ph"><i class="fas fa-cube"></i><b>Emplacement visuel</b><small>Banana Pro → ../assets/render-maison-perso.jpg</small></figcaption>
+      </figure>
+
+      <!-- PRIX & AIDES -->
+      <div class="panel" data-reveal style="margin-top:clamp(28px,4vw,56px)">
+        <h3><i class="fas fa-calculator"></i> Budget &amp; aides — exemple chiffré</h3>
+        <p style="margin-bottom:24px">À partir du module Malibu 20 m² (59 000€), voici un exemple de budget après déduction des aides cumulables.</p>
+        <div class="stats">
+          <div class="stat"><div class="v"><span data-count="67">0</span>K€</div><div class="l">Prix total estimé</div></div>
+          <div class="stat"><div class="v"><span class="accent" data-count="52">0</span>K€</div><div class="l">Après aides</div></div>
+          <div class="stat"><div class="v"><span class="accent" data-count="15">0</span>K€</div><div class="l">Économie estimée</div></div>
+          <div class="stat"><div class="v"><span data-count="0">0</span>%</div><div class="l">Éco-PTZ — taux zéro</div></div>
+        </div>
+        <hr class="hr">
+        <div class="note">
+          <i class="fas fa-piggy-bank"></i>
+          <p><strong>Aides estimées :</strong> MaPrimeRénov' jusqu'à 10 000€ · Éco-PTZ prêt à taux zéro jusqu'à 50 000€ · TVA réduite 5,5% (économie ~3 000€) · Exonération de taxe foncière pendant 2 ans. Les aides varient selon votre zone géographique (A, B1, B2, C) et votre situation.</p>
+        </div>
+      </div>
+
+      <!-- TOKENISATION OPTION -->
+      <div class="panel" data-reveal data-delay="1" style="margin-top:24px">
+        <h3><i class="fas fa-coins"></i> Option tokenisation</h3>
+        <p>Vous pouvez aussi acquérir des parts de cette maison via la blockchain. Idéal pour un achat à plusieurs ou un investissement locatif partagé. <strong>Pensez-y comme de la copropriété numérique.</strong></p>
+        <div class="note" style="margin-top:18px"><i class="fas fa-university"></i><p><strong>Paiement classique disponible :</strong> vous pouvez bien sûr acheter votre maison par virement bancaire ou crédit immobilier classique. La tokenisation est 100% optionnelle.</p></div>
+        <a href="tokenisation.html" class="btn btn--accent" style="margin-top:24px">Découvrir la tokenisation <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- OPTION 2 — RÉSIDENCE SENIOR NORMANDIE -->
+<!-- ========================================================= -->
+<section class="section section--ink2 has-grid" id="senior-normandie">
+  <div class="container">
+    <div class="project-block" data-reveal>
+      <div class="section-head">
+        <div class="eyebrow"><span class="num">02</span><span class="line"></span><span class="txt">Option 2 · Projet collectif</span></div>
+        <h2>Résidence Senior — Normandie</h2>
+        <p>Un village de colocation pour retraités, écologique et solidaire.</p>
+      </div>
+
+      <div class="feature feature--rev">
+        <div class="feature__media"><img src="../assets/maison4.jpg" alt="Résidence senior Normandie" class="zoomable"></div>
+        <div>
+          <h3>Vieillir ensemble, autrement</h3>
+          <p>Un ensemble de 8 à 12 maisons GlamHouse regroupées autour d'espaces communs — salle polyvalente, jardin partagé, potager, salle de sport douce — dans un cadre verdoyant de Normandie.</p>
+          <p>Chaque résident possède <strong>sa propre maison indépendante</strong> tout en bénéficiant d'une vie communautaire riche et sécurisée : personnel soignant mutualisé, activités partagées, entraide naturelle.</p>
+          <div class="info-banner" style="margin:24px 0">
+            <i class="fas fa-hand-holding-heart"></i>
+            <p><strong>Aides spécifiques senior :</strong> APA (Allocation Personnalisée d'Autonomie), aides CARSAT pour l'adaptation du logement, aides départementales Normandie, TVA réduite habitat inclusif. <a href="aides.html" class="link-arrow" style="display:inline-flex;margin-top:8px">Voir toutes les aides <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- POINTS FORTS + PLAN VILLAGE -->
+      <div class="feature" data-reveal style="margin-top:clamp(40px,6vw,90px)">
+        <div>
+          <h4 style="font-size:1.3rem;margin-bottom:18px">Points forts du projet</h4>
+          <ul class="check">
+            <li><i class="fas fa-check"></i> Maisons de plain-pied <strong>adaptées PMR</strong> <span class="tip" tabindex="0">?<span class="tip__box">Personne à Mobilité Réduite : douche italienne, portes larges, pas de seuils, barres d'appui, volets automatisés.</span></span></li>
+            <li><i class="fas fa-check"></i> Espaces communs mutualisés (cuisine partagée, salle d'activité)</li>
+            <li><i class="fas fa-check"></i> Terrain en Normandie — prix au m² très bas <span class="tip" tabindex="0">?<span class="tip__box">En Normandie rurale, le terrain constructible peut descendre à 15-30€/m² selon les communes. Nous ciblons des communes éligibles aux subventions écologiques.</span></span></li>
+            <li><i class="fas fa-check"></i> Accompagnement pour monter le dossier auprès du maire</li>
+            <li><i class="fas fa-check"></i> Domotique intégrée et bouton d'alerte médicale</li>
+            <li><i class="fas fa-check"></i> Personnel soignant partagé à moindre coût</li>
+            <li><i class="fas fa-check"></i> Panneaux solaires partagés — autonomie énergétique</li>
+          </ul>
+        </div>
+        <figure class="render-slot render-slot--wide">
+          <span class="render-slot__tag">Plan du village · 8-12 maisons</span><span class="render-slot__frame"></span>
+          <img src="../assets/render-village-senior.jpg" alt="Plan du village senior" onerror="this.style.display='none'">
+          <figcaption class="ph"><i class="fas fa-map"></i><b>Emplacement visuel</b><small>Banana Pro → ../assets/render-village-senior.jpg</small></figcaption>
+        </figure>
+      </div>
+
+      <!-- FINANCEMENT -->
+      <div data-reveal style="margin-top:clamp(40px,6vw,90px)">
+        <div class="eyebrow"><span class="num">02.1</span><span class="line"></span><span class="txt">Financement &amp; tokenisation</span></div>
+        <div class="stats" style="margin-top:30px">
+          <div class="stat"><div class="v">8<span class="accent">–12</span></div><div class="l">Maisons prévues</div></div>
+          <div class="stat"><div class="v"><span class="accent" data-count="890">0</span>K€</div><div class="l">Budget total estimé</div></div>
+          <div class="stat"><div class="v"><span data-count="500">0</span></div><div class="l">Tokens disponibles</div></div>
+          <div class="stat"><div class="v">1 780<span class="accent">€</span></div><div class="l">Prix par token</div></div>
+        </div>
+
+        <div class="panel" style="margin-top:36px">
+          <div class="progress">
+            <div class="progress__row"><span>Financement en cours</span><b>35% atteint</b></div>
+            <div class="progress__bar"><div class="progress__fill" data-pct="35" style="width:0"></div></div>
+            <div class="progress__row" style="margin-top:10px;margin-bottom:0"><span>0€</span><span>Objectif : 890 000€</span></div>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:24px">
+            <a href="tokenisation.html#projet-normandie" class="btn btn--accent">Investir dans ce projet <i class="fas fa-arrow-right"></i></a>
+            <span class="mono-label" style="color:var(--mute)">Minimum 1 token (1 780€) · rendement locatif estimé 5-7%/an</span>
+          </div>
+          <div class="note" style="margin-top:20px"><i class="fas fa-university"></i><p><strong>Vous pouvez aussi investir par virement bancaire classique.</strong> La tokenisation via blockchain est une option innovante mais pas obligatoire. Contactez-nous pour un devis classique.</p></div>
+        </div>
+      </div>
+
+      <!-- DOSSIER MAIRE -->
+      <div class="panel" data-reveal data-delay="1" style="margin-top:24px">
+        <h3><i class="fas fa-file-alt"></i> Nous montons le dossier pour le Maire</h3>
+        <p style="margin-bottom:24px">Pour obtenir un terrain à prix réduit, nous préparons un dossier complet pour la mairie qui inclut :</p>
+        <div class="render-grid">
+          <ul class="check" style="margin:0">
+            <li><i class="fas fa-file-contract"></i> Dossier de subvention <strong>DETR</strong> <span class="tip" tabindex="0">?<span class="tip__box">Dotation d'Équipement des Territoires Ruraux : subvention de l'État pour les communes rurales qui développent des équipements collectifs. Peut financer jusqu'à 80% du coût du terrain.</span></span></li>
+            <li><i class="fas fa-file-contract"></i> Argumentaire écologique complet</li>
+            <li><i class="fas fa-file-contract"></i> Étude d'impact environnemental positive</li>
+            <li><i class="fas fa-file-contract"></i> Projet d'insertion et d'emploi local</li>
+          </ul>
+          <ul class="check" style="margin:0">
+            <li><i class="fas fa-file-contract"></i> Plan de financement détaillé</li>
+            <li><i class="fas fa-file-contract"></i> Conformité PLU et règles d'urbanisme</li>
+            <li><i class="fas fa-file-contract"></i> Certification ÉCOLABEL des matériaux</li>
+            <li><i class="fas fa-file-contract"></i> Calendrier de construction réaliste</li>
+          </ul>
+        </div>
+        <div class="info-banner" style="margin-top:24px">
+          <i class="fas fa-info-circle"></i>
+          <p>En échange de la création d'un projet écologique et social sur sa commune, le maire peut obtenir des subventions (DETR, Fonds Vert, DSIL) qui couvrent l'acquisition du terrain, et le céder à prix symbolique ou via un bail emphytéotique de 99 ans.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- OPTION 3 — ÉCOVILLAGE -->
+<!-- ========================================================= -->
+<section class="section section--dark" id="ecovillage">
+  <div class="container">
+    <div class="project-block" data-reveal>
+      <div class="section-head">
+        <div class="eyebrow"><span class="num">03</span><span class="line"></span><span class="txt">Option 3 · Projet phare</span></div>
+        <h2>ÉcoVillage Nouvelle Génération</h2>
+        <p>Un village écologique ultra-moderne avec un maximum d'aides de l'État.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature__media"><img src="../assets/maison2.jpg" alt="ÉcoVillage MyGlamHouse" class="zoomable"></div>
+        <div>
+          <h3>L'ÉcoVillage du futur, aujourd'hui</h3>
+          <p>Un ensemble de 15 à 25 maisons GlamHouse intégrées dans un écovillage autonome en énergie, avec potager commun, espace de coworking, mobilité douce et gouvernance partagée.</p>
+          <p>Ce projet bénéficie du <strong>maximum d'aides cumulables</strong> grâce à son statut d'écovillage : Fonds Vert, ADEME, subventions régionales, aide à l'habitat participatif, et bien plus.</p>
+          <div class="info-banner" style="margin:24px 0">
+            <i class="fas fa-euro-sign"></i>
+            <p><strong>Jusqu'à 45% du projet financé par les aides !</strong> Entre le Fonds Vert (transition écologique), l'ADEME (autonomie énergétique), les subventions régionales et les avantages fiscaux, le coût réel pour chaque résident peut être réduit de façon spectaculaire.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPREND + PLAN -->
+      <div class="feature feature--rev" data-reveal style="margin-top:clamp(40px,6vw,90px)">
+        <div>
+          <h4 style="font-size:1.3rem;margin-bottom:18px">L'ÉcoVillage comprend</h4>
+          <ul class="check">
+            <li><i class="fas fa-solar-panel"></i> Panneaux solaires collectifs — <strong>autonomie électrique 80%</strong> <span class="tip" tabindex="0">?<span class="tip__box">Installation solaire mutualisée : coût partagé entre tous les résidents, avec revente du surplus à EDF OA (Obligation d'Achat). Aide ADEME : jusqu'à 10 000€/installation.</span></span></li>
+            <li><i class="fas fa-tint"></i> Récupération d'eau de pluie et phytoépuration</li>
+            <li><i class="fas fa-leaf"></i> Potager permaculture partagé de 2000 m²</li>
+            <li><i class="fas fa-laptop-house"></i> Espace coworking / fablab communautaire</li>
+            <li><i class="fas fa-bicycle"></i> Mobilité douce : vélos électriques partagés, bornes de recharge</li>
+            <li><i class="fas fa-wifi"></i> Fibre optique + domotique complète dans chaque maison</li>
+            <li><i class="fas fa-users"></i> Gouvernance participative et assemblée des résidents</li>
+            <li><i class="fas fa-shield-alt"></i> Sécurité connectée et monitoring énergétique</li>
+          </ul>
+          <div class="info-banner" style="margin-top:22px">
+            <i class="fas fa-fire"></i>
+            <p><strong>Projet phare — places limitées.</strong> Ce projet est notre vitrine technologique et écologique. Seulement 25 maisons disponibles. Les premiers investisseurs bénéficient d'un tarif early-bird et d'une place garantie dans la gouvernance du village.</p>
+          </div>
+        </div>
+        <figure class="render-slot render-slot--wide">
+          <span class="render-slot__tag">Vue d'ensemble · ÉcoVillage</span><span class="render-slot__frame"></span>
+          <img src="../assets/render-ecovillage.jpg" alt="Vue d'ensemble de l'écovillage" onerror="this.style.display='none'">
+          <figcaption class="ph"><i class="fas fa-cube"></i><b>Emplacement visuel</b><small>Banana Pro → ../assets/render-ecovillage.jpg</small></figcaption>
+        </figure>
+      </div>
+
+      <!-- FINANCEMENT -->
+      <div data-reveal style="margin-top:clamp(40px,6vw,90px)">
+        <div class="eyebrow"><span class="num">03.1</span><span class="line"></span><span class="txt">Investissement &amp; tokenisation</span></div>
+        <div class="stats" style="margin-top:30px">
+          <div class="stat"><div class="v">15<span class="accent">–25</span></div><div class="l">Maisons prévues</div></div>
+          <div class="stat"><div class="v"><span class="accent" data-count="28">0</span>M€<span style="font-size:1rem;opacity:.7"> (2,8)</span></div><div class="l">Budget total estimé</div></div>
+          <div class="stat"><div class="v"><span data-count="2000">0</span></div><div class="l">Tokens disponibles</div></div>
+          <div class="stat"><div class="v">1 400<span class="accent">€</span></div><div class="l">Prix par token</div></div>
+        </div>
+
+        <div class="panel" style="margin-top:36px">
+          <div class="progress">
+            <div class="progress__row"><span>Financement en cours</span><b>12% atteint</b></div>
+            <div class="progress__bar"><div class="progress__fill" data-pct="12" style="width:0"></div></div>
+            <div class="progress__row" style="margin-top:10px;margin-bottom:0"><span>0€</span><span>Objectif : 2 800 000€</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AIDES CUMULÉES -->
+      <div class="panel" data-reveal data-delay="1" style="margin-top:24px">
+        <h3><i class="fas fa-gift"></i> Aides cumulées estimées par maison</h3>
+        <div class="table-scroll" style="margin-top:18px">
+          <table class="aides-table">
+            <thead>
+              <tr><th>Aide</th><th>Montant estimé</th><th>Conditions</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>MaPrimeRénov'</strong> <span class="tip" tabindex="0">?<span class="tip__box">Pour les constructions bois neuves labellisées, MaPrimeRénov' peut s'appliquer pour la partie performance énergétique.</span></span></td><td class="amount">5 000 — 10 000€</td><td>Revenus modestes à intermédiaires</td></tr>
+              <tr><td><strong>Éco-PTZ</strong> <span class="tip" tabindex="0">?<span class="tip__box">Prêt à Taux Zéro pour travaux d'économie d'énergie. Jusqu'à 50 000€ remboursables sur 20 ans sans intérêts.</span></span></td><td class="amount">Jusqu'à 50 000€</td><td>Sans condition de revenus</td></tr>
+              <tr><td><strong>TVA réduite 5,5%</strong></td><td class="amount">~4 000 — 8 000€</td><td>Travaux d'amélioration énergétique</td></tr>
+              <tr><td><strong>Fonds Vert</strong> <span class="tip" tabindex="0">?<span class="tip__box">Programme national de 2 milliards€ pour financer les projets de transition écologique des collectivités. L'écovillage peut bénéficier du Fonds Vert via la commune.</span></span></td><td class="amount">Subvention commune</td><td>Via la mairie — projet écologique</td></tr>
+              <tr><td><strong>ADEME — Solaire</strong></td><td class="amount">5 000 — 10 000€</td><td>Installation solaire collective</td></tr>
+              <tr><td><strong>Exonération taxe foncière</strong></td><td class="amount">2 ans minimum</td><td>Construction neuve écologique</td></tr>
+              <tr><td><strong>Aide habitat participatif</strong> <span class="tip" tabindex="0">?<span class="tip__box">La loi ALUR de 2014 reconnaît l'habitat participatif. Certaines régions proposent des aides spécifiques (jusqu'à 5 000€/logement).</span></span></td><td class="amount">2 000 — 5 000€</td><td>Projet reconnu participatif</td></tr>
+              <tr class="total"><td><strong>TOTAL AIDES ESTIMÉ</strong></td><td class="amount"><strong>20 000 — 40 000€</strong></td><td><em>Par maison, selon profil</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:28px">
+          <a href="tokenisation.html#projet-ecovillage" class="btn btn--accent">Investir dans l'ÉcoVillage <i class="fas fa-arrow-right"></i></a>
+          <a href="aides.html" class="btn btn--ghost">Voir toutes les aides</a>
+        </div>
+        <div class="note" style="margin-top:20px"><i class="fas fa-university"></i><p><strong>Investissement par virement bancaire aussi possible.</strong> Si la blockchain et les tokens ne sont pas votre truc, pas de problème ! Nous acceptons les virements bancaires et proposons un accompagnement classique pour votre investissement.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- COMPARATIF DES 3 FORMULES -->
+<!-- ========================================================= -->
+<section class="section section--light has-grid">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="num">04</span><span class="line"></span><span class="txt">Comparatif</span></div>
+      <h2>Comparer les 3 formules</h2>
+      <p>Trouvez le projet qui correspond à votre situation.</p>
+    </div>
+    <div class="table-scroll" data-reveal>
+      <table class="compare-table">
+        <thead>
+          <tr><th>Critère</th><th>Maison Perso</th><th>Résidence Senior</th><th>ÉcoVillage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>À partir de</strong></td><td>59 000€</td><td>1 780€/token</td><td>1 400€/token</td></tr>
+          <tr><td><strong>Achat complet possible</strong></td><td class="yes"><i class="fas fa-check"></i> Oui</td><td class="yes"><i class="fas fa-check"></i> Oui</td><td class="yes"><i class="fas fa-check"></i> Oui</td></tr>
+          <tr><td><strong>Tokenisation</strong></td><td class="yes"><i class="fas fa-check"></i> Optionnelle</td><td class="yes"><i class="fas fa-check"></i> Optionnelle</td><td class="yes"><i class="fas fa-check"></i> Optionnelle</td></tr>
+          <tr><td><strong>Espaces communs</strong></td><td class="no"><i class="fas fa-times"></i></td><td class="yes"><i class="fas fa-check"></i> Oui</td><td class="yes"><i class="fas fa-check"></i> Oui+++</td></tr>
+          <tr><td><strong>Aides cumulables</strong></td><td>15 000 — 25 000€</td><td>20 000 — 35 000€</td><td>20 000 — 40 000€</td></tr>
+          <tr><td><strong>Autonomie énergétique</strong></td><td>Option solaire</td><td>Solaire partagé</td><td class="yes"><i class="fas fa-check"></i> 80%+ autonome</td></tr>
+          <tr><td><strong>Rendement locatif estimé</strong></td><td>4-6%/an</td><td>5-7%/an</td><td>6-8%/an</td></tr>
+          <tr><td><strong>Terrain via commune</strong></td><td class="no"><i class="fas fa-times"></i></td><td class="yes"><i class="fas fa-check"></i> Dossier DETR</td><td class="yes"><i class="fas fa-check"></i> Fonds Vert</td></tr>
+          <tr><td><strong>Idéal pour</strong></td><td>Particuliers, familles</td><td>Retraités, investisseurs</td><td>Tous profils, pionniers</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- SCALING -->
+<!-- ========================================================= -->
+<section class="section section--ink2 has-grid">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="num">05</span><span class="line"></span><span class="txt">Croissance</span></div>
+      <h2>Une entreprise qui grandit avec la demande</h2>
+      <p>Notre modèle industriel est conçu pour scaler rapidement et efficacement.</p>
+    </div>
+    <div class="stats" data-reveal>
+      <div class="stat"><div class="v"><span class="accent" data-count="20">0</span></div><div class="l">Maisons — pipeline 2026</div></div>
+      <div class="stat"><div class="v"><span data-count="50">0</span></div><div class="l">Maisons — objectif 2027</div></div>
+      <div class="stat"><div class="v"><span data-count="150">0</span></div><div class="l">Maisons — vision 2028</div></div>
+      <div class="stat"><div class="v"><span class="accent" data-count="3">0</span></div><div class="l">Projets collectifs en cours</div></div>
+    </div>
+    <div class="statement" data-reveal data-delay="1" style="margin-top:clamp(48px,6vw,80px)">
+      <div class="statement__big">MyGlamHouse est une entreprise <em>modulable</em> par nature.</div>
+      <div class="statement__body">
+        <p>Notre système de préfabrication en atelier nous permet d'augmenter la capacité de production en ajoutant des lignes de fabrication selon la demande. En 2026, nous pouvons encore intégrer <strong>20 maisons dans notre pipeline</strong>.</p>
+        <p>Dès 2027, notre nouvel atelier portera la capacité à <strong>50 maisons par an</strong>, avec un objectif de 150+ pour 2028.</p>
+        <a href="investir.html" class="btn btn--accent" style="margin-top:10px">Investir dans MyGlamHouse <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div data-reveal>
+        <h3>Choisir votre projet.</h3>
+        <p style="margin-bottom:28px;max-width:42ch">Maison individuelle, résidence senior ou écovillage — dites-nous ce qui vous fait rêver, nous l'adaptons à votre terrain et votre budget.</p>
+        <a href="index.html#contact" class="btn btn--accent">Nous contacter <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div data-reveal data-delay="1">
+        <img src="../assets/logo.jpg" alt="MyGlamHouse" class="footer__logo">
+        <div class="footer__cols">
+          <div class="footer__col"><h5>Explorer</h5><a href="collection.html">Collection</a><a href="projets.html">Projets</a><a href="construction.html">Construction</a><a href="artiste.html">L'Artiste</a></div>
+          <div class="footer__col"><h5>Investir</h5><a href="tokenisation.html">Tokenisation</a><a href="investir.html">Investir</a><a href="aides.html">Aides</a><a href="../classic/index.html">Version Classic</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© 2023-2026 MyGlamHouse.fr</span><span>Finitions haute qualité</span><span>100% Start-up Française</span></div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox"><span class="close">&times;</span><img alt=""></div>
+<script src="modern.js"></script>
+</body>
+</html>
