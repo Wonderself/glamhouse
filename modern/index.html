@@ -13,6 +13,15 @@
 </head>
 <body>
 
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <div class="loader__row"><b>MYGLAMHOUSE</b><span>Édition 2026</span></div>
+    <div class="loader__row"><span>Chargement</span><span class="loader__pct" data-loader>0%</span></div>
+    <div class="loader__bar"><i></i></div>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav class="nav">
   <a class="nav__brand" href="index.html">
@@ -87,7 +96,7 @@
 </div>
 
 <!-- STATEMENT -->
-<section class="section section--light">
+<section class="section section--dark has-grid">
   <div class="container">
     <div class="statement">
       <div data-reveal>
@@ -145,38 +154,27 @@
   <div class="container">
     <div class="statement" style="align-items:center">
       <div data-reveal>
-        <div class="eyebrow"><span class="num">03</span><span class="line"></span><span class="txt">Plans 3D</span></div>
+        <div class="eyebrow"><span class="num">03</span><span class="line"></span><span class="txt">Visualisation</span></div>
         <h2 style="font-size:clamp(2.2rem,5vw,4rem)">Visualisez votre maison<br>avant qu'elle existe.</h2>
-        <p style="color:var(--ink-mute);margin-top:24px;max-width:48ch">Chaque modèle est livré avec une maquette 3D interactive et des plans architecturaux détaillés. Faites tourner le volume, explorez les pièces, projetez-vous.</p>
+        <p style="color:var(--mute);margin-top:24px;max-width:48ch">Chaque modèle est présenté en rendus haute définition et visuels d'ambiance. Explorez les volumes, les matériaux et la lumière — projetez-vous.</p>
         <ul class="check" style="margin-top:30px;max-width:440px">
-          <li><i class="fas fa-cube"></i> Maquette 3D rotative de chaque modèle</li>
-          <li><i class="fas fa-ruler-combined"></i> Plans cotés, pièce par pièce</li>
-          <li><i class="fas fa-solar-panel"></i> Panneaux solaires & toiture végétalisée intégrés</li>
+          <li><i class="fas fa-cube"></i> Rendus 3D extérieurs &amp; intérieurs</li>
+          <li><i class="fas fa-ruler-combined"></i> Volumes et agencements pièce par pièce</li>
+          <li><i class="fas fa-solar-panel"></i> Panneaux solaires &amp; toiture végétalisée intégrés</li>
         </ul>
-        <a href="collection.html#plans" class="btn btn--accent" style="margin-top:14px">Explorer les plans 3D <i class="fas fa-arrow-right"></i></a>
+        <a href="collection.html" class="btn btn--accent" style="margin-top:14px">Explorer la collection <i class="fas fa-arrow-right"></i></a>
       </div>
       <div data-reveal data-delay="1">
-        <div class="house3d-stage">
-          <span class="pill house3d-badge">Modèle Malibu · 68 m²</span>
-          <div class="house3d spin">
-            <div class="face h-ground"></div>
-            <div class="face h-deck"></div>
-            <div class="face h-box">
-              <div class="s top"></div>
-              <div class="s back"></div>
-              <div class="s right"></div>
-              <div class="s left"><span class="win"></span></div>
-              <div class="s front"><span class="win a"></span><span class="win b"></span><span class="win c"></span></div>
-            </div>
-            <div class="face h-roof"><span class="sky"></span><span class="panel"></span></div>
-          </div>
-          <div class="house3d-ui">
-            <button data-rot="-45" aria-label="Tourner à gauche"><i class="fas fa-rotate-left"></i></button>
-            <button data-spin aria-label="Rotation auto"><i class="fas fa-arrows-spin"></i></button>
-            <button data-rot="45" aria-label="Tourner à droite"><i class="fas fa-rotate-right"></i></button>
-          </div>
-        </div>
-        <p class="mono-label center" style="color:var(--ink-mute);margin-top:10px">Glissez pour faire pivoter ·  maquette indicative</p>
+        <figure class="render-slot render-slot--wide">
+          <span class="render-slot__tag">Rendu · Malibu</span>
+          <span class="render-slot__frame"></span>
+          <img src="../assets/render-malibu.jpg" alt="Rendu 3D Malibu" onerror="this.style.display='none'">
+          <figcaption class="ph">
+            <i class="fas fa-cube"></i>
+            <b>Emplacement rendu 3D</b>
+            <small>Glissez ici votre visuel généré (Banana Pro) — fichier ../assets/render-malibu.jpg</small>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </div>

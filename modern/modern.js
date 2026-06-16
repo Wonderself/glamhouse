@@ -90,43 +90,21 @@
     });
   }
 
-  /* ---- 3D house: rotate controls ---- */
-  document.querySelectorAll('.house3d-stage').forEach((stage) => {
-    const house = stage.querySelector('.house3d');
-    if (!house) return;
-    let rot = 45;
-    let spinning = true;
-    const apply = () => {
-      house.classList.remove('spin');
-      spinning = false;
-      house.style.setProperty('--rotZ', rot + 'deg');
-    };
-    stage.querySelectorAll('[data-rot]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        rot += parseInt(btn.dataset.rot, 10);
-        apply();
-      });
-    });
-    const spinBtn = stage.querySelector('[data-spin]');
-    if (spinBtn) {
-      spinBtn.addEventListener('click', () => {
-        spinning = !spinning;
-        house.classList.toggle('spin', spinning);
-      });
-    }
-    // drag to rotate
-    let dragging = false, lastX = 0;
-    stage.addEventListener('pointerdown', (e) => {
-      dragging = true; lastX = e.clientX; apply(); stage.setPointerCapture(e.pointerId);
-    });
-    stage.addEventListener('pointermove', (e) => {
-      if (!dragging) return;
-      rot += (e.clientX - lastX) * 0.5; lastX = e.clientX;
-      house.style.setProperty('--rotZ', rot + 'deg');
-    });
-    stage.addEventListener('pointerup', () => { dragging = false; });
-    stage.addEventListener('pointerleave', () => { dragging = false; });
-  });
+  /* ---- Loader intro ---- */
+  const loader = document.getElementById('loader');
+  if (loader) {
+    const pct = loader.querySelector('[data-loader]');
+    const bar = loader.querySelector('.loader__bar i');
+    let v = 0;
+    const iv = setInterval(() => {
+      v += Math.max(1, Math.round((100 - v) * 0.12));
+      if (v >= 100) { v = 100; clearInterval(iv); setTimeout(() => loader.classList.add('done'), 350); }
+      if (pct) pct.textContent = v + '%';
+      if (bar) bar.style.right = (100 - v) + '%';
+    }, 90);
+    // failsafe
+    setTimeout(() => loader.classList.add('done'), 4200);
+  }
 
   /* ---- Tabs ---- */
   document.querySelectorAll('[data-tabs]').forEach((group) => {
