@@ -86,6 +86,13 @@
     </div>
   </div>
   <div class="hero__scroll">Scroll</div>
+  <a href="#collection" class="badge-rotor" style="position:absolute; right:var(--gutter); bottom:clamp(54px,8vw,120px); z-index:4" aria-label="Découvrir la collection">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <defs><path id="badgeCircle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+      <text><textPath href="#badgeCircle" startOffset="0">MYGLAMHOUSE · HABITAT MODULAIRE · EST. 2023 · </textPath></text>
+    </svg>
+    <span class="badge-core"><i class="fas fa-arrow-down"></i></span>
+  </a>
 </header>
 
 <!-- MARQUEE -->
@@ -98,8 +105,8 @@
   </div>
 </div>
 
-<!-- STATEMENT -->
-<section class="section section--dark has-grid">
+<!-- STATEMENT — bloc fuchsia flashy -->
+<section class="section section--accent">
   <div class="container">
     <div class="statement">
       <div data-reveal>
@@ -108,7 +115,7 @@
       </div>
       <div class="statement__body" data-reveal data-delay="1">
         <p>MyGlamHouse conçoit et fabrique des maisons d'hôtes de luxe, résidences principales, maisons de vacances et investissements locatifs — à ossature bois et blocs de chanvre, isolation naturelle comprise.</p>
-        <p class="light-mute">Notre système de préfabrication en atelier garantit qualité, rapidité et un impact environnemental minimal. Chaque projet est adapté à vos besoins, votre terrain, votre budget.</p>
+        <p>Notre système de préfabrication en atelier garantit qualité, rapidité et un impact environnemental minimal. Chaque projet est adapté à vos besoins, votre terrain, votre budget.</p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:30px">
           <a href="collection.html" class="btn btn--ink">La collection 2026 <i class="fas fa-arrow-right"></i></a>
           <a href="aides.html" class="btn btn--ghost">Simuler mes aides</a>
@@ -122,8 +129,9 @@
 <section class="section section--paper" id="collection">
   <div class="container">
     <div class="section-head" data-reveal>
+      <span class="bignum bignum--stroke">02</span>
       <div class="eyebrow"><span class="num">02</span><span class="line"></span><span class="txt">Collection 2026</span></div>
-      <h2>Des modèles modulables, personnalisables à l'infini.</h2>
+      <h2>Des modèles modulables, <em style="font-family:'Fraunces',serif;font-style:italic;font-weight:400">personnalisables</em> à l'infini.</h2>
       <p>Inspirés des côtes californiennes — Malibu, Palm Springs, Pacific Palisades. Compacts ou généreux, toujours ouverts sur la nature.</p>
     </div>
     <div class="cards cards--4">
@@ -152,11 +160,30 @@
   </div>
 </section>
 
+<!-- GALERIE ASYMÉTRIQUE -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="head-editorial" data-reveal style="margin-bottom:clamp(40px,5vw,72px)">
+      <span class="bignum bignum--accent">03</span>
+      <div>
+        <div class="eyebrow"><span class="num">03</span><span class="line"></span><span class="txt">Un art de vivre</span></div>
+        <h2 style="font-size:clamp(2.2rem,6vw,4.4rem)">La maison, comme une <em style="font-family:'Fraunces',serif;font-style:italic;font-weight:400">œuvre</em>.</h2>
+      </div>
+    </div>
+    <div class="amosaic">
+      <figure class="a1"><img src="../assets/inspiration1.jpg" alt="Palm Springs" class="zoomable"><figcaption>Palm Springs</figcaption></figure>
+      <figure class="a2"><img src="../assets/inspiration2.jpg" alt="Bungalow Beach" class="zoomable"><figcaption>Bungalow Beach</figcaption></figure>
+      <figure class="a3"><img src="../assets/inspiration3.jpg" alt="Pacific" class="zoomable"><figcaption>Pacific</figcaption></figure>
+      <figure class="a4"><img src="../assets/inspiration4.jpg" alt="Patio" class="zoomable"><figcaption>Indoor · Outdoor</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- VIDEO SHOWCASE -->
 <section class="section section--dark has-grid" id="films">
   <div class="container">
     <div class="section-head" data-reveal>
-      <div class="eyebrow"><span class="num">03</span><span class="line"></span><span class="txt">En mouvement</span></div>
+      <div class="eyebrow"><span class="num">04</span><span class="line"></span><span class="txt">En mouvement</span></div>
       <h2>Voir, c'est déjà s'y projeter.</h2>
       <p>Films d'ambiance et visites animées de nos modèles. De nouveaux formats arrivent : la Tiny House 20 m² et le Triplex — deux tiny houses réunies par un patio en verre.</p>
     </div>
@@ -188,7 +215,7 @@
 <section class="section section--light">
   <div class="container">
     <div class="section-head" data-reveal>
-      <div class="eyebrow"><span class="num">04</span><span class="line"></span><span class="txt">3 façons d'investir</span></div>
+      <div class="eyebrow"><span class="num">05</span><span class="line"></span><span class="txt">3 façons d'investir</span></div>
       <h2>Choisissez le projet qui vous correspond.</h2>
     </div>
     <div class="pcards">
@@ -228,7 +255,7 @@
   <div class="container">
     <div class="statement" style="align-items:center">
       <div data-reveal>
-        <div class="eyebrow"><span class="num">05</span><span class="line"></span><span class="txt">Croissance 2026-2028</span></div>
+        <div class="eyebrow"><span class="num">06</span><span class="line"></span><span class="txt">Croissance 2026-2028</span></div>
         <h2 style="font-size:clamp(2.2rem,5vw,3.6rem)">Une entreprise qui grandit avec la demande.</h2>
         <p style="color:var(--ink-mute);margin-top:22px">MyGlamHouse est modulable par nature. Notre préfabrication en atelier nous permet d'augmenter la capacité selon les commandes.</p>
         <a href="investir.html" class="btn btn--accent" style="margin-top:28px">Investir dans la croissance <i class="fas fa-arrow-right"></i></a>
@@ -247,7 +274,7 @@
 <section class="section section--paper" id="finance">
   <div class="container">
     <div class="section-head" data-reveal>
-      <div class="eyebrow"><span class="num">06</span><span class="line"></span><span class="txt">Innovation 2026</span></div>
+      <div class="eyebrow"><span class="num">07</span><span class="line"></span><span class="txt">Innovation 2026</span></div>
       <h2>Investissement &amp; tokenisation.</h2>
       <p>Une révolution dans l'investissement locatif — acquérez des parts de nos villas via la blockchain, dès 500€.</p>
     </div>
@@ -278,7 +305,7 @@
   <div class="container">
     <div class="footer__grid">
       <div data-reveal>
-        <div class="eyebrow"><span class="num">07</span><span class="line"></span><span class="txt">Contact</span></div>
+        <div class="eyebrow"><span class="num">08</span><span class="line"></span><span class="txt">Contact</span></div>
         <h3>Démarrer votre projet.</h3>
         <p style="color:var(--ink-mute);margin-bottom:30px">Configuration sur mesure ou investissement — parlons-en.</p>
         <form data-fake>
