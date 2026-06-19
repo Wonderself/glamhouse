@@ -118,13 +118,13 @@
   /* ============ REVEAL + MASK + COUNTERS + SCRAMBLE ============ */
   if('IntersectionObserver'in window){
     const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-    $$('[data-reveal],.mask').forEach(el=>io.observe(el));
+    $$('[data-reveal],.mask,.divline').forEach(el=>io.observe(el));
     const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=parseFloat(el.dataset.count),suf=el.dataset.suffix||'';const st=performance.now();const step=n=>{const p=Math.min((n-st)/1500,1);const v=t%1===0?Math.round(t*(1-Math.pow(1-p,3))):(t*(1-Math.pow(1-p,3))).toFixed(1);el.textContent=v+suf;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);cio.unobserve(el);});},{threshold:.5});
     $$('[data-count]').forEach(el=>cio.observe(el));
     const glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&/*+0123456789';
     const sio=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,final=el.dataset.scramble;const st=performance.now(),dur=final.length*40;const tick=n=>{const p=(n-st)/dur,lock=Math.floor(p*final.length);let o='';for(let k=0;k<final.length;k++)o+=k<lock?final[k]:(final[k]===' '?' ':glyphs[Math.floor(Math.random()*glyphs.length)]);el.textContent=o;if(p<1)requestAnimationFrame(tick);else el.textContent=final;};requestAnimationFrame(tick);sio.unobserve(el);});},{threshold:.6});
     if(!reduce)$$('[data-scramble]').forEach(el=>sio.observe(el));else $$('[data-scramble]').forEach(el=>el.textContent=el.dataset.scramble);
-  } else { $$('[data-reveal],.mask').forEach(el=>el.classList.add('in')); }
+  } else { $$('[data-reveal],.mask,.divline').forEach(el=>el.classList.add('in')); }
 
   /* ============ VIDÉOS : ne jouer que si visibles (fiabilité iOS / perf) ============ */
   (function(){

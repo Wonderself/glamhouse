@@ -295,3 +295,9 @@ em.f{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
 .vband__in{position:relative;z-index:2;padding:0 var(--gutter)}
 .vband__in h2{font-size:clamp(2.4rem,8vw,6rem)}
 .vband__in .mono{color:var(--fuchsia);margin-bottom:18px}
+
+/* ---------- divider lumineux animé ---------- */
+.divline{height:1px;background:var(--line);position:relative;overflow:hidden}
+.divwrap{padding:0 var(--gutter);max-width:1360px;margin:0 auto}
+.divline::after{content:'';position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,var(--fuchsia),var(--violet),var(--pink));box-shadow:0 0 14px var(--glow);transition:width 1.3s var(--ease)}
+.divline.in::after{width:100%}
