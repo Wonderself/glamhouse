@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MYGLAMHOUSE — Motion · Expérience 2027</title>
+<meta name="description" content="MyGlamHouse Motion : l'expérience cinétique. Films Remotion, habitat modulaire écologique mis en mouvement. Une vision 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="motion.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+</head>
+<body>
+<div class="cursor"></div><div class="cursor-ring"></div>
+<div class="progress"></div>
+
+<!-- NAV -->
+<nav class="mnav">
+  <a class="mnav__brand" href="../index.html"><img src="../assets/logo.jpg" alt="MyGlamHouse">MY<b>GLAM</b>HOUSE</a>
+  <div class="mnav__links">
+    <a href="#collection">Collection</a>
+    <a href="#films">Films</a>
+    <a href="#invest">Investir</a>
+    <a href="../modern/index.html">Version complète</a>
+    <a href="../index.html" class="mnav__back">← Univers</a>
+  </div>
+</nav>
+
+<!-- HERO : film Remotion -->
+<header class="mhero">
+  <video class="mhero__film" autoplay muted loop playsinline poster="../assets/maison4.jpg">
+    <source src="../assets/videos/motion-hero.mp4" type="video/mp4">
+  </video>
+  <div class="scrollcue">Scroll ↓ pour entrer</div>
+  <div class="mhero__in">
+    <p class="mono" style="color:var(--fuchsia);margin-bottom:22px">MyGlamHouse · Expérience 2027</p>
+    <h1>
+      <span class="kin"><span>HABITER</span></span><br>
+      <span class="kin"><span>LE&nbsp;</span></span><span class="kin"><span class="holo">FUTUR.</span></span>
+    </h1>
+    <div class="mhero__sub">
+      <p>L'habitat modulaire écologique, mis en mouvement. Films, lumière, cinétique — une maison qui se vit avant même d'exister.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#collection" class="btn btn--f" data-magnetic>Explorer <i class="fas fa-arrow-down"></i></a>
+        <a href="../modern/collection.html" class="btn btn--ghost" data-magnetic>Voir les modèles</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEES croisées -->
+<div class="mmarq"><div class="mmarq__t"><span>Ossature Bois</span><span>Blocs de Chanvre</span><span>Maison Passive</span><span>Tokenisé</span><span>Énergie Solaire</span><span>Ossature Bois</span><span>Blocs de Chanvre</span><span>Maison Passive</span><span>Tokenisé</span><span>Énergie Solaire</span></div></div>
+
+<!-- MANIFESTE sur aurora Remotion -->
+<section class="sec manifesto">
+  <video class="manifesto__bg" autoplay muted loop playsinline poster="../assets/maison3.jpg">
+    <source src="../assets/videos/motion-aurora.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="eyebrow" data-reveal style="color:#B80080"><b style="background:#B80080"></b> Manifeste</div>
+    <p class="manifesto__big" data-reveal style="color:#0A0A0A;text-shadow:0 2px 40px rgba(255,255,255,.7)">Nous ne construisons pas des maisons. Nous dessinons des <em>manières de vivre</em> — modulaires, écologiques, en mouvement.</p>
+    <div style="margin-top:34px" data-reveal data-d="1">
+      <a href="../modern/artiste.html" class="btn btn--dark" data-magnetic>La signature Daniel Siboni <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION : scroll horizontal épinglé -->
+<section class="pin" id="collection">
+  <div class="pin__sticky">
+    <div class="pin__track">
+      <div class="pin__intro">
+        <div class="eyebrow"><b></b> Collection en mouvement</div>
+        <h2 style="font-size:clamp(2.4rem,5vw,4.4rem)" data-scramble="SIX MODÈLES">SIX MODÈLES</h2>
+        <p style="color:var(--mute);margin-top:18px;max-width:34ch">Faites défiler — la collection glisse à l'horizontale. Du studio 20 m² au Triplex à patio de verre.</p>
+        <p class="mono" style="margin-top:24px;color:var(--fuchsia)">↳ scroll</p>
+      </div>
+
+      <article class="pcard" data-magnetic>
+        <div class="pcard__media"><img src="../assets/maison1.jpg" alt="Malibu"><span class="pcard__n">01 · Best Seller</span></div>
+        <div class="pcard__b"><div><h3>Malibu</h3><p>Studio 20 m², esprit surf chic.</p></div><span class="price">59 000€</span></div>
+      </article>
+      <article class="pcard" data-magnetic>
+        <div class="pcard__media"><img src="../assets/maison2.jpg" alt="Palm Spring"><span class="pcard__n">02 · Luxe</span></div>
+        <div class="pcard__b"><div><h3>Palm Spring</h3><p>Désert moderniste, 35 m².</p></div><span class="price">89 000€</span></div>
+      </article>
+      <article class="pcard" data-magnetic>
+        <div class="pcard__media"><img src="../assets/maison3.jpg" alt="Pacific"><span class="pcard__n">03 · Villa</span></div>
+        <div class="pcard__b"><div><h3>Pacific</h3><p>Villa familiale 60 m².</p></div><span class="price">145 000€</span></div>
+      </article>
+      <article class="pcard" data-magnetic>
+        <div class="pcard__media"><img src="../assets/photo3.jpeg" alt="Venice"><span class="pcard__n">04 · Duplex</span></div>
+        <div class="pcard__b"><div><h3>Venice</h3><p>Duplex urbain 25 m².</p></div><span class="price">72 000€</span></div>
+      </article>
+      <article class="pcard" data-magnetic>
+        <div class="pcard__media"><video autoplay muted loop playsinline poster="../assets/photo1.jpg"><source src="../assets/videos/tiny-20.mp4" type="video/mp4"></video><span class="pcard__n">05 · Nouveau</span></div>
+        <div class="pcard__b"><div><h3>Tiny 20 m²</h3><p>Nomade, sans permis.</p></div><span class="price">Sur devis</span></div>
+      </article>
+      <article class="pcard" data-magnetic>
+        <div class="pcard__media"><video autoplay muted loop playsinline poster="../assets/maison4.jpg"><source src="../assets/videos/triplex.mp4" type="video/mp4"></video><span class="pcard__n">06 · Patio verre</span></div>
+        <div class="pcard__b"><div><h3>Triplex</h3><p>2 tiny + patio verre triplex.</p></div><span class="price">Sur devis</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="mmarq mmarq--accent mmarq--rev"><div class="mmarq__t"><span>Construire Autrement</span><span>Habiter Mieux</span><span>2027</span><span>Construire Autrement</span><span>Habiter Mieux</span><span>2027</span></div></div>
+
+<!-- FILMS -->
+<section class="sec" id="films">
+  <div class="container">
+    <div class="sec__head" data-reveal>
+      <div class="eyebrow"><b></b> En mouvement</div>
+      <h2>Des <em class="f">films</em>, pas des photos.</h2>
+      <p>Chaque modèle prend vie en vidéo — ambiance, lumière, matière. Y compris la Tiny House et le Triplex à patio de verre.</p>
+    </div>
+    <div class="films">
+      <div class="film" data-reveal data-magnetic><span class="film__tag">Ambiance 01</span><video autoplay muted loop playsinline poster="../assets/maison3.jpg"><source src="../assets/videos/glam-film-1.mp4" type="video/mp4"></video></div>
+      <div class="film" data-reveal data-d="1" data-magnetic><span class="film__tag">Ambiance 02</span><video autoplay muted loop playsinline poster="../assets/maison2.jpg"><source src="../assets/videos/glam-film-2.mp4" type="video/mp4"></video></div>
+      <div class="film" data-reveal data-magnetic><span class="film__tag">Tiny House 20 m²</span><video autoplay muted loop playsinline poster="../assets/photo1.jpg"><source src="../assets/videos/tiny-20.mp4" type="video/mp4"></video></div>
+      <div class="film" data-reveal data-d="1" data-magnetic><span class="film__tag">Triplex · patio verre</span><video autoplay muted loop playsinline poster="../assets/maison4.jpg"><source src="../assets/videos/triplex.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="sec" style="padding-top:0">
+  <div class="container">
+    <div class="stats">
+      <div class="stat" data-reveal><div class="v"><span data-count="6">0</span></div><div class="l">Modèles signature</div></div>
+      <div class="stat" data-reveal data-d="1"><div class="v"><b data-count="59" data-suffix="K€">0</b></div><div class="l">À partir de</div></div>
+      <div class="stat" data-reveal data-d="2"><div class="v"><span data-count="65" data-suffix="K€">0</span></div><div class="l">Aides cumulables</div></div>
+      <div class="stat" data-reveal data-d="3"><div class="v"><span data-count="100" data-suffix="%">0</span></div><div class="l">Made in France</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA band -->
+<section class="sec band" id="invest">
+  <div class="container">
+    <div class="eyebrow" data-reveal style="color:#0A0A0A;justify-content:center"><b style="background:#0A0A0A"></b> Investir · Tokeniser</div>
+    <h2 data-reveal data-scramble="PRÊT À HABITER LE FUTUR ?">PRÊT À HABITER LE FUTUR ?</h2>
+    <p data-reveal data-d="1">Achat classique ou investissement tokenisé dès 500€. Parlons de votre projet.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" data-reveal data-d="2">
+      <a href="../modern/index.html#contact" class="btn btn--dark" data-magnetic>Démarrer mon projet <i class="fas fa-arrow-right"></i></a>
+      <a href="../modern/tokenisation.html" class="btn btn--ghost" style="border-color:rgba(255,255,255,.5);color:#fff" data-magnetic>La tokenisation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mfoot">
+  <div class="container">
+    <div class="mfoot__grid">
+      <div data-reveal>
+        <h2>MY<span class="holo">GLAM</span>HOUSE<br>Motion.</h2>
+        <p style="color:var(--mute);max-width:40ch;margin-top:20px">Une expérience signée pour 2027 — propulsée par des films Remotion et beaucoup de mouvement.</p>
+        <a href="../index.html" class="btn btn--ghost" style="margin-top:26px" data-magnetic>← Changer d'univers</a>
+      </div>
+      <div data-reveal data-d="1" style="display:flex;gap:60px;flex-wrap:wrap">
+        <div>
+          <div class="mono" style="color:var(--fuchsia);margin-bottom:14px">Explorer</div>
+          <a class="col" href="../modern/collection.html">Collection</a>
+          <a class="col" href="../modern/projets.html">Projets</a>
+          <a class="col" href="../modern/construction.html">Construction</a>
+          <a class="col" href="../modern/artiste.html">L'Artiste</a>
+        </div>
+        <div>
+          <div class="mono" style="color:var(--fuchsia);margin-bottom:14px">Univers</div>
+          <a class="col" href="../classic/index.html">Classic</a>
+          <a class="col" href="../modern/index.html">Moderne</a>
+          <a class="col" href="../modern/tokenisation.html">Tokenisation</a>
+          <a class="col" href="../modern/aides.html">Aides</a>
+        </div>
+      </div>
+    </div>
+    <div class="mfoot__bottom"><span>© 2023-2027 MyGlamHouse.fr</span><span>Motion · Remotion</span><span>100% Start-up Française</span></div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

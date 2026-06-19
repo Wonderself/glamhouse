@@ -10,11 +10,13 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # - index.html  : page d'entree (choix Classic / Moderne)
 # - assets/     : medias partages par les deux versions
 # - classic/    : version d'origine complete (HTML/CSS/JS + contracts)
-# - modern/     : nouvelle edition (design tech, emplacements images)
+# - modern/     : nouvelle edition (design editorial blanc/noir/fuchsia)
+# - motion/     : 3e edition cinetique (films Remotion + motion)
 COPY index.html /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 COPY classic/ /usr/share/nginx/html/classic/
 COPY modern/ /usr/share/nginx/html/modern/
+COPY motion/ /usr/share/nginx/html/motion/
 
 EXPOSE 80
 
