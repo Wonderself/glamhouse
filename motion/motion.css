@@ -239,3 +239,50 @@ em.f{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
 .sound-toggle.on .dot{animation:sndpulse 1.4s ease-in-out infinite}
 @keyframes sndpulse{50%{opacity:.3}}
 @media(max-width:900px){.sound-toggle{display:none}}
+
+/* ============================================================
+   v3.1 — nettoyage mobile + motion haut/bas + vidéos
+   ============================================================ */
+.mhero__film,.manifesto__bg,.film video,.pcard__media video,.peek video{background:#0A0D12}
+
+/* badge rotatif (hero) */
+.rotor{position:absolute;right:var(--gutter);bottom:clamp(40px,7vw,96px);z-index:4;width:clamp(94px,11vw,130px);aspect-ratio:1;color:var(--ink)}
+.rotor svg{width:100%;height:100%;animation:rotor 14s linear infinite}
+.rotor svg text{font-family:var(--mono);font-size:8.4px;letter-spacing:2.6px;fill:currentColor;text-transform:uppercase}
+.rotor .c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--fuchsia);font-size:1.25rem}
+@keyframes rotor{to{transform:rotate(360deg)}}
+
+/* sweep scanline sur le hero */
+.mhero__scan{position:absolute;left:0;right:0;top:0;height:60%;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(198,255,61,.06) 50%,transparent);mix-blend-mode:screen;animation:scan 5.5s linear infinite}
+@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(220%)}}
+
+/* grand marquee animé en bas de footer */
+.mfoot__marq{overflow:hidden;border-top:1px solid var(--line);margin-top:clamp(50px,7vw,90px)}
+.mfoot__marq .t{display:flex;gap:.35em;width:max-content;white-space:nowrap;animation:mq 22s linear infinite;padding:clamp(18px,3vw,34px) 0}
+.mfoot__marq span{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,12vw,8.5rem);line-height:.9;letter-spacing:-.03em}
+.mfoot__marq .o{-webkit-text-stroke:1.4px var(--ink);-webkit-text-fill-color:transparent;color:transparent}
+.mfoot__marq .g{background:linear-gradient(100deg,var(--fuchsia),var(--violet),var(--pink),var(--fuchsia));background-size:240% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:holo 7s linear infinite}
+
+/* retour en haut */
+.totop{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);background:none;border:1px solid var(--line);border-radius:30px;padding:11px 18px;cursor:none;transition:.3s}
+.totop:hover{color:var(--fuchsia);border-color:var(--fuchsia)}
+.totop i{transition:transform .4s}.totop:hover i{transform:translateY(-4px)}
+
+/* ---------- MOBILE : plus propre ---------- */
+@media(max-width:640px){
+  .sec{padding:clamp(56px,15vw,88px) 0}
+  .mhero{min-height:560px}
+  .mhero h1{font-size:clamp(2.8rem,16vw,4.6rem)}
+  .mhero__sub{flex-direction:column;align-items:flex-start;gap:18px}
+  .scrollcue{display:none}
+  .rotor{display:none}
+  .sec__head{margin-bottom:32px}
+  .manifesto__big{font-size:clamp(1.7rem,8vw,2.4rem)}
+  .index .row{flex-wrap:wrap;gap:4px 14px;padding:18px 0}
+  .index .row h3{flex:1 1 auto;font-size:clamp(2rem,12vw,3rem)}
+  .index .row:hover h3{transform:none}
+  .index .row .meta{flex-basis:100%;text-align:left;order:3;margin-left:60px}
+  .stat .v{font-size:clamp(2.4rem,12vw,3.4rem)}
+  .btn{padding:14px 24px}
+  .mfoot__bottom{flex-direction:column;gap:8px}
+}

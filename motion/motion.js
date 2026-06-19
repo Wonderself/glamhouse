@@ -126,6 +126,19 @@
     if(!reduce)$$('[data-scramble]').forEach(el=>sio.observe(el));else $$('[data-scramble]').forEach(el=>el.textContent=el.dataset.scramble);
   } else { $$('[data-reveal],.mask').forEach(el=>el.classList.add('in')); }
 
+  /* ============ VIDÉOS : ne jouer que si visibles (fiabilité iOS / perf) ============ */
+  (function(){
+    const vids=$$('video');
+    vids.forEach(v=>{ v.muted=true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); });
+    if('IntersectionObserver'in window){
+      const vio=new IntersectionObserver((es)=>{es.forEach(e=>{const v=e.target; if(e.isIntersecting){const p=v.play();if(p&&p.catch)p.catch(()=>{});} else {try{v.pause();}catch(_){}}});},{threshold:.2});
+      vids.forEach(v=>vio.observe(v));
+    } else { vids.forEach(v=>{const p=v.play();if(p&&p.catch)p.catch(()=>{});}); }
+  })();
+
+  /* ============ RETOUR EN HAUT ============ */
+  $$('[data-totop]').forEach(b=>b.addEventListener('click',()=>{ try{scrollTo({top:0,behavior:'smooth'});}catch(e){scrollTo(0,0);} }));
+
   /* ============ SON (Web Audio, discret) ============ */
   const Sound=(function(){
     let ctx,enabled = localStorage.getItem('mgh-sound')!=='off', last=0;
