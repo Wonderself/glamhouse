@@ -52,7 +52,7 @@
   }
 </style>
 </head>
-<body>
+<body onpageshow="var w=document.querySelector('.wipe');if(w)w.classList.remove('go');">
   <div class="brand">
     <img src="assets/logo.jpg" alt="MyGlamHouse">
     <span class="n">MY<b>GLAM</b>HOUSE</span>
@@ -99,6 +99,8 @@
   (function(){
     var wipe=document.querySelector('.wipe');
     var colors={classic:'#C9A18F',modern:'#FF179C',motion:'#C6FF3D'};
+    function clear(){ if(wipe){ wipe.classList.remove('go'); } }
+    clear();
     document.querySelectorAll('.pane').forEach(function(p){
       p.addEventListener('click',function(e){
         if(e.metaKey||e.ctrlKey||e.shiftKey)return;
@@ -108,11 +110,15 @@
         wipe.classList.add('go');
         var href=p.getAttribute('href');
         setTimeout(function(){location.href=href;},540);
+        // filet de sécurité : si la navigation n'a pas eu lieu, on retire l'overlay
+        setTimeout(clear,1600);
       });
     });
-    // IMPORTANT : réinitialiser l'overlay quand on revient (retour navigateur / bfcache)
-    window.addEventListener('pageshow',function(){ wipe.classList.remove('go'); });
-    window.addEventListener('popstate',function(){ wipe.classList.remove('go'); });
+    // réinitialiser l'overlay à TOUT réaffichage (retour navigateur, cache iOS/bfcache, onglet)
+    window.addEventListener('pageshow',clear);
+    window.addEventListener('popstate',clear);
+    window.addEventListener('load',clear);
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) clear(); });
   })();
   </script>
 </body>

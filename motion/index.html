@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="motion.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 </head>
-<body>
+<body onpageshow="if(event.persisted){var c=document.querySelector('.curtain');if(c)c.classList.add('up');var p=document.querySelector('.pre');if(p)p.classList.add('hide');document.body.style.overflow='';}">
 <!-- PRÉLOADER + RIDEAU -->
 <div class="pre">
   <div class="pre__num">0</div>
@@ -109,6 +109,17 @@
   </div>
 </section>
 
+<!-- BANDE VIDÉO : reprise de la vidéo d'origine (maison.mp4) -->
+<section class="vband" id="film-origine">
+  <video class="vband__bg" autoplay muted loop playsinline preload="metadata" poster="../assets/maison3.jpg">
+    <source src="../assets/maison.mp4" type="video/mp4">
+  </video>
+  <div class="vband__in">
+    <p class="mono" data-reveal>Signature originale · en mouvement</p>
+    <h2 class="mask" data-reveal><span>La maison, <em class="f">en vrai</em>.</span></h2>
+  </div>
+</section>
+
 <div class="mmarq mmarq--accent mmarq--rev"><div class="mmarq__t"><span>Construire Autrement</span><span>Habiter Mieux</span><span>2027</span><span>Construire Autrement</span><span>Habiter Mieux</span><span>2027</span></div></div>
 
 <!-- FILMS -->
@@ -120,10 +131,10 @@
       <p>Chaque modèle prend vie en vidéo — y compris la Tiny House et le Triplex à patio de verre.</p>
     </div>
     <div class="films">
-      <figure class="film" data-reveal data-magnetic><span class="film__tag">Ambiance 01</span><video muted loop playsinline preload="metadata" poster="../assets/maison3.jpg"><source src="../assets/videos/glam-film-1.mp4" type="video/mp4"></video></figure>
-      <figure class="film" data-reveal data-d="1" data-magnetic><span class="film__tag">Ambiance 02</span><video muted loop playsinline preload="metadata" poster="../assets/maison2.jpg"><source src="../assets/videos/glam-film-2.mp4" type="video/mp4"></video></figure>
-      <figure class="film" data-reveal data-magnetic><span class="film__tag">Tiny House 20 m²</span><video muted loop playsinline preload="metadata" poster="../assets/photo1.jpg"><source src="../assets/videos/tiny-20.mp4" type="video/mp4"></video></figure>
-      <figure class="film" data-reveal data-d="1" data-magnetic><span class="film__tag">Triplex · patio verre</span><video muted loop playsinline preload="metadata" poster="../assets/maison4.jpg"><source src="../assets/videos/triplex.mp4" type="video/mp4"></video></figure>
+      <figure class="film" data-reveal data-magnetic><span class="film__tag">Ambiance 01</span><video autoplay muted loop playsinline preload="metadata" poster="../assets/maison3.jpg"><source src="../assets/videos/glam-film-1.mp4" type="video/mp4"></video></figure>
+      <figure class="film" data-reveal data-d="1" data-magnetic><span class="film__tag">Ambiance 02</span><video autoplay muted loop playsinline preload="metadata" poster="../assets/maison2.jpg"><source src="../assets/videos/glam-film-2.mp4" type="video/mp4"></video></figure>
+      <figure class="film" data-reveal data-magnetic><span class="film__tag">Tiny House 20 m²</span><video autoplay muted loop playsinline preload="metadata" poster="../assets/photo1.jpg"><source src="../assets/videos/tiny-20.mp4" type="video/mp4"></video></figure>
+      <figure class="film" data-reveal data-d="1" data-magnetic><span class="film__tag">Triplex · patio verre</span><video autoplay muted loop playsinline preload="metadata" poster="../assets/maison4.jpg"><source src="../assets/videos/triplex.mp4" type="video/mp4"></video></figure>
     </div>
   </div>
 </section>

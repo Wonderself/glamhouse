@@ -286,3 +286,12 @@ em.f{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
   .btn{padding:14px 24px}
   .mfoot__bottom{flex-direction:column;gap:8px}
 }
+
+/* ---------- BANDE VIDÉO plein écran (reprise de maison.mp4, vidéo d'origine) ---------- */
+.vband{position:relative;height:clamp(440px,82vh,760px);overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.vband__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#0A0D12}
+.vband::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(4,6,10,.55),rgba(4,6,10,.3) 50%,rgba(4,6,10,.78))}
+.vband::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(rgba(198,255,61,.05) 0 1px,transparent 1px 4px);mix-blend-mode:screen}
+.vband__in{position:relative;z-index:2;padding:0 var(--gutter)}
+.vband__in h2{font-size:clamp(2.4rem,8vw,6rem)}
+.vband__in .mono{color:var(--fuchsia);margin-bottom:18px}
