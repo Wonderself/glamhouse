@@ -93,11 +93,12 @@ const WireHouse: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const draw = spring({frame, fps, config: {damping: 200}, durationInFrames: 60});
-  const dash = 2600;
+  const dash = 3000;
   const offset = interpolate(draw, [0, 1], [dash, 0]);
-  const float = Math.sin(frame / 24) * 8;
-  const rot = interpolate(frame, [0, 210], [-8, 8]);
+  const float = Math.sin(frame / 26) * 7;
+  const rot = interpolate(frame, [0, 210], [-6, 6]);
   const appear = interpolate(frame, [6, 40], [0, 1], {extrapolateRight: 'clamp'});
+  const detail = interpolate(draw, [0.55, 1], [0, 1], {extrapolateLeft: 'clamp'});
   return (
     <div
       style={{
@@ -106,41 +107,48 @@ const WireHouse: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        transform: `translateY(${-30 + float}px)`,
+        transform: `translateY(${-46 + float}px)`,
         opacity: appear,
       }}
     >
       <svg
-        width={520}
-        height={420}
-        viewBox="0 0 520 420"
+        width={560}
+        height={460}
+        viewBox="0 0 560 460"
         style={{
-          filter: `drop-shadow(0 0 26px ${FUCHSIA}aa)`,
-          transform: `rotateZ(${rot * 0.1}deg)`,
+          filter: `drop-shadow(0 0 32px ${FUCHSIA}66)`,
+          transform: `scale(${0.92 + draw * 0.08}) rotateZ(${rot * 0.08}deg)`,
         }}
       >
+        {/* faces pleines (volume clair et lisible) */}
+        <g style={{opacity: draw * 0.9}}>
+          <polygon points="270,120 440,200 270,290 120,210" fill="rgba(198,255,61,0.12)" />
+          <polygon points="120,210 270,290 270,420 120,330" fill="rgba(33,240,220,0.06)" />
+          <polygon points="270,290 440,200 440,330 270,420" fill="rgba(33,240,220,0.13)" />
+        </g>
+        {/* arêtes néon, tracé progressif */}
         <g
           fill="none"
-          stroke={FUCHSIA}
-          strokeWidth={2.4}
+          strokeWidth={2.8}
           strokeLinejoin="round"
           strokeLinecap="round"
           style={{strokeDasharray: dash, strokeDashoffset: offset}}
         >
-          {/* corps maison isométrique */}
-          <path d="M110 210 L260 140 L410 210 L260 280 Z" stroke={VIOLET} />
-          <path d="M110 210 L110 320 L260 390 L260 280 Z" />
-          <path d="M410 210 L410 320 L260 390 L260 280 Z" stroke={VIOLET} />
-          {/* toit */}
-          <path d="M150 190 L260 90 L370 190" />
-          <path d="M150 190 L260 140 L370 190" opacity={0.6} />
-          {/* porte + fenetres */}
-          <path d="M235 360 L235 300 L285 322 L285 382 Z" stroke="#fff" />
-          <path d="M150 250 L195 272 L195 312 L150 290 Z" stroke="#fff" opacity={0.8} />
-          <path d="M325 272 L370 250 L370 290 L325 312 Z" stroke="#fff" opacity={0.8} />
+          <polygon points="270,120 440,200 270,290 120,210" stroke={FUCHSIA} />
+          <polygon points="120,210 270,290 270,420 120,330" stroke={VIOLET} />
+          <polygon points="270,290 440,200 440,330 270,420" stroke={VIOLET} />
         </g>
-        {/* points lumineux */}
-        <circle cx={260} cy={90} r={4} fill="#fff" />
+        {/* fenêtres + porte (apparaissent ensuite) */}
+        <g style={{opacity: detail}} strokeWidth={2} strokeLinejoin="round">
+          <polygon points="300,300 410,245 410,300 300,355" fill="rgba(33,240,220,0.45)" stroke="#fff" />
+          <polygon points="150,250 215,285 215,330 150,295" fill="rgba(33,240,220,0.30)" stroke="#fff" />
+          <polygon points="235,320 270,340 270,400 235,380" fill="rgba(198,255,61,0.22)" stroke={FUCHSIA} />
+        </g>
+        {/* toit : panneau solaire + lanterneau */}
+        <g style={{opacity: detail}}>
+          <polygon points="245,168 320,168 342,196 267,196" fill="none" stroke="#ffffff" strokeWidth={1.5} opacity={0.7} />
+          <circle cx={270} cy={120} r={5} fill="#fff" />
+        </g>
       </svg>
     </div>
   );
