@@ -1,9 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 
-const FUCHSIA = '#FF179C';
-const VIOLET = '#9B6CFF';
-const PINK = '#FF8AD0';
+const FUCHSIA = '#C6FF3D'; // acid
+const VIOLET = '#21F0DC'; // cyan
+const PINK = '#5B8CFF'; // electric blue
 
 // Boucle parfaite : tout est piloté par des sinus de période = durée totale.
 export const AuroraLoop: React.FC = () => {
@@ -29,14 +29,14 @@ export const AuroraLoop: React.FC = () => {
     opacity: op,
   });
   return (
-    <AbsoluteFill style={{background: '#fff', overflow: 'hidden'}}>
-      <div style={blob(20, 10, 760, FUCHSIA, 0, 8, 0.45)} />
-      <div style={blob(70, 60, 680, VIOLET, 2.1, 10, 0.4)} />
-      <div style={blob(45, 80, 560, PINK, 4.0, 9, 0.4)} />
+    <AbsoluteFill style={{background: '#04060A', overflow: 'hidden'}}>
+      <div style={blob(20, 10, 820, FUCHSIA, 0, 8, 0.5)} />
+      <div style={blob(72, 62, 720, VIOLET, 2.1, 10, 0.45)} />
+      <div style={blob(46, 82, 600, PINK, 4.0, 9, 0.4)} />
       <AbsoluteFill
         style={{
           background:
-            'radial-gradient(120% 100% at 50% 50%, transparent 60%, rgba(255,255,255,0.6) 100%)',
+            'radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(4,6,10,0.8) 100%)',
         }}
       />
     </AbsoluteFill>

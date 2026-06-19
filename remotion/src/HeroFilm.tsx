@@ -11,9 +11,10 @@ import {
 const syne = "'Arial Black', 'Helvetica Neue', Helvetica, 'DejaVu Sans', sans-serif";
 const mono = "'DejaVu Sans Mono', 'Courier New', monospace";
 
-const FUCHSIA = '#FF179C';
-const VIOLET = '#9B6CFF';
-const INK = '#070608';
+// Palette "lab électrique" : vert acide + cyan électrique sur noir profond.
+const FUCHSIA = '#C6FF3D'; // acid (nom conservé pour limiter les diffs)
+const VIOLET = '#21F0DC'; // cyan
+const INK = '#04060A';
 
 // ---- fond aurora + grille perspective ----
 const Backdrop: React.FC = () => {

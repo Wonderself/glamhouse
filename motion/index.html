@@ -12,6 +12,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 </head>
 <body>
+<!-- PRÉLOADER + RIDEAU -->
+<div class="pre">
+  <div class="pre__num">0</div>
+  <div class="pre__bar"><i></i></div>
+  <div class="pre__lab">MyGlamHouse · Motion — Initialisation</div>
+</div>
+<div class="curtain"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
 <div class="cursor"></div><div class="cursor-ring"></div>
 <div class="progress"></div>
 
@@ -58,10 +66,10 @@
     <source src="../assets/videos/motion-aurora.mp4" type="video/mp4">
   </video>
   <div class="container">
-    <div class="eyebrow" data-reveal style="color:#B80080"><b style="background:#B80080"></b> Manifeste</div>
-    <p class="manifesto__big" data-reveal style="color:#0A0A0A;text-shadow:0 2px 40px rgba(255,255,255,.7)">Nous ne construisons pas des maisons. Nous dessinons des <em>manières de vivre</em> — modulaires, écologiques, en mouvement.</p>
+    <div class="eyebrow" data-reveal><b></b> Manifeste</div>
+    <p class="manifesto__big" data-reveal>Nous ne construisons pas des maisons. Nous dessinons des <em>manières de vivre</em> — modulaires, écologiques, en mouvement.</p>
     <div style="margin-top:34px" data-reveal data-d="1">
-      <a href="../modern/artiste.html" class="btn btn--dark" data-magnetic>La signature Daniel Siboni <i class="fas fa-arrow-right"></i></a>
+      <a href="../modern/artiste.html" class="btn btn--f" data-magnetic>La signature Daniel Siboni <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -108,11 +116,11 @@
 <div class="mmarq mmarq--accent mmarq--rev"><div class="mmarq__t"><span>Construire Autrement</span><span>Habiter Mieux</span><span>2027</span><span>Construire Autrement</span><span>Habiter Mieux</span><span>2027</span></div></div>
 
 <!-- FILMS -->
-<section class="sec" id="films">
+<section class="sec" id="films" data-blobs>
   <div class="container">
     <div class="sec__head" data-reveal>
       <div class="eyebrow"><b></b> En mouvement</div>
-      <h2>Des <em class="f">films</em>, pas des photos.</h2>
+      <h2 class="mask"><span>Des <em class="f">films</em>, pas des photos.</span></h2>
       <p>Chaque modèle prend vie en vidéo — ambiance, lumière, matière. Y compris la Tiny House et le Triplex à patio de verre.</p>
     </div>
     <div class="films">
@@ -124,8 +132,34 @@
   </div>
 </section>
 
+<!-- INDEX modèles + image qui suit le curseur -->
+<section class="sec index" id="index" data-blobs>
+  <div class="container">
+    <div class="sec__head" data-reveal>
+      <div class="eyebrow"><b></b> Index</div>
+      <h2 class="mask"><span>Six manières d'<em class="f">habiter</em>.</span></h2>
+    </div>
+    <div class="rows">
+      <a class="row" href="../modern/collection.html#malibu" data-peek="malibu"><span class="idx">/01</span><h3>Malibu</h3><span class="meta">Studio · 20 m² · 59 000€</span></a>
+      <a class="row" href="../modern/collection.html#palm-spring" data-peek="palm"><span class="idx">/02</span><h3>Palm Spring</h3><span class="meta">Design · 35 m² · 89 000€</span></a>
+      <a class="row" href="../modern/collection.html#pacific" data-peek="pacific"><span class="idx">/03</span><h3>Pacific</h3><span class="meta">Villa · 60 m² · 145 000€</span></a>
+      <a class="row" href="../modern/collection.html#venice" data-peek="venice"><span class="idx">/04</span><h3>Venice</h3><span class="meta">Duplex · 25 m² · 72 000€</span></a>
+      <a class="row" href="../modern/collection.html#tiny" data-peek="tiny"><span class="idx">/05</span><h3>Tiny 20 m²</h3><span class="meta">Nomade · sur devis</span></a>
+      <a class="row" href="../modern/collection.html#triplex" data-peek="triplex"><span class="idx">/06</span><h3>Triplex</h3><span class="meta">Patio verre · sur devis</span></a>
+    </div>
+  </div>
+  <div class="peek" id="peek">
+    <img class="on" data-key="malibu" src="../assets/maison1.jpg" alt="">
+    <img data-key="palm" src="../assets/maison2.jpg" alt="">
+    <img data-key="pacific" src="../assets/maison3.jpg" alt="">
+    <img data-key="venice" src="../assets/photo3.jpeg" alt="">
+    <video data-key="tiny" muted loop autoplay playsinline poster="../assets/photo1.jpg"><source src="../assets/videos/tiny-20.mp4" type="video/mp4"></video>
+    <video data-key="triplex" muted loop autoplay playsinline poster="../assets/maison4.jpg"><source src="../assets/videos/triplex.mp4" type="video/mp4"></video>
+  </div>
+</section>
+
 <!-- STATS -->
-<section class="sec" style="padding-top:0">
+<section class="sec" style="padding-top:0" data-blobs>
   <div class="container">
     <div class="stats">
       <div class="stat" data-reveal><div class="v"><span data-count="6">0</span></div><div class="l">Modèles signature</div></div>
