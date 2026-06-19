@@ -110,6 +110,9 @@
         setTimeout(function(){location.href=href;},540);
       });
     });
+    // IMPORTANT : réinitialiser l'overlay quand on revient (retour navigateur / bfcache)
+    window.addEventListener('pageshow',function(){ wipe.classList.remove('go'); });
+    window.addEventListener('popstate',function(){ wipe.classList.remove('go'); });
   })();
   </script>
 </body>

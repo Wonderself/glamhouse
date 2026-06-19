@@ -157,6 +157,8 @@
 
   /* ============ TRANSITIONS DE PAGE (rideau) ============ */
   const curtain=$('.curtain');
+  // au retour (bfcache / bouton précédent), forcer l'état "révélé" pour éviter l'écran figé
+  addEventListener('pageshow',e=>{ if(e.persisted){ if(curtain) curtain.classList.add('up'); const pre=$('.pre'); if(pre) pre.classList.add('hide'); document.body.style.overflow=''; } });
   if(curtain){
     $$('a[href]').forEach(a=>{
       const href=a.getAttribute('href');

@@ -114,6 +114,10 @@
     // failsafe
     setTimeout(() => loader.classList.add('done'), 4200);
   }
+  // au retour (bfcache), ne jamais rester bloqué sur le loader
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted && loader) loader.classList.add('done');
+  });
 
   /* ---- Tabs ---- */
   document.querySelectorAll('[data-tabs]').forEach((group) => {
