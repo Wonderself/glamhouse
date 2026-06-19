@@ -208,3 +208,34 @@ em.f{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
 
 /* --- draw on scroll --- */
 .draw path{stroke-dasharray:var(--len,1200);stroke-dashoffset:var(--len,1200)}
+
+/* ============================================================
+   TRANSITIONS DE PAGE + SON
+   ============================================================ */
+/* rideau : rythme décalé (descente = transition de sortie, montée = révélation) */
+.curtain span{transition:transform .8s var(--ease)}
+.curtain span:nth-child(1){transition-delay:.00s}
+.curtain span:nth-child(2){transition-delay:.06s}
+.curtain span:nth-child(3){transition-delay:.12s}
+.curtain span:nth-child(4){transition-delay:.18s}
+.curtain span:nth-child(5){transition-delay:.24s}
+.curtain span:nth-child(6){transition-delay:.30s}
+.curtain.up span:nth-child(1){transition-delay:.30s}
+.curtain.up span:nth-child(2){transition-delay:.24s}
+.curtain.up span:nth-child(3){transition-delay:.18s}
+.curtain.up span:nth-child(4){transition-delay:.12s}
+.curtain.up span:nth-child(5){transition-delay:.06s}
+.curtain.up span:nth-child(6){transition-delay:.00s}
+.curtain span:nth-child(odd){background:var(--bg)}
+.curtain span:nth-child(even){background:var(--bg2)}
+/* liseré acide sur le bord du rideau pendant le mouvement */
+.curtain span{box-shadow:0 1px 0 var(--fuchsia)}
+
+/* bouton son */
+.sound-toggle{background:none;border:1px solid var(--line);color:var(--mute);border-radius:30px;padding:8px 14px;font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;cursor:none;display:flex;align-items:center;gap:8px;transition:.3s}
+.sound-toggle:hover{color:var(--ink);border-color:var(--fuchsia)}
+.sound-toggle.on{color:var(--fuchsia);border-color:var(--fuchsia)}
+.sound-toggle .dot{width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
+.sound-toggle.on .dot{animation:sndpulse 1.4s ease-in-out infinite}
+@keyframes sndpulse{50%{opacity:.3}}
+@media(max-width:900px){.sound-toggle{display:none}}

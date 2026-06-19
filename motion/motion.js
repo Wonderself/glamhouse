@@ -125,4 +125,52 @@
     const sio=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,final=el.dataset.scramble;const st=performance.now(),dur=final.length*40;const tick=n=>{const p=(n-st)/dur,lock=Math.floor(p*final.length);let o='';for(let k=0;k<final.length;k++)o+=k<lock?final[k]:(final[k]===' '?' ':glyphs[Math.floor(Math.random()*glyphs.length)]);el.textContent=o;if(p<1)requestAnimationFrame(tick);else el.textContent=final;};requestAnimationFrame(tick);sio.unobserve(el);});},{threshold:.6});
     if(!reduce)$$('[data-scramble]').forEach(el=>sio.observe(el));else $$('[data-scramble]').forEach(el=>el.textContent=el.dataset.scramble);
   } else { $$('[data-reveal],.mask').forEach(el=>el.classList.add('in')); }
+
+  /* ============ SON (Web Audio, discret) ============ */
+  const Sound=(function(){
+    let ctx,enabled = localStorage.getItem('mgh-sound')!=='off', last=0;
+    const ensure=()=>{ try{ if(!ctx) ctx=new (window.AudioContext||window.webkitAudioContext)(); if(ctx.state==='suspended') ctx.resume(); }catch(e){} };
+    const blip=(freq,dur,vol,type)=>{ if(!enabled||!ctx) return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'triangle'; o.frequency.value=freq; o.connect(g); g.connect(ctx.destination); const t=ctx.currentTime; g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol,t+0.008); g.gain.exponentialRampToValueAtTime(0.0001,t+dur); o.start(t); o.stop(t+dur+0.02); };
+    return {
+      ensure,
+      hover(){ const n=performance.now(); if(n-last<55) return; last=n; blip(1280+Math.random()*120,0.05,0.025,'triangle'); },
+      click(){ ensure(); blip(620,0.10,0.05,'sine'); setTimeout(()=>blip(960,0.08,0.035,'sine'),45); },
+      toggle(){ enabled=!enabled; localStorage.setItem('mgh-sound',enabled?'on':'off'); if(enabled){ensure();blip(880,0.08,0.04,'sine');} return enabled; },
+      isOn(){ return enabled; }
+    };
+  })();
+  // déblocage audio au 1er geste
+  ['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,()=>Sound.ensure(),{once:true}));
+  // sons au survol
+  if(!coarse) $$('a,button,.pcard,.film,.index .row,[data-magnetic]').forEach(el=>el.addEventListener('pointerenter',()=>Sound.hover()));
+
+  // bouton SON dans la nav
+  const navlinks=$('.mnav__links'), back=$('.mnav__back');
+  if(navlinks){
+    const btn=document.createElement('button');
+    btn.className='sound-toggle'+(Sound.isOn()?' on':'');
+    btn.setAttribute('aria-label','Activer / couper le son');
+    btn.innerHTML='<span class="dot"></span> Son';
+    btn.addEventListener('click',()=>{ const on=Sound.toggle(); btn.classList.toggle('on',on); });
+    navlinks.insertBefore(btn, back||null);
+  }
+
+  /* ============ TRANSITIONS DE PAGE (rideau) ============ */
+  const curtain=$('.curtain');
+  if(curtain){
+    $$('a[href]').forEach(a=>{
+      const href=a.getAttribute('href');
+      if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||a.target==='_blank') return;
+      a.addEventListener('click',e=>{
+        if(e.metaKey||e.ctrlKey||e.shiftKey) return;
+        e.preventDefault();
+        Sound.click();
+        curtain.classList.remove('up'); // le rideau redescend
+        const go=()=>{ location.href=a.href; };
+        setTimeout(go, reduce?60:780);
+      });
+    });
+  }
+  // clic générique (boutons) -> son
+  if(!coarse) $$('button:not(.sound-toggle)').forEach(b=>b.addEventListener('click',()=>Sound.click()));
 })();
