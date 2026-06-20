@@ -139,6 +139,17 @@
   /* ============ RETOUR EN HAUT ============ */
   $$('[data-totop]').forEach(b=>b.addEventListener('click',()=>{ try{scrollTo({top:0,behavior:'smooth'});}catch(e){scrollTo(0,0);} }));
 
+  /* ============ CALCULS EN DIRECT (chips du hero) ============ */
+  $$('[data-tick]').forEach(el=>{
+    const target=parseFloat(el.dataset.tick), dec=parseInt(el.dataset.dec||'0',10);
+    const fmt=v=>dec?v.toFixed(dec):Math.round(v).toString();
+    if(reduce){el.textContent=fmt(target);return;}
+    const st=performance.now(),dur=1600;
+    const jitter=()=>setInterval(()=>{el.textContent=fmt(target+(Math.random()-0.5)*(Math.abs(target)*0.012+0.15));},950);
+    const run=n=>{const p=Math.min((n-st)/dur,1);el.textContent=fmt(target*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(run);else jitter();};
+    requestAnimationFrame(run);
+  });
+
   /* ============ SON (Web Audio, discret) ============ */
   const Sound=(function(){
     let ctx,enabled = localStorage.getItem('mgh-sound')!=='off', last=0;

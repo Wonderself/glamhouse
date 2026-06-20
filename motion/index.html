@@ -35,34 +35,86 @@
   </div>
 </nav>
 
-<!-- HERO : film Remotion + motion (scanline + badge rotatif) -->
+<!-- HERO : plan d'architecte animé (blueprint) -->
 <header class="mhero">
-  <video class="mhero__film" autoplay muted loop playsinline preload="auto" poster="../assets/videos/motion-hero.png">
-    <source src="../assets/videos/motion-hero.mp4" type="video/mp4">
-  </video>
-  <div class="mhero__scan"></div>
-  <div class="scrollcue">Scroll ↓ pour entrer</div>
-  <div class="mhero__in">
-    <p class="mono" style="color:var(--fuchsia);margin-bottom:22px">MyGlamHouse · Expérience 2027</p>
-    <h1>
-      <span class="kin"><span>HABITER</span></span><br>
-      <span class="kin"><span>LE&nbsp;</span></span><span class="kin"><span class="holo">FUTUR.</span></span>
-    </h1>
-    <div class="mhero__sub">
-      <p>L'habitat modulaire écologique, mis en mouvement. Films, lumière, cinétique — une maison qui se vit avant même d'exister.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
+  <div class="mhero__bg" aria-hidden="true"></div>
+  <div class="container mhero__grid">
+    <div class="mhero__text">
+      <p class="mono mhero__kick">MyGlamHouse · Studio paramétrique 2027</p>
+      <h1>
+        <span class="kin"><span>HABITER</span></span><br>
+        <span class="kin"><span>LE&nbsp;</span></span><span class="kin"><span class="holo">FUTUR.</span></span>
+      </h1>
+      <p class="mhero__lead">L'habitat modulaire écologique, calculé en direct. Plans, surfaces, énergie — votre maison se dessine sous vos yeux.</p>
+      <div class="mhero__cta">
         <a href="#collection" class="btn btn--f" data-magnetic>Explorer <i class="fas fa-arrow-down"></i></a>
         <a href="../modern/collection.html" class="btn btn--ghost" data-magnetic>Voir les modèles</a>
       </div>
+      <div class="mhero__chips">
+        <span class="chip"><b data-tick="86.4" data-dec="1">0</b> m²</span>
+        <span class="chip">DPE <b>A</b></span>
+        <span class="chip"><b data-tick="-38" data-suffix="">0</b>% énergie</span>
+        <span class="chip"><b data-tick="142">0</b> k€</span>
+      </div>
+    </div>
+
+    <div class="mhero__plan">
+      <div class="bp" id="bp">
+        <svg class="bp-svg" viewBox="0 0 620 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Plan animé">
+          <!-- cotes -->
+          <g class="bp-dim" data-fade="1">
+            <line x1="100" y1="50" x2="540" y2="50"/><line x1="100" y1="44" x2="100" y2="56"/><line x1="540" y1="44" x2="540" y2="56"/>
+            <text class="dimtx" x="320" y="42" text-anchor="middle">8.80 m</text>
+            <line x1="66" y1="80" x2="66" y2="520"/><line x1="60" y1="80" x2="72" y2="80"/><line x1="60" y1="520" x2="72" y2="520"/>
+            <text class="dimtx" x="40" y="300" text-anchor="middle" transform="rotate(-90 40 300)">8.80 m</text>
+          </g>
+          <!-- murs (se dessinent) -->
+          <rect class="w-out draw" x="100" y="80" width="440" height="440" rx="2"/>
+          <path class="w-in draw d1" d="M330 80 V520"/>
+          <path class="w-in draw d2" d="M330 300 H540"/>
+          <path class="w-in draw d2" d="M435 300 V400"/>
+          <path class="w-dash draw d3" d="M330 400 H540"/>
+          <!-- fenêtres -->
+          <g class="bp-win" data-fade="2">
+            <line x1="100" y1="170" x2="100" y2="270"/>
+            <line x1="380" y1="80" x2="470" y2="80"/>
+            <line x1="540" y1="160" x2="540" y2="250"/>
+          </g>
+          <!-- portes -->
+          <g class="bp-door" data-fade="2">
+            <path d="M170 520 a40 40 0 0 1 40 -40"/>
+            <path d="M330 150 a38 38 0 0 1 -38 38"/>
+            <path d="M392 300 a28 28 0 0 1 -28 28"/>
+          </g>
+          <!-- mobilier -->
+          <g class="bp-furn" data-fade="3">
+            <rect x="130" y="360" width="120" height="34" rx="6"/><path d="M130 360 v-26 h120 v26"/>
+            <circle cx="205" cy="215" r="32"/>
+            <rect x="130" y="104" width="150" height="24"/><circle cx="165" cy="116" r="6"/><circle cx="200" cy="116" r="6"/>
+            <rect x="360" y="110" width="120" height="92" rx="4"/><line x1="360" y1="134" x2="480" y2="134"/><rect x="374" y="116" width="40" height="12" rx="3"/><rect x="426" y="116" width="40" height="12" rx="3"/>
+            <rect x="350" y="315" width="52" height="52"/><path d="M350 315 L402 367 M402 315 L350 367"/>
+            <ellipse cx="490" cy="350" rx="14" ry="18"/>
+            <path d="M360 430 h60 M360 445 h60 M455 430 h60 M455 445 h60"/>
+          </g>
+          <!-- labels pièces -->
+          <g class="bp-lab" data-fade="3">
+            <text x="150" y="300">SÉJOUR</text>
+            <text x="150" y="150">CUISINE</text>
+            <text x="378" y="250">CHAMBRE</text>
+            <text x="352" y="392" font-size="11">SDB</text>
+            <text x="470" y="392" font-size="11">WC</text>
+            <text x="360" y="475">TERRASSE</text>
+          </g>
+          <!-- scan + crosshair -->
+          <rect class="bp-scan" x="100" y="80" width="2.5" height="440"/>
+          <g class="bp-cross"><line x1="-9" y1="0" x2="9" y2="0"/><line x1="0" y1="-9" x2="0" y2="9"/><circle r="14" fill="none"/></g>
+        </svg>
+        <span class="bp-live"><i></i> Computing…</span>
+        <span class="bp-title">MGH · Plan 01 · 1:50</span>
+      </div>
     </div>
   </div>
-  <a href="#collection" class="rotor" aria-label="Découvrir">
-    <svg viewBox="0 0 100 100" aria-hidden="true">
-      <defs><path id="rc" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
-      <text><textPath href="#rc" startOffset="0">MYGLAMHOUSE · MOTION · 2027 · OVNI · </textPath></text>
-    </svg>
-    <span class="c"><i class="fas fa-arrow-down"></i></span>
-  </a>
+  <div class="scrollcue">Scroll ↓</div>
 </header>
 
 <!-- MARQUEE -->
