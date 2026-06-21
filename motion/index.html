@@ -11,15 +11,7 @@
 <link rel="stylesheet" href="motion.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 </head>
-<body onpageshow="if(event.persisted){var c=document.querySelector('.curtain');if(c)c.classList.add('up');var p=document.querySelector('.pre');if(p)p.classList.add('hide');document.body.style.overflow='';}">
-<!-- PRÉLOADER + RIDEAU -->
-<div class="pre">
-  <div class="pre__num">0</div>
-  <div class="pre__bar"><i></i></div>
-  <div class="pre__lab">MyGlamHouse · Motion — Initialisation</div>
-</div>
-<div class="curtain"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
+<body>
 <div class="cursor"></div><div class="cursor-ring"></div>
 <div class="progress"></div>
 
@@ -185,8 +177,8 @@
       <p>Chaque modèle prend vie en vidéo — y compris la Tiny House et le Triplex à patio de verre.</p>
     </div>
     <div class="films">
-      <figure class="film" data-reveal data-magnetic><span class="film__tag">Tiny House · 20 m²</span><video autoplay muted loop playsinline preload="metadata" poster="../assets/photo4.jpg"><source src="../assets/videos/tiny-20.mp4" type="video/mp4"></video></figure>
-      <figure class="film" data-reveal data-d="1" data-magnetic><span class="film__tag">Triplex · patio verre</span><video autoplay muted loop playsinline preload="metadata" poster="../assets/photo2.jpg"><source src="../assets/videos/triplex.mp4" type="video/mp4"></video></figure>
+      <figure class="film" data-magnetic><span class="film__tag">Tiny House · 20 m²</span><video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="../assets/photo4.jpg"><source src="../assets/videos/tiny-20.mp4" type="video/mp4"></video></figure>
+      <figure class="film" data-magnetic><span class="film__tag">Triplex · patio verre</span><video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="../assets/photo2.jpg"><source src="../assets/videos/triplex.mp4" type="video/mp4"></video></figure>
     </div>
   </div>
 </section>
