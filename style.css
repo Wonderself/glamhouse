@@ -600,16 +600,14 @@ select { margin-bottom: 20px; }
 }
 .surface-total .total-value { font-size: 2.2rem; font-weight: 700; color: var(--terracotta); }
 
-/* ===== SEQUOIA — COUPE TRANSVERSALE (FLAT CROSS-SECTION) ===== */
-.cross-section-diagram { border: 2px solid var(--charcoal); border-radius: 8px; overflow: hidden; }
-.cross-row { display: flex; border-bottom: 2px solid var(--charcoal); }
-.cross-row:last-child { border-bottom: none; }
-.cross-cell {
-    flex-shrink: 0; height: 110px; border-right: 1px solid rgba(0,0,0,0.15);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-    font-size: 0.8rem; font-weight: 600; color: var(--charcoal); padding: 8px; line-height: 1.5;
+/* ===== SEQUOIA — ARCHITECTURAL SVG PLANS ===== */
+.architectural-plans { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; align-items: flex-start; }
+.architectural-plan-card {
+    background: white; padding: 20px 20px 16px; border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06); flex: 0 1 340px;
 }
-.cross-cell:last-child { border-right: none; }
+.architectural-plan-card svg { display: block; width: 100%; height: auto; font-family: var(--font-body); }
+.architectural-plan-card .plan-floor-title { text-align: center; font-weight: 700; margin-top: 10px; color: var(--charcoal); }
 
 /* ===== SEQUOIA — ISOMETRIC PLAN LAYER (SCROLL STAGE 1) ===== */
 .iso-plan-layer {
@@ -1088,7 +1086,8 @@ select { margin-bottom: 20px; }
     .iso-deck { width: 140px !important; height: 50px !important; bottom: -24px !important; }
     .sequoia-cladding-label { font-size: 0.7rem !important; padding: 6px 14px !important; }
     .sequoia-photo-note { display: none !important; }
-    .cross-cell { height: 80px !important; font-size: 0.68rem !important; padding: 4px !important; }
+    .architectural-plans { gap: 24px !important; }
+    .architectural-plan-card { flex-basis: 100% !important; max-width: 340px !important; }
 
     .token-hero { padding: 100px 0 50px !important; }
     .token-hero h1 { font-size: 1.8rem !important; }
