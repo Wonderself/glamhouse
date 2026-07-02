@@ -37,6 +37,69 @@
         </div>
     </nav>
 
+    <!-- SEQUOIA — SCROLL-REVEAL HERO -->
+    <section class="sequoia-scroll-hero" id="sequoia-reveal">
+        <div class="sequoia-intro container">
+            <span class="badge-year badge-pulse" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">NOUVEAU MODÈLE 2026</span>
+            <h2>Sequoia. La Tiny House qui se révèle au fil du scroll.</h2>
+            <p class="lead">3m × 6,66m, 40m² d'espace vécu. Continuez à faire défiler pour découvrir le plan, les 3 revêtements bois, puis la forêt qui l'accueille.</p>
+        </div>
+        <div class="sequoia-pin-wrap" id="sequoiaPinWrap">
+            <div class="sequoia-stage" id="sequoiaStage">
+
+                <!-- FOREST BACKDROP (stage 4) -->
+                <div class="forest-scene" id="forestScene">
+                    <div class="sky"></div>
+                    <div class="sun"></div>
+                    <div class="tree-layer tree-back"></div>
+                    <div class="tree-layer tree-front"></div>
+                </div>
+
+                <!-- STAGE 1 — PLAN TECHNIQUE QUI TOURNE -->
+                <div class="iso-plan-layer" id="isoPlanLayer">
+                    <div class="floor-plan-3d">
+                        <div class="plan-container" id="scrollPlanContainer" style="padding-bottom: 222%;">
+                            <div class="plan-room" style="left: 0%; top: 0%; width: 100%; height: 28%; background: rgba(255,235,200,0.5);"><div>Cuisine<br><small>6m²</small></div></div>
+                            <div class="plan-room salon" style="left: 0%; top: 28%; width: 100%; height: 40%;"><div>Salon<br><small>8m²</small></div></div>
+                            <div class="plan-room sdb" style="left: 0%; top: 68%; width: 48%; height: 32%;"><div>SDB<br><small>3m²</small></div></div>
+                            <div class="plan-room" style="left: 52%; top: 68%; width: 48%; height: 32%; background: rgba(200,200,200,0.3);"><div>Escalier<br><small>3m²</small></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STAGE 2-3 — VOLUME 3D + REVÊTEMENTS -->
+                <div class="iso-scene" id="isoScene">
+                    <div class="iso-cube" id="isoCube">
+                        <div class="iso-face top">
+                            <div class="cladding-base"></div>
+                            <div class="cladding-marron-layer"></div>
+                            <div class="cladding-clair-layer"></div>
+                        </div>
+                        <div class="iso-face side">
+                            <div class="cladding-base"></div>
+                            <div class="cladding-marron-layer"></div>
+                            <div class="cladding-clair-layer"></div>
+                            <div class="iso-rail"></div>
+                        </div>
+                        <div class="iso-face front">
+                            <div class="cladding-base"></div>
+                            <div class="cladding-marron-layer"></div>
+                            <div class="cladding-clair-layer"></div>
+                            <div class="iso-window etage"></div>
+                            <div class="iso-window rdc"></div>
+                            <div class="iso-floor-line"></div>
+                        </div>
+                        <div class="iso-deck" id="isoDeck"></div>
+                    </div>
+                </div>
+
+                <span class="sequoia-cladding-label" id="sequoiaCladdingLabel">Bois noir</span>
+                <p class="sequoia-photo-note">Illustration vectorielle — photos réelles à intégrer ultérieurement</p>
+                <div class="sequoia-scroll-hint" id="sequoiaScrollHint"><i class="fas fa-mouse"></i> Scrollez pour découvrir</div>
+            </div>
+        </div>
+    </section>
+
     <header class="hero">
         <div class="video-wrapper">
             <video autoplay muted loop playsinline id="heroVideo">
