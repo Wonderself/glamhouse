@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Siboni — Designer | MYGLAMHOUSE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ VERSION NOIR — PAGE DESIGNER ============ */
+:root {
+    --void: #0C0E0D; --panel: #131614; --panel-2: #1A1E1B; --bone: #EDEAE2;
+    --dim: rgba(237,234,226,.58); --faint: rgba(237,234,226,.32);
+    --amber: #D9A05B; --amber-soft: rgba(217,160,91,.16); --edge: rgba(237,234,226,.10);
+    --grotesk: 'Space Grotesk', sans-serif; --mono: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--grotesk); background: var(--void); color: var(--bone); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
+::selection { background: var(--amber); color: var(--void); }
+
+.rv { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
+.rv.in { opacity: 1; transform: none; }
+.rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1 !important; transform: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px clamp(20px, 4vw, 56px); background: rgba(12,14,13,.85); backdrop-filter: blur(16px); box-shadow: 0 1px 0 var(--edge); }
+.brand { font-weight: 700; letter-spacing: .32em; font-size: .8rem; }
+.brand em { font-style: normal; color: var(--amber); }
+.nav ul { display: flex; gap: clamp(16px, 2.4vw, 34px); list-style: none; }
+.nav ul a { font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.nav ul a:hover { color: var(--amber); }
+@media (max-width: 900px) { .nav ul { display: none; } }
+
+.sec-label { font-family: var(--mono); font-size: .64rem; letter-spacing: .3em; text-transform: uppercase; color: var(--amber); display: flex; align-items: center; gap: 14px; margin-bottom: 34px; }
+.sec-label::before { content: ''; width: 30px; height: 1px; background: var(--amber); }
+.sec-label i { font-style: normal; color: var(--faint); }
+
+/* HERO */
+.dhero { position: relative; min-height: 100svh; display: grid; grid-template-columns: 1fr 1fr; }
+.dhero-media { position: relative; overflow: hidden; }
+.dhero-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: grayscale(.25) contrast(1.05); }
+.dhero-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 70%, var(--void) 100%); }
+.dhero-copy { position: relative; display: flex; flex-direction: column; justify-content: center; padding: clamp(100px, 12vw, 160px) clamp(28px, 4vw, 72px) clamp(50px, 8vh, 90px); }
+.dhero-copy .role { font-family: var(--mono); font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--amber); margin-bottom: 24px; }
+.dhero-copy h1 { font-size: clamp(2.6rem, 5.6vw, 5rem); font-weight: 600; text-transform: uppercase; line-height: .96; letter-spacing: -0.02em; margin-bottom: 28px; }
+.dhero-copy .quote { font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 300; color: var(--bone); max-width: 24ch; margin-bottom: 24px; border-left: 2px solid var(--amber); padding-left: 18px; }
+.dhero-copy p.lede { color: var(--dim); font-weight: 300; max-width: 42ch; font-size: .95rem; }
+@media (max-width: 900px) { .dhero { grid-template-columns: 1fr; } .dhero-media { min-height: 50vh; } .dhero-media::after { background: linear-gradient(180deg, transparent 60%, var(--void) 100%); } .dhero-copy { padding: 40px 22px 60px; } }
+
+/* CREDENTIALS */
+.creds { padding: clamp(60px, 9vh, 100px) 0; border-bottom: 1px solid var(--edge); }
+.creds-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.cred { background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: clamp(20px, 2.6vw, 34px); transition: border-color .4s, transform .4s; }
+.cred:hover { border-color: rgba(217,160,91,.5); transform: translateY(-4px); }
+.cred .num { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 600; letter-spacing: -0.01em; }
+.cred .lbl { margin-top: 10px; font-family: var(--mono); font-size: .64rem; letter-spacing: .1em; color: var(--dim); line-height: 1.5; text-transform: uppercase; }
+@media (max-width: 900px) { .creds-grid { grid-template-columns: 1fr 1fr; } }
+
+/* TIMELINE */
+.dtimeline { padding: clamp(90px, 14vh, 170px) 0; }
+.dtimeline-head { max-width: 640px; margin-bottom: clamp(50px, 8vh, 90px); }
+.dtimeline-head h2 { font-size: clamp(1.9rem, 3.8vw, 3.1rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.015em; }
+.dtimeline-head h2 b { color: var(--amber); font-weight: 600; }
+.tl-row { display: grid; grid-template-columns: 170px 1fr; gap: clamp(20px, 3vw, 46px); padding: clamp(28px, 4vh, 42px) 0; border-top: 1px solid var(--edge); }
+.tl-row:last-child { border-bottom: 1px solid var(--edge); }
+.tl-date { font-family: var(--mono); color: var(--amber); font-size: .8rem; letter-spacing: .06em; }
+.tl-body h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 10px; }
+.tl-body p { color: var(--dim); font-weight: 300; max-width: 62ch; font-size: .94rem; }
+@media (max-width: 700px) { .tl-row { grid-template-columns: 1fr; gap: 6px; } }
+
+/* QUOTE */
+.philo { background: var(--panel); padding: clamp(90px, 14vh, 170px) 0; position: relative; overflow: hidden; }
+.philo::before { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 60vw; max-width: 800px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(217,160,91,.1), transparent 65%); }
+.philo-inner { max-width: 800px; margin: 0 auto; text-align: center; position: relative; }
+.philo blockquote { font-size: clamp(1.35rem, 2.8vw, 2.1rem); font-weight: 300; line-height: 1.45; letter-spacing: -0.01em; }
+.philo cite { display: block; margin-top: 28px; font-style: normal; font-family: var(--mono); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--amber); }
+
+/* GALLERY */
+.dgallery { padding: clamp(90px, 14vh, 170px) 0; }
+.dgallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: clamp(40px, 6vh, 70px); }
+.dgallery-grid figure { margin: 0; border-radius: 10px; overflow: hidden; aspect-ratio: 4/5; border: 1px solid var(--edge); }
+.dgallery-grid figure:nth-child(2) { transform: translateY(28px); }
+.dgallery-grid img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); }
+@media (max-width: 900px) { .dgallery-grid { grid-template-columns: 1fr; } .dgallery-grid figure:nth-child(2) { transform: none; } }
+
+/* FINAL */
+.final { padding: clamp(100px, 16vh, 190px) 0; text-align: center; }
+.final h2 { font-size: clamp(2.2rem, 6vw, 5rem); font-weight: 600; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; margin-bottom: 36px; }
+.final h2 b { color: var(--amber); font-weight: 600; }
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 30px; border-radius: 4px; font-size: .74rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; background: var(--amber); color: var(--void); transition: transform .35s, box-shadow .35s; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 34px -8px rgba(217,160,91,.55); }
+
+footer { border-top: 1px solid var(--edge); padding: 44px 0; }
+.foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-family: var(--mono); font-size: .64rem; letter-spacing: .12em; color: var(--faint); }
+.foot nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.foot nav a:hover { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+    <a class="brand" href="motion-noir.html">MYGLAM<em>HOUSE</em></a>
+    <ul>
+        <li><a href="motion-noir.html#dossier">Maisons</a></li>
+        <li><a href="construction.html">Construction</a></li>
+        <li><a href="motion-noir-siboni.html" style="color:var(--amber);">Designer</a></li>
+        <li><a href="projets.html">Projets</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<header class="dhero">
+    <div class="dhero-media"><img src="assets/daniel siboni.jpg" alt="Portrait de Daniel Siboni"></div>
+    <div class="dhero-copy">
+        <span class="role rv">Fondateur / direction artistique</span>
+        <h1 class="rv rv-d1">Daniel Siboni</h1>
+        <p class="quote rv rv-d2">L'architecture n'est pas seulement une construction, c'est une mise en scène de la vie.</p>
+        <p class="lede rv rv-d3">Photographe de mode et directeur artistique, il a shooté pour Vogue, Dior et Chanel, curaté un hôtel entier à Tel Aviv — et applique désormais ce même regard à chaque module MyGlamHouse.</p>
+    </div>
+</header>
+
+<!-- CREDENTIALS -->
+<section class="creds wrap">
+    <div class="creds-grid">
+        <div class="cred rv" data-idx="B1"><div class="num">25<sup style="color:var(--amber);font-size:.5em;">ans</sup></div><div class="lbl">Photographie &amp; direction artistique</div></div>
+        <div class="cred rv rv-d1" data-idx="B2"><div class="num">Link</div><div class="lbl">Hôtel &amp; Hub — Tel Aviv, Dan Hotels</div></div>
+        <div class="cred rv rv-d2" data-idx="B3"><div class="num">80</div><div class="lbl">Ans de Batman — direction artistique</div></div>
+        <div class="cred rv rv-d3" data-idx="B4"><div class="num">Cannes</div><div class="lbl">Prix pour l'ensemble de sa carrière</div></div>
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="dtimeline wrap">
+    <div class="dtimeline-head">
+        <div class="sec-label rv">01 <i>/ Parcours</i></div>
+        <h2 class="rv rv-d1">De l'objectif à l'<b>architecture</b>.</h2>
+    </div>
+
+    <div class="tl-row rv">
+        <div class="tl-date">1959 — RABAT</div>
+        <div class="tl-body"><h3>Naissance</h3><p>Daniel Siboni naît le 2 juin 1959 à Rabat, au Maroc. Un regard qui traversera la Méditerranée, Paris, Tel Aviv, puis les États-Unis.</p></div>
+    </div>
+    <div class="tl-row rv rv-d1">
+        <div class="tl-date">FASHION</div>
+        <div class="tl-body"><h3>Photographe de mode international</h3><p>Il s'impose en shootant pour ELLE, puis pour Dior, Chanel, Elite Model Fashion et Vogue. Ses séries — <em>Pink Woman</em>, <em>No Escape</em>, <em>Mohammed Ali</em> — sont exposées à la National Portrait Gallery de Londres, à Art Basel Miami et par le Photography Institute de New York (2009).</p></div>
+    </div>
+    <div class="tl-row rv rv-d2">
+        <div class="tl-date">2013</div>
+        <div class="tl-body"><h3>Urban Secret Gallery, Tel Aviv</h3><p>Il ouvre sa galerie, laboratoire du dialogue entre photographie et street art — la matrice du Daniel Siboni Art Factory.</p></div>
+    </div>
+    <div class="tl-row rv rv-d3">
+        <div class="tl-date">2018</div>
+        <div class="tl-body"><h3>Link Hotel &amp; Hub — Tel Aviv</h3><p>Dan Hotels le nomme curateur et directeur artistique de sa ligne street art. Dix étages, dix artistes — Yoni Danziger, Dioz, Michal Rubin — pour un hôtel pensé comme une galerie vivante.</p></div>
+    </div>
+    <div class="tl-row rv">
+        <div class="tl-date">BATMAN 80</div>
+        <div class="tl-body"><h3>Direction artistique — exposition anniversaire</h3><p>Il orchestre l'exposition célébrant les 80 ans de Batman : art, narration visuelle et mise en scène à grande échelle.</p></div>
+    </div>
+    <div class="tl-row rv rv-d1">
+        <div class="tl-date">2023 →</div>
+        <div class="tl-body"><h3>MyGlamHouse</h3><p>Il fonde MyGlamHouse. Chaque module est composé comme une photographie — cadrages, lumière, matière — pour votre jardin, votre terrain, votre espace privé.</p></div>
+    </div>
+</section>
+
+<!-- QUOTE -->
+<section class="philo">
+    <div class="wrap philo-inner">
+        <blockquote class="rv">« Entrer dans une maison MyGlamHouse, c'est entrer dans un cadre que j'ai composé comme une photographie. Le bois et le chanvre reconnectent à la nature — je reste convaincu que cette nature est le luxe suprême. »</blockquote>
+        <cite class="rv rv-d1">— Daniel Siboni</cite>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="dgallery wrap">
+    <div class="sec-label rv">02 <i>/ Univers</i></div>
+    <div class="dgallery-grid">
+        <figure class="rv"><img src="assets/inspiration2.jpg" alt="Ambiance 1"></figure>
+        <figure class="rv rv-d1"><img src="assets/construction2.png" alt="Atelier de fabrication"></figure>
+        <figure class="rv rv-d2"><img src="assets/inspiration4.jpg" alt="Ambiance 2"></figure>
+    </div>
+</section>
+
+<!-- FINAL -->
+<section class="final wrap">
+    <h2 class="rv">Une signature. <b>Une maison.</b></h2>
+    <a class="btn rv rv-d1" href="motion-noir.html#dossier">Explorer le dossier</a>
+</section>
+
+<footer>
+    <div class="wrap foot">
+        <span>© 2023–2026 MYGLAMHOUSE — SYSTÈME MGH / FR</span>
+        <nav>
+            <a href="motion-noir.html">Accueil</a>
+            <a href="collection.html">Maisons</a>
+            <a href="construction.html">Construction</a>
+            <a href="projets.html">Projets</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function() {
+    var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.18 });
+    document.querySelectorAll('.rv').forEach(function(el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>

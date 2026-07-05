@@ -584,6 +584,123 @@ select { margin-bottom: 20px; }
     transform-origin: bottom; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
 }
 
+/* ===== SEQUOIA — SURFACE SCHEMA (STACKED BLOCKS) ===== */
+.surface-schema { display: flex; flex-direction: column; align-items: center; gap: 4px; max-width: 340px; margin: 0 auto; }
+.surface-block {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+    color: var(--charcoal); box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.surface-block.terrasse-etage { background: rgba(144,238,144,0.35); }
+.surface-block.chambre-etage { background: rgba(212,165,154,0.35); }
+.surface-block.rdc { background: rgba(173,197,214,0.35); }
+.surface-block.terrasse-teck { background: rgba(217,196,161,0.5); border: 2px dashed rgba(107,74,53,0.4); }
+.surface-total {
+    margin-top: 14px; text-align: center; padding-top: 14px; border-top: 2px solid #eee; width: 100%; max-width: 340px;
+}
+.surface-total .total-value { font-size: 2.2rem; font-weight: 700; color: var(--terracotta); }
+
+/* ===== SEQUOIA — ARCHITECTURAL SVG PLANS ===== */
+.architectural-plans { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; align-items: flex-start; }
+.architectural-plan-card {
+    background: white; padding: 20px 20px 16px; border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06); flex: 0 1 340px;
+}
+.architectural-plan-card svg { display: block; width: 100%; height: auto; font-family: var(--font-body); }
+.architectural-plan-card .plan-floor-title { text-align: center; font-weight: 700; margin-top: 10px; color: var(--charcoal); }
+
+/* ===== SEQUOIA — ISOMETRIC PLAN LAYER (SCROLL STAGE 1) ===== */
+.iso-plan-layer {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    will-change: opacity, transform;
+}
+.iso-plan-layer .floor-plan-3d { perspective: 1400px; margin: 0; max-width: 260px; width: 55vw; }
+.iso-plan-layer .plan-container { transition: none; }
+.iso-plan-layer .plan-room { font-size: 0.6rem; }
+
+/* ===== SEQUOIA — ISO CUBE (SCROLL STAGE 2-3: VOLUME + REVÊTEMENTS) ===== */
+.iso-scene {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    perspective: 1600px; opacity: 0; will-change: opacity;
+}
+.iso-cube {
+    position: relative; width: 150px; height: 260px;
+    transform-style: preserve-3d; will-change: transform;
+}
+.iso-face {
+    position: absolute; overflow: hidden;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.25) inset;
+}
+.iso-face.front { width: 150px; height: 260px; transform: translateZ(45px); }
+.iso-face.side { width: 90px; height: 260px; left: 150px; transform: rotateY(90deg) translateZ(45px); transform-origin: left center; }
+.iso-face.top { width: 150px; height: 90px; top: -90px; transform: rotateX(90deg) translateZ(0px); transform-origin: top center; }
+
+.cladding-base, .cladding-marron-layer, .cladding-clair-layer {
+    position: absolute; inset: 0; background-size: 100% 16px;
+}
+.cladding-base { background-color: #17140f; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 16px); }
+.cladding-marron-layer { background-color: #6b4a35; background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0 2px, transparent 2px 16px); opacity: 0; will-change: opacity; }
+.cladding-clair-layer { background-color: #d9c4a1; background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.08) 0 2px, transparent 2px 16px); opacity: 0; will-change: opacity; }
+.iso-face.top .cladding-base, .iso-face.top .cladding-marron-layer, .iso-face.top .cladding-clair-layer { background-size: 16px 100%; background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0 2px, transparent 2px 16px); }
+
+.iso-window {
+    position: absolute; background: linear-gradient(160deg, rgba(255,235,190,0.9), rgba(120,160,190,0.55));
+    border: 2px solid rgba(20,20,20,0.6); z-index: 3;
+}
+.iso-window.rdc { left: 12%; width: 76%; height: 30%; bottom: 6%; }
+.iso-window.etage { left: 12%; width: 76%; height: 26%; top: 8%; }
+.iso-floor-line { position: absolute; left: 0; width: 100%; height: 2px; background: rgba(0,0,0,0.35); top: 50%; z-index: 3; }
+.iso-deck {
+    position: absolute; width: 190px; height: 70px; left: 50%; bottom: -34px;
+    transform: translateX(-50%) rotateX(90deg); transform-origin: top center;
+    background-color: #b58b5f; background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.15) 0 3px, transparent 3px 22px);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.15) inset; opacity: 0; will-change: opacity;
+}
+.iso-rail {
+    position: absolute; top: 0; left: 0; width: 100%; height: 22%;
+    background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.5) 0 2px, transparent 2px 12px);
+    z-index: 3; opacity: 0.85;
+}
+
+/* ===== SEQUOIA — FOREST SCENE (SCROLL STAGE 4: DÉZOOM) ===== */
+.forest-scene { position: absolute; inset: 0; overflow: hidden; opacity: 0; will-change: opacity; }
+.forest-scene .sky { position: absolute; inset: 0; background: linear-gradient(180deg, #bfe0e8 0%, #eef3d8 55%, #f3f0e7 100%); }
+.forest-scene .sun {
+    position: absolute; top: 12%; right: 18%; width: 90px; height: 90px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,244,214,1) 0%, rgba(255,244,214,0.4) 45%, rgba(255,244,214,0) 70%);
+}
+.forest-scene .tree-layer { position: absolute; bottom: 0; left: -5%; width: 110%; height: 45%; background-repeat: repeat-x; background-position: bottom; }
+.forest-scene .tree-back { height: 55%; opacity: 0.55; background-image: radial-gradient(ellipse 60px 140px at 0 100%, #9db38f 0%, transparent 70%), radial-gradient(ellipse 60px 140px at 90px 100%, #9db38f 0%, transparent 70%), radial-gradient(ellipse 60px 140px at 180px 100%, #9db38f 0%, transparent 70%); background-size: 180px 100%; }
+.forest-scene .tree-front { height: 38%; background-image: radial-gradient(ellipse 45px 110px at 0 100%, #5f7a52 0%, transparent 70%), radial-gradient(ellipse 45px 110px at 65px 100%, #5f7a52 0%, transparent 70%), radial-gradient(ellipse 45px 110px at 130px 100%, #5f7a52 0%, transparent 70%); background-size: 130px 100%; }
+
+/* ===== SEQUOIA — SCROLL-REVEAL HERO SECTION ===== */
+.sequoia-scroll-hero { background: var(--charcoal); position: relative; }
+.sequoia-intro { padding: 130px 20px 40px; text-align: center; color: white; }
+.sequoia-intro h2 { color: white; font-size: 2.6rem; margin: 15px 0; }
+.sequoia-intro .lead { color: rgba(255,255,255,0.75); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+.sequoia-pin-wrap { position: relative; height: 400vh; }
+.sequoia-stage {
+    position: sticky; top: 0; height: 100vh; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+}
+.sequoia-scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    color: white; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+    display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 5;
+    transition: opacity 0.4s ease; animation: bobDown 1.8s ease-in-out infinite;
+}
+@keyframes bobDown { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 10px); } }
+.sequoia-cladding-label {
+    position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+    color: white; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;
+    background: rgba(255,255,255,0.1); backdrop-filter: blur(6px); padding: 8px 20px;
+    border-radius: 50px; z-index: 5; font-weight: 600;
+}
+.sequoia-photo-note {
+    position: absolute; bottom: 20px; right: 20px; z-index: 5;
+    color: rgba(255,255,255,0.55); font-size: 0.7rem; max-width: 220px; text-align: right;
+}
+
 /* ADMIN STYLES */
 .admin-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -853,7 +970,8 @@ select { margin-bottom: 20px; }
 @media (max-width: 968px) {
 
     /* ===== PROTECTION DEBORDEMENT ===== */
-    html, body { overflow-x: hidden !important; }
+    /* Ciblé sur body uniquement : overflow-x sur html casse position:sticky (utilisé par la section scroll Sequoia) */
+    body { overflow-x: hidden !important; }
     img, video, iframe, canvas, svg { max-width: 100% !important; }
 
     /* ===== NAVBAR & HAMBURGER ===== */
@@ -955,6 +1073,21 @@ select { margin-bottom: 20px; }
     .hero-sub { font-size: 0.85rem !important; }
     .signature { font-size: 1rem; }
     .hero-content { padding: 15px !important; }
+
+    /* ===== SEQUOIA SCROLL HERO ===== */
+    .sequoia-intro { padding: 60px 15px 20px !important; }
+    .sequoia-intro h2 { font-size: 1.7rem !important; }
+    .sequoia-intro .lead { font-size: 0.95rem !important; }
+    .sequoia-pin-wrap { height: 320vh !important; }
+    .iso-cube { width: 110px !important; height: 190px !important; }
+    .iso-face.front { width: 110px !important; height: 190px !important; }
+    .iso-face.side { width: 65px !important; height: 190px !important; left: 110px !important; }
+    .iso-face.top { width: 110px !important; height: 65px !important; top: -65px !important; }
+    .iso-deck { width: 140px !important; height: 50px !important; bottom: -24px !important; }
+    .sequoia-cladding-label { font-size: 0.7rem !important; padding: 6px 14px !important; }
+    .sequoia-photo-note { display: none !important; }
+    .architectural-plans { gap: 24px !important; }
+    .architectural-plan-card { flex-basis: 100% !important; max-width: 340px !important; }
 
     .token-hero { padding: 100px 0 50px !important; }
     .token-hero h1 { font-size: 1.8rem !important; }
@@ -1317,5 +1450,15 @@ select { margin-bottom: 20px; }
     /* ===== VARIOUS ===== */
     .company-desc { font-size: 0.95rem !important; margin-bottom: 30px !important; }
     .custom-note { font-size: 0.8rem !important; }
+
+    /* ===== SEQUOIA SCROLL HERO (SMALL PHONES) ===== */
+    .sequoia-intro h2 { font-size: 1.4rem !important; }
+    .sequoia-pin-wrap { height: 280vh !important; }
+    .iso-cube { width: 88px !important; height: 155px !important; }
+    .iso-face.front { width: 88px !important; height: 155px !important; }
+    .iso-face.side { width: 52px !important; height: 155px !important; left: 88px !important; }
+    .iso-face.top { width: 88px !important; height: 52px !important; top: -52px !important; }
+    .iso-deck { width: 112px !important; height: 40px !important; bottom: -20px !important; }
+    .surface-block { padding: 11px 14px !important; font-size: 0.8rem !important; }
     .crypto-option { font-size: 0.85rem !important; padding: 12px !important; }
 }
