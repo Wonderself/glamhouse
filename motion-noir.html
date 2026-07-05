@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MYGLAMHOUSE — Version Noir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ VERSION NOIR — FUTURISTE IMMERSIF ============ */
+:root {
+    --void: #0C0E0D;
+    --panel: #131614;
+    --panel-2: #1A1E1B;
+    --bone: #EDEAE2;
+    --dim: rgba(237,234,226,.58);
+    --faint: rgba(237,234,226,.32);
+    --amber: #D9A05B;
+    --amber-soft: rgba(217,160,91,.16);
+    --edge: rgba(237,234,226,.10);
+    --grotesk: 'Space Grotesk', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--grotesk);
+    background: var(--void);
+    color: var(--bone);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1360px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
+::selection { background: var(--amber); color: var(--void); }
+
+/* grain */
+body::before {
+    content: ''; position: fixed; inset: -50%; z-index: 999; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 9s steps(8) infinite;
+}
+@keyframes grain { 0%,100%{transform:translate(0,0)} 25%{transform:translate(-3%,2%)} 50%{transform:translate(2%,-3%)} 75%{transform:translate(-2%,-2%)} }
+
+/* progress hairline */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200; background: transparent; }
+.progress i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--amber), #E8C08A); transform: scaleX(0); transform-origin: left; }
+
+/* ---------- REVEALS ---------- */
+.rv { opacity: 0; transform: translateY(30px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
+.rv.in { opacity: 1; transform: none; }
+.rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
+@media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
+    body::before { animation: none; }
+    html { scroll-behavior: auto; }
+}
+
+/* ---------- NAV ---------- */
+.nav { position: fixed; top: 2px; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px clamp(20px, 4vw, 56px); transition: background .5s, box-shadow .5s; }
+.nav.scrolled { background: rgba(12,14,13,.85); backdrop-filter: blur(16px); box-shadow: 0 1px 0 var(--edge); }
+.brand { font-weight: 700; letter-spacing: .32em; font-size: .8rem; }
+.brand em { font-style: normal; color: var(--amber); }
+.nav-meta { font-family: var(--mono); font-size: .62rem; letter-spacing: .12em; color: var(--faint); display: flex; gap: 26px; }
+.nav ul { display: flex; gap: clamp(16px, 2.4vw, 34px); list-style: none; }
+.nav ul a { font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); transition: color .3s; }
+.nav ul a:hover { color: var(--amber); }
+
+/* ---------- HERO ---------- */
+.hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+.hero-media { position: absolute; inset: 0; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; opacity: .55; animation: heroScale 20s ease-out both; }
+@keyframes heroScale { from { transform: scale(1.12); } to { transform: scale(1); } }
+.hero-media::after { content: ''; position: absolute; inset: 0; background:
+    radial-gradient(120% 90% at 50% 110%, rgba(12,14,13,.94) 20%, rgba(12,14,13,.45) 55%, rgba(12,14,13,.25) 100%); }
+.hero-hud { position: absolute; top: 96px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 clamp(20px, 4vw, 56px); font-family: var(--mono); font-size: .62rem; letter-spacing: .14em; color: var(--faint); z-index: 2; opacity: 0; animation: fadeIn 1.2s .9s both; }
+@keyframes fadeIn { to { opacity: 1; } }
+.hero-inner { position: relative; z-index: 2; padding-bottom: clamp(44px, 8vh, 100px); }
+.hero-tag { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: var(--amber); border: 1px solid rgba(217,160,91,.4); border-radius: 3px; padding: 8px 14px; background: var(--amber-soft); opacity: 0; animation: riseIn .9s .25s both; }
+.hero h1 { font-size: clamp(2.8rem, 8.4vw, 7.6rem); font-weight: 600; line-height: .98; letter-spacing: -0.03em; text-transform: uppercase; margin: 30px 0 26px; }
+.hero h1 span { display: block; opacity: 0; animation: riseIn 1s both; }
+.hero h1 span:nth-child(1) { animation-delay: .4s; }
+.hero h1 span:nth-child(2) { animation-delay: .52s; color: transparent; -webkit-text-stroke: 1.5px var(--bone); }
+.hero h1 span:nth-child(3) { animation-delay: .64s; }
+@keyframes riseIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+.hero-base { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; flex-wrap: wrap; opacity: 0; animation: riseIn 1s .85s both; }
+.hero-base p { max-width: 44ch; color: var(--dim); font-weight: 300; font-size: .98rem; }
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 30px; border-radius: 4px; font-size: .74rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; transition: transform .35s, background .35s, color .35s, border-color .35s, box-shadow .35s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-amber { background: var(--amber); color: var(--void); box-shadow: 0 0 0 rgba(217,160,91,0); }
+.btn-amber:hover { box-shadow: 0 8px 34px -8px rgba(217,160,91,.55); }
+.btn-line { border: 1px solid var(--edge); color: var(--bone); }
+.btn-line:hover { border-color: var(--amber); color: var(--amber); }
+
+/* ---------- TICKER ---------- */
+.ticker { border-top: 1px solid var(--edge); border-bottom: 1px solid var(--edge); padding: 16px 0; overflow: hidden; background: var(--panel); }
+.ticker-track { display: flex; width: max-content; animation: tick 26s linear infinite; }
+.ticker span { font-family: var(--mono); font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); white-space: nowrap; padding-right: 58px; }
+.ticker b { color: var(--amber); font-weight: 500; padding-right: 58px; }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* ---------- MANIFEST ---------- */
+.manifest { padding: clamp(90px, 14vh, 170px) 0; position: relative; }
+.sec-label { font-family: var(--mono); font-size: .64rem; letter-spacing: .3em; text-transform: uppercase; color: var(--amber); display: flex; align-items: center; gap: 14px; margin-bottom: 34px; }
+.sec-label::before { content: ''; width: 30px; height: 1px; background: var(--amber); }
+.sec-label i { font-style: normal; color: var(--faint); }
+.manifest h2 { font-size: clamp(1.8rem, 4vw, 3.4rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.015em; max-width: 24ch; }
+.manifest h2 b { color: var(--amber); font-weight: 500; }
+.spec-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: clamp(56px, 8vh, 100px); }
+.spec-cell { background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: clamp(22px, 3vw, 38px); position: relative; overflow: hidden; transition: border-color .4s, transform .4s; }
+.spec-cell:hover { border-color: rgba(217,160,91,.5); transform: translateY(-4px); }
+.spec-cell::after { content: attr(data-idx); position: absolute; top: 14px; right: 16px; font-family: var(--mono); font-size: .58rem; color: var(--faint); }
+.spec-cell .v { font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
+.spec-cell .v sup { font-size: .45em; color: var(--amber); }
+.spec-cell .k { margin-top: 12px; font-family: var(--mono); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+
+/* ---------- DOSSIER (HORIZONTAL SCROLL) ---------- */
+.dossier { position: relative; background: var(--panel); border-top: 1px solid var(--edge); border-bottom: 1px solid var(--edge); }
+.dossier-pin { height: 380vh; position: relative; }
+.dossier-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+.dossier-head { position: absolute; top: 110px; left: 0; right: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 0 clamp(20px, 4vw, 56px); }
+.dossier-count { font-family: var(--mono); font-size: .66rem; letter-spacing: .2em; color: var(--dim); }
+.dossier-count b { color: var(--amber); font-weight: 500; }
+.dossier-track { display: flex; gap: clamp(20px, 3vw, 44px); padding: 0 clamp(20px, 4vw, 56px); will-change: transform; }
+.panel { flex: 0 0 min(78vw, 940px); background: var(--panel-2); border: 1px solid var(--edge); border-radius: 14px; overflow: hidden; display: grid; grid-template-columns: 1.15fr 1fr; min-height: min(64vh, 620px); }
+.panel-media { position: relative; overflow: hidden; min-height: 260px; }
+.panel-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; position: absolute; inset: 0; }
+.panel-media .ref { position: absolute; top: 14px; left: 14px; font-family: var(--mono); font-size: .6rem; letter-spacing: .16em; background: rgba(12,14,13,.7); backdrop-filter: blur(8px); border: 1px solid var(--edge); border-radius: 3px; padding: 6px 10px; color: var(--dim); }
+.panel-copy { padding: clamp(26px, 3.4vw, 48px); display: flex; flex-direction: column; }
+.panel-copy .no { font-family: var(--mono); font-size: .64rem; color: var(--amber); letter-spacing: .2em; margin-bottom: 18px; }
+.panel-copy h3 { font-size: clamp(1.5rem, 2.6vw, 2.3rem); font-weight: 600; letter-spacing: -0.015em; line-height: 1.1; margin-bottom: 16px; }
+.panel-copy p { color: var(--dim); font-weight: 300; font-size: .93rem; flex: 1; }
+.panel-data { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--edge); border: 1px solid var(--edge); border-radius: 6px; overflow: hidden; margin-top: 24px; }
+.panel-data div { background: var(--panel-2); padding: 14px 16px; }
+.panel-data b { display: block; font-size: 1.05rem; font-weight: 600; }
+.panel-data small { font-family: var(--mono); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+
+/* ---------- TOKEN ---------- */
+.token { padding: clamp(90px, 14vh, 170px) 0; position: relative; overflow: hidden; }
+.token::before { content: ''; position: absolute; top: -30%; right: -15%; width: 60%; aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle, rgba(217,160,91,.14), transparent 65%); pointer-events: none; }
+.token-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+.token h2 { font-size: clamp(2rem, 4.4vw, 3.8rem); font-weight: 600; line-height: 1.06; letter-spacing: -0.02em; margin-bottom: 22px; }
+.token h2 b { color: var(--amber); font-weight: 600; }
+.token p { color: var(--dim); font-weight: 300; max-width: 46ch; margin-bottom: 30px; }
+.token-box { background: var(--panel); border: 1px solid var(--edge); border-radius: 14px; padding: clamp(26px, 3.4vw, 44px); position: relative; }
+.token-box::before { content: 'LEDGER · LIVE'; position: absolute; top: 18px; right: 20px; font-family: var(--mono); font-size: .56rem; letter-spacing: .2em; color: var(--amber); }
+.token-line { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--edge); font-family: var(--mono); font-size: .78rem; }
+.token-line:last-child { border-bottom: none; }
+.token-line span { color: var(--dim); letter-spacing: .1em; font-size: .66rem; text-transform: uppercase; }
+.token-line b { font-family: var(--grotesk); font-size: 1.25rem; font-weight: 600; }
+.token-line b em { font-style: normal; color: var(--amber); }
+
+/* ---------- GALLERY ---------- */
+.galerie { padding: 0 0 clamp(90px, 14vh, 170px); }
+.galerie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: clamp(40px, 6vh, 70px); }
+.galerie-grid figure { margin: 0; border-radius: 10px; overflow: hidden; aspect-ratio: 4/5; position: relative; border: 1px solid var(--edge); }
+.galerie-grid figure:nth-child(2) { transform: translateY(34px); }
+.galerie-grid img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); transition: transform 1s cubic-bezier(.22,.61,.36,1), filter .6s; }
+.galerie-grid figure:hover img { transform: scale(1.05); filter: saturate(1.05); }
+
+/* ---------- FINAL ---------- */
+.final { padding: clamp(100px, 16vh, 200px) 0; text-align: center; position: relative; overflow: hidden; }
+.final::before { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 80vw; max-width: 900px; aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle, rgba(217,160,91,.12), transparent 62%); pointer-events: none; }
+.final h2 { font-size: clamp(2.4rem, 7vw, 6.4rem); font-weight: 600; text-transform: uppercase; letter-spacing: -0.02em; line-height: .98; margin-bottom: 40px; position: relative; }
+.final h2 span { display: block; }
+.final h2 .ghost { color: transparent; -webkit-text-stroke: 1.5px rgba(237,234,226,.7); }
+footer { border-top: 1px solid var(--edge); padding: 44px 0; }
+.foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-family: var(--mono); font-size: .64rem; letter-spacing: .12em; color: var(--faint); }
+.foot nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.foot nav a:hover { color: var(--amber); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .nav ul, .nav-meta { display: none; }
+    .hero-hud { display: none; }
+    .hero h1 { font-size: clamp(2.4rem, 13vw, 4rem); }
+    .spec-row { grid-template-columns: 1fr 1fr; }
+    .dossier-head { top: 70px; }
+    .dossier-stage { justify-content: flex-start; padding-top: 120px; }
+    .panel { grid-template-columns: 1fr; flex-basis: 86vw; min-height: auto; }
+    .panel-media { aspect-ratio: 16/10; min-height: 0; }
+    .panel-copy { padding: 20px 22px 24px; }
+    .panel-copy h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    .panel-copy p { font-size: .84rem; }
+    .panel-data { margin-top: 16px; }
+    .panel-data div { padding: 10px 12px; }
+    .token-grid { grid-template-columns: 1fr; }
+    .galerie-grid { grid-template-columns: 1fr; }
+    .galerie-grid figure:nth-child(2) { transform: none; }
+    .dossier-pin { height: 420vh; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress"><i id="progressBar"></i></div>
+
+<nav class="nav" id="nav">
+    <a class="brand" href="motion-noir.html">MYGLAM<em>HOUSE</em></a>
+    <div class="nav-meta"><span>48.85°N — 2.35°E</span><span id="clock">—</span></div>
+    <ul>
+        <li><a href="collection.html">Maisons</a></li>
+        <li><a href="construction.html">Construction</a></li>
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="tokenisation.html">Tokenisation</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-media"><img src="assets/sequoia-hero.jpg" alt="Tiny house MyGlamHouse en forêt, de nuit"></div>
+    <div class="hero-hud">
+        <span>MGH — SYSTÈME CONSTRUCTIF MODULAIRE</span>
+        <span>ÉD. 2026 / FR</span>
+    </div>
+    <div class="hero-inner wrap">
+        <span class="hero-tag">● Système actif — commandes ouvertes 2026</span>
+        <h1>
+            <span>Habiter</span>
+            <span>la forêt,</span>
+            <span>autrement.</span>
+        </h1>
+        <div class="hero-base">
+            <p>Modules bois &amp; chanvre de 20 à 30 m², passifs, préfabriqués au millimètre, livrés finis. L'architecture de Daniel Siboni, l'exécution d'une chaîne industrielle.</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                <a class="btn btn-amber" href="#dossier">Explorer le dossier</a>
+                <a class="btn btn-line" href="tokenisation.html">Investir dès 500 €</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+        <span>DPE A</span><b>/</b><span>Ossature bois</span><b>/</b><span>Isolation chanvre</span><b>/</b><span>&lt; 20 m² sans permis</span><b>/</b><span>Tokenisation AMF</span><b>/</b><span>Made in France</span><b>/</b>
+        <span>DPE A</span><b>/</b><span>Ossature bois</span><b>/</b><span>Isolation chanvre</span><b>/</b><span>&lt; 20 m² sans permis</span><b>/</b><span>Tokenisation AMF</span><b>/</b><span>Made in France</span><b>/</b>
+    </div>
+</div>
+
+<!-- MANIFEST -->
+<section class="manifest wrap">
+    <div class="sec-label rv">01 <i>/ Protocole</i></div>
+    <h2 class="rv rv-d1">Un système constructif <b>répétable</b> : dessiné une fois, fabriqué en série, adapté à chaque terrain. La précision de l'usine, la liberté de la clairière.</h2>
+    <div class="spec-row">
+        <div class="spec-cell rv" data-idx="A1"><div class="v">20<sup>m²</sup></div><div class="k">Sans permis</div></div>
+        <div class="spec-cell rv rv-d1" data-idx="A2"><div class="v">A</div><div class="k">DPE passif</div></div>
+        <div class="spec-cell rv rv-d2" data-idx="A3"><div class="v">6<sup>sem</sup></div><div class="k">Fabrication atelier</div></div>
+        <div class="spec-cell rv rv-d3" data-idx="A4"><div class="v">1,5<sup>mois</sup></div><div class="k">Assemblage site</div></div>
+    </div>
+</section>
+
+<!-- DOSSIER HORIZONTAL -->
+<section class="dossier" id="dossier">
+    <div class="dossier-pin" id="dossierPin">
+        <div class="dossier-stage">
+            <div class="dossier-head">
+                <div class="sec-label" style="margin:0;">02 <i>/ Le dossier</i></div>
+                <div class="dossier-count"><b id="dossierIdx">01</b> / 04</div>
+            </div>
+            <div class="dossier-track" id="dossierTrack">
+                <article class="panel">
+                    <div class="panel-media"><span class="ref">FICHE — M20</span><img src="assets/planche-house-20.png" alt="Planche maison 20 m²"></div>
+                    <div class="panel-copy">
+                        <span class="no">PANEL 01</span>
+                        <h3>Maison 20 — un niveau</h3>
+                        <p>20 m² au sol en plain-pied. Salon traversant ouvert sur la forêt, chambre, salle d'eau. En dessous du seuil des 20 m², une simple déclaration préalable suffit.</p>
+                        <div class="panel-data">
+                            <div><b>20 m²</b><small>Emprise au sol</small></div>
+                            <div><b>1</b><small>Niveau</small></div>
+                            <div><b>DP</b><small>Autorisation</small></div>
+                            <div><b>4 saisons</b><small>Confort</small></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="panel">
+                    <div class="panel-media"><span class="ref">FICHE — M30</span><img src="assets/planche-house-30.png" alt="Planche maison 30 m²"></div>
+                    <div class="panel-copy">
+                        <span class="no">PANEL 02</span>
+                        <h3>Maison 30 — deux niveaux</h3>
+                        <p>30 m² d'espace vécu sur deux niveaux, reliés par un escalier intérieur. La vie en bas, la nuit en haut — le double volume donne l'ampleur d'une vraie maison.</p>
+                        <div class="panel-data">
+                            <div><b>30 m²</b><small>Espace vécu</small></div>
+                            <div><b>2</b><small>Niveaux</small></div>
+                            <div><b>+10 m²</b><small>Chambre étage</small></div>
+                            <div><b>Escalier</b><small>Intérieur</small></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="panel">
+                    <div class="panel-media"><span class="ref">FICHE — MAT</span><img src="assets/construction1.jpg" alt="Construction ossature bois"></div>
+                    <div class="panel-copy">
+                        <span class="no">PANEL 03</span>
+                        <h3>Matière &amp; méthode</h3>
+                        <p>Ossature bois, blocs de chanvre, menuiseries performantes. Tout est préfabriqué en atelier puis assemblé sur site en six semaines — chantier propre, délai tenu.</p>
+                        <div class="panel-data">
+                            <div><b>Bois</b><small>Structure</small></div>
+                            <div><b>Chanvre</b><small>Isolation</small></div>
+                            <div><b>DPE A</b><small>Performance</small></div>
+                            <div><b>FR</b><small>Fabrication</small></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="panel">
+                    <div class="panel-media"><span class="ref">FICHE — TKN</span><img src="assets/maison2.jpg" alt="Projet tokenisé"></div>
+                    <div class="panel-copy">
+                        <span class="no">PANEL 04</span>
+                        <h3>Tokenisation</h3>
+                        <p>Chaque projet peut être fractionné en parts numériques dès 500 €, avec revenus locatifs automatiques. Cadre français (loi PACTE), paiement classique toujours disponible.</p>
+                        <div class="panel-data">
+                            <div><b>500 €</b><small>Ticket d'entrée</small></div>
+                            <div><b>PACTE</b><small>Cadre légal</small></div>
+                            <div><b>Auto</b><small>Revenus locatifs</small></div>
+                            <div><b>Optionnel</b><small>Achat classique OK</small></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TOKEN -->
+<section class="token wrap">
+    <div class="token-grid">
+        <div>
+            <div class="sec-label rv">03 <i>/ Investir</i></div>
+            <h2 class="rv rv-d1">L'immobilier, <b>fractionné</b>.</h2>
+            <p class="rv rv-d2">Achetez une maison entière par les voies classiques — ou une fraction d'un projet locatif via la blockchain. Deux portes, un même actif réel.</p>
+            <a class="btn btn-amber rv rv-d3" href="tokenisation.html">Ouvrir le protocole</a>
+        </div>
+        <div class="token-box rv rv-d1">
+            <div class="token-line"><span>Ticket minimum</span><b>500 <em>€</em></b></div>
+            <div class="token-line"><span>Rendement locatif visé</span><b>4–7 <em>%</em></b></div>
+            <div class="token-line"><span>Pipeline 2026</span><b>20 <em>maisons</em></b></div>
+            <div class="token-line"><span>Objectif 2027</span><b>50 <em>maisons</em></b></div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="galerie wrap">
+    <div class="sec-label rv">04 <i>/ Visions</i></div>
+    <div class="galerie-grid">
+        <figure class="rv"><img src="assets/inspiration2.jpg" alt="Ambiance 1"></figure>
+        <figure class="rv rv-d1"><img src="assets/maison4.jpg" alt="Ambiance 2"></figure>
+        <figure class="rv rv-d2"><img src="assets/inspiration4.jpg" alt="Ambiance 3"></figure>
+    </div>
+</section>
+
+<!-- FINAL -->
+<section class="final wrap">
+    <h2 class="rv"><span>Votre clairière</span><span class="ghost">vous attend.</span></h2>
+    <a class="btn btn-amber rv rv-d1" href="index.html#contact">Initier le projet</a>
+</section>
+
+<footer>
+    <div class="wrap foot">
+        <span>© 2023–2026 MYGLAMHOUSE — SYSTÈME MGH / FR</span>
+        <nav>
+            <a href="collection.html">Maisons</a>
+            <a href="projets.html">Projets</a>
+            <a href="tokenisation.html">Tokenisation</a>
+            <a href="investir.html">Investir</a>
+            <a href="aides.html">Aides</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+(function() {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Nav + progress
+    var nav = document.getElementById('nav');
+    var bar = document.getElementById('progressBar');
+    function chrome() {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (h > 0 ? window.scrollY / h : 0) + ')';
+    }
+
+    // Clock (Paris time, HUD detail)
+    var clock = document.getElementById('clock');
+    function tickClock() {
+        try {
+            clock.textContent = new Date().toLocaleTimeString('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' }) + ' PARIS';
+        } catch (e) { clock.textContent = ''; }
+    }
+    tickClock(); setInterval(tickClock, 30000);
+
+    // Reveals
+    var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.rv').forEach(function(el) { io.observe(el); });
+
+    // Dossier: vertical scroll drives horizontal track
+    var pin = document.getElementById('dossierPin');
+    var track = document.getElementById('dossierTrack');
+    var idxEl = document.getElementById('dossierIdx');
+    function dossier() {
+        var r = pin.getBoundingClientRect();
+        var total = r.height - window.innerHeight;
+        var p = total > 0 ? Math.max(0, Math.min(1, -r.top / total)) : 0;
+        var overflow = track.scrollWidth - window.innerWidth;
+        track.style.transform = 'translateX(' + (-p * Math.max(0, overflow)) + 'px)';
+        var idx = Math.min(3, Math.floor(p * 4));
+        idxEl.textContent = '0' + (idx + 1);
+    }
+
+    var ticking = false;
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() { ticking = false; chrome(); dossier(); });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    chrome(); dossier();
+})();
+</script>
+</body>
+</html>
