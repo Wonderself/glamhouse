@@ -68,6 +68,7 @@ img { max-width: 100%; display: block; }
 .nav ul a::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .45s cubic-bezier(.22,.61,.36,1); }
 .nav ul a:hover { opacity: 1; }
 .nav-burger { display: none; }
+.nav ul .cta-mobile { display: none; }
 .nav ul a:hover::after { transform: scaleX(1); transform-origin: left; }
 .nav .cta { border: 1px solid currentColor; border-radius: 100px; padding: 10px 22px; font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; transition: background .35s, color .35s; white-space: nowrap; }
 .nav .cta:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
@@ -209,9 +210,9 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
     .nav { padding: 16px 20px; gap: 12px; }
-    .nav .brand { letter-spacing: .22em; font-size: .72rem; }
-    .nav .cta { padding: 8px 14px; font-size: .62rem; letter-spacing: .12em; }
-    .nav-burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; cursor: pointer; z-index: 101; background: none; border: none; padding: 0; color: inherit; order: 3; }
+    .nav .brand { letter-spacing: .22em; font-size: .78rem; }
+    .nav .cta { display: none; }
+    .nav-burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; flex-shrink: 0; cursor: pointer; z-index: 101; background: none; border: none; padding: 0; color: inherit; order: 3; }
     .nav-burger span { display: block; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s ease, opacity .3s ease; }
     .nav.nav-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
@@ -227,6 +228,7 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
     }
     .nav.nav-open ul { transform: translateX(0); opacity: 1; pointer-events: auto; }
     .nav ul a { font-size: 1.3rem; color: var(--ink); opacity: 1; }
+    .nav ul .cta-mobile { display: inline-flex; margin-top: 10px; border: 1px solid var(--ink); border-radius: 100px; padding: 12px 26px; font-size: .9rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
     .nav.nav-open { background: var(--paper); color: var(--ink); box-shadow: 0 1px 0 var(--hairline); }
     .showcase-stage { grid-template-columns: 1fr; grid-template-rows: 1fr 1.1fr; }
     .showcase-copy { order: 2; }
@@ -259,13 +261,14 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
 <body>
 
 <nav class="nav" id="nav">
-    <a class="brand" href="motion-lumiere.html">MYGLAM<em>HOUSE</em></a>
+    <a class="brand" href="motion-lumiere.html">GLAM<em>HOUSE</em></a>
     <ul>
         <li><a href="collection.html">Maisons</a></li>
         <li><a href="construction.html">Construction</a></li>
         <li><a href="motion-lumiere-siboni.html">Le Designer</a></li>
         <li><a href="projets.html">Projets</a></li>
         <li><a href="versions.html">Univers</a></li>
+        <li><a class="cta-mobile" href="index.html#contact">Démarrer un projet</a></li>
     </ul>
     <a class="cta" href="index.html#contact">Démarrer un projet</a>
     <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -312,7 +315,7 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
 
 <!-- AVANTAGES -->
 <section class="advantages wrap">
-    <span class="kicker rv">Pourquoi MyGlamHouse</span>
+    <span class="kicker rv">Pourquoi Glamhouse</span>
     <h2 class="rv rv-d1">Cinq raisons qui changent la donne.</h2>
     <div class="adv-grid">
         <div class="adv-card rv">
