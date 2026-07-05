@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MYGLAMHOUSE — Choisissez votre univers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EA; --ink:#1E1D1A; --mute:#57544C;
+  --terra:#C08A6D; --acid:#C6FF3D; --void:#04060A;
+  --serif:'Fraunces',Georgia,serif; --sans:'Outfit',sans-serif; --display:'Syne',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1300px;margin:0 auto;padding:clamp(30px,5vw,60px) clamp(20px,4vw,56px)}
+.top{text-align:center;margin-bottom:clamp(50px,8vh,90px)}
+.top .brand{font-weight:700;letter-spacing:.35em;font-size:.85rem;display:inline-block;margin-bottom:30px}
+.top .brand em{font-style:normal;color:var(--terra)}
+.top h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,5.5vw,4.2rem);line-height:1.1;letter-spacing:-0.015em;max-width:16ch;margin:0 auto 18px}
+.top p{color:var(--mute);font-size:1.05rem;max-width:46ch;margin:0 auto}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,30px)}
+@media(max-width:900px){.grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+
+.card{position:relative;border-radius:20px;overflow:hidden;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(26px,3vw,38px);transition:transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .5s;}
+.card:hover{transform:translateY(-8px)}
+.card::before{content:'';position:absolute;inset:0;z-index:0}
+.card__label{position:relative;z-index:2;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.card h2{position:relative;z-index:2;font-size:clamp(1.8rem,2.6vw,2.4rem);margin-bottom:14px;line-height:1.05}
+.card p{position:relative;z-index:2;font-size:.92rem;line-height:1.55;margin-bottom:24px;max-width:38ch}
+.card .go{position:relative;z-index:2;display:inline-flex;align-items:center;gap:10px;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:13px 24px;border-radius:100px;transition:transform .3s;width:fit-content}
+.card:hover .go{transform:translateX(4px)}
+
+/* LUMIERE */
+.card--lumiere{background:linear-gradient(160deg,#EDE8DC,#DCD2BE 120%);box-shadow:0 30px 70px -30px rgba(160,107,79,.35)}
+.card--lumiere h1,.card--lumiere h2{font-family:var(--serif);font-weight:400;color:#1E1D1A}
+.card--lumiere .card__label{color:#A06B4F}
+.card--lumiere p{color:#57544C}
+.card--lumiere .go{background:#1E1D1A;color:#F5F2EA}
+.card--lumiere .go:hover{background:#A06B4F}
+
+/* NOIR */
+.card--noir{background:linear-gradient(160deg,#151815,#0A0C0A 120%);box-shadow:0 30px 70px -30px rgba(0,0,0,.6)}
+.card--noir h2{font-family:'Space Grotesk',sans-serif;color:#EDEAE2;text-transform:uppercase;font-weight:600}
+.card--noir .card__label{color:#D9A05B;font-family:'IBM Plex Mono',monospace}
+.card--noir p{color:rgba(237,234,226,.62)}
+.card--noir .go{background:#D9A05B;color:#0C0E0D}
+.card--noir .go:hover{background:#EDEAE2}
+
+/* ULTRA */
+.card--ultra{background:linear-gradient(160deg,#0A0D12,#04060A 120%);box-shadow:0 30px 70px -30px rgba(198,255,61,.18)}
+.card--ultra::after{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(60% 50% at 85% 10%,rgba(198,255,61,.14),transparent 60%),radial-gradient(50% 45% at 5% 95%,rgba(33,240,220,.1),transparent 60%)}
+.card--ultra h2{font-family:var(--display);font-weight:800;color:#EAF2EC;letter-spacing:-0.02em}
+.card--ultra .card__label{color:#C6FF3D;font-family:'Space Mono',monospace}
+.card--ultra p{color:rgba(234,242,236,.6)}
+.card--ultra .go{background:#C6FF3D;color:#04060A}
+.card--ultra .go:hover{background:#EAF2EC}
+
+.foot{text-align:center;margin-top:clamp(50px,8vh,90px);color:var(--mute);font-size:.85rem}
+.foot a{text-decoration:underline;text-underline-offset:3px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <span class="brand">MYGLAM<em>HOUSE</em></span>
+    <h1>Trois univers, un même savoir-faire.</h1>
+    <p>Même maison, même exigence — trois manières de la raconter. Choisissez l'expérience qui vous parle.</p>
+  </div>
+
+  <div class="grid">
+    <a class="card card--lumiere" href="motion-lumiere.html">
+      <span class="card__label">01 — Éditorial</span>
+      <h2>Lumière</h2>
+      <p>Nature-luxe, typographie serif, lumière douce. L'expérience éditoriale — celle qui prend le temps de raconter.</p>
+      <span class="go">Entrer →</span>
+    </a>
+
+    <a class="card card--noir" href="motion-noir.html">
+      <span class="card__label">02 — Futuriste</span>
+      <h2>Noir</h2>
+      <p>Palette noir &amp; ambre, détails HUD, dossier défilant à l'horizontale. L'expérience technique et précise.</p>
+      <span class="go">Entrer →</span>
+    </a>
+
+    <a class="card card--ultra" href="motion-ultra.html">
+      <span class="card__label">03 — Cinétique</span>
+      <h2>ULTRA</h2>
+      <p>Plan d'architecte animé, calculs en direct, films en mouvement. L'expérience la plus radicale.</p>
+      <span class="go">Entrer →</span>
+    </a>
+  </div>
+
+  <div class="foot">
+    <a href="index.html">← Retour au site classique</a>
+  </div>
+</div>
+
+</body>
+</html>
