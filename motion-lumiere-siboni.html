@@ -35,7 +35,26 @@ img { max-width: 100%; display: block; }
 .nav ul a:hover { opacity: 1; }
 .nav .cta { border: 1px solid var(--ink); border-radius: 100px; padding: 10px 22px; font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; transition: background .35s, color .35s; white-space: nowrap; }
 .nav .cta:hover { background: var(--ink); color: var(--paper); }
-@media (max-width: 900px) { .nav ul { display: none; } .nav { padding: 16px 20px; } .nav .cta { padding: 8px 14px; font-size: .62rem; } }
+.nav-burger { display: none; }
+@media (max-width: 900px) {
+    .nav { padding: 16px 20px; }
+    .nav .cta { padding: 8px 14px; font-size: .62rem; }
+    .nav-burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; cursor: pointer; z-index: 101; background: none; border: none; padding: 0; color: var(--ink); order: 3; }
+    .nav-burger span { display: block; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s ease, opacity .3s ease; }
+    .nav.nav-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+    .nav.nav-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav ul {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 99;
+        flex-direction: column; align-items: flex-start; justify-content: center; gap: 26px;
+        background: var(--paper); padding: 100px 32px 40px;
+        transform: translateX(100%); opacity: 0;
+        transition: transform .45s cubic-bezier(.22,.61,.36,1), opacity .3s ease;
+        pointer-events: none;
+    }
+    .nav.nav-open ul { transform: translateX(0); opacity: 1; pointer-events: auto; }
+    .nav ul a { font-size: 1.3rem; opacity: 1; }
+}
 
 .kicker { display: inline-flex; align-items: center; gap: 12px; font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 600; color: var(--terra-deep); margin-bottom: 34px; }
 .kicker::before { content: ''; width: 44px; height: 1px; background: var(--terra); }
@@ -113,7 +132,7 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="nav">
     <a class="brand" href="motion-lumiere.html">MYGLAM<em>HOUSE</em></a>
     <ul>
         <li><a href="motion-lumiere.html#maisons">Maisons</a></li>
@@ -122,6 +141,7 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
         <li><a href="projets.html">Projets</a></li>
     </ul>
     <a class="cta" href="index.html#contact">Démarrer un projet</a>
+    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -244,6 +264,23 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
         entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.18 });
     document.querySelectorAll('.rv').forEach(function(el) { io.observe(el); });
+
+    var nav = document.getElementById('nav');
+    var burger = document.getElementById('navBurger');
+    if (nav && burger) {
+        burger.addEventListener('click', function() {
+            var open = nav.classList.toggle('nav-open');
+            burger.setAttribute('aria-expanded', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        });
+        nav.querySelectorAll('ul a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                nav.classList.remove('nav-open');
+                burger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 })();
 </script>
 </body>

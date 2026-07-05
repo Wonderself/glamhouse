@@ -34,7 +34,24 @@ img { max-width: 100%; display: block; }
 .nav ul { display: flex; gap: clamp(16px, 2.4vw, 34px); list-style: none; }
 .nav ul a { font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
 .nav ul a:hover { color: var(--amber); }
-@media (max-width: 900px) { .nav ul { display: none; } }
+.nav-burger { display: none; }
+@media (max-width: 900px) {
+    .nav-burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; cursor: pointer; z-index: 101; background: none; border: none; padding: 0; color: var(--bone); order: 3; }
+    .nav-burger span { display: block; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s ease, opacity .3s ease; }
+    .nav.nav-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+    .nav.nav-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav ul {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 99;
+        flex-direction: column; align-items: flex-start; justify-content: center; gap: 26px;
+        background: var(--void); padding: 100px 32px 40px;
+        transform: translateX(100%); opacity: 0;
+        transition: transform .45s cubic-bezier(.22,.61,.36,1), opacity .3s ease;
+        pointer-events: none;
+    }
+    .nav.nav-open ul { transform: translateX(0); opacity: 1; pointer-events: auto; }
+    .nav ul a { font-size: 1.3rem; color: var(--bone); }
+}
 
 .sec-label { font-family: var(--mono); font-size: .64rem; letter-spacing: .3em; text-transform: uppercase; color: var(--amber); display: flex; align-items: center; gap: 14px; margin-bottom: 34px; }
 .sec-label::before { content: ''; width: 30px; height: 1px; background: var(--amber); }
@@ -111,7 +128,7 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="nav">
     <a class="brand" href="motion-noir.html">MYGLAM<em>HOUSE</em></a>
     <ul>
         <li><a href="motion-noir.html#dossier">Maisons</a></li>
@@ -119,6 +136,7 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
         <li><a href="motion-noir-siboni.html" style="color:var(--amber);">Designer</a></li>
         <li><a href="projets.html">Projets</a></li>
     </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -217,6 +235,23 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
         entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.18 });
     document.querySelectorAll('.rv').forEach(function(el) { io.observe(el); });
+
+    var nav = document.getElementById('nav');
+    var burger = document.getElementById('navBurger');
+    if (nav && burger) {
+        burger.addEventListener('click', function() {
+            var open = nav.classList.toggle('nav-open');
+            burger.setAttribute('aria-expanded', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        });
+        nav.querySelectorAll('ul a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                nav.classList.remove('nav-open');
+                burger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 })();
 </script>
 </body>

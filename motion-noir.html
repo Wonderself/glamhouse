@@ -68,6 +68,7 @@ body::before {
 .nav ul { display: flex; gap: clamp(16px, 2.4vw, 34px); list-style: none; }
 .nav ul a { font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); transition: color .3s; }
 .nav ul a:hover { color: var(--amber); }
+.nav-burger { display: none; }
 
 /* ---------- HERO ---------- */
 .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
@@ -180,7 +181,24 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
-    .nav ul, .nav-meta { display: none; }
+    .nav-meta { display: none; }
+    .nav-burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; cursor: pointer; z-index: 101; background: none; border: none; padding: 0; color: var(--bone); order: 3; }
+    .nav-burger span { display: block; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s ease, opacity .3s ease; }
+    .nav.nav-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+    .nav.nav-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav ul {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 99;
+        flex-direction: column; align-items: flex-start; justify-content: center; gap: 26px;
+        background: var(--void); color: var(--bone);
+        padding: 100px 32px 40px;
+        transform: translateX(100%); opacity: 0;
+        transition: transform .45s cubic-bezier(.22,.61,.36,1), opacity .3s ease;
+        pointer-events: none;
+    }
+    .nav.nav-open ul { transform: translateX(0); opacity: 1; pointer-events: auto; }
+    .nav ul a { font-size: 1.3rem; color: var(--bone); }
+    .nav.nav-open { background: var(--void); box-shadow: 0 1px 0 var(--edge); }
     .hero-hud { display: none; }
     .hero h1 { font-size: clamp(2.4rem, 13vw, 4rem); }
     .spec-row { grid-template-columns: 1fr 1fr; }
@@ -221,6 +239,7 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
         <li><a href="projets.html">Projets</a></li>
         <li><a href="versions.html">Univers</a></li>
     </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -397,6 +416,23 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
         nav.classList.toggle('scrolled', window.scrollY > 40);
         var h = document.documentElement.scrollHeight - window.innerHeight;
         bar.style.transform = 'scaleX(' + (h > 0 ? window.scrollY / h : 0) + ')';
+    }
+
+    // Mobile burger menu
+    var burger = document.getElementById('navBurger');
+    if (burger) {
+        burger.addEventListener('click', function() {
+            var open = nav.classList.toggle('nav-open');
+            burger.setAttribute('aria-expanded', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        });
+        nav.querySelectorAll('ul a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                nav.classList.remove('nav-open');
+                burger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
     }
 
     // Clock (Paris time, HUD detail)

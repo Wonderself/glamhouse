@@ -54,7 +54,26 @@ h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-h
 .mnav__links a:hover{color:var(--ink)}
 .mnav__back{border:1px solid var(--line);padding:9px 16px;border-radius:30px;color:var(--ink)!important}
 .mnav__back:hover{background:var(--acid);border-color:var(--acid);color:#04060A!important}
-@media(max-width:900px){.mnav__links a:not(.mnav__back){display:none}}
+.mnav__burger{display:none}
+@media(max-width:900px){
+  .mnav__burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;cursor:pointer;z-index:901;background:none;border:none;padding:0;color:var(--ink)}
+  .mnav__burger span{display:block;width:100%;height:2px;background:currentColor;border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+  .mnav.nav-open .mnav__burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mnav.nav-open .mnav__burger span:nth-child(2){opacity:0}
+  .mnav.nav-open .mnav__burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mnav__links{
+    position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:899;
+    flex-direction:column;align-items:flex-start;justify-content:center;gap:26px;
+    background:#04060A;padding:100px 32px 40px;
+    transform:translateX(100%);opacity:0;
+    transition:transform .45s var(--ease),opacity .3s ease;
+    pointer-events:none;
+  }
+  .mnav.nav-open .mnav__links{transform:translateX(0);opacity:1;pointer-events:auto}
+  .mnav__links a{font-family:var(--display);font-size:1.5rem;color:var(--ink)}
+  .mnav__links .mnav__back{border:none;padding:0;font-family:var(--display)}
+  .mnav.nav-open{background:#04060A}
+}
 
 /* hero */
 .mhero{position:relative;min-height:100svh;height:auto;display:flex;align-items:center;padding:clamp(112px,16vw,150px) 0 clamp(50px,8vw,80px);background:var(--bg);overflow:hidden}
@@ -240,6 +259,7 @@ em.f{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
     <a href="motion-noir-siboni.html">Designer</a>
     <a href="versions.html" class="mnav__back">← Univers</a>
   </div>
+  <button class="mnav__burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -502,6 +522,21 @@ em.f{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
   })();
 
   var nav=$('#nav'), prog=$('.progress');
+  (function burgerMenu(){
+    var burger=$('#navBurger'); if(!burger||!nav) return;
+    burger.addEventListener('click', function(){
+      var open=nav.classList.toggle('nav-open');
+      burger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    $$('.mnav__links a', nav).forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('nav-open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
   var marqs=$$('.mmarq__t');
   var lastY=scrollY, vel=0;
   function frameFx(){
