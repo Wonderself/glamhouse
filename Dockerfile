@@ -16,6 +16,12 @@ COPY construction.html /usr/share/nginx/html/
 COPY investir.html /usr/share/nginx/html/
 COPY projets.html /usr/share/nginx/html/
 COPY tokenisation.html /usr/share/nginx/html/
+COPY versions.html /usr/share/nginx/html/
+COPY motion-lumiere.html /usr/share/nginx/html/
+COPY motion-noir.html /usr/share/nginx/html/
+COPY motion-ultra.html /usr/share/nginx/html/
+COPY motion-lumiere-siboni.html /usr/share/nginx/html/
+COPY motion-noir-siboni.html /usr/share/nginx/html/
 COPY style.css /usr/share/nginx/html/
 COPY script.js /usr/share/nginx/html/
 COPY blockchain.js /usr/share/nginx/html/
