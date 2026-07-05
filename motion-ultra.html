@@ -104,7 +104,7 @@ h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-h
 @keyframes sndpulse{50%{opacity:.3}}
 .bp-title{bottom:12px;right:12px}
 @media(prefers-reduced-motion:reduce){.bp-scan,.bp-cross,.draw,[data-fade]{animation:none!important;stroke-dashoffset:0!important;opacity:1!important}}
-@media(max-width:900px){.mhero{padding:clamp(100px,24vw,130px) 0 clamp(48px,12vw,70px)}.mhero__grid{grid-template-columns:1fr;gap:clamp(30px,8vw,42px)}.mhero__text h1{font-size:clamp(2.6rem,13vw,4.2rem)}.bp{max-width:420px}.scrollcue{display:none}}
+@media(max-width:1100px){.mhero{padding:clamp(100px,24vw,130px) 0 clamp(48px,12vw,70px)}.mhero__grid{grid-template-columns:1fr;gap:clamp(30px,8vw,42px)}.mhero__text h1{font-size:clamp(2.6rem,10vw,4.2rem)}.bp{max-width:420px}.scrollcue{display:none}}
 
 /* marquee */
 .mmarq{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;background:var(--bg2)}
@@ -166,7 +166,7 @@ em.f{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
 .peek>*{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity .25s}
 .peek>.on{opacity:1}
 @media(pointer:coarse){.peek{display:none}}
-@media(max-width:640px){.index .row{flex-wrap:wrap;gap:4px 14px;padding:18px 0}.index .row h3{flex:1 1 auto;font-size:clamp(2rem,12vw,3rem)}.index .row:hover h3{transform:none}.index .row .meta{flex-basis:100%;text-align:left;order:3;margin-left:60px}}
+@media(max-width:640px){.index .row{flex-wrap:wrap;gap:4px 14px;padding:18px 0}.index .row h3{flex:1 1 auto;font-size:clamp(2rem,12vw,3rem)}.index .row:hover h3{transform:none}.index .row .meta{flex-basis:calc(100% - 60px);max-width:calc(100% - 60px);text-align:left;order:3;margin-left:60px}}
 
 /* video band */
 .vband{position:relative;height:clamp(420px,76vh,720px);overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
@@ -224,7 +224,7 @@ em.f{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
 .mfoot__marq .g{background:linear-gradient(100deg,var(--acid),var(--cyan),var(--blue),var(--acid));background-size:240% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:holo 7s linear infinite}
 
 @media(pointer:coarse){body{cursor:auto}[data-magnetic],.btn,.totop,a{cursor:pointer}}
-@media(max-width:640px){.sec{padding:clamp(56px,15vw,88px) 0}.manifesto__big{font-size:clamp(1.7rem,8vw,2.2rem)}.stat .v{font-size:clamp(2.2rem,12vw,3.2rem)}.mfoot__bottom{flex-direction:column;gap:8px}}
+@media(max-width:640px){.sec{padding:clamp(56px,15vw,88px) 0}.manifesto__big{font-size:clamp(1.7rem,8vw,2.2rem)}.stat .v{font-size:clamp(2.2rem,12vw,3.2rem)}.mfoot__bottom{flex-direction:column;gap:8px}.vband{height:clamp(320px,58vh,480px)}}
 </style>
 </head>
 <body>

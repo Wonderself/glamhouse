@@ -124,6 +124,8 @@ img { max-width: 100%; display: block; }
 /* ---------- ADVANTAGES ---------- */
 .advantages { padding-bottom: clamp(90px, 14vh, 170px); }
 .adv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); margin-top: clamp(56px, 8vh, 100px); }
+.adv-grid .adv-card:nth-child(4) { grid-column: 1 / 2; }
+.adv-grid .adv-card:nth-child(5) { grid-column: 2 / 4; }
 .adv-card { background: var(--paper); padding: clamp(28px, 3.6vw, 48px) clamp(22px, 3vw, 40px); transition: background .5s ease; }
 .adv-card:hover { background: var(--paper-deep); }
 .adv-no { font-family: var(--serif); font-style: italic; color: var(--terra-deep); font-size: 1rem; }
@@ -219,9 +221,21 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
     .showcase-hint { display: none; }
     .stats { grid-template-columns: 1fr; }
     .adv-grid { grid-template-columns: 1fr; }
+    .adv-grid .adv-card:nth-child(4), .adv-grid .adv-card:nth-child(5) { grid-column: auto; }
     .steps { grid-template-columns: 1fr; }
     .invest-grid { grid-template-columns: 1fr; }
     .hero-scroll { display: none; }
+}
+
+/* ---------- PHONES: rythme vertical resserré (évite les vides vh-dépendants) ---------- */
+@media (max-width: 640px) {
+    .manifesto, .process, .invest, .final { padding: 52px 0; }
+    .gallery { padding: 52px 0 36px; }
+    .stats { margin-top: 40px; }
+    .process-head, .invest-head, .gallery-head, .dtimeline-head { margin-bottom: 30px; }
+    .hero-inner { padding-bottom: 28px; }
+    .showcase-copy, .showcase-chapter { padding-top: 18px; }
+    .final { padding-top: 60px; padding-bottom: 60px; }
 }
 </style>
 </head>

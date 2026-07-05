@@ -25,6 +25,7 @@ a{color:inherit;text-decoration:none}
 
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,30px)}
 @media(max-width:900px){.grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+@media(max-width:640px){.top{margin-bottom:36px}.top h1{font-size:clamp(1.8rem,7vw,2.4rem)}.card{min-height:400px}.foot{margin-top:36px}}
 
 .card{position:relative;border-radius:20px;overflow:hidden;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(26px,3vw,38px);transition:transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .5s;}
 .card:hover{transform:translateY(-8px)}
