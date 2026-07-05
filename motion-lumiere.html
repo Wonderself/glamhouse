@@ -121,6 +121,16 @@ img { max-width: 100%; display: block; }
 .stat .num sup { font-size: .45em; }
 .stat .lbl { margin-top: 14px; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
 
+/* ---------- ADVANTAGES ---------- */
+.advantages { padding-bottom: clamp(90px, 14vh, 170px); }
+.adv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); margin-top: clamp(56px, 8vh, 100px); }
+.adv-card { background: var(--paper); padding: clamp(28px, 3.6vw, 48px) clamp(22px, 3vw, 40px); transition: background .5s ease; }
+.adv-card:hover { background: var(--paper-deep); }
+.adv-no { font-family: var(--serif); font-style: italic; color: var(--terra-deep); font-size: 1rem; }
+.adv-card h3 { font-size: 1.2rem; font-weight: 600; margin: 16px 0 10px; }
+.adv-card p { color: var(--ink-soft); font-weight: 300; font-size: .93rem; }
+.crypto-note { text-align: center; margin-top: clamp(30px, 4vh, 50px); font-size: .78rem; color: var(--ink-soft); opacity: .8; }
+
 /* ---------- SHOWCASE (PINNED SCROLL) ---------- */
 .showcase { background: var(--ink); color: var(--paper); position: relative; }
 .showcase-pin { position: relative; height: 320vh; }
@@ -208,6 +218,7 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
     .showcase-progress { bottom: 20px; }
     .showcase-hint { display: none; }
     .stats { grid-template-columns: 1fr; }
+    .adv-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; }
     .invest-grid { grid-template-columns: 1fr; }
     .hero-scroll { display: none; }
@@ -221,8 +232,8 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
     <ul>
         <li><a href="collection.html">Maisons</a></li>
         <li><a href="construction.html">Construction</a></li>
+        <li><a href="motion-lumiere-siboni.html">Le Designer</a></li>
         <li><a href="projets.html">Projets</a></li>
-        <li><a href="tokenisation.html">Tokenisation</a></li>
     </ul>
     <a class="cta" href="index.html#contact">Démarrer un projet</a>
 </nav>
@@ -240,7 +251,7 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
             <p>Des maisons à ossature bois et chanvre, passives, précises, dessinées par Daniel Siboni. De 20 à 30 m² — pour votre jardin, votre terrain, votre espace privé.</p>
             <div class="hero-actions">
                 <a class="btn btn-solid" href="#maisons">Découvrir les maisons</a>
-                <a class="btn btn-ghost" href="tokenisation.html">Investir</a>
+                <a class="btn btn-ghost" href="motion-lumiere-siboni.html">Le Designer</a>
             </div>
         </div>
     </div>
@@ -250,8 +261,8 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-        <span>Écologique</span><span>Passif · DPE A</span><span>Ossature bois &amp; chanvre</span><span>Sans permis &lt; 20 m²</span><span>Tokenisé</span><span>100% Français</span>
-        <span>Écologique</span><span>Passif · DPE A</span><span>Ossature bois &amp; chanvre</span><span>Sans permis &lt; 20 m²</span><span>Tokenisé</span><span>100% Français</span>
+        <span>Écologique</span><span>Passif · DPE A</span><span>Ossature bois &amp; chanvre</span><span>Sans permis &lt; 20 m²</span><span>Prix direct fabricant</span><span>100% Français</span>
+        <span>Écologique</span><span>Passif · DPE A</span><span>Ossature bois &amp; chanvre</span><span>Sans permis &lt; 20 m²</span><span>Prix direct fabricant</span><span>100% Français</span>
     </div>
 </div>
 
@@ -263,6 +274,39 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
         <div class="stat rv"><div class="num">20<sup>m²</sup></div><div class="lbl">Sans permis de construire</div></div>
         <div class="stat rv rv-d1"><div class="num">A</div><div class="lbl">DPE — maison passive</div></div>
         <div class="stat rv rv-d2"><div class="num">1,5</div><div class="lbl">Mois d'assemblage sur site</div></div>
+    </div>
+</section>
+
+<!-- AVANTAGES -->
+<section class="advantages wrap">
+    <span class="kicker rv">Pourquoi MyGlamHouse</span>
+    <h2 class="rv rv-d1">Cinq raisons qui changent la donne.</h2>
+    <div class="adv-grid">
+        <div class="adv-card rv">
+            <span class="adv-no">01</span>
+            <h3>Écologique</h3>
+            <p>Ossature bois PEFC et isolation chanvre à bilan carbone négatif. Zéro COV, air intérieur pur, matériaux qui se renouvellent au lieu de s'épuiser.</p>
+        </div>
+        <div class="adv-card rv rv-d1">
+            <span class="adv-no">02</span>
+            <h3>Prix maîtrisé</h3>
+            <p>Fabriquées en série dans nos ateliers français : sans les surcoûts d'un chantier traditionnel, à prix fixe et transparent dès 59 000 €.</p>
+        </div>
+        <div class="adv-card rv rv-d2">
+            <span class="adv-no">03</span>
+            <h3>Installée en 1,5 mois</h3>
+            <p>Contre 12 à 18 mois pour une construction classique. Les modules arrivent finis, le chantier se limite à l'assemblage.</p>
+        </div>
+        <div class="adv-card rv rv-d3">
+            <span class="adv-no">04</span>
+            <h3>Un design signé</h3>
+            <p>Chaque maison est dessinée par Daniel Siboni — un regard de photographe appliqué à l'architecture, où chaque ouverture est pensée comme un cadrage.</p>
+        </div>
+        <div class="adv-card rv rv-d4">
+            <span class="adv-no">05</span>
+            <h3>Passive &amp; confortable</h3>
+            <p>DPE classe A garanti, confort 4 saisons — le luxe discret d'une maison qui ne consomme presque rien.</p>
+        </div>
     </div>
 </section>
 
@@ -318,27 +362,27 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
     </div>
 </section>
 
-<!-- INVEST -->
-<section class="invest">
+<!-- ACHAT -->
+<section class="invest" id="achat">
     <div class="wrap">
         <div class="invest-head">
-            <span class="kicker rv">Financer &amp; investir</span>
-            <h2 class="rv rv-d1">Deux portes d'entrée.</h2>
+            <span class="kicker rv">Financer votre projet</span>
+            <h2 class="rv rv-d1">Un achat simple, à votre rythme.</h2>
         </div>
         <div class="invest-grid">
             <div class="invest-card rv">
-                <span class="tag">Classique</span>
-                <h3>Acheter sa maison</h3>
-                <p>Virement, crédit immobilier, aides de l'État — MaPrimeRénov', Éco-PTZ, TVA 5,5%, exonérations. Jusqu'à 65 000 € d'aides cumulables selon votre situation.</p>
-                <a class="link" href="aides.html">Simuler mes aides</a>
+                <span class="tag">Paiement</span>
+                <h3>Virement ou crédit</h3>
+                <p>Vous réglez comptant ou financez via un prêt immobilier classique — exactement comme pour toute construction.</p>
             </div>
             <div class="invest-card rv rv-d1">
-                <span class="tag">Innovation 2026</span>
-                <h3>Investir dès 500 €</h3>
-                <p>Grâce à la tokenisation, achetez des parts de nos projets immobiliers et percevez des revenus locatifs automatiques. Optionnel, encadré, transparent.</p>
-                <a class="link" href="tokenisation.html">Comprendre la tokenisation</a>
+                <span class="tag">Aides de l'État</span>
+                <h3>Jusqu'à 65 000 €</h3>
+                <p>MaPrimeRénov', Éco-PTZ, TVA à 5,5%, exonération de taxe foncière — cumulables selon votre situation et votre commune.</p>
+                <a class="link" href="aides.html">Simuler mes aides</a>
             </div>
         </div>
+        <p class="crypto-note rv rv-d2">Paiement en cryptomonnaie (Bitcoin, Ethereum, USDT) également accepté sur devis, sous réserve de conformité KYC.</p>
     </div>
 </section>
 
@@ -371,9 +415,9 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
         <span>© 2023–2026 MyGlamHouse — Design Daniel Siboni</span>
         <nav>
             <a href="collection.html">Maisons</a>
+            <a href="construction.html">Construction</a>
+            <a href="motion-lumiere-siboni.html">Le Designer</a>
             <a href="projets.html">Projets</a>
-            <a href="tokenisation.html">Tokenisation</a>
-            <a href="investir.html">Investir</a>
             <a href="aides.html">Aides</a>
         </nav>
     </div>

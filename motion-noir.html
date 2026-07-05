@@ -137,6 +137,8 @@ body::before {
 .panel-data div { background: var(--panel-2); padding: 14px 16px; }
 .panel-data b { display: block; font-size: 1.05rem; font-weight: 600; }
 .panel-data small { font-family: var(--mono); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.panel-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; font-family: var(--mono); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--amber); transition: gap .3s; }
+.panel-link:hover { gap: 12px; }
 
 /* ---------- TOKEN ---------- */
 .token { padding: clamp(90px, 14vh, 170px) 0; position: relative; overflow: hidden; }
@@ -147,7 +149,9 @@ body::before {
 .token h2 b { color: var(--amber); font-weight: 600; }
 .token p { color: var(--dim); font-weight: 300; max-width: 46ch; margin-bottom: 30px; }
 .token-box { background: var(--panel); border: 1px solid var(--edge); border-radius: 14px; padding: clamp(26px, 3.4vw, 44px); position: relative; }
-.token-box::before { content: 'LEDGER · LIVE'; position: absolute; top: 18px; right: 20px; font-family: var(--mono); font-size: .56rem; letter-spacing: .2em; color: var(--amber); }
+.token-box::before { content: 'DEVIS · INDICATIF'; position: absolute; top: 18px; right: 20px; font-family: var(--mono); font-size: .56rem; letter-spacing: .2em; color: var(--amber); }
+.token-line.minor { padding: 10px 0; opacity: .55; }
+.token-line.minor b { font-size: .82rem; font-weight: 500; }
 .token-line { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--edge); font-family: var(--mono); font-size: .78rem; }
 .token-line:last-child { border-bottom: none; }
 .token-line span { color: var(--dim); letter-spacing: .1em; font-size: .66rem; text-transform: uppercase; }
@@ -206,8 +210,8 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
     <ul>
         <li><a href="collection.html">Maisons</a></li>
         <li><a href="construction.html">Construction</a></li>
+        <li><a href="motion-noir-siboni.html">Designer</a></li>
         <li><a href="projets.html">Projets</a></li>
-        <li><a href="tokenisation.html">Tokenisation</a></li>
     </ul>
 </nav>
 
@@ -229,7 +233,7 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
             <p>Modules bois &amp; chanvre de 20 à 30 m², passifs, préfabriqués au millimètre, livrés finis — installés dans votre jardin, sur votre terrain, dans votre espace privé. L'architecture de Daniel Siboni, l'exécution d'une chaîne industrielle.</p>
             <div style="display:flex;gap:14px;flex-wrap:wrap;">
                 <a class="btn btn-amber" href="#dossier">Explorer le dossier</a>
-                <a class="btn btn-line" href="tokenisation.html">Investir dès 500 €</a>
+                <a class="btn btn-line" href="motion-noir-siboni.html">Le designer</a>
             </div>
         </div>
     </div>
@@ -238,8 +242,8 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-        <span>DPE A</span><b>/</b><span>Ossature bois</span><b>/</b><span>Isolation chanvre</span><b>/</b><span>&lt; 20 m² sans permis</span><b>/</b><span>Tokenisation AMF</span><b>/</b><span>Made in France</span><b>/</b>
-        <span>DPE A</span><b>/</b><span>Ossature bois</span><b>/</b><span>Isolation chanvre</span><b>/</b><span>&lt; 20 m² sans permis</span><b>/</b><span>Tokenisation AMF</span><b>/</b><span>Made in France</span><b>/</b>
+        <span>DPE A</span><b>/</b><span>Ossature bois</span><b>/</b><span>Isolation chanvre</span><b>/</b><span>&lt; 20 m² sans permis</span><b>/</b><span>Dès 59 000 €</span><b>/</b><span>Made in France</span><b>/</b>
+        <span>DPE A</span><b>/</b><span>Ossature bois</span><b>/</b><span>Isolation chanvre</span><b>/</b><span>&lt; 20 m² sans permis</span><b>/</b><span>Dès 59 000 €</span><b>/</b><span>Made in France</span><b>/</b>
     </div>
 </div>
 
@@ -307,17 +311,18 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
                     </div>
                 </article>
                 <article class="panel">
-                    <div class="panel-media"><span class="ref">FICHE — TKN</span><img src="assets/maison2.jpg" alt="Projet tokenisé"></div>
+                    <div class="panel-media"><span class="ref">FICHE — DSG</span><img src="assets/daniel siboni.jpg" alt="Daniel Siboni, designer"></div>
                     <div class="panel-copy">
                         <span class="no">PANEL 04</span>
-                        <h3>Tokenisation</h3>
-                        <p>Chaque projet peut être fractionné en parts numériques dès 500 €, avec revenus locatifs automatiques. Cadre français (loi PACTE), paiement classique toujours disponible.</p>
+                        <h3>Daniel Siboni — le designer</h3>
+                        <p>Photographe de mode et directeur artistique (ELLE, Vogue, Dior), créateur du Link Hotel &amp; Hub à Tel Aviv. Il applique aujourd'hui son regard de photographe à l'architecture de chaque module MyGlamHouse.</p>
                         <div class="panel-data">
-                            <div><b>500 €</b><small>Ticket d'entrée</small></div>
-                            <div><b>PACTE</b><small>Cadre légal</small></div>
-                            <div><b>Auto</b><small>Revenus locatifs</small></div>
-                            <div><b>Optionnel</b><small>Achat classique OK</small></div>
+                            <div><b>25 ans</b><small>Photographie &amp; art direction</small></div>
+                            <div><b>Link Hotel</b><small>Tel Aviv, Dan Hotels</small></div>
+                            <div><b>Batman 80</b><small>Direction artistique</small></div>
+                            <div><b>Cannes</b><small>Lifetime achievement</small></div>
                         </div>
+                        <a class="panel-link" href="motion-noir-siboni.html">Voir son parcours →</a>
                     </div>
                 </article>
             </div>
@@ -325,20 +330,20 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
     </div>
 </section>
 
-<!-- TOKEN -->
-<section class="token wrap">
+<!-- ACHAT -->
+<section class="token wrap" id="achat">
     <div class="token-grid">
         <div>
-            <div class="sec-label rv">03 <i>/ Investir</i></div>
-            <h2 class="rv rv-d1">L'immobilier, <b>fractionné</b>.</h2>
-            <p class="rv rv-d2">Achetez une maison entière par les voies classiques — ou une fraction d'un projet locatif via la blockchain. Deux portes, un même actif réel.</p>
-            <a class="btn btn-amber rv rv-d3" href="tokenisation.html">Ouvrir le protocole</a>
+            <div class="sec-label rv">03 <i>/ Financer</i></div>
+            <h2 class="rv rv-d1">Un achat direct, <b>sans intermédiaire</b>.</h2>
+            <p class="rv rv-d2">Virement ou crédit immobilier classique, comme pour toute construction — et jusqu'à 65 000 € d'aides de l'État cumulables selon votre situation.</p>
+            <a class="btn btn-amber rv rv-d3" href="aides.html">Simuler mes aides</a>
         </div>
         <div class="token-box rv rv-d1">
-            <div class="token-line"><span>Ticket minimum</span><b>500 <em>€</em></b></div>
-            <div class="token-line"><span>Rendement locatif visé</span><b>4–7 <em>%</em></b></div>
-            <div class="token-line"><span>Pipeline 2026</span><b>20 <em>maisons</em></b></div>
-            <div class="token-line"><span>Objectif 2027</span><b>50 <em>maisons</em></b></div>
+            <div class="token-line"><span>Prix d'appel</span><b>59 000 <em>€</em></b></div>
+            <div class="token-line"><span>Aides cumulables</span><b>65 000 <em>€ max</em></b></div>
+            <div class="token-line"><span>Garantie</span><b>Décennale <em>+ RE2020</em></b></div>
+            <div class="token-line minor"><span>Crypto (BTC/ETH/USDT)</span><b>Sur devis, KYC</b></div>
         </div>
     </div>
 </section>
@@ -364,9 +369,9 @@ footer { border-top: 1px solid var(--edge); padding: 44px 0; }
         <span>© 2023–2026 MYGLAMHOUSE — SYSTÈME MGH / FR</span>
         <nav>
             <a href="collection.html">Maisons</a>
+            <a href="construction.html">Construction</a>
+            <a href="motion-noir-siboni.html">Designer</a>
             <a href="projets.html">Projets</a>
-            <a href="tokenisation.html">Tokenisation</a>
-            <a href="investir.html">Investir</a>
             <a href="aides.html">Aides</a>
         </nav>
     </div>
