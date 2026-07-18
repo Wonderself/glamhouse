@@ -2,6 +2,11 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-18 (quater) — Planches SVG animées du showcase (style références client)
+
+- Le showcase La 20 / La 30 affiche désormais **deux planches SVG animées** (élévation + plans, tracé progressif à l'activation du chapitre) dans le style des références fournies : bois clair claire-voie, grandes baies, terrasse à garde-corps bois.
+- Dimensions strictement conformes aux décisions : La 20 = plain-pied 4 × 5 m ; La 30 = 4 × 5 m au sol + chambre 10 m² à l'étage face à sa terrasse de 10 m², hauteur ≈ 4,2 m, 30 m² habitables / 40 m² vécus.
+
 ## 2026-07-18 (ter) — Chantier Motion n°1 : hero en timeline
 
 - **Motion v12 vendorée** dans `assets/js/motion.min.mjs` (bundle ESM autonome, zéro CDN).

@@ -282,6 +282,36 @@ html.mlib .hero-chips .chip { opacity: 0; }
 .showcase-hint { position: absolute; right: 24px; bottom: 44px; z-index: 3; font-family: var(--mono); font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,242,234,.85);
     background: rgba(30,29,26,.55); backdrop-filter: blur(8px); border: 1px solid rgba(245,242,234,.18); border-radius: 100px; padding: 9px 16px; }
 
+/* Planches SVG du showcase — style bois clair / claire-voie (réf. client), dimensions exactes */
+.showcase-media figure.board { background: #fff; }
+.showcase-media figure.board::before { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(rgba(30,29,26,.045) 1px, transparent 1px) 0 0/28px 28px, linear-gradient(90deg, rgba(30,29,26,.045) 1px, transparent 1px) 0 0/28px 28px; }
+.showcase-media figure.board svg { position: relative; width: 100%; height: 100%; }
+.board .bd-wall { fill: none; stroke: var(--ink); stroke-width: 5; }
+.board .bd-in { fill: none; stroke: var(--terra-deep); stroke-width: 3; }
+.board .bd-dash { fill: none; stroke: var(--terra); stroke-width: 1.8; stroke-dasharray: 7 6; }
+.board .bd-thin { fill: none; stroke: rgba(30,29,26,.5); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.board .bd-glass { fill: rgba(151,169,141,.16); stroke: var(--sage); stroke-width: 3; }
+.board line.bd-glass { stroke-width: 4; }
+.board .bd-dim line { stroke: var(--terra-deep); stroke-width: 1; }
+.board .bd-dim text { fill: var(--terra-deep); font-family: var(--mono); font-size: 13px; }
+.board .bd-lab text { fill: var(--ink-soft); font-family: var(--mono); font-size: 12px; letter-spacing: 2px; }
+.board .bd-title text { fill: var(--ink); font-family: var(--mono); font-size: 15px; letter-spacing: 3px; }
+.board .sd { stroke-dasharray: 2200; stroke-dashoffset: 2200; }
+.showcase-media figure.active .sd { animation: bpdraw 1.8s var(--ease) forwards; }
+.showcase-media figure.active .sd.s1 { animation-delay: .35s; }
+.showcase-media figure.active .sd.s2 { animation-delay: .7s; }
+.showcase-media figure.active .sd.s3 { animation-delay: 1s; }
+.board .sf { opacity: 0; }
+.showcase-media figure.active .sf { animation: bpfade .9s var(--ease) forwards; }
+.showcase-media figure.active .sf.f1 { animation-delay: .9s; }
+.showcase-media figure.active .sf.f2 { animation-delay: 1.3s; }
+.showcase-media figure.active .sf.f3 { animation-delay: 1.7s; }
+@media (prefers-reduced-motion: reduce) {
+    .board .sd { stroke-dashoffset: 0 !important; animation: none !important; }
+    .board .sf { opacity: 1 !important; animation: none !important; }
+}
+
 /* ---------- BANDE VIDÉO ---------- */
 .vband { position: relative; height: clamp(420px, 76vh, 720px); overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
 .vband video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; background: var(--ink); }
@@ -615,9 +645,144 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentEl
                 <div class="showcase-progress"><i class="done"></i><i></i></div>
             </div>
             <div class="showcase-media">
-                <!-- Visuel provisoire La 20 : plain-pied avec terrasse bois, en attendant les images de référence client -->
-                <figure class="active"><img src="assets/maison4.jpg" alt="Tiny houses de plain-pied avec terrasse bois — esprit La 20"></figure>
-                <figure><img src="assets/planche-house-30.png" alt="Planche produit — La 30 : 20 m² au sol, chambre étage face à la terrasse rooftop"></figure>
+                <figure class="active board">
+                    <svg viewBox="0 0 760 1000" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Planche La 20 — élévation bois claire-voie et plan 4 × 5 m">
+                        <defs>
+                            <pattern id="slat20" width="9" height="12" patternUnits="userSpaceOnUse">
+                                <rect width="9" height="12" fill="#F2E8DA"/>
+                                <line x1="4.5" y1="0" x2="4.5" y2="12" stroke="rgba(160,107,79,.38)" stroke-width="1.6"/>
+                            </pattern>
+                        </defs>
+                        <g class="bd-title sf"><text x="60" y="108">LA 20 · PLAIN-PIED · 20 M²</text></g>
+                        <g class="bd-lab sf f1"><text x="60" y="148">ÉLÉVATION</text></g>
+                        <!-- Élévation : volume claire-voie, grande baie, volet ouvert, terrasse bois -->
+                        <line class="bd-thin sf f1" x1="70" y1="430" x2="690" y2="430"/>
+                        <rect class="sf f1" x="130" y="180" width="450" height="250" fill="url(#slat20)"/>
+                        <rect class="bd-wall sd" x="130" y="180" width="450" height="250"/>
+                        <line class="bd-wall sd s1" x1="118" y1="180" x2="592" y2="180"/>
+                        <rect class="bd-glass sf f1" x="170" y="215" width="200" height="215"/>
+                        <line class="bd-thin sf f1" x1="270" y1="215" x2="270" y2="430"/>
+                        <g class="bd-thin sf f2">
+                            <rect x="76" y="212" width="50" height="218" fill="url(#slat20)"/>
+                            <line x1="126" y1="212" x2="130" y2="215"/>
+                            <rect x="480" y="250" width="64" height="180"/>
+                            <circle cx="532" cy="345" r="3"/>
+                            <rect x="90" y="430" width="540" height="14" fill="#F2E8DA"/>
+                            <line x1="90" y1="437" x2="630" y2="437"/>
+                            <path d="M190 400 h60 v30 M190 400 v30"/>
+                        </g>
+                        <g class="bd-dim sf f2">
+                            <line x1="130" y1="470" x2="580" y2="470"/><line x1="130" y1="464" x2="130" y2="476"/><line x1="580" y1="464" x2="580" y2="476"/>
+                            <text x="355" y="462" text-anchor="middle">5.00 m</text>
+                        </g>
+                        <!-- Plan 4 × 5 m (géométrie validée) -->
+                        <g class="bd-lab sf f1"><text x="60" y="530">PLAN · 4 × 5 M</text></g>
+                        <g class="bd-dim sf f2">
+                            <line x1="250" y1="548" x2="502" y2="548"/><line x1="250" y1="542" x2="250" y2="554"/><line x1="502" y1="542" x2="502" y2="554"/>
+                            <text x="376" y="540" text-anchor="middle">4.00 m</text>
+                        </g>
+                        <rect class="bd-wall sd s1" x="250" y="560" width="252" height="315" rx="2"/>
+                        <path class="bd-in sd s2" d="M400 780 V875"/>
+                        <path class="bd-in sd s2" d="M400 780 H502"/>
+                        <path class="bd-dash sd s3" d="M400 560 V676 H502"/>
+                        <g class="sf f2">
+                            <line class="bd-glass" x1="250" y1="612" x2="250" y2="738"/>
+                            <line class="bd-glass" x1="299" y1="560" x2="369" y2="560"/>
+                            <line class="bd-glass" x1="502" y1="591" x2="502" y2="647"/>
+                        </g>
+                        <g class="bd-thin sf f2">
+                            <path d="M281 875 a31 31 0 0 1 31 -31"/>
+                            <rect x="260" y="626" width="80" height="31" rx="5"/><path d="M260 626 v-17 h80 v17"/>
+                            <circle cx="306" cy="707" r="17"/>
+                            <rect x="257" y="846" width="119" height="18"/><circle cx="282" cy="855" r="4"/><circle cx="304" cy="855" r="4"/>
+                            <rect x="428" y="595" width="38" height="59" rx="3"/>
+                            <rect x="456" y="791" width="36" height="36"/><path d="M456 791 L492 827 M492 791 L456 827"/>
+                            <rect x="411" y="791" width="29" height="13" rx="3"/>
+                            <ellipse cx="424" cy="855" rx="9" ry="11"/>
+                        </g>
+                        <g class="bd-lab sf f3">
+                            <text x="271" y="721">SÉJOUR</text>
+                            <text x="271" y="736" font-size="9">CANAPÉ-LIT</text>
+                            <text x="264" y="833" font-size="10">CUISINE</text>
+                            <text x="419" y="586" font-size="10">REPAS</text>
+                            <text x="408" y="770" font-size="10">SDB</text>
+                        </g>
+                        <g class="bd-lab sf f3"><text x="60" y="955">MGH · LA 20 · 1:50 · DÉCLARATION PRÉALABLE</text></g>
+                    </svg>
+                </figure>
+                <figure class="board">
+                    <svg viewBox="0 0 760 1000" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Planche La 30 — deux niveaux, chambre à l'étage face à sa terrasse, plans RDC et étage">
+                        <defs>
+                            <pattern id="slat30" width="9" height="12" patternUnits="userSpaceOnUse">
+                                <rect width="9" height="12" fill="#F2E8DA"/>
+                                <line x1="4.5" y1="0" x2="4.5" y2="12" stroke="rgba(160,107,79,.38)" stroke-width="1.6"/>
+                            </pattern>
+                        </defs>
+                        <g class="bd-title sf"><text x="60" y="108">LA 30 · DEUX NIVEAUX · 30 M²</text></g>
+                        <g class="bd-lab sf f1"><text x="60" y="148">ÉLÉVATION</text></g>
+                        <!-- Élévation : volume arrière haut (chambre), terrasse à garde-corps sur l'avant -->
+                        <line class="bd-thin sf f1" x1="70" y1="460" x2="690" y2="460"/>
+                        <rect class="sf f1" x="360" y="124" width="200" height="336" fill="url(#slat30)"/>
+                        <rect class="sf f1" x="160" y="284" width="200" height="176" fill="url(#slat30)"/>
+                        <rect class="bd-wall sd" x="360" y="124" width="200" height="336"/>
+                        <rect class="bd-wall sd s1" x="160" y="284" width="200" height="176"/>
+                        <line class="bd-wall sd s1" x1="160" y1="284" x2="360" y2="284"/>
+                        <g class="bd-thin sf f1">
+                            <line x1="160" y1="204" x2="360" y2="204"/>
+                            <line x1="160" y1="244" x2="360" y2="244"/>
+                            <line x1="160" y1="204" x2="160" y2="284"/><line x1="200" y1="204" x2="200" y2="284"/><line x1="240" y1="204" x2="240" y2="284"/>
+                            <line x1="280" y1="204" x2="280" y2="284"/><line x1="320" y1="204" x2="320" y2="284"/><line x1="360" y1="204" x2="360" y2="284"/>
+                        </g>
+                        <rect class="bd-glass sf f1" x="175" y="300" width="130" height="160"/>
+                        <line class="bd-thin sf f1" x1="240" y1="300" x2="240" y2="460"/>
+                        <rect class="bd-glass sf f2" x="372" y="180" width="52" height="104"/>
+                        <rect class="bd-glass sf f2" x="470" y="200" width="46" height="40"/>
+                        <g class="bd-thin sf f2">
+                            <circle cx="250" cy="262" r="14"/><rect x="228" y="248" width="10" height="10"/><rect x="272" y="248" width="10" height="10"/>
+                            <rect x="130" y="460" width="500" height="12" fill="#F2E8DA"/>
+                        </g>
+                        <g class="bd-dim sf f2">
+                            <line x1="160" y1="496" x2="560" y2="496"/><line x1="160" y1="490" x2="160" y2="502"/><line x1="560" y1="490" x2="560" y2="502"/>
+                            <text x="360" y="488" text-anchor="middle">5.00 m</text>
+                            <line x1="606" y1="124" x2="606" y2="460"/><line x1="600" y1="124" x2="612" y2="124"/><line x1="600" y1="460" x2="612" y2="460"/>
+                            <text x="628" y="296" text-anchor="middle" transform="rotate(-90 628 296)">≈ 4,20 m</text>
+                        </g>
+                        <g class="bd-lab sf f3">
+                            <text x="172" y="196" font-size="10">TERRASSE 10 M²</text>
+                            <text x="398" y="165" font-size="10">CHAMBRE</text>
+                        </g>
+                        <!-- Plans : RDC 4 × 5 m + étage (chambre 10 m² face terrasse 10 m²) -->
+                        <g class="bd-lab sf f1"><text x="60" y="580">PLAN RDC · 20 M²</text><text x="440" y="580" >PLAN ÉTAGE · 10 + 10 M²</text></g>
+                        <g class="bd-dim sf f2">
+                            <line x1="120" y1="616" x2="280" y2="616"/><line x1="120" y1="610" x2="120" y2="622"/><line x1="280" y1="610" x2="280" y2="622"/>
+                            <text x="200" y="608" text-anchor="middle">4.00 m</text>
+                        </g>
+                        <rect class="bd-wall sd s1" x="120" y="640" width="160" height="200" rx="2"/>
+                        <path class="bd-in sd s2" d="M216 780 V840"/>
+                        <path class="bd-in sd s2" d="M216 780 H280"/>
+                        <path class="bd-dash sd s3" d="M216 640 V713 H280"/>
+                        <g class="bd-thin sf f2">
+                            <path d="M240 650 H276 M240 660 H276 M240 670 H276 M240 680 H276 M240 690 H276"/>
+                            <rect x="130" y="700" width="50" height="20" rx="4"/>
+                            <rect x="127" y="808" width="74" height="12"/>
+                            <rect x="250" y="794" width="22" height="22"/><path d="M250 794 L272 816 M272 794 L250 816"/>
+                            <ellipse cx="234" cy="826" rx="6" ry="8"/>
+                        </g>
+                        <g class="bd-lab sf f3"><text x="132" y="765" font-size="10">SÉJOUR</text><text x="240" y="633" font-size="9">ESCALIER</text></g>
+                        <rect class="bd-wall sd s1" x="440" y="640" width="160" height="100" rx="2"/>
+                        <rect class="bd-dash sd s2" x="440" y="740" width="160" height="100" rx="2"/>
+                        <line class="bd-glass sf f2" x1="480" y1="740" x2="560" y2="740"/>
+                        <g class="bd-thin sf f2">
+                            <rect x="460" y="655" width="64" height="70" rx="3"/><line x1="460" y1="672" x2="524" y2="672"/>
+                            <circle cx="530" cy="790" r="12"/>
+                        </g>
+                        <g class="bd-lab sf f3">
+                            <text x="452" y="700" font-size="10">CHAMBRE 10 M²</text>
+                            <text x="452" y="800" font-size="10">TERRASSE 10 M²</text>
+                        </g>
+                        <g class="bd-lab sf f3"><text x="60" y="955">MGH · LA 30 · 30 M² HABITABLES · 40 M² VÉCUS</text></g>
+                    </svg>
+                </figure>
             </div>
             <span class="showcase-hint">Continuez à défiler</span>
         </div>
