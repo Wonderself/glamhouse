@@ -142,6 +142,13 @@ img, video, svg { max-width: 100%; display: block; }
 .hero h1 em { font-style: italic; color: #E8C7B0; }
 @keyframes lineUp { from { transform: translateY(110%); } to { transform: none; } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+/* Quand la librairie Motion pilote le hero (html.mlib), les animations CSS
+   sont neutralisées et les états initiaux posés ici ; le fallback retire
+   simplement la classe pour rendre la main aux keyframes CSS. */
+html.mlib .hero-eyebrow, html.mlib .hero-foot, html.mlib .hero-scroll { animation: none; opacity: 0; }
+html.mlib .hero h1 .line-mask > span { animation: none; transform: translateY(110%); }
+html.mlib .hero-chips { animation: none; opacity: 1; }
+html.mlib .hero-chips .chip { opacity: 0; }
 .hero-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; flex-wrap: wrap; opacity: 0; animation: fadeUp 1s .9s both; }
 .hero-foot p { max-width: 42ch; font-weight: 300; font-size: .98rem; color: rgba(255,255,255,.82); }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -411,6 +418,11 @@ footer { border-top: 1px solid var(--hairline); padding-top: 50px; }
 </style>
 </head>
 <body>
+
+<script>
+/* Décision avant premier rendu : Motion pilotera le hero (sauf reduced-motion). */
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('mlib');
+</script>
 
 <div class="cursor" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div>
 <div class="progress" aria-hidden="true"></div>
@@ -915,6 +927,32 @@ footer { border-top: 1px solid var(--hairline); padding-top: 50px; }
         });
     }, { threshold: 0.2 });
     vids.forEach(function(v) { vio.observe(v); });
+})();
+</script>
+<script type="module">
+/* Chantier Motion n°1 : le hero en timeline à ressorts (librairie vendorée).
+   Si le module ne démarre pas sous 2 s, on retire html.mlib et les
+   keyframes CSS d'origine reprennent la main. */
+(async function() {
+    var root = document.documentElement;
+    if (!root.classList.contains('mlib')) return;
+    var started = false;
+    var bail = setTimeout(function() { if (!started) root.classList.remove('mlib'); }, 2000);
+    try {
+        var m = await import('./assets/js/motion.min.mjs');
+        if (!root.classList.contains('mlib')) return; // le fallback a déjà rendu la main
+        started = true; clearTimeout(bail);
+        m.animate([
+            ['.hero-eyebrow', { opacity: [0, 1], y: [18, 0] }, { duration: .7, ease: 'easeOut', delay: .25 }],
+            ['.hero h1 .line-mask > span', { y: ['110%', '0%'] }, { at: '-0.45', type: 'spring', stiffness: 80, damping: 16, delay: m.stagger(.14) }],
+            ['.hero-foot', { opacity: [0, 1], y: [26, 0] }, { at: '-0.7', type: 'spring', stiffness: 60, damping: 14 }],
+            ['.hero-chips .chip', { opacity: [0, 1], y: [14, 0], scale: [.94, 1] }, { at: '-0.55', type: 'spring', stiffness: 140, damping: 12, delay: m.stagger(.07) }],
+            ['.hero-scroll', { opacity: [0, 1] }, { at: '-0.3', duration: .8 }]
+        ]);
+    } catch (e) {
+        clearTimeout(bail);
+        root.classList.remove('mlib');
+    }
 })();
 </script>
 </body>

@@ -12,6 +12,12 @@ Référence : `motion-lumiere.html` (Lumière Kinétique). Ce document liste **c
 
 ## Inventaire
 
+### Hero (timeline Motion — librairie vendorée)
+
+Depuis 2026-07-18, l'entrée du hero est orchestrée par **Motion v12** (`assets/js/motion.min.mjs`, bundle ESM autonome, aucune requête externe) : eyebrow → lignes du titre (ressorts, stagger) → paragraphe/CTA → chips → fil de scroll.
+
+Mécanisme de sécurité : un script inline pose `html.mlib` avant le premier rendu (sauf reduced-motion) pour neutraliser les keyframes CSS ; si le module ne démarre pas sous 2 s (ou échoue), la classe est retirée et **les animations CSS d'origine reprennent la main**. Ne pas supprimer les keyframes CSS du hero : elles sont le fallback.
+
 ### Entrées (déclencheur : IntersectionObserver, une seule fois)
 
 | Effet | Classe/attribut | Description |

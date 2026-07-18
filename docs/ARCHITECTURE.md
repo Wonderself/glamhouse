@@ -12,6 +12,8 @@
 
 Il n'y a **ni `package.json`, ni bundler, ni framework**. C'est un choix délibéré : le site est un ensemble de pages statiques autonomes.
 
+Unique dépendance front (vendorée, servie localement) : **Motion v12** dans `assets/js/motion.min.mjs`, utilisée par le hero de `motion-lumiere.html` avec fallback CSS automatique — voir [MOTION.md](MOTION.md).
+
 ## Deux familles de pages
 
 ### 1. Le site « classique » (historique)

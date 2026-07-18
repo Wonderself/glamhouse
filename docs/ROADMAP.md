@@ -15,7 +15,8 @@
 - [x] **Fond blanc** : directive appliquée (`--paper: #FFFFFF`) sur Lumière et versions.html.
 - [x] **Plan La 20 corrigé** : 4 × 5 m, disposition planche sans escalier (canapé-lit, cuisine, SDB, repas).
 - [ ] **Images de référence client** pour le showcase La 20 / La 30 (le client doit les fournir ; visuel provisoire `maison4.jpg` en place pour La 20).
-- [ ] **Chantier Motion n°1** : hero en timeline avec ressorts (vendorer `assets/js/motion` + bascule progressive).
+- [x] **Chantier Motion n°1** : hero en timeline avec ressorts — Motion v12 vendorée (`assets/js/motion.min.mjs`), fallback CSS automatique (voir [MOTION.md](MOTION.md)).
+- [ ] **Chantier Motion n°2 (proposé)** : showcase épinglé en scrubbing continu avec `scroll()`.
 - [ ] **Teaser Remotion** : initialiser `video/` (composition 9/16, plan 4×5 animé, fond blanc, logo + CTA final) une fois le plan validé visuellement par le client.
 - [ ] **Vraie planche/plan pour La 30 distincte de La 20** (les deux fichiers actuels sont identiques).
 - [ ] **Harmoniser le site classique** avec la direction Lumière : `index.html` (point d'entrée réel) a encore l'ancien look — soit le rhabiller aux couleurs Lumière, soit faire de `motion-lumiere.html` la vraie page d'accueil (MAJ `nginx.conf` `index` + liens).

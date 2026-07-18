@@ -2,6 +2,11 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-18 (ter) — Chantier Motion n°1 : hero en timeline
+
+- **Motion v12 vendorée** dans `assets/js/motion.min.mjs` (bundle ESM autonome, zéro CDN).
+- Le hero de `motion-lumiere.html` est désormais orchestré en **timeline à ressorts** (eyebrow → titre en stagger → texte/CTA → chips → fil de scroll), avec fallback automatique vers les keyframes CSS d'origine si le module ne démarre pas sous 2 s, et respect de `prefers-reduced-motion`.
+
 ## 2026-07-18 (bis) — Fond blanc + plan La 20 corrigé (décisions client)
 
 - **Fond blanc généralisé** (`--paper: #FFFFFF`) sur `motion-lumiere.html` et `versions.html` — directive client : tout le site en fond blanc.
