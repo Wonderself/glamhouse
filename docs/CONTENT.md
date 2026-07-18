@@ -20,8 +20,8 @@ Ton : éditorial, précis, chaleureux. On affirme (« Cinq raisons qui changent 
 | Chiffre | Valeur | Où il apparaît |
 |---|---|---|
 | Surface sans permis | **20 m²** (déclaration préalable) | Hero chips, stats, showcase |
-| Modèles | **La 20** (1 niveau) / **La 30** (2 niveaux, +10 m² chambre étage) | Showcase, collection |
-| Empreinte La 20 | **6,66 × 3 m** | Section plan, SVG |
+| **La 20** | Plain-pied **4 × 5 m** (20 m²) : séjour avec **canapé-lit** (salon le jour, chambre la nuit), cuisine ouverte, salle d'eau complète, coin repas | Showcase, section plan, SVG |
+| **La 30** | Même empreinte 20 m² au sol + **chambre 10 m² à l'étage face à sa terrasse de 10 m²** ; séjour cathédrale ~4,2 m sous plafond ; **30 m² habitables, 40 m² d'espace vécu** | Showcase (= la planche produit) |
 | DPE | **A** (passive) | Partout |
 | Chantier sur site | **1,5 mois** | Chips, stats, étapes |
 | Fabrication atelier | 6 à 8 semaines | Étapes |
@@ -30,6 +30,12 @@ Ton : éditorial, précis, chaleureux. On affirme (« Cinq raisons qui changent 
 | Aides de l'État | **jusqu'à 65 000 €** (MaPrimeRénov', Éco-PTZ, TVA 5,5 %, exonération TF) | Section Achat, aides.html |
 
 ⚠️ Toute modification d'un chiffre doit être répercutée sur **toutes** les occurrences (chercher dans `motion-lumiere.html`, `collection.html`, `aides.html`, `index.html`) et dans ce tableau.
+
+### Historique de correction (2026-07-18)
+
+- L'ancienne géométrie **6,66 × 3 m** (héritée du plan Sequoia) est **invalide** pour La 20 : la vraie emprise est **4 × 5 m** (source : planche produit + validation client).
+- `assets/planche-house-20.png` et `planche-house-30.png` sont **le même fichier** : la planche correspond en réalité à **La 30**. La 20 attend ses propres visuels — le client fournira des **images de référence** ; en attendant, `assets/maison4.jpg` sert de visuel provisoire dans le showcase.
+- La gamme est en cours de redéfinition précise (produits distincts La 20 / La 30) — voir décisions dans [REMOTION-ET-MOTION.md](REMOTION-ET-MOTION.md) et [ROADMAP.md](ROADMAP.md).
 
 ## Sujets sensibles
 

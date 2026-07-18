@@ -11,7 +11,13 @@
 
 ## 🎯 Court terme
 
-- [ ] **Réponses Remotion/Motion** : trancher les 6 questions de [REMOTION-ET-MOTION.md](REMOTION-ET-MOTION.md) et consigner les décisions.
+- [x] **Réponses Remotion/Motion** : décisions consignées dans [REMOTION-ET-MOTION.md](REMOTION-ET-MOTION.md) (adoption progressive de Motion — hero en timeline d'abord ; Remotion en rendu local — teaser plan + clips sociaux).
+- [x] **Fond blanc** : directive appliquée (`--paper: #FFFFFF`) sur Lumière et versions.html.
+- [x] **Plan La 20 corrigé** : 4 × 5 m, disposition planche sans escalier (canapé-lit, cuisine, SDB, repas).
+- [ ] **Images de référence client** pour le showcase La 20 / La 30 (le client doit les fournir ; visuel provisoire `maison4.jpg` en place pour La 20).
+- [ ] **Chantier Motion n°1** : hero en timeline avec ressorts (vendorer `assets/js/motion` + bascule progressive).
+- [ ] **Teaser Remotion** : initialiser `video/` (composition 9/16, plan 4×5 animé, fond blanc, logo + CTA final) une fois le plan validé visuellement par le client.
+- [ ] **Vraie planche/plan pour La 30 distincte de La 20** (les deux fichiers actuels sont identiques).
 - [ ] **Harmoniser le site classique** avec la direction Lumière : `index.html` (point d'entrée réel) a encore l'ancien look — soit le rhabiller aux couleurs Lumière, soit faire de `motion-lumiere.html` la vraie page d'accueil (MAJ `nginx.conf` `index` + liens).
 - [ ] Page « Le Designer » (`motion-lumiere-siboni.html`) : la passer au niveau de finition de la nouvelle Lumière (mêmes composants/motion).
 - [ ] Formulaire de contact réel (aujourd'hui les CTA pointent vers `index.html#contact`).

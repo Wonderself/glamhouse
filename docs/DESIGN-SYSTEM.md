@@ -8,11 +8,13 @@ Référence : `motion-lumiere.html`. Tout nouveau développement visuel part d'i
 
 ## Palette (tokens CSS)
 
+> **Directive client (2026-07)** : tout le site doit être **fond blanc** — pas de fond papier crème global. Les teintes chaudes ne servent que pour les surfaces secondaires (sections alternées, cartes).
+
 | Token | Valeur | Usage |
 |---|---|---|
-| `--paper` | `#F5F2EA` | Fond principal |
-| `--paper-deep` | `#EDE8DC` | Fond de section alternatif (Achat) |
-| `--paper-card` | `#FBF9F2` | Cartes, hover, fond du plan |
+| `--paper` | `#FFFFFF` | Fond principal (blanc) |
+| `--paper-deep` | `#F6F3ED` | Fond de section alternatif (Achat) |
+| `--paper-card` | `#FBFAF7` | Cartes, hover, fond du plan |
 | `--ink` | `#1E1D1A` | Texte, section sombre (showcase), murs du plan |
 | `--ink-soft` | `#57544C` | Texte secondaire |
 | `--terra` | `#C08A6D` | Accent principal (terracotta) |

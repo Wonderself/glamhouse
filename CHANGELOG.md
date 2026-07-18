@@ -2,6 +2,13 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-18 (bis) — Fond blanc + plan La 20 corrigé (décisions client)
+
+- **Fond blanc généralisé** (`--paper: #FFFFFF`) sur `motion-lumiere.html` et `versions.html` — directive client : tout le site en fond blanc.
+- **Plan d'architecte animé corrigé** : l'ancienne géométrie 6,66 × 3 m (héritée de Sequoia/Ultra) était invalide. Nouveau plan **La 20 = 4 × 5 m plain-pied**, fidèle à la planche produit sans l'escalier : séjour au canapé-lit (salon/chambre), cuisine linéaire, salle d'eau complète, coin repas.
+- **Showcase corrigé** : textes exacts (La 20 plain-pied 4×5 ; La 30 = 20 m² au sol + chambre 10 m² à l'étage face à sa terrasse de 10 m², 30 m² habitables / 40 m² vécus) et visuels différenciés — les deux planches étaient le même fichier ; `maison4.jpg` sert de provisoire pour La 20 en attendant les images de référence client.
+- **Décisions Remotion/Motion consignées** dans `docs/REMOTION-ET-MOTION.md` : Motion en adoption progressive (hero en timeline d'abord), Remotion en rendu local (teaser plan + clips sociaux, logo + CTA final).
+
 ## 2026-07-18 — Lumière Kinétique + documentation
 
 - **Décision design actée** : la version fond clair (Lumière) est retenue ; Noir et Ultra passent en archives.

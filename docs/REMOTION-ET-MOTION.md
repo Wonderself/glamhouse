@@ -87,4 +87,10 @@ Ces questions sont posées dans la conversation projet ; les réponses seront co
 
 | Date | Question | Décision |
 |---|---|---|
-| — | — | *(en attente des réponses)* |
+| 2026-07-18 | Objectif vidéo Remotion | **Teaser du plan animé** + **clips réseaux sociaux** — mais le plan devait d'abord être fiabilisé (fait : géométrie 4 × 5 m validée) |
+| 2026-07-18 | Rendu des vidéos | **Local ponctuel** (`npx remotion render`), pas de pipeline automatisé pour l'instant |
+| 2026-07-18 | Approche Motion | **Adoption progressive** : JS maison conservé, migration effet par effet, fichier vendoré dans `assets/` (pas de CDN) |
+| 2026-07-18 | Premier chantier Motion | **Hero en timeline** (orchestration eyebrow → titre → texte → chips avec ressorts) |
+| 2026-07-18 | Style du teaser | Palette Lumière **sur fond blanc** (directive : tout le site en fond blanc), **logo + CTA en écran final** ; durée/musique encore ouvertes (proposition par défaut : ~12 s, muet) |
+| 2026-07-18 | Plan de référence | La 20 = plain-pied **4 × 5 m**, disposition de la planche sans escalier (canapé-lit, cuisine ouverte, SDB complète, coin repas) ; La 30 = 20 m² au sol + chambre 10 m² à l'étage face à sa terrasse de 10 m² |
+| 2026-07-18 | Visuels showcase | Plans SVG animés distincts à terme ; le client fournira des **images de référence** avant la version finale |
