@@ -47,6 +47,16 @@ Constantes de marque à inclure : bois clair en claire-voie (vertical wood slats
 - Angles retenus : 3/4 hauteur d'œil (principal), légère plongée drone, détail matière.
 - Format série 1 : portrait 3:4 (showcase).
 
+## Vidéo (image-to-video)
+
+Pipeline validé le 2026-07-19 — films drone 9:16 pour les réseaux :
+
+1. **Source** : un render validé (`gen/la*-pro-*.jpg`), recadré 9:16 (720×1280).
+2. **Génération** : fal.ai `fal-ai/kling-video/v2.1/pro/image-to-video` (~0,45 €/clip de 5 s), 4 clips par maison : approche avant · dolly lent vers la baie · arc latéral ~60° · montée top-down. Prompts avec « architecture stays perfectly consistent and rigid » + negative « warping, morphing, people ».
+3. **Montage** : ffmpeg local (gratuit) — rampes de vitesse ×1,8 / ×0,6 / ×1,8 / ×1 + fondu final, concat 30 fps → film ~19 s (`scratchpad/montage.sh`).
+
+**Limite constatée** : les plans 1–3 restent très fidèles à la maison source ; le **top-down final invente de la géométrie** (toit en pente, volumes élargis) car le modèle n'a jamais vu le toit. Parades : régénérer le clip 4 avec un prompt toit plat très contraint, le couper au montage, ou l'assumer comme plan « ambiance ». Ne jamais utiliser le top-down comme référence produit.
+
 ## Statut
 
 - [x] Décision : API images (fal.ai + Flux) — validée par le client.
