@@ -38,10 +38,20 @@ Constantes de marque à inclure : bois clair en claire-voie (vertical wood slats
 - Renommer le fichier à chaque remplacement (cache Nginx 30 j immutable — voir [DEPLOYMENT.md](DEPLOYMENT.md)).
 - Mention légale : images génératives = pas de droits tiers, mais rester cohérent avec le produit réel (ne pas montrer ce qu'on ne vend pas).
 
+## Direction artistique validée (2026-07-19)
+
+- Bardage **bois clair + menuiseries noires mates** ; toit plat strict, volumes cubiques compacts (crédibles 4 × 5 m).
+- Décor : **grand jardin paysager luxuriant** — lavandes, graminées, pots terre cuite, oliviers.
+- Lumière : **golden hour** ; intérieurs chaleureux visibles à travers les baies ; guirlandes/appliques chaudes ; mobilier minimaliste noir ; jamais de personnes.
+- La 20 : canapé-lit visible (pas de lit fixe). La 30 : terrasse rooftop à **garde-corps métal noir fin**, porte-fenêtre de la chambre ouvrant dessus.
+- Angles retenus : 3/4 hauteur d'œil (principal), légère plongée drone, détail matière.
+- Format série 1 : portrait 3:4 (showcase).
+
 ## Statut
 
-- [x] Décision : API images (Replicate/fal + Flux) — validée par le client.
-- [ ] Compte créé + clé API transmise en session. ← **prochaine action client**
-- [ ] Première série La 20 / La 30 générée et validée.
-- [ ] Remplacement des `ref-*.jpg` provisoires dans le showcase.
-- [ ] Déclinaisons (intérieurs, hero, textures) si concluant.
+- [x] Décision : API images (fal.ai + Flux) — validée par le client.
+- [x] Compte fal.ai créé + clé API transmise en session (jamais dans le repo).
+- [x] Série 1 générée : 8 brouillons `flux/schnell` → direction validée → 6 finaux `flux-pro v1.1`.
+- [x] Showcase : `assets/gen-la20-golden.jpg` et `gen-la30-golden.jpg` en place ; les `ref-*.jpg` provisoires (droits incertains) sont **supprimés** du repo.
+- [ ] Validation client des 2 rendus retenus (autres candidats pro disponibles en session).
+- [ ] Déclinaisons : hero 16:9, carré 1:1 réseaux, intérieurs, détail matière.

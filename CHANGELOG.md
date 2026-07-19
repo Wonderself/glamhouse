@@ -2,6 +2,13 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-19 — Renders IA propriétaires dans le showcase
+
+- Première série générée via **fal.ai + Flux** (8 brouillons schnell → 6 finaux flux-pro) selon la direction artistique validée : bois clair + menuiseries noires, jardin paysager luxuriant (lavandes, oliviers, terre cuite), golden hour, intérieurs chaleureux, sans personnes.
+- Showcase : `assets/gen-la20-golden.jpg` (plain-pied, canapé visible) et `gen-la30-golden.jpg` (terrasse garde-corps métal noir face à la chambre) remplacent les photos provisoires.
+- Les `ref-*.jpg` (droits incertains) sont retirés du dépôt ; images générées = pas de droits tiers.
+- Pipeline documenté dans `docs/VISUELS-IA.md` (la clé API reste hors repo).
+
 ## 2026-07-18 (quinquies) — Showcase réaliste : photos + cartouche plan
 
 - Suite au retour client (« rendu beaucoup plus réaliste et beau, inspiré des photos »), le showcase combine désormais **photo réaliste plein cadre** (références client recadrées : `assets/ref-la20.jpg`, `ref-la30.jpg`, + `ref-la20-nuit.jpg` en réserve) et **cartouche plan SVG coté animé** (4 × 5 m ; étage chambre/terrasse) — l'émotion par la photo, la précision par le plan.
