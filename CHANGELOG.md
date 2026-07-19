@@ -2,6 +2,13 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-19 (bis) — Films drone conformes aux cotes + section Films
+
+- Retour client : les premières vidéos ne respectaient pas les cotes. Audit clip par clip → 5/8 conservés, 3 régénérés avec un **mégaprompt spec produit** (rectangle strict 4 × 5 m, toits plats ; La 30 : chambre 10 m² + terrasse 10 m² à l'étage, cuisine ouverte + petite SDB + escalier au RDC) et le top-down remplacé par une **vue aérienne 3/4** qui garde la façade à l'image.
+- Montage v2 (rampes ×1,8 / ×0,6 / ×1,8 / ×1 + fondu) → films 19 s 9:16.
+- **Section Films du site** : les deux vols drone (`assets/videos/drone-la20.mp4`, `drone-la30.mp4`, ~6,5 Mo, posters = renders golden) remplacent `tiny-20.mp4`/`triplex.mp4` (fichiers conservés pour l'archive Ultra).
+- Méthode et mégaprompt documentés dans `docs/VISUELS-IA.md`.
+
 ## 2026-07-19 — Renders IA propriétaires dans le showcase
 
 - Première série générée via **fal.ai + Flux** (8 brouillons schnell → 6 finaux flux-pro) selon la direction artistique validée : bois clair + menuiseries noires, jardin paysager luxuriant (lavandes, oliviers, terre cuite), golden hour, intérieurs chaleureux, sans personnes.

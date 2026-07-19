@@ -55,7 +55,13 @@ Pipeline validé le 2026-07-19 — films drone 9:16 pour les réseaux :
 2. **Génération** : fal.ai `fal-ai/kling-video/v2.1/pro/image-to-video` (~0,45 €/clip de 5 s), 4 clips par maison : approche avant · dolly lent vers la baie · arc latéral ~60° · montée top-down. Prompts avec « architecture stays perfectly consistent and rigid » + negative « warping, morphing, people ».
 3. **Montage** : ffmpeg local (gratuit) — rampes de vitesse ×1,8 / ×0,6 / ×1,8 / ×1 + fondu final, concat 30 fps → film ~19 s (`scratchpad/montage.sh`).
 
-**Limite constatée** : les plans 1–3 restent très fidèles à la maison source ; le **top-down final invente de la géométrie** (toit en pente, volumes élargis) car le modèle n'a jamais vu le toit. Parades : régénérer le clip 4 avec un prompt toit plat très contraint, le couper au montage, ou l'assumer comme plan « ambiance ». Ne jamais utiliser le top-down comme référence produit.
+**Limite constatée et parade validée (v2)** : les plans proches restent fidèles ; le **top-down pur invente le toit** (jamais vu par le modèle). Solution appliquée : remplacer le top-down par une **vue aérienne 3/4 haute** qui garde la façade connue à l'image, et verrouiller chaque prompt avec le **mégaprompt spec produit** (à réutiliser tel quel) :
+
+> *STRICT ARCHITECTURE, NEVER MODIFY: the house is one perfect rectangular box, 4 meters wide and 5 meters deep, flat roofs only, no pitched roof, no overhang, no extra wings. [La 20 : single story…] [La 30 : ground floor fully glazed (open kitchen, small bathroom, interior staircase); upper level covers ONLY the rear half: 10 m² bedroom; the front half of the roof is a 10 m² rooftop wooden deck terrace with a very thin matte black metal railing…] The building must keep exactly the same size, shape and proportions during the whole shot.*
+
+- Négatif : `pitched roof, gable roof, sloped roof, roof overhang, extra wings, additional volumes, enlarged building, balcony planters, warping architecture, morphing, people, text`.
+- Audit systématique : extraire les frames à 2,5 s et 4,5 s de chaque clip **avant** montage ; tout clip qui déforme le volume est régénéré ou coupé.
+- v2 en production : La 20 = c1/c2/c3 d'origine + c4b régénéré ; La 30 = c1/c2 d'origine + c3b/c4b régénérés. Films web : `assets/videos/drone-la20.mp4`, `drone-la30.mp4` (section Films du site).
 
 ## Statut
 
