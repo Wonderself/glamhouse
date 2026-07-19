@@ -14,7 +14,8 @@ Sommaire de la documentation du projet. Chaque document est autonome ; commencez
 | 6 | [DEPLOYMENT.md](DEPLOYMENT.md) | Vous déployez ou modifiez Docker/Nginx |
 | 7 | [CONTENT.md](CONTENT.md) | Vous rédigez ou modifiez le discours commercial |
 | 8 | [BLOCKCHAIN.md](BLOCKCHAIN.md) | Vous croisez `blockchain.js`, `contracts/` ou `tokenisation.html` |
-| 9 | [ROADMAP.md](ROADMAP.md) | Vous vous demandez quoi faire ensuite |
+| 9 | [VISUELS-IA.md](VISUELS-IA.md) | Vous générez les visuels photoréalistes (API Flux) |
+| 10 | [ROADMAP.md](ROADMAP.md) | Vous vous demandez quoi faire ensuite |
 
 ## L'essentiel en 30 secondes
 

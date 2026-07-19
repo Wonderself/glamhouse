@@ -17,6 +17,7 @@
 - [x] **Images de référence client** reçues (bois clair claire-voie, grandes baies, terrasse à garde-corps) → showcase remplacé par **deux planches SVG animées** dans ce style, aux dimensions validées (La 20 : 4×5 plain-pied ; La 30 : +chambre 10 m² face terrasse 10 m², ≈4,2 m).
 - [x] **Chantier Motion n°1** : hero en timeline avec ressorts — Motion v12 vendorée (`assets/js/motion.min.mjs`), fallback CSS automatique (voir [MOTION.md](MOTION.md)).
 - [ ] **Chantier Motion n°2 (proposé)** : showcase épinglé en scrubbing continu avec `scroll()`.
+- [ ] **Visuels IA définitifs** : dès réception de la clé API Replicate/fal → générer les renders La 20 / La 30 et remplacer les photos provisoires sans droits (voir [VISUELS-IA.md](VISUELS-IA.md)).
 - [ ] **Teaser Remotion** : initialiser `video/` (composition 9/16, plan 4×5 animé, fond blanc, logo + CTA final) une fois le plan validé visuellement par le client.
 - [x] **Visuels La 20 / La 30 distincts** : planches SVG animées inline dans le showcase (les PNG identiques ne sont plus utilisés là ; `planche-house-*.png` restent dans `assets/` pour d'autres usages).
 - [ ] **Harmoniser le site classique** avec la direction Lumière : `index.html` (point d'entrée réel) a encore l'ancien look — soit le rhabiller aux couleurs Lumière, soit faire de `motion-lumiere.html` la vraie page d'accueil (MAJ `nginx.conf` `index` + liens).
