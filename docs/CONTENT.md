@@ -36,6 +36,7 @@ Ton : éditorial, précis, chaleureux. On affirme (« Cinq raisons qui changent 
 - L'ancienne géométrie **6,66 × 3 m** (héritée du plan Sequoia) est **invalide** pour La 20 : la vraie emprise est **4 × 5 m** (source : planche produit + validation client).
 - `assets/planche-house-20.png` et `planche-house-30.png` sont **le même fichier** : la planche correspond en réalité à **La 30**. La 20 attend ses propres visuels — le client fournira des **images de référence** ; en attendant, `assets/maison4.jpg` sert de visuel provisoire dans le showcase.
 - La gamme est en cours de redéfinition précise (produits distincts La 20 / La 30) — voir décisions dans [REMOTION-ET-MOTION.md](REMOTION-ET-MOTION.md) et [ROADMAP.md](ROADMAP.md).
+- Le showcase utilise désormais **photo plein cadre + cartouche plan coté** : `ref-la20.jpg` (photo Glam House.LA) et `ref-la30.jpg` (render « studio de jardin mezzanine », trouvé sur Pinterest). ⚠️ **Confirmer les droits d'utilisation** de ces deux images avant mise en production ; les remplacer à terme par des visuels propriétaires (photos réelles ou renders IA/3D).
 
 ## Sujets sensibles
 

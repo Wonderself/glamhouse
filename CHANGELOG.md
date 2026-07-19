@@ -2,6 +2,11 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-18 (quinquies) — Showcase réaliste : photos + cartouche plan
+
+- Suite au retour client (« rendu beaucoup plus réaliste et beau, inspiré des photos »), le showcase combine désormais **photo réaliste plein cadre** (références client recadrées : `assets/ref-la20.jpg`, `ref-la30.jpg`, + `ref-la20-nuit.jpg` en réserve) et **cartouche plan SVG coté animé** (4 × 5 m ; étage chambre/terrasse) — l'émotion par la photo, la précision par le plan.
+- ⚠️ **Droits des photos à confirmer** avant mise en production (sources : page Facebook Glam House.LA et render Pinterest).
+
 ## 2026-07-18 (quater) — Planches SVG animées du showcase (style références client)
 
 - Le showcase La 20 / La 30 affiche désormais **deux planches SVG animées** (élévation + plans, tracé progressif à l'activation du chapitre) dans le style des références fournies : bois clair claire-voie, grandes baies, terrasse à garde-corps bois.
