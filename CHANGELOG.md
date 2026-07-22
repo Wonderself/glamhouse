@@ -2,6 +2,14 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-22 — Accueil : vidéo en tête, deux maisons à prix affichés, fond crème
+
+- **Hero vidéo restauré en tout premier écran** : le bloc Sequoia scroll-reveal (animation pilotée par le scroll) est supprimé de `index.html` (HTML + CSS + JS) — retour client : « pas beau ». L'iso-cube CSS est conservé car réutilisé par `collection.html`.
+- **Nouvelle section « Deux maisons, prêtes à vivre »** juste sous le hero : **La 20 à 25 000 €** et **La 30 à 37 000 €**, chacune avec sa vidéo générée via fal.ai (`assets/videos/tiny-20.mp4` / `triplex.mp4`), ses specs et un CTA contact. Amélioration des visuels fal.ai prévue en session suivante.
+- **Crypto retirée de l'accueil** : section « Investissement et Finance » (tokenisation / blockchain / crypto) supprimée ; plus aucun lien Tokenisation dans la nav, le footer ou le formulaire ; prix d'appel aligné (« Dès 25 000 € »).
+- **Fond crème très léger** : `--white` passe de `#FFFFFF` à `#FBF8F2` et les surfaces blanches (cartes, footer, champs) à `#FEFCF7` via `--cream-card` — s'applique à tout le site classique (`style.css`), palette pastel inchangée.
+- **Touches éditoriales discrètes** (esprit grand magazine de mode, sans référence reconnaissable) : ligne masthead sous le hero (« GLAMHOUSE · L'ÉDITION MAISONS · ÉTÉ 2026 · PARIS »), hero et titres de sections en serif Fraunces avec italiques terracotta, kickers en petites capitales espacées, prix en serif italique.
+
 ## 2026-07-18 (quinquies) — Showcase réaliste : photos + cartouche plan
 
 - Suite au retour client (« rendu beaucoup plus réaliste et beau, inspiré des photos »), le showcase combine désormais **photo réaliste plein cadre** (références client recadrées : `assets/ref-la20.jpg`, `ref-la30.jpg`, + `ref-la20-nuit.jpg` en réserve) et **cartouche plan SVG coté animé** (4 × 5 m ; étage chambre/terrasse) — l'émotion par la photo, la précision par le plan.
