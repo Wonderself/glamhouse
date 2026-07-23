@@ -2,6 +2,14 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-22 (ter) — Accueil : relecture client, section Subventions qualifiante
+
+- Hero : un seul CTA « DÉCOUVRIR LES MAISONS → » (bouton Collection retiré) ; kicker « Choisissez » ; titre « Des maisons prêtes à vivre. » ; La 20 sans la mention déclaration préalable en description ; La 30 specs avec « déclaration préalable ».
+- Bloc revêtements : ajout du petit label « Revêtement » au-dessus des 3 pastilles.
+- **Section Croissance remplacée par « Vérifiez si vous bénéficiez d'une aide »** (badge SUBVENTIONS 2026) : questionnaire à cocher (checklist) qui fait deviner les dispositifs possibles — location saisonnière/gîte (Fonds Tourisme Durable ADEME), panneaux solaires, label écotourisme, primo-accédant, senior/PMR, projet collectif — recherché sur les dispositifs 2026 en vigueur. L'encadré Aides & Subventions et son lien vers `aides.html` sont conservés à droite.
+- `aides.html` (onglet Investisseur Locatif) : deux nouvelles cartes ajoutées pour tenir la promesse du bouton — **Fonds Tourisme Durable (ADEME)** (5 000–200 000€, hébergements ruraux/périurbains) et **Labellisation Écotourisme** (Écolabel Européen, Clé Verte, Gîtes Panda).
+- Footer : nom d'entreprise et copyright passés à « GlamHouse » / « GlamHouse.net » (texte uniquement — logo et balises `<title>` restent « MyGlamHouse » en attente d'une décision de rebranding).
+
 ## 2026-07-22 (bis) — Accueil : textes client intégrés, page principale confirmée
 
 - **Textes du client intégrés sur l'accueil** : hero « MODULE / MA MAISON CALIFORNIENNE. », signature « La signature du designer Daniel Siboni », « ENTREPRISE 100% FRANÇAISE », « écoresponsables » (au lieu de high tech), masthead « Glamhouse · Été 2026 », kicker « Votre maison », aides « jusqu'à 55 000 € pour certains projets ».

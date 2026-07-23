@@ -1503,4 +1503,16 @@ select { margin-bottom: 20px; }
     letter-spacing: 0.22em; text-transform: uppercase; color: var(--charcoal);
 }
 .finitions-note { margin-top: 22px; font-size: 0.85rem; color: #8A8375; max-width: 520px; margin-inline: auto; }
+.finitions-label {
+    display: block; font-family: var(--font-heading); font-weight: 700;
+    font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--terracotta); margin-bottom: 18px;
+}
 @media (max-width: 640px) { .finition .swatch { width: 88px; height: 88px; } }
+
+/* ===== SUBVENTIONS — CHECKLIST QUALIFIANTE ===== */
+.subsidy-check { list-style: none; margin: 26px 0 30px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.subsidy-check li { border-bottom: 1px solid #ececec; padding-bottom: 14px; }
+.subsidy-check label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-weight: 600; color: var(--charcoal); }
+.subsidy-check input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--terracotta); flex-shrink: 0; }
+.subsidy-hint { display: block; font-weight: 400; font-size: 0.82rem; color: #888; margin-top: 4px; }
