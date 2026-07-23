@@ -2,6 +2,14 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-22 (quater) — Configurateur revêtements, nav simplifiée, pages retirées
+
+- **Configurateur en direct sur chaque maison** : boutons Revêtement (Vidéo / Planches de bois / Uni) + 3 couleurs (noir, sable, sauge). Le clic remplace la vidéo par un aperçu image `assets/gen/<maison>-<revêtement>-<couleur>.jpg`. **Aperçus provisoires générés localement** (à remplacer par les rendus fal.ai — voir plan ci-dessous).
+- **Doublon L'Artiste / Le Designer résolu** : la page `artiste.html` est supprimée, la nav pointe désormais vers « LE DESIGNER » (`motion-lumiere-siboni.html`) sur toutes les pages.
+- **Pages retirées** : `collection.html`, `investir.html`, `tokenisation.html` supprimées (+ retirées du Dockerfile). Les liens internes sont redirigés (Collection → `index.html#maisons`, Investir/Tokenisation → contact ou supprimés).
+- **`projets.html` décrypté** : tous les blocs tokenisation/blockchain remplacés par « Le Projet en Chiffres » (rendement, livraison, aides), bandeau et tableau comparatif nettoyés, prix « À partir de 20 000€ / Sur devis ». Plus aucune mention crypto ni token.
+- Zéro lien mort : vérifié sur toutes les pages HTML.
+
 ## 2026-07-22 (ter) — Accueil : relecture client, section Subventions qualifiante
 
 - Hero : un seul CTA « DÉCOUVRIR LES MAISONS → » (bouton Collection retiré) ; kicker « Choisissez » ; titre « Des maisons prêtes à vivre. » ; La 20 sans la mention déclaration préalable en description ; La 30 specs avec « déclaration préalable ».

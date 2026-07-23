@@ -904,5 +904,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- CONFIGURATEUR MAISON (revêtement + couleur, aperçu en direct) ---
+    document.querySelectorAll('.maison-card').forEach(function(card) {
+        var house = card.getAttribute('data-house');
+        var video = card.querySelector('.mm-video');
+        var image = card.querySelector('.mm-image');
+        var revetPills = card.querySelectorAll('[data-revet]');
+        var couleurBtns = card.querySelectorAll('[data-couleur]');
+        var currentRevet = 'video';
+        var currentCouleur = 'noir';
+
+        function render() {
+            if (currentRevet === 'video') {
+                video.classList.add('active');
+                image.classList.remove('active');
+            } else {
+                image.src = 'assets/gen/' + house + '-' + currentRevet + '-' + currentCouleur + '.jpg';
+                image.classList.add('active');
+                video.classList.remove('active');
+            }
+        }
+
+        revetPills.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                currentRevet = btn.getAttribute('data-revet');
+                revetPills.forEach(function(b) { b.classList.toggle('active', b === btn); });
+                render();
+            });
+        });
+
+        couleurBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                currentCouleur = btn.getAttribute('data-couleur');
+                couleurBtns.forEach(function(b) { b.classList.toggle('active', b === btn); });
+                if (currentRevet === 'video') {
+                    currentRevet = 'bois';
+                    revetPills.forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-revet') === 'bois'); });
+                }
+                render();
+            });
+        });
+    });
 
 });

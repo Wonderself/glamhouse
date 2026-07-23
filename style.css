@@ -1476,39 +1476,38 @@ select { margin-bottom: 20px; }
 }
 .hero-overline + h1 { margin-top: 12px; }
 
-.finitions { margin-top: clamp(50px, 7vw, 80px); text-align: center; }
-.finitions-title {
-    font-family: var(--font-serif); font-style: italic; font-size: 1.25rem;
-    color: var(--charcoal); margin-bottom: 26px;
+.finitions-note {
+    margin-top: clamp(30px, 5vw, 50px); text-align: center; font-style: italic;
+    font-family: var(--font-serif); font-size: 1.05rem; color: #8A8375;
+    max-width: 620px; margin-inline: auto;
 }
-.finitions-row { display: flex; justify-content: center; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap; }
-.finition { margin: 0; }
-.finition .swatch {
-    display: block; width: 118px; height: 118px; border-radius: 50%;
-    border: 1px solid rgba(44,44,44,0.15); margin: 0 auto 12px;
-    box-shadow: 0 14px 30px -18px rgba(44,44,44,0.4);
+
+/* ===== CONFIGURATEUR MAISON (revêtement + couleur, aperçu en direct) ===== */
+.maison-video { position: relative; }
+.maison-video .mm { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .4s ease; pointer-events: none; }
+.maison-video .mm.active { opacity: 1; pointer-events: auto; }
+.maison-config { margin: 0 0 24px; }
+.config-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; flex-wrap: wrap; }
+.config-row:last-child { margin-bottom: 0; }
+.config-label {
+    font-family: var(--font-heading); font-weight: 700; font-size: 0.62rem;
+    letter-spacing: 0.18em; text-transform: uppercase; color: #8A8375;
+    width: 78px; flex-shrink: 0;
 }
-.swatch-bois {
-    background-color: #C9A87C;
-    background-image: repeating-linear-gradient(90deg, rgba(90,62,40,0.28) 0 3px, rgba(255,255,255,0.08) 3px 5px, transparent 5px 17px);
+.config-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.config-pills .pill {
+    font-family: var(--font-heading); font-weight: 600; font-size: 0.72rem;
+    padding: 7px 14px; border-radius: 30px; border: 1px solid rgba(44,44,44,0.18);
+    background: transparent; color: var(--charcoal); cursor: pointer; transition: 0.25s;
 }
-.swatch-uni { background-color: #A9B0A3; }
-.swatch-mix {
-    background-color: #C9A87C;
-    background-image: linear-gradient(105deg, #A9B0A3 0 48%, transparent 48%),
-        repeating-linear-gradient(90deg, rgba(90,62,40,0.28) 0 3px, rgba(255,255,255,0.08) 3px 5px, transparent 5px 17px);
+.config-pills .pill:hover { border-color: var(--charcoal); }
+.config-pills .pill.active { background: var(--charcoal); border-color: var(--charcoal); color: #fff; }
+.config-swatches { display: flex; gap: 10px; }
+.config-swatches .swatch-btn {
+    width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent;
+    cursor: pointer; box-shadow: 0 0 0 1px rgba(44,44,44,0.18); transition: 0.2s;
 }
-.finition figcaption {
-    font-family: var(--font-heading); font-weight: 600; font-size: 0.7rem;
-    letter-spacing: 0.22em; text-transform: uppercase; color: var(--charcoal);
-}
-.finitions-note { margin-top: 22px; font-size: 0.85rem; color: #8A8375; max-width: 520px; margin-inline: auto; }
-.finitions-label {
-    display: block; font-family: var(--font-heading); font-weight: 700;
-    font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase;
-    color: var(--terracotta); margin-bottom: 18px;
-}
-@media (max-width: 640px) { .finition .swatch { width: 88px; height: 88px; } }
+.config-swatches .swatch-btn.active { border-color: #fff; box-shadow: 0 0 0 2px var(--terracotta); }
 
 /* ===== SUBVENTIONS — CHECKLIST QUALIFIANTE ===== */
 .subsidy-check { list-style: none; margin: 26px 0 30px; padding: 0; display: flex; flex-direction: column; gap: 14px; }

@@ -17,9 +17,8 @@
             <a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="artiste.html">L'ARTISTE</a></li>
+            <li><a href="motion-lumiere-siboni.html">LE DESIGNER</a></li>
             <li><a href="construction.html">CONSTRUCTION</a></li>
-            <li><a href="collection.html">COLLECTION</a></li>
             <li class="nav-dropdown"><a href="projets.html">PROJETS</a>
                 <div class="dropdown-menu">
                     <a href="projets.html#maison-perso"><i class="fas fa-home"></i> Ma Maison Perso</a>
@@ -74,13 +73,32 @@
                 <p>Dessinées par Daniel Siboni, fabriquées en France, installées chez vous en 1,5 mois.</p>
             </div>
             <div class="maisons-duo">
-                <article class="maison-card">
+                <article class="maison-card" data-house="la20">
                     <figure class="maison-video">
-                        <video autoplay muted loop playsinline preload="metadata">
+                        <video class="mm mm-video active" autoplay muted loop playsinline preload="metadata">
                             <source src="assets/videos/tiny-20.mp4" type="video/mp4">
                         </video>
+                        <img class="mm mm-image" src="assets/gen/la20-bois-noir.jpg" alt="La 20 — aperçu du revêtement choisi">
                         <span class="maison-no">N° 01</span>
                     </figure>
+                    <div class="maison-config">
+                        <div class="config-row">
+                            <span class="config-label">Revêtement</span>
+                            <div class="config-pills">
+                                <button type="button" class="pill active" data-revet="video">Vidéo</button>
+                                <button type="button" class="pill" data-revet="bois">Planches de bois</button>
+                                <button type="button" class="pill" data-revet="uni">Uni</button>
+                            </div>
+                        </div>
+                        <div class="config-row">
+                            <span class="config-label">Couleur</span>
+                            <div class="config-swatches">
+                                <button type="button" class="swatch-btn active" data-couleur="noir" style="background:#2B2A28" aria-label="Noir"></button>
+                                <button type="button" class="swatch-btn" data-couleur="sable" style="background:#C9A87C" aria-label="Sable"></button>
+                                <button type="button" class="swatch-btn" data-couleur="sauge" style="background:#8FA089" aria-label="Sauge"></button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="maison-info">
                         <div class="maison-head">
                             <h3>La 20</h3>
@@ -95,13 +113,32 @@
                         <a href="#contact" class="maison-link">Demander une étude →</a>
                     </div>
                 </article>
-                <article class="maison-card">
+                <article class="maison-card" data-house="la30">
                     <figure class="maison-video">
-                        <video autoplay muted loop playsinline preload="metadata">
+                        <video class="mm mm-video active" autoplay muted loop playsinline preload="metadata">
                             <source src="assets/videos/triplex.mp4" type="video/mp4">
                         </video>
+                        <img class="mm mm-image" src="assets/gen/la30-bois-noir.jpg" alt="La 30 — aperçu du revêtement choisi">
                         <span class="maison-no">N° 02</span>
                     </figure>
+                    <div class="maison-config">
+                        <div class="config-row">
+                            <span class="config-label">Revêtement</span>
+                            <div class="config-pills">
+                                <button type="button" class="pill active" data-revet="video">Vidéo</button>
+                                <button type="button" class="pill" data-revet="bois">Planches de bois</button>
+                                <button type="button" class="pill" data-revet="uni">Uni</button>
+                            </div>
+                        </div>
+                        <div class="config-row">
+                            <span class="config-label">Couleur</span>
+                            <div class="config-swatches">
+                                <button type="button" class="swatch-btn active" data-couleur="noir" style="background:#2B2A28" aria-label="Noir"></button>
+                                <button type="button" class="swatch-btn" data-couleur="sable" style="background:#C9A87C" aria-label="Sable"></button>
+                                <button type="button" class="swatch-btn" data-couleur="sauge" style="background:#8FA089" aria-label="Sauge"></button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="maison-info">
                         <div class="maison-head">
                             <h3>La 30</h3>
@@ -117,16 +154,7 @@
                     </div>
                 </article>
             </div>
-            <div class="finitions">
-                <p class="finitions-title">Chaque maison, à votre goût</p>
-                <span class="finitions-label">Revêtement</span>
-                <div class="finitions-row">
-                    <figure class="finition"><span class="swatch swatch-bois"></span><figcaption>Planches de bois</figcaption></figure>
-                    <figure class="finition"><span class="swatch swatch-uni"></span><figcaption>Uni</figcaption></figure>
-                    <figure class="finition"><span class="swatch swatch-mix"></span><figcaption>Le mix</figcaption></figure>
-                </div>
-                <p class="finitions-note">Deux modèles, trois revêtements — planches de bois, uni, ou le mix des deux — et la couleur de votre choix. Exemples visuels à venir.</p>
-            </div>
+            <p class="finitions-note">Chaque maison, à votre goût — choisissez le revêtement et la couleur directement sur chaque carte ci-dessus pour voir le résultat.</p>
         </div>
     </section>
 
@@ -138,7 +166,7 @@
                 Nous réalisons vos projets de construction à ossature bois et blocs de chanvre, y compris l'isolation naturelle, adaptés à vos besoins.
             </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="collection.html" class="btn-nav">DÉCOUVRIR LA COLLECTION</a>
+                <a href="#maisons" class="btn-nav">DÉCOUVRIR LES MAISONS</a>
                 <a href="aides.html" class="btn-outline">SIMULER MES AIDES <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Jusqu'à 55 000€ d'aides cumulables pour certains projets : MaPrimeRénov', Éco-PTZ, TVA 5,5%, exonération taxe foncière, aides locales...</span></span></a>
             </div>
         </div>
@@ -182,11 +210,11 @@
                     </p>
                     <ul class="subsidy-check">
                         <li><label><input type="checkbox"> Vous transformez votre module en location saisonnière, gîte ou chambre d'hôtes <span class="subsidy-hint">Fonds Tourisme Durable (ADEME) — de 5 000 à 200 000 € en zone rurale ou périurbaine</span></label></li>
-                        <li><label><input type="checkbox"> Vous installez des panneaux solaires en autoconsommation <span class="subsidy-hint">Prime à l'autoconsommation + rachat du surplus par EDF OA</span></label></li>
-                        <li><label><input type="checkbox"> Vous visez un label écotourisme (Écolabel Européen, Clé Verte, Gîtes Panda…) <span class="subsidy-hint">Aides régionales et départementales à la labellisation</span></label></li>
-                        <li><label><input type="checkbox"> C'est votre résidence principale ou un premier achat <span class="subsidy-hint">MaPrimeRénov', Éco-PTZ, TVA 5,5%, exonération de taxe foncière</span></label></li>
-                        <li><label><input type="checkbox"> Le projet est destiné à un senior ou une personne à mobilité réduite <span class="subsidy-hint">APA, aide CARSAT, ANAH</span></label></li>
-                        <li><label><input type="checkbox"> C'est un projet collectif (plusieurs maisons, écovillage) <span class="subsidy-hint">Fonds Vert, subventions régionales</span></label></li>
+            <li><label><input type="checkbox"> Vous installez des panneaux solaires en autoconsommation <span class="subsidy-hint">Prime à l'autoconsommation + rachat du surplus par EDF OA</span></label></li>
+            <li><label><input type="checkbox"> Vous visez un label écotourisme (Écolabel Européen, Clé Verte, Gîtes Panda…) <span class="subsidy-hint">Aides régionales et départementales à la labellisation</span></label></li>
+            <li><label><input type="checkbox"> C'est votre résidence principale ou un premier achat <span class="subsidy-hint">MaPrimeRénov', Éco-PTZ, TVA 5,5%, exonération de taxe foncière</span></label></li>
+            <li><label><input type="checkbox"> Le projet est destiné à un senior ou une personne à mobilité réduite <span class="subsidy-hint">APA, aide CARSAT, ANAH</span></label></li>
+            <li><label><input type="checkbox"> C'est un projet collectif (plusieurs maisons, écovillage) <span class="subsidy-hint">Fonds Vert, subventions régionales</span></label></li>
                     </ul>
                     <a href="aides.html" class="btn-primary" style="margin-top: 10px;">Voir mon éligibilité →</a>
                 </div>
@@ -196,9 +224,9 @@
                         <p style="color: #666; margin: 15px 0;">Nos maisons écologiques ouvrent droit à de nombreuses aides :</p>
                         <ul class="checklist">
                             <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>MaPrimeRénov'</strong> — Jusqu'à 10 000€</li>
-                            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>Éco-PTZ</strong> — Prêt 0% jusqu'à 50 000€</li>
-                            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>TVA réduite 5,5%</strong> — Économie ~3-8 000€</li>
-                            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>Exonération taxe foncière</strong> — 2 à 5 ans</li>
+            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>Éco-PTZ</strong> — Prêt 0% jusqu'à 50 000€</li>
+            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>TVA réduite 5,5%</strong> — Économie ~3-8 000€</li>
+            <li><i class="fas fa-check-circle" style="color: #4caf50;"></i> <strong>Exonération taxe foncière</strong> — 2 à 5 ans</li>
                         </ul>
                         <a href="aides.html" class="btn-outline" style="margin-top: 15px;">Voir toutes les Aides →</a>
                     </div>
@@ -237,10 +265,9 @@
                     <p class="company-desc">GlamHouse conçoit et fabrique des habitats modulaires d'exception. Une fusion entre ingénierie française et design international.</p>
 
                     <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <a href="motion-lumiere-siboni.html" style="font-size: 0.85rem; color: #888;">Le Designer</a>
                         <a href="projets.html" style="font-size: 0.85rem; color: #888;">Projets</a>
-                        <a href="investir.html" style="font-size: 0.85rem; color: #888;">Investir</a>
                         <a href="aides.html" style="font-size: 0.85rem; color: #888;">Aides</a>
-                        <a href="collection.html" style="font-size: 0.85rem; color: #888;">Collection</a>
                         <a href="construction.html" style="font-size: 0.85rem; color: #888;">Construction</a>
                     </div>
 
