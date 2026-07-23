@@ -1467,3 +1467,40 @@ select { margin-bottom: 20px; }
     .maisons-duo { grid-template-columns: 1fr; max-width: 480px; }
     .edito-masthead { gap: 12px; font-size: 0.62rem; letter-spacing: 0.26em; }
 }
+
+/* ===== HERO OVERLINE + REVÊTEMENTS (finitions) ===== */
+.hero-overline {
+    margin-top: 26px; font-family: var(--font-heading); font-weight: 600;
+    font-size: 0.78rem; letter-spacing: 0.5em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+}
+.hero-overline + h1 { margin-top: 12px; }
+
+.finitions { margin-top: clamp(50px, 7vw, 80px); text-align: center; }
+.finitions-title {
+    font-family: var(--font-serif); font-style: italic; font-size: 1.25rem;
+    color: var(--charcoal); margin-bottom: 26px;
+}
+.finitions-row { display: flex; justify-content: center; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap; }
+.finition { margin: 0; }
+.finition .swatch {
+    display: block; width: 118px; height: 118px; border-radius: 50%;
+    border: 1px solid rgba(44,44,44,0.15); margin: 0 auto 12px;
+    box-shadow: 0 14px 30px -18px rgba(44,44,44,0.4);
+}
+.swatch-bois {
+    background-color: #C9A87C;
+    background-image: repeating-linear-gradient(90deg, rgba(90,62,40,0.28) 0 3px, rgba(255,255,255,0.08) 3px 5px, transparent 5px 17px);
+}
+.swatch-uni { background-color: #A9B0A3; }
+.swatch-mix {
+    background-color: #C9A87C;
+    background-image: linear-gradient(105deg, #A9B0A3 0 48%, transparent 48%),
+        repeating-linear-gradient(90deg, rgba(90,62,40,0.28) 0 3px, rgba(255,255,255,0.08) 3px 5px, transparent 5px 17px);
+}
+.finition figcaption {
+    font-family: var(--font-heading); font-weight: 600; font-size: 0.7rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--charcoal);
+}
+.finitions-note { margin-top: 22px; font-size: 0.85rem; color: #8A8375; max-width: 520px; margin-inline: auto; }
+@media (max-width: 640px) { .finition .swatch { width: 88px; height: 88px; } }

@@ -2,6 +2,16 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-22 (bis) — Accueil : textes client intégrés, page principale confirmée
+
+- **Textes du client intégrés sur l'accueil** : hero « MODULE / MA MAISON CALIFORNIENNE. », signature « La signature du designer Daniel Siboni », « ENTREPRISE 100% FRANÇAISE », « écoresponsables » (au lieu de high tech), masthead « Glamhouse · Été 2026 », kicker « Votre maison », aides « jusqu'à 55 000 € pour certains projets ».
+- **Prix des deux maisons** : La 20 à **20 000 €**, La 30 à **30 000 €**.
+- **Section « La Collection 2026 » retirée de l'accueil** — ses visuels rejoignent « Nos trends » (styles élargis : Malibu, Palm Springs, Pacific Palisades, Beverly Hills, Bel Air, Hollywood Hills, Venice Beach, Santa Monica). Il n'y a plus que 2 modèles ; la personnalisation passe par le revêtement et la couleur.
+- **Nouveau bloc « Chaque maison, à votre goût »** : 3 pastilles revêtements — planches de bois, uni, le mix — exemples visuels IA à générer (fal.ai) en session suivante.
+- **Section « 3 Façons d'Investir » supprimée** de l'accueil.
+- **Accès aux anciennes versions** : entrée « ARCHIVES » (→ `versions.html`) dans le menu de l'accueil. `index.html` reste la page d'entrée Nginx.
+- Formulaire : options « Achat Module 20m² » et « Achat Module 30m² ».
+
 ## 2026-07-22 — Accueil : vidéo en tête, deux maisons à prix affichés, fond crème
 
 - **Hero vidéo restauré en tout premier écran** : le bloc Sequoia scroll-reveal (animation pilotée par le scroll) est supprimé de `index.html` (HTML + CSS + JS) — retour client : « pas beau ». L'iso-cube CSS est conservé car réutilisé par `collection.html`.
