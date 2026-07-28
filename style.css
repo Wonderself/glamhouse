@@ -38,7 +38,7 @@ ul { list-style: none; }
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    background: var(--white);
+    background: #FFFFFF;
     position: fixed;
     width: 100%;
     top: 0;
@@ -247,7 +247,8 @@ select { margin-bottom: 20px; }
 .btn-submit { width: 100%; background: var(--terracotta); color: white; border: none; padding: 18px; font-weight: 700; cursor: pointer; border-radius: 6px; letter-spacing: 1px; transition: 0.3s; }
 .btn-submit:hover { background: #b58b80; }
 
-.footer-logo { height: 60px; margin-bottom: 40px; }
+.footer-logo-wrap { display: inline-block; background: #FFFFFF; padding: 14px 20px; border-radius: 10px; margin-bottom: 40px; }
+.footer-logo { display: block; height: 60px; margin-bottom: 0; }
 .company-desc { font-size: 1.1rem; color: #666; margin-bottom: 50px; line-height: 1.8; }
 .footer-legal { display: flex; gap: 30px; font-size: 0.9rem; color: #999; border-top: 1px solid #eee; padding-top: 40px; }
 

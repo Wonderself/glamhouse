@@ -2,6 +2,12 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-28 (ter) — Logo : fin du liseré blanc sur fond crème
+
+- Le fichier `assets/logo.jpg` a un fond blanc plat, visible en léger décalage depuis le passage du site au blanc crème (`--white: #FBF8F2`). Deux ajustements ciblés plutôt qu'une retouche fragile du logo :
+  - **Barre de navigation** : fond repassé en blanc pur (`#FFFFFF`) sur toutes les pages — le logo s'y fond parfaitement, séparation nette avec le reste de la page grâce à la bordure déjà présente.
+  - **Logo en pied de page** (`index.html`, `aides.html`, `projets.html`, `maison-personnalisee.html`, `residence-senior.html`, `ecovillage.html`) : enveloppé dans un petit encart blanc arrondi façon badge, au lieu de flotter directement sur le fond crème.
+
 ## 2026-07-28 (bis) — Nouvelles vidéos drone La 20 / La 30 (cotes exactes)
 
 - **Remplacement de `assets/videos/tiny-20.mp4` et `triplex.mp4`** (utilisées sur l'accueil et les pages archives) par deux vidéos générées via fal.ai (Google Veo 3), une par modèle, au lieu de l'ancien plan générique.
