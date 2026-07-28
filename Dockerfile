@@ -10,12 +10,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /usr/share/nginx/html/
 COPY admin.html /usr/share/nginx/html/
 COPY aides.html /usr/share/nginx/html/
-COPY artiste.html /usr/share/nginx/html/
-COPY collection.html /usr/share/nginx/html/
 COPY construction.html /usr/share/nginx/html/
-COPY investir.html /usr/share/nginx/html/
 COPY projets.html /usr/share/nginx/html/
-COPY tokenisation.html /usr/share/nginx/html/
 COPY versions.html /usr/share/nginx/html/
 COPY motion-lumiere.html /usr/share/nginx/html/
 COPY motion-noir.html /usr/share/nginx/html/

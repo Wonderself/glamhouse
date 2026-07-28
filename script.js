@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 9. PRICE CALCULATOR (Projets page) ---
     window.calculatePrice = function() {
-        const model = parseInt(document.getElementById('calcModel')?.value || 59000);
+        const model = parseInt(document.getElementById('calcModel')?.value || 20000);
         const foundation = parseInt(document.getElementById('calcFoundation')?.value || 8000);
         const situation = document.getElementById('calcSituation')?.value || 'primo';
         const zone = document.getElementById('calcZone')?.value || 'B1';
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const profile = document.getElementById('aideProfile')?.value || 'primo';
         const revenus = document.getElementById('aideRevenus')?.value || 'intermediaire';
         const projet = document.getElementById('aideProjet')?.value || 'individuel';
-        const budget = parseInt(document.getElementById('aideBudget')?.value || 59000);
+        const budget = parseInt(document.getElementById('aideBudget')?.value || 20000);
 
         let totalAides = 0;
         let breakdown = '<div style="font-size: 0.9rem;">';
@@ -904,78 +904,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- SEQUOIA SCROLL-REVEAL HERO ---
-    (function() {
-        var wrap = document.getElementById('sequoiaPinWrap');
-        if (!wrap) return;
-
-        var planLayer = document.getElementById('isoPlanLayer');
-        var planContainer = document.getElementById('scrollPlanContainer');
-        var isoScene = document.getElementById('isoScene');
-        var isoCube = document.getElementById('isoCube');
-        var isoDeck = document.getElementById('isoDeck');
-        var forestScene = document.getElementById('forestScene');
-        var scrollHint = document.getElementById('sequoiaScrollHint');
-        var claddingLabel = document.getElementById('sequoiaCladdingLabel');
-        var marronLayers = document.querySelectorAll('#isoCube .cladding-marron-layer');
-        var clairLayers = document.querySelectorAll('#isoCube .cladding-clair-layer');
-
-        function clamp01(v) { return Math.max(0, Math.min(1, v)); }
-        function fadeIn(start, end, p) { return clamp01((p - start) / (end - start)); }
-        function fadeOut(start, end, p) { return 1 - clamp01((p - start) / (end - start)); }
-        function lerp(a, b, t) { return a + (b - a) * t; }
-
-        var ticking = false;
+    // --- CONFIGURATEUR MAISON (revêtement + couleur, aperçu en direct) ---
+    document.querySelectorAll('.maison-card').forEach(function(card) {
+        var house = card.getAttribute('data-house');
+        var video = card.querySelector('.mm-video');
+        var image = card.querySelector('.mm-image');
+        var revetPills = card.querySelectorAll('[data-revet]');
+        var couleurBtns = card.querySelectorAll('[data-couleur]');
+        var currentRevet = 'video';
+        var currentCouleur = 'noir';
 
         function render() {
-            ticking = false;
-            var rect = wrap.getBoundingClientRect();
-            var total = rect.height - window.innerHeight;
-            var progress = total > 0 ? clamp01(-rect.top / total) : 0;
-
-            // Stage 1 — le plan technique tourne sur lui-même puis s'efface
-            var planFadeOut = fadeIn(0.12, 0.30, progress);
-            var planRotZ = lerp(-10, -55, clamp01(progress / 0.32));
-            planContainer.style.transform = 'rotateX(55deg) rotateZ(' + planRotZ + 'deg)';
-            planLayer.style.opacity = String(1 - planFadeOut);
-            planLayer.style.transform = 'scale(' + lerp(1, 1.2, planFadeOut) + ')';
-
-            // Stage 2 — le volume 3D + revêtements apparaissent
-            var cubeFadeIn = fadeIn(0.18, 0.34, progress);
-            var dezoom = fadeIn(0.78, 1.0, progress);
-            var cubeRotY = lerp(-18, -42, clamp01(progress / 0.45));
-            var cubeScale = lerp(0.72, 1, cubeFadeIn) * lerp(1, 0.5, dezoom);
-            var cubeTranslateY = lerp(0, -60, dezoom);
-            isoScene.style.opacity = String(cubeFadeIn);
-            isoCube.style.transform = 'rotateX(-20deg) rotateY(' + cubeRotY + 'deg) scale(' + cubeScale + ') translateY(' + cubeTranslateY + 'px)';
-            isoDeck.style.opacity = String(cubeFadeIn);
-
-            // Stage 3 — les 3 revêtements se succèdent (crossfade)
-            var marronOpacity = fadeIn(0.38, 0.48, progress) * fadeOut(0.56, 0.66, progress);
-            var clairOpacity = fadeIn(0.56, 0.66, progress);
-            for (var i = 0; i < marronLayers.length; i++) marronLayers[i].style.opacity = String(marronOpacity);
-            for (var j = 0; j < clairLayers.length; j++) clairLayers[j].style.opacity = String(clairOpacity);
-            claddingLabel.style.opacity = String(1 - fadeIn(0.74, 0.80, progress));
-            if (clairOpacity > 0.5) claddingLabel.textContent = 'Bois clair';
-            else if (marronOpacity > 0.5) claddingLabel.textContent = 'Bois marron';
-            else claddingLabel.textContent = 'Bois noir';
-
-            // Stage 4 — dézoom, la forêt ensoleillée apparaît autour de la maison
-            forestScene.style.opacity = String(dezoom);
-
-            scrollHint.style.opacity = progress < 0.04 ? '1' : '0';
-        }
-
-        function onScroll() {
-            if (!ticking) {
-                ticking = true;
-                requestAnimationFrame(render);
+            if (currentRevet === 'video') {
+                video.classList.add('active');
+                image.classList.remove('active');
+            } else {
+                image.src = 'assets/gen/' + house + '-' + currentRevet + '-' + currentCouleur + '.jpg';
+                image.classList.add('active');
+                video.classList.remove('active');
             }
         }
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll);
-        render();
-    })();
+        revetPills.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                currentRevet = btn.getAttribute('data-revet');
+                revetPills.forEach(function(b) { b.classList.toggle('active', b === btn); });
+                render();
+            });
+        });
+
+        couleurBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                currentCouleur = btn.getAttribute('data-couleur');
+                couleurBtns.forEach(function(b) { b.classList.toggle('active', b === btn); });
+                if (currentRevet === 'video') {
+                    currentRevet = 'bois';
+                    revetPills.forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-revet') === 'bois'); });
+                }
+                render();
+            });
+        });
+    });
 
 });

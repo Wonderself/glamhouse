@@ -2,6 +2,61 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-22 (septies) — Pages internes : textes relus, cohérence 2-modèles
+
+- **`motion-lumiere-siboni.html` (Le Designer)** : liens de nav/logo/footer redirigés vers `index.html` (au lieu de l'ancienne vitrine archivée `motion-lumiere.html`), lede légèrement retravaillé.
+- **`construction.html`** : accroche ajoutée sous le titre, retrait d'une mention non vérifiable (« approuvés par l'OCDE »), correction « loft » → « maison », carte « Bardage Extérieur » réécrite pour refléter les 2 revêtements réels (uni / mix bois) et les 3 couleurs, CTA final mis à jour.
+- **`projets.html`** : simulateur de budget et badge hero mis à jour pour les 2 modèles actuels (La 20 / La 30 — les anciennes options Malibu/Palm Spring/Pacific Palissade/Venice à 59-145k€ ont disparu avec `collection.html`), valeurs par défaut du simulateur recalculées (28 000 € au lieu de 67 000 €), ton « investissement » adouci.
+- **`aides.html`** : onglet renommé « Locatif & Écotourisme » pour refléter les 2 aides tourisme/écolabel ajoutées la fois précédente, intro reformulée.
+- **`script.js`** : valeurs de secours des simulateurs alignées sur les nouveaux prix (20 000 € au lieu de 59 000 €).
+- Vérifié : zéro lien mort, zéro erreur JS sur les 4 pages, aucune clé API dans le repo.
+
+## 2026-07-22 (sexies) — « Mix bois » (bois + uni) + équilibre éditorial
+
+- **Revêtement « bois » redéfini en « Mix bois »** : les 6 images concernées sont régénérées (fal.ai / nano-banana) — le volume principal reste en couleur unie et une **section accolée est habillée de tasseaux de bois verticaux espacés** (claire-voie), ton du bois accordé à la couleur (miel sur sable, naturel sur noir/sauge). Décor distinct pour chacune. L'option s'appelle désormais **« Mix bois »** dans le configurateur (les images « uni » sont inchangées).
+- **Équilibre de la page d'accueil** : titres de sections « Bienvenue » et « Subventions » passés en **serif éditorial** (cohérence avec le reste), ajout de kickers (Bienvenue / Inspirations), reformulations (« Une maison, tous vos usages. », « Nos *trends* »), styles LA séparés par des points ; **cartes maisons à hauteurs égales** avec le CTA « Demander une étude » aligné en bas des deux colonnes.
+
+## 2026-07-22 (quinquies) — Visuels IA des revêtements (fal.ai) intégrés
+
+- **12 visuels photoréalistes générés** via fal.ai — modèle **`fal-ai/nano-banana/edit`** (Google Gemini 2.5 Flash Image) — pour le configurateur : 2 maisons × 2 revêtements (planches de bois / uni) × 3 couleurs (noir, sable, sauge), dans `assets/gen/`.
+- **Méthode** : édition ancrée sur les photos de référence réelles (`ref-la20.jpg`, et un « maître » La 30 en situation dérivé de `ref-la30.jpg`) pour garantir la fidélité géométrique — cotes réinjectées dans chaque prompt (La 20 : plain-pied 4×5 m, toit plat, garde-corps + échelle ; La 30 : deux niveaux, séjour cathédrale 4,2 m, chambre 10 m² + terrasse 10 m² à l'étage). **Décor distinct pour chaque image** (dunes, cour béton/bambou, vignoble, piscine, forêt de pins, verger…) pour éviter l'effet catalogue.
+- Le choix « Vidéo » reste l'aperçu par défaut ; cliquer un revêtement/couleur bascule sur l'image correspondante.
+- Note : les anciennes vidéos `tiny-20.mp4` / `triplex.mp4` portaient une signature C2PA/SynthID → générées via **Google Veo** (hébergé sur fal), d'où le choix de rester dans la famille image Google pour la cohérence esthétique.
+
+## 2026-07-22 (quater) — Configurateur revêtements, nav simplifiée, pages retirées
+
+- **Configurateur en direct sur chaque maison** : boutons Revêtement (Vidéo / Planches de bois / Uni) + 3 couleurs (noir, sable, sauge). Le clic remplace la vidéo par un aperçu image `assets/gen/<maison>-<revêtement>-<couleur>.jpg`. **Aperçus provisoires générés localement** (à remplacer par les rendus fal.ai — voir plan ci-dessous).
+- **Doublon L'Artiste / Le Designer résolu** : la page `artiste.html` est supprimée, la nav pointe désormais vers « LE DESIGNER » (`motion-lumiere-siboni.html`) sur toutes les pages.
+- **Pages retirées** : `collection.html`, `investir.html`, `tokenisation.html` supprimées (+ retirées du Dockerfile). Les liens internes sont redirigés (Collection → `index.html#maisons`, Investir/Tokenisation → contact ou supprimés).
+- **`projets.html` décrypté** : tous les blocs tokenisation/blockchain remplacés par « Le Projet en Chiffres » (rendement, livraison, aides), bandeau et tableau comparatif nettoyés, prix « À partir de 20 000€ / Sur devis ». Plus aucune mention crypto ni token.
+- Zéro lien mort : vérifié sur toutes les pages HTML.
+
+## 2026-07-22 (ter) — Accueil : relecture client, section Subventions qualifiante
+
+- Hero : un seul CTA « DÉCOUVRIR LES MAISONS → » (bouton Collection retiré) ; kicker « Choisissez » ; titre « Des maisons prêtes à vivre. » ; La 20 sans la mention déclaration préalable en description ; La 30 specs avec « déclaration préalable ».
+- Bloc revêtements : ajout du petit label « Revêtement » au-dessus des 3 pastilles.
+- **Section Croissance remplacée par « Vérifiez si vous bénéficiez d'une aide »** (badge SUBVENTIONS 2026) : questionnaire à cocher (checklist) qui fait deviner les dispositifs possibles — location saisonnière/gîte (Fonds Tourisme Durable ADEME), panneaux solaires, label écotourisme, primo-accédant, senior/PMR, projet collectif — recherché sur les dispositifs 2026 en vigueur. L'encadré Aides & Subventions et son lien vers `aides.html` sont conservés à droite.
+- `aides.html` (onglet Investisseur Locatif) : deux nouvelles cartes ajoutées pour tenir la promesse du bouton — **Fonds Tourisme Durable (ADEME)** (5 000–200 000€, hébergements ruraux/périurbains) et **Labellisation Écotourisme** (Écolabel Européen, Clé Verte, Gîtes Panda).
+- Footer : nom d'entreprise et copyright passés à « GlamHouse » / « GlamHouse.net » (texte uniquement — logo et balises `<title>` restent « MyGlamHouse » en attente d'une décision de rebranding).
+
+## 2026-07-22 (bis) — Accueil : textes client intégrés, page principale confirmée
+
+- **Textes du client intégrés sur l'accueil** : hero « MODULE / MA MAISON CALIFORNIENNE. », signature « La signature du designer Daniel Siboni », « ENTREPRISE 100% FRANÇAISE », « écoresponsables » (au lieu de high tech), masthead « Glamhouse · Été 2026 », kicker « Votre maison », aides « jusqu'à 55 000 € pour certains projets ».
+- **Prix des deux maisons** : La 20 à **20 000 €**, La 30 à **30 000 €**.
+- **Section « La Collection 2026 » retirée de l'accueil** — ses visuels rejoignent « Nos trends » (styles élargis : Malibu, Palm Springs, Pacific Palisades, Beverly Hills, Bel Air, Hollywood Hills, Venice Beach, Santa Monica). Il n'y a plus que 2 modèles ; la personnalisation passe par le revêtement et la couleur.
+- **Nouveau bloc « Chaque maison, à votre goût »** : 3 pastilles revêtements — planches de bois, uni, le mix — exemples visuels IA à générer (fal.ai) en session suivante.
+- **Section « 3 Façons d'Investir » supprimée** de l'accueil.
+- **Accès aux anciennes versions** : entrée « ARCHIVES » (→ `versions.html`) dans le menu de l'accueil. `index.html` reste la page d'entrée Nginx.
+- Formulaire : options « Achat Module 20m² » et « Achat Module 30m² ».
+
+## 2026-07-22 — Accueil : vidéo en tête, deux maisons à prix affichés, fond crème
+
+- **Hero vidéo restauré en tout premier écran** : le bloc Sequoia scroll-reveal (animation pilotée par le scroll) est supprimé de `index.html` (HTML + CSS + JS) — retour client : « pas beau ». L'iso-cube CSS est conservé car réutilisé par `collection.html`.
+- **Nouvelle section « Deux maisons, prêtes à vivre »** juste sous le hero : **La 20 à 25 000 €** et **La 30 à 37 000 €**, chacune avec sa vidéo générée via fal.ai (`assets/videos/tiny-20.mp4` / `triplex.mp4`), ses specs et un CTA contact. Amélioration des visuels fal.ai prévue en session suivante.
+- **Crypto retirée de l'accueil** : section « Investissement et Finance » (tokenisation / blockchain / crypto) supprimée ; plus aucun lien Tokenisation dans la nav, le footer ou le formulaire ; prix d'appel aligné (« Dès 25 000 € »).
+- **Fond crème très léger** : `--white` passe de `#FFFFFF` à `#FBF8F2` et les surfaces blanches (cartes, footer, champs) à `#FEFCF7` via `--cream-card` — s'applique à tout le site classique (`style.css`), palette pastel inchangée.
+- **Touches éditoriales discrètes** (esprit grand magazine de mode, sans référence reconnaissable) : ligne masthead sous le hero (« GLAMHOUSE · L'ÉDITION MAISONS · ÉTÉ 2026 · PARIS »), hero et titres de sections en serif Fraunces avec italiques terracotta, kickers en petites capitales espacées, prix en serif italique.
+
 ## 2026-07-18 (quinquies) — Showcase réaliste : photos + cartouche plan
 
 - Suite au retour client (« rendu beaucoup plus réaliste et beau, inspiré des photos »), le showcase combine désormais **photo réaliste plein cadre** (références client recadrées : `assets/ref-la20.jpg`, `ref-la30.jpg`, + `ref-la20-nuit.jpg` en réserve) et **cartouche plan SVG coté animé** (4 × 5 m ; étage chambre/terrasse) — l'émotion par la photo, la précision par le plan.
