@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 9. PRICE CALCULATOR (Projets page) ---
     window.calculatePrice = function() {
-        const model = parseInt(document.getElementById('calcModel')?.value || 59000);
+        const model = parseInt(document.getElementById('calcModel')?.value || 20000);
         const foundation = parseInt(document.getElementById('calcFoundation')?.value || 8000);
         const situation = document.getElementById('calcSituation')?.value || 'primo';
         const zone = document.getElementById('calcZone')?.value || 'B1';
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const profile = document.getElementById('aideProfile')?.value || 'primo';
         const revenus = document.getElementById('aideRevenus')?.value || 'intermediaire';
         const projet = document.getElementById('aideProjet')?.value || 'individuel';
-        const budget = parseInt(document.getElementById('aideBudget')?.value || 59000);
+        const budget = parseInt(document.getElementById('aideBudget')?.value || 20000);
 
         let totalAides = 0;
         let breakdown = '<div style="font-size: 0.9rem;">';

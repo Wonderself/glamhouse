@@ -2,6 +2,15 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-22 (septies) — Pages internes : textes relus, cohérence 2-modèles
+
+- **`motion-lumiere-siboni.html` (Le Designer)** : liens de nav/logo/footer redirigés vers `index.html` (au lieu de l'ancienne vitrine archivée `motion-lumiere.html`), lede légèrement retravaillé.
+- **`construction.html`** : accroche ajoutée sous le titre, retrait d'une mention non vérifiable (« approuvés par l'OCDE »), correction « loft » → « maison », carte « Bardage Extérieur » réécrite pour refléter les 2 revêtements réels (uni / mix bois) et les 3 couleurs, CTA final mis à jour.
+- **`projets.html`** : simulateur de budget et badge hero mis à jour pour les 2 modèles actuels (La 20 / La 30 — les anciennes options Malibu/Palm Spring/Pacific Palissade/Venice à 59-145k€ ont disparu avec `collection.html`), valeurs par défaut du simulateur recalculées (28 000 € au lieu de 67 000 €), ton « investissement » adouci.
+- **`aides.html`** : onglet renommé « Locatif & Écotourisme » pour refléter les 2 aides tourisme/écolabel ajoutées la fois précédente, intro reformulée.
+- **`script.js`** : valeurs de secours des simulateurs alignées sur les nouveaux prix (20 000 € au lieu de 59 000 €).
+- Vérifié : zéro lien mort, zéro erreur JS sur les 4 pages, aucune clé API dans le repo.
+
 ## 2026-07-22 (sexies) — « Mix bois » (bois + uni) + équilibre éditorial
 
 - **Revêtement « bois » redéfini en « Mix bois »** : les 6 images concernées sont régénérées (fal.ai / nano-banana) — le volume principal reste en couleur unie et une **section accolée est habillée de tasseaux de bois verticaux espacés** (claire-voie), ton du bois accordé à la couleur (miel sur sable, naturel sur noir/sauge). Décor distinct pour chacune. L'option s'appelle désormais **« Mix bois »** dans le configurateur (les images « uni » sont inchangées).
