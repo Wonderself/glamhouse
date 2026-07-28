@@ -12,6 +12,9 @@ COPY admin.html /usr/share/nginx/html/
 COPY aides.html /usr/share/nginx/html/
 COPY construction.html /usr/share/nginx/html/
 COPY projets.html /usr/share/nginx/html/
+COPY maison-personnalisee.html /usr/share/nginx/html/
+COPY residence-senior.html /usr/share/nginx/html/
+COPY ecovillage.html /usr/share/nginx/html/
 COPY versions.html /usr/share/nginx/html/
 COPY motion-lumiere.html /usr/share/nginx/html/
 COPY motion-noir.html /usr/share/nginx/html/

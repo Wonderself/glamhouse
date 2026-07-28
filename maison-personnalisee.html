@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Maison Personnalisée | MyGlamHouse</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container"><a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a></div>
+        <ul class="nav-links">
+            <li><a href="motion-lumiere-siboni.html">LE DESIGNER</a></li>
+            <li><a href="construction.html">CONSTRUCTION</a></li>
+            <li class="nav-dropdown"><a href="projets.html">PROJETS</a>
+                <div class="dropdown-menu">
+                    <a href="maison-personnalisee.html">Ma Maison Perso</a>
+                    <a href="residence-senior.html">Résidence Senior Normandie</a>
+                    <a href="ecovillage.html">ÉcoVillage Moderne</a>
+                </div>
+            </li>
+            <li><a href="index.html#contact">CONTACT</a></li>
+        </ul>
+        <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="token-hero" style="background: linear-gradient(135deg, #2C2C2C 0%, #4a3f3a 50%, #6b5b52 100%);">
+        <div class="container text-center">
+            <span class="badge-year badge-pulse">OPTION 1 · PROJET INDIVIDUEL</span>
+            <h1 style="margin-top: 25px;">Ma Maison Personnalisée</h1>
+            <p style="margin: 0 auto;">Achetez seul(e) ou à plusieurs — votre maison écologique sur mesure.</p>
+            <p style="margin-top: 20px;"><a href="projets.html" style="color: rgba(255,255,255,0.8); font-size: 0.85rem;">← Tous les projets</a></p>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="grid-split">
+                <div>
+                    <img src="assets/maison1.jpg" alt="Maison Personnalisée" style="width:100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);" class="zoomable">
+                </div>
+                <div class="text-block">
+                    <h3>Votre Maison, Votre Vision</h3>
+                    <p>Choisissez entre La 20 (plain-pied, 20 m²) et La 30 (deux niveaux, 30 m²), puis personnalisez le revêtement, la couleur et l'agencement selon vos besoins.</p>
+
+                    <div class="info-banner" style="margin: 25px 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <p><strong>Achat groupé possible :</strong> Regroupez-vous à 2, 3 ou 4 pour acheter ensemble sur un même terrain et bénéficier d'économies d'échelle importantes (jusqu'à -15% sur les fondations et raccordements).</p>
+                    </div>
+
+                    <h4 style="margin-top: 25px;">Ce qui est inclus :</h4>
+                    <ul class="checklist">
+                        <li><i class="fas fa-check-circle"></i> Étude personnalisée du projet avec architecte</li>
+                        <li><i class="fas fa-check-circle"></i> Plans 3D de votre maison avant fabrication</li>
+                        <li><i class="fas fa-check-circle"></i> Fabrication en atelier certifié ÉCOLABEL</li>
+                        <li><i class="fas fa-check-circle"></i> Transport et assemblage sur site (1,5 à 4 mois)</li>
+                        <li><i class="fas fa-check-circle"></i> Garantie décennale et assurance dommages-ouvrage</li>
+                        <li><i class="fas fa-check-circle"></i> Accompagnement aides et subventions <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Nous vous aidons à identifier et obtenir toutes les aides auxquelles vous avez droit : MaPrimeRénov', Éco-PTZ, TVA réduite, aides locales, etc.</span></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PRIX & AIDES -->
+            <div class="calculator-box" style="margin-top: 60px;">
+                <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-calculator"></i> Simulateur de Prix avec Aides</h3>
+                <div class="calc-grid">
+                    <div class="calc-inputs">
+                        <label>Modèle de base</label>
+                        <select id="calcModel">
+                            <option value="20000">La 20 — plain-pied 20 m² (20 000€)</option>
+                            <option value="30000">La 30 — deux niveaux 30 m² (30 000€)</option>
+                        </select>
+
+                        <label>Fondations & raccordements</label>
+                        <select id="calcFoundation">
+                            <option value="8000">Plots béton standard (8 000€)</option>
+                            <option value="15000">Dalle béton complète (15 000€)</option>
+                            <option value="22000">Vide sanitaire (22 000€)</option>
+                        </select>
+
+                        <label>Votre situation</label>
+                        <select id="calcSituation">
+                            <option value="primo">Primo-accédant</option>
+                            <option value="renovation">Remplacement habitat ancien</option>
+                            <option value="secondaire">Résidence secondaire</option>
+                            <option value="locatif">Investissement locatif</option>
+                        </select>
+
+                        <label>Zone géographique <span class="tooltip-trigger" tabindex="0">?<span class="tooltip-box">Les aides varient selon la zone : Zone A (grandes villes), B1 (moyennes villes), B2/C (zones rurales). Les zones rurales offrent souvent plus d'aides locales.</span></span></label>
+                        <select id="calcZone">
+                            <option value="A">Zone A — Grandes agglomérations</option>
+                            <option value="B1">Zone B1 — Villes moyennes</option>
+                            <option value="B2">Zone B2 — Périurbain</option>
+                            <option value="C">Zone C — Rural</option>
+                        </select>
+
+                        <button class="btn-primary" onclick="calculatePrice()" style="width:100%; margin-top: 10px;">CALCULER MON BUDGET</button>
+                    </div>
+                    <div class="calc-result">
+                        <p style="color: #888; margin-bottom: 5px;">Prix total estimé</p>
+                        <div class="total-price" id="totalPrice">28 000 €</div>
+                        <p style="color: #888; margin: 15px 0 5px;">Après déduction des aides</p>
+                        <div class="total-after" id="totalAfter">22 000 €</div>
+                        <div class="calc-savings" id="calcSavings">
+                            <i class="fas fa-piggy-bank"></i> Économie estimée : 6 000 €
+                        </div>
+                        <div style="margin-top: 20px; font-size: 0.85rem; color: #888; text-align: left;">
+                            <p id="aidesDetail"><strong>Aides estimées :</strong><br>
+                            • MaPrimeRénov' : jusqu'à 10 000€<br>
+                            • Éco-PTZ : prêt à taux zéro jusqu'à 50 000€<br>
+                            • TVA réduite 5,5% : économie ~3 000€<br>
+                            • Exonération taxe foncière : 2 ans</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACHAT GROUPÉ -->
+            <div class="glass-card" style="margin-top: 40px; text-align: center; background: linear-gradient(135deg, rgba(212,165,154,0.08), rgba(151,169,141,0.08));">
+                <h3><i class="fas fa-users" style="color: var(--terracotta);"></i> Achat seul ou à plusieurs</h3>
+                <p style="max-width: 700px; margin: 15px auto; color: #666;">Vous pouvez acquérir votre maison seul(e), ou vous regrouper à 2, 3 ou 4 sur un même terrain pour partager les frais de fondations et de raccordements. <strong>Un projet, plusieurs foyers.</strong></p>
+                <div class="payment-reminder" style="max-width: 700px; margin: 15px auto; text-align: left;">
+                    <i class="fas fa-university"></i>
+                    <p><strong>Paiement simple :</strong> virement bancaire, crédit immobilier classique ou paiement comptant — exactement comme pour toute construction.</p>
+                </div>
+                <a href="index.html#contact" class="btn-primary" style="margin-top: 15px;">Demander une étude →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding-top: 50px; border-top: 1px solid #eee;">
+        <div class="container text-center">
+            <img src="assets/logo.jpg" alt="Logo" style="height: 50px; margin-bottom: 15px;">
+            <p>© 2023-2026 MyGlamHouse.fr — 100% Start-up Française</p>
+            <div style="margin-top: 15px; display: flex; gap: 20px; justify-content: center; font-size: 0.9rem; color: #888;">
+                <a href="#">Mentions Légales</a>
+                <a href="#">Politique de Confidentialité</a>
+                <a href="aides.html">Aides & Subventions</a>
+                <a href="construction.html">Construction</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

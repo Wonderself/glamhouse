@@ -2,6 +2,19 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-28 (bis) — Nouvelles vidéos drone La 20 / La 30 (cotes exactes)
+
+- **Remplacement de `assets/videos/tiny-20.mp4` et `triplex.mp4`** (utilisées sur l'accueil et les pages archives) par deux vidéos générées via fal.ai (Google Veo 3), une par modèle, au lieu de l'ancien plan générique.
+- **Méthode** : image-maître 9:16 générée par édition ancrée sur les photos de référence validées (mêmes cotes que les visuels de revêtement : La 20 plain-pied 4×5 m, toit plat, garde-corps + échelle ; La 30 deux niveaux, séjour cathédrale 4,2 m, chambre + terrasse 10 m² face à face), puis animée en plan drone (orbite autour de la maison en descendant, puis avancée vers l'entrée vitrée).
+- **Contrôle qualité** : la 1ʳᵉ génération de La 20 faisait apparaître une silhouette humaine fantôme dans les dernières secondes (halluciné par le modèle malgré la consigne « no people ») ; corrigé en coupant la vidéo juste avant l'artefact (6,3 s au lieu de 8 s) plutôt que de relancer une 3ᵉ génération payante. La 30 (8 s) était propre du début à la fin.
+- Vidéos réencodées à un poids web raisonnable (3,8 Mo / 6,4 Mo, comparable aux fichiers d'origine).
+
+## 2026-07-28 — Projets scindés en pages dédiées
+
+- **`projets.html` devient une page hub** (hero + 3 cartes teaser + tableau comparatif + section croissance) : on n'y voit plus le détail complet des 3 options en même temps.
+- **3 nouvelles pages dédiées** créées à partir du contenu existant : `maison-personnalisee.html`, `residence-senior.html`, `ecovillage.html` — chacune avec sa propre nav, son hero et son footer, et un lien « ← Tous les projets ». **Sur « Ma Maison Perso » on ne voit plus les sections Résidence Senior / ÉcoVillage.**
+- Tous les liens internes mis à jour (`index.html`, dropdown PROJETS sur toutes les pages), Dockerfile complété, zéro lien mort vérifié sur l'ensemble du site.
+
 ## 2026-07-22 (septies) — Pages internes : textes relus, cohérence 2-modèles
 
 - **`motion-lumiere-siboni.html` (Le Designer)** : liens de nav/logo/footer redirigés vers `index.html` (au lieu de l'ancienne vitrine archivée `motion-lumiere.html`), lede légèrement retravaillé.
