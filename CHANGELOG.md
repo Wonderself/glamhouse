@@ -2,6 +2,11 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-28 (quinquies) — Vidéos des maisons rallongées
+
+- `assets/videos/tiny-20.mp4` et `assets/videos/triplex.mp4` durent chacune 10s de plus (+5s avant, +5s après) : image de départ tenue quelques secondes avant que le survol drone ne démarre, et image finale tenue en fin de clip. Nouvelles durées : La 20 → 16,3s, La 30 → 18s.
+- Traitement local (pas de nouvelle génération fal.ai) : pas de risque de réintroduire l'artefact fantôme précédemment corrigé sur la vidéo La 20.
+
 ## 2026-07-28 (quater) — Accueil recentré sur les maisons
 
 - **Nav** : le menu déroulant PROJETS (Ma Maison Perso / Résidence Senior / ÉcoVillage) est retiré — un simple lien « PROJETS » renvoie vers la page hub, qui détaille les 3 formules. Résidence Senior et ÉcoVillage ne sont plus développés que sur leurs pages dédiées.
