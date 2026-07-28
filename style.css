@@ -1510,12 +1510,13 @@ select { margin-bottom: 20px; }
 }
 .config-swatches .swatch-btn.active { border-color: #fff; box-shadow: 0 0 0 2px var(--terracotta); }
 
-/* ===== SUBVENTIONS — CHECKLIST QUALIFIANTE ===== */
-.subsidy-check { list-style: none; margin: 26px 0 30px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
-.subsidy-check li { border-bottom: 1px solid #ececec; padding-bottom: 14px; }
-.subsidy-check label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-weight: 600; color: var(--charcoal); }
-.subsidy-check input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--terracotta); flex-shrink: 0; }
-.subsidy-hint { display: block; font-weight: 400; font-size: 0.82rem; color: #888; margin-top: 4px; }
+/* ===== AIDES — BANDEAU DISCRET (accueil) ===== */
+.aides-banner { background: var(--cream-card); border-top: 1px solid rgba(44,44,44,0.08); border-bottom: 1px solid rgba(44,44,44,0.08); padding: 22px 0; }
+.aides-banner-inner { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; text-align: center; }
+.aides-banner-inner p { margin: 0; color: #666; font-size: 0.92rem; }
+.aides-banner-inner p i { color: var(--terracotta); margin-right: 8px; }
+.aides-banner-link { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--terracotta); white-space: nowrap; }
+.aides-banner-link:hover { text-decoration: underline; }
 
 /* ===== ÉQUILIBRE ÉDITORIAL (accueil) ===== */
 /* Titres de section en serif, cohérents avec la direction Lumière */

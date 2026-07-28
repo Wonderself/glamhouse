@@ -2,6 +2,14 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-28 (quater) — Accueil recentré sur les maisons
+
+- **Nav** : le menu déroulant PROJETS (Ma Maison Perso / Résidence Senior / ÉcoVillage) est retiré — un simple lien « PROJETS » renvoie vers la page hub, qui détaille les 3 formules. Résidence Senior et ÉcoVillage ne sont plus développés que sur leurs pages dédiées.
+- **Section « Bienvenue » supprimée** : elle répétait ce que les cartes La 20 / La 30 montrent déjà et mettait en avant l'investissement locatif — l'accueil enchaîne directement des maisons vers les trends.
+- **Section Subventions remplacée par un bandeau discret** (une ligne + lien « Voir mes aides ») au lieu du questionnaire complet à 6 cases à cocher — le détail reste sur `aides.html`.
+- **Formulaire de contact** : « Configuration sur mesure ou investissement » → « Configuration sur mesure de votre maison » ; les options « Résidence Seniors » et « ÉcoVillage » fusionnées en une seule « Projet collectif (résidence, écovillage…) ».
+- Page nettement plus courte et concentrée sur les maisons (hauteur réduite d'environ 30%).
+
 ## 2026-07-28 (ter) — Logo : fin du liseré blanc sur fond crème
 
 - Le fichier `assets/logo.jpg` a un fond blanc plat, visible en léger décalage depuis le passage du site au blanc crème (`--white: #FBF8F2`). Deux ajustements ciblés plutôt qu'une retouche fragile du logo :
