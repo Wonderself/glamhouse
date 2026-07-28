@@ -2,6 +2,12 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-28 — Projets scindés en pages dédiées
+
+- **`projets.html` devient une page hub** (hero + 3 cartes teaser + tableau comparatif + section croissance) : on n'y voit plus le détail complet des 3 options en même temps.
+- **3 nouvelles pages dédiées** créées à partir du contenu existant : `maison-personnalisee.html`, `residence-senior.html`, `ecovillage.html` — chacune avec sa propre nav, son hero et son footer, et un lien « ← Tous les projets ». **Sur « Ma Maison Perso » on ne voit plus les sections Résidence Senior / ÉcoVillage.**
+- Tous les liens internes mis à jour (`index.html`, dropdown PROJETS sur toutes les pages), Dockerfile complété, zéro lien mort vérifié sur l'ensemble du site.
+
 ## 2026-07-22 (septies) — Pages internes : textes relus, cohérence 2-modèles
 
 - **`motion-lumiere-siboni.html` (Le Designer)** : liens de nav/logo/footer redirigés vers `index.html` (au lieu de l'ancienne vitrine archivée `motion-lumiere.html`), lede légèrement retravaillé.
