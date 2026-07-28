@@ -1515,3 +1515,21 @@ select { margin-bottom: 20px; }
 .subsidy-check label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-weight: 600; color: var(--charcoal); }
 .subsidy-check input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--terracotta); flex-shrink: 0; }
 .subsidy-hint { display: block; font-weight: 400; font-size: 0.82rem; color: #888; margin-top: 4px; }
+
+/* ===== ÉQUILIBRE ÉDITORIAL (accueil) ===== */
+/* Titres de section en serif, cohérents avec la direction Lumière */
+.editorial-h2 {
+    font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em;
+    font-size: clamp(1.9rem, 3.4vw, 2.9rem); line-height: 1.12;
+}
+.editorial-h2 em { font-style: italic; color: var(--terracotta); }
+/* Kicker utilisable hors .section-title (ex : section Bienvenue centrée) */
+.text-center .edito-kicker { display: block; margin-bottom: 14px; }
+
+/* Cartes maisons : hauteurs égales, CTA aligné en bas */
+.maisons-duo { align-items: stretch; }
+.maison-card { display: flex; flex-direction: column; }
+.maison-info { display: flex; flex-direction: column; flex: 1; }
+.maison-desc { min-height: 0; }
+.maison-specs { margin-bottom: 24px; }
+.maison-link { margin-top: auto; }

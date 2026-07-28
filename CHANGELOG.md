@@ -2,6 +2,11 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-22 (sexies) — « Mix bois » (bois + uni) + équilibre éditorial
+
+- **Revêtement « bois » redéfini en « Mix bois »** : les 6 images concernées sont régénérées (fal.ai / nano-banana) — le volume principal reste en couleur unie et une **section accolée est habillée de tasseaux de bois verticaux espacés** (claire-voie), ton du bois accordé à la couleur (miel sur sable, naturel sur noir/sauge). Décor distinct pour chacune. L'option s'appelle désormais **« Mix bois »** dans le configurateur (les images « uni » sont inchangées).
+- **Équilibre de la page d'accueil** : titres de sections « Bienvenue » et « Subventions » passés en **serif éditorial** (cohérence avec le reste), ajout de kickers (Bienvenue / Inspirations), reformulations (« Une maison, tous vos usages. », « Nos *trends* »), styles LA séparés par des points ; **cartes maisons à hauteurs égales** avec le CTA « Demander une étude » aligné en bas des deux colonnes.
+
 ## 2026-07-22 (quinquies) — Visuels IA des revêtements (fal.ai) intégrés
 
 - **12 visuels photoréalistes générés** via fal.ai — modèle **`fal-ai/nano-banana/edit`** (Google Gemini 2.5 Flash Image) — pour le configurateur : 2 maisons × 2 revêtements (planches de bois / uni) × 3 couleurs (noir, sable, sauge), dans `assets/gen/`.
