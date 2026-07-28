@@ -2,6 +2,13 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-07-22 (quinquies) — Visuels IA des revêtements (fal.ai) intégrés
+
+- **12 visuels photoréalistes générés** via fal.ai — modèle **`fal-ai/nano-banana/edit`** (Google Gemini 2.5 Flash Image) — pour le configurateur : 2 maisons × 2 revêtements (planches de bois / uni) × 3 couleurs (noir, sable, sauge), dans `assets/gen/`.
+- **Méthode** : édition ancrée sur les photos de référence réelles (`ref-la20.jpg`, et un « maître » La 30 en situation dérivé de `ref-la30.jpg`) pour garantir la fidélité géométrique — cotes réinjectées dans chaque prompt (La 20 : plain-pied 4×5 m, toit plat, garde-corps + échelle ; La 30 : deux niveaux, séjour cathédrale 4,2 m, chambre 10 m² + terrasse 10 m² à l'étage). **Décor distinct pour chaque image** (dunes, cour béton/bambou, vignoble, piscine, forêt de pins, verger…) pour éviter l'effet catalogue.
+- Le choix « Vidéo » reste l'aperçu par défaut ; cliquer un revêtement/couleur bascule sur l'image correspondante.
+- Note : les anciennes vidéos `tiny-20.mp4` / `triplex.mp4` portaient une signature C2PA/SynthID → générées via **Google Veo** (hébergé sur fal), d'où le choix de rester dans la famille image Google pour la cohérence esthétique.
+
 ## 2026-07-22 (quater) — Configurateur revêtements, nav simplifiée, pages retirées
 
 - **Configurateur en direct sur chaque maison** : boutons Revêtement (Vidéo / Planches de bois / Uni) + 3 couleurs (noir, sable, sauge). Le clic remplace la vidéo par un aperçu image `assets/gen/<maison>-<revêtement>-<couleur>.jpg`. **Aperçus provisoires générés localement** (à remplacer par les rendus fal.ai — voir plan ci-dessous).
