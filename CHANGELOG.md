@@ -2,10 +2,10 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
-## 2026-07-28 (quinquies) — Vidéos des maisons rallongées
+## 2026-07-28 (sexies) — Vidéo La 20 : orbite d'arrivée + entrée dans la maison
 
-- `assets/videos/tiny-20.mp4` et `assets/videos/triplex.mp4` durent chacune 10s de plus (+5s avant, +5s après) : image de départ tenue quelques secondes avant que le survol drone ne démarre, et image finale tenue en fin de clip. Nouvelles durées : La 20 → 16,3s, La 30 → 18s.
-- Traitement local (pas de nouvelle génération fal.ai) : pas de risque de réintroduire l'artefact fantôme précédemment corrigé sur la vidéo La 20.
+- Remplace le rallongement en image figée (quinquies, insatisfaisant) par du vrai contenu généré avec fal.ai (Veo 3) : `assets/videos/tiny-20.mp4` commence désormais par une orbite drone à 360° autour de la maison avant d'arriver face à l'entrée, et se termine par une avancée caméra à travers la porte vitrée qui révèle l'intérieur (séjour, cuisine, plafond bois). Durée totale 20,3s. Raccords vérifiés image par image aux deux points de coupe.
+- `assets/videos/triplex.mp4` (La 30) revient à sa version précédente (8s, approuvée) : la première génération de l'orbite + entrée intérieure a fait apparaître un toit en pente/à pignon avec poutres apparentes, alors que la vraie La 30 a un toit plat — écart de côtes inacceptable, donc rejeté. Un deuxième essai avec un prompt renforcé (toit plat explicite) a été lancé mais le compte fal.ai s'est retrouvé à court de crédit avant la fin. À refaire dès que le compte est rechargé.
 
 ## 2026-07-28 (quater) — Accueil recentré sur les maisons
 
