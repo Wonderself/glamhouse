@@ -1727,3 +1727,97 @@ select { margin-bottom: 20px; }
     .nav-cta { padding: 10px 16px; font-size: 0.74rem; }
     .nav-logo { height: 56px; }
 }
+
+/* =========================================================
+   HARMONISATION DES PAGES INTERNES
+   Même système visuel que l'accueil : hero éditorial sobre,
+   cartes à bordure fine, rayon 8 px, footer commun.
+   ========================================================= */
+
+/* --- Hero de page interne (remplace les bandeaux dégradés) --- */
+.page-hero {
+    background: var(--cream-card);
+    border-bottom: var(--gk-border);
+    padding: 190px 0 70px;
+    text-align: center;
+}
+.page-hero .edito-kicker { display: block; margin-bottom: 16px; }
+.page-hero h1 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 3.1rem;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    margin: 0 auto 18px;
+    max-width: 22ch;
+    color: var(--charcoal);
+}
+.page-hero h1 em { font-style: italic; color: var(--terracotta); }
+.page-hero p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #6b6b6b;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+.page-hero .hero-meta {
+    display: flex; justify-content: center; gap: 26px; flex-wrap: wrap;
+    margin-top: 30px; font-size: 0.84rem; color: #8a8a8a;
+}
+.page-hero .hero-meta span i { color: var(--terracotta); margin-right: 7px; }
+
+/* --- Cartes : même grammaire que l'accueil --- */
+.spec-card, .aide-card, .project-card, .glass-card, .calculator-box {
+    border-radius: var(--gk-radius);
+    border: var(--gk-border);
+    background: var(--cream-card);
+}
+.spec-card { padding: 38px 26px; }
+.spec-card:hover { transform: translateY(-4px); border-color: rgba(44,44,44,0.22); box-shadow: 0 10px 26px rgba(44,44,44,0.07); }
+.project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(44,44,44,0.09); }
+.glass-card:hover { transform: none; box-shadow: 0 10px 26px rgba(44,44,44,0.07); }
+.aide-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(44,44,44,0.08); }
+.comparison-table { border-radius: var(--gk-radius); border: var(--gk-border); }
+.tab-btn { border-radius: var(--gk-radius); }
+.info-banner { border-radius: var(--gk-radius); }
+
+/* --- Titres de section : version éditoriale partout --- */
+.section-title h2 em { font-style: italic; color: var(--terracotta); }
+
+/* --- Footer commun aux pages internes --- */
+.site-footer { padding-top: 70px; padding-bottom: 50px; }
+.site-footer .footer-logo-wrap { margin-bottom: 22px; }
+.footer-tagline { color: #6b6b6b; font-size: 0.95rem; max-width: 520px; margin: 0 auto 26px; }
+.footer-nav {
+    display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
+    font-size: 0.86rem; margin-bottom: 30px;
+}
+.footer-nav a { color: #7a7a7a; }
+.footer-nav a:hover { color: var(--terracotta); }
+.site-footer .footer-legal {
+    justify-content: center; padding-top: 26px; font-size: 0.82rem;
+    border-top: var(--gk-border); flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+    .page-hero { padding: 150px 0 50px; }
+    .page-hero h1 { font-size: 2.1rem; max-width: 18ch; }
+    .page-hero p { font-size: 0.95rem; }
+}
+@media (max-width: 640px) {
+    .page-hero { padding: 130px 0 42px; }
+    .page-hero h1 { font-size: 1.75rem; }
+    .site-footer .footer-legal { gap: 14px; }
+}
+.section-title .edito-kicker { display: block; margin-bottom: 14px; }
+
+/* Bandeau défilant : version claire, accordée au reste du site */
+.marquee-container {
+    background: var(--sand);
+    border-top: var(--gk-border);
+    border-bottom: var(--gk-border);
+    padding: 14px 0;
+}
+.marquee-text { color: #7a7368; font-weight: 600; font-size: 0.78rem; letter-spacing: 2.4px; }

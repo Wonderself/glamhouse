@@ -2,6 +2,19 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-09-02 (bis) — Harmonisation de toutes les pages
+
+Le système visuel de l'accueil est désormais appliqué partout.
+
+- **Heros de page** : les bandeaux à dégradé criard (vert, marron) sont remplacés par un `.page-hero` éditorial — fond crème, filet de séparation, kicker, titre serif avec une italique terracotta, sous-titre en serif italique et une ligne de trois repères. `construction.html`, qui n'avait pas de hero du tout, en a un.
+- **Titres retravaillés** : « Choisissez Votre Projet » → « Deux façons d'habiter GlamHouse », « Toutes les Aides & Subventions » → « Toutes les aides, dispositif par dispositif », « Le Système GlamHouse » → « La précision d'usine, la chaleur du bois », « Comparer les 2 Formules » → « Laquelle des deux vous ressemble ? », etc.
+- **Navigation unifiée** sur toutes les pages : mêmes entrées (Le Designer, Construction, Projets, Archives, Contact), page courante en terracotta, et le CTA « Configurer mon projet » présent partout.
+- **Footer commun** (`.site-footer`) : logo sur pastille blanche, accroche, liens, mentions légales — précédé de la bande CTA sombre. Les anciennes sections CTA de `aides.html` et `construction.html`, devenues des doublons, ont été supprimées.
+- **Cartes homogènes** : `.spec-card`, `.aide-card`, `.project-card`, `.glass-card`, `.calculator-box`, tableaux et onglets passent tous au rayon 8 px et à la bordure 1 px du système. Le bandeau défilant de `projets.html`, jusque-là noir, passe en sable clair.
+- **Le Designer** garde sa mise en page éditoriale propre (c'est sa force) ; seules la navigation, le CTA et les liens de pied de page sont alignés sur le reste.
+- **Archives** : page conservée pour montrer les versions. Elle est autonome (CSS embarqué), donc sa palette a été recalée sur celle du site et une barre de navigation lui a été ajoutée — on pouvait y entrer sans pouvoir en ressortir.
+- **Configurateur visuel sur `maison-personnalisee.html`** : les deux cartes Studio / Duplex avec vue, revêtement et couleur, comme sur l'accueil. Les plans du Duplex ont été réempilés à la verticale pour remplir le cadre portrait.
+
 ## 2026-09-02 — Refonte de la présentation + allègement du site
 
 **Allègement**
