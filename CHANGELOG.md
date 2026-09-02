@@ -2,6 +2,20 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-09-02 (ter) — Harmonisation en profondeur : le vrai coupable
+
+**Le bug qui expliquait tout.** Cinq pages (`projets`, `maison-personnalisee`, `ecovillage`, `aides`, `construction`) ne chargeaient pas **Fraunces** — la serif qui porte toute la typographie éditoriale. Leurs titres retombaient silencieusement sur Georgia. Le balisage était bon, la police manquait : d'où l'impression que rien n'avait changé. Toutes les pages chargent désormais le même jeu (Fraunces avec ses italiques, Outfit, Plus Jakarta Sans).
+
+**Page Designer, refaite pour de bon.** Elle était entièrement autonome, avec sa propre feuille de style et ses propres couleurs. Elle charge maintenant `style.css`, ses variables sont calées sur la palette du site (crème `#FBF8F2`, anthracite `#2C2C2C`, terracotta `#D4A59A`), sa navigation maison est remplacée par la navbar commune avec le logo, son ancien bloc final — qui doublonnait avec la bande CTA — est supprimé, et elle se termine sur le footer commun. Sa mise en page éditoriale, elle, est conservée : c'est sa force.
+
+**Contrôle typographique mesuré** sur les 8 pages (police de corps, police et taille des titres, fond, largeur de conteneur). Écarts corrigés :
+- `ecovillage` n'avait aucun titre de section éditorial — ajout de « L'écovillage en chiffres ».
+- `versions` utilisait Outfit comme police de corps → Plus Jakarta Sans.
+- La page Designer avait un conteneur de 1200 px → 1300 px comme partout.
+- Les titres des bandes CTA passent en serif, comme tous les grands titres du site.
+
+Les 8 pages partagent maintenant la même police de corps, la même serif de titres, le même fond et la même largeur de conteneur.
+
 ## 2026-09-02 (bis) — Harmonisation de toutes les pages
 
 Le système visuel de l'accueil est désormais appliqué partout.

@@ -4,22 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daniel Siboni — Le Designer | MYGLAMHOUSE</title>
+    <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 <style>
-/* ============ VERSION LUMIÈRE — PAGE DESIGNER ============ */
+/* ============ PAGE DESIGNER — accordée au systeme du site ============ */
 :root {
-    --paper: #F5F2EA; --paper-deep: #EDE8DC; --ink: #1E1D1A; --ink-soft: #57544C;
-    --terra: #C08A6D; --terra-deep: #A06B4F; --hairline: rgba(30,29,26,0.14);
-    --serif: 'Fraunces', Georgia, serif; --sans: 'Outfit', sans-serif;
+    --paper: #FBF8F2; --paper-deep: #F3F0E7; --ink: #2C2C2C; --ink-soft: #6b6b6b;
+    --terra: #D4A59A; --terra-deep: #b58b80; --hairline: rgba(44,44,44,0.12);
+    --serif: 'Fraunces', Georgia, serif; --sans: 'Plus Jakarta Sans', sans-serif;
+    --titre: 'Outfit', sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
+.wrap { max-width: 1300px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
 ::selection { background: var(--terra); color: white; }
 
 .rv { opacity: 0; transform: translateY(30px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
@@ -27,36 +30,6 @@ img { max-width: 100%; display: block; }
 .rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
 @media (prefers-reduced-motion: reduce) { .rv { opacity: 1 !important; transform: none !important; transition: none !important; } html { scroll-behavior: auto; } }
 
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px, 4vw, 56px); background: rgba(245,242,234,0.92); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--hairline); }
-.nav .brand { font-weight: 700; letter-spacing: .35em; font-size: .82rem; white-space: nowrap; }
-.nav .brand em { font-style: normal; color: var(--terra); }
-.nav ul { display: flex; gap: clamp(16px, 2.6vw, 38px); list-style: none; }
-.nav ul a { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; opacity: .75; }
-.nav ul a:hover { opacity: 1; }
-.nav .cta { border: 1px solid var(--ink); border-radius: 100px; padding: 10px 22px; font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; transition: background .35s, color .35s; white-space: nowrap; }
-.nav .cta:hover { background: var(--ink); color: var(--paper); }
-.nav-burger { display: none; }
-.nav ul .cta-mobile { display: none; }
-@media (max-width: 900px) {
-    .nav { padding: 16px 20px; }
-    .nav .cta { display: none; }
-    .nav-burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; flex-shrink: 0; cursor: pointer; z-index: 101; background: none; border: none; padding: 0; color: var(--ink); order: 3; }
-    .nav-burger span { display: block; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s ease, opacity .3s ease; }
-    .nav.nav-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
-    .nav.nav-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .nav ul {
-        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 99;
-        flex-direction: column; align-items: flex-start; justify-content: center; gap: 26px;
-        background: var(--paper); padding: 100px 32px 40px;
-        transform: translateX(100%); opacity: 0;
-        transition: transform .45s cubic-bezier(.22,.61,.36,1), opacity .3s ease;
-        pointer-events: none;
-    }
-    .nav.nav-open ul { transform: translateX(0); opacity: 1; pointer-events: auto; }
-    .nav ul a { font-size: 1.3rem; opacity: 1; }
-    .nav ul .cta-mobile { display: inline-flex; margin-top: 10px; border: 1px solid var(--ink); border-radius: 100px; padding: 12px 26px; font-size: .9rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-}
 
 .kicker { display: inline-flex; align-items: center; gap: 12px; font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 600; color: var(--terra-deep); margin-bottom: 34px; }
 .kicker::before { content: ''; width: 44px; height: 1px; background: var(--terra); }
@@ -134,18 +107,17 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
 </head>
 <body>
 
-<nav class="nav" id="nav">
-    <a class="brand" href="index.html">GLAM<em>HOUSE</em></a>
-    <ul>
-        <li><a href="motion-lumiere-siboni.html" style="opacity:1;">Le Designer</a></li>
-        <li><a href="construction.html">Construction</a></li>
-        <li><a href="projets.html">Projets</a></li>
-        <li><a href="versions.html">Archives</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><a class="cta-mobile" href="index.html#configurateur">Configurer mon projet</a></li>
+<nav class="navbar">
+    <div class="logo-container"><a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a></div>
+    <ul class="nav-links">
+        <li><a href="motion-lumiere-siboni.html" style="color:var(--terracotta)">LE DESIGNER</a></li>
+        <li><a href="construction.html">CONSTRUCTION</a></li>
+        <li><a href="projets.html">PROJETS</a></li>
+        <li><a href="versions.html">ARCHIVES</a></li>
+        <li><a href="index.html#contact">CONTACT</a></li>
+        <li><a href="index.html#configurateur" class="nav-cta">Configurer mon projet</a></li>
     </ul>
-    <a class="cta" href="index.html#configurateur">Configurer mon projet</a>
-    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
 </nav>
 
 <!-- HERO -->
@@ -244,22 +216,31 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
     </div>
 </section>
 
-<!-- FINAL -->
-<section class="final wrap">
-    <h2 class="rv">Une maison <em>signée</em>, pensée pour chez vous.</h2>
-    <a class="btn rv rv-d1" href="index.html#configurateur">Configurer mon projet</a>
+<!-- CTA FINALE -->
+<section class="cta-band">
+    <div class="container">
+        <h2>Une maison <em>signée</em>, pensée pour chez vous.</h2>
+        <p>Configurez la vôtre en cinq questions — nous revenons vers vous sous 48 h.</p>
+        <a href="index.html#configurateur" class="btn-primary btn-lg">CONFIGURER MON PROJET</a>
+    </div>
 </section>
 
-<footer>
-    <div class="wrap foot">
-        <span>© 2023–2026 GlamHouse.net — Design Daniel Siboni</span>
-        <nav>
-            <a href="index.html">Accueil</a>
+<footer class="site-footer">
+    <div class="container text-center">
+        <div class="footer-logo-wrap"><img src="assets/logo.jpg" alt="Logo GlamHouse" class="footer-logo"></div>
+        <p class="footer-tagline">Habitats modulaires dessinés par Daniel Siboni, fabriqués en France, installés chez vous en 1,5 mois.</p>
+        <div class="footer-nav">
+            <a href="motion-lumiere-siboni.html">Le Designer</a>
             <a href="construction.html">Construction</a>
             <a href="projets.html">Projets</a>
             <a href="aides.html">Aides</a>
             <a href="versions.html">Archives</a>
-        </nav>
+        </div>
+        <div class="footer-legal">
+            <a href="#">Mentions Légales</a>
+            <a href="#">Politique de Confidentialité</a>
+            <span>© 2023-2026 GlamHouse.net</span>
+        </div>
     </div>
 </footer>
 
@@ -270,23 +251,8 @@ footer { border-top: 1px solid var(--hairline); padding: 50px 0; }
     }, { threshold: 0.18 });
     document.querySelectorAll('.rv').forEach(function(el) { io.observe(el); });
 
-    var nav = document.getElementById('nav');
-    var burger = document.getElementById('navBurger');
-    if (nav && burger) {
-        burger.addEventListener('click', function() {
-            var open = nav.classList.toggle('nav-open');
-            burger.setAttribute('aria-expanded', open);
-            document.body.style.overflow = open ? 'hidden' : '';
-        });
-        nav.querySelectorAll('ul a').forEach(function(a) {
-            a.addEventListener('click', function() {
-                nav.classList.remove('nav-open');
-                burger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            });
-        });
-    }
 })();
 </script>
+<script src="script.js"></script>
 </body>
 </html>

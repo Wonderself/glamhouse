@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 17. CARDS ENTRANCE ANIMATION ---
-    const animateOnScroll = document.querySelectorAll('.house-card, .project-card, .aide-card, .spec-card, .glass-card, .invest-card, .pricing-card');
+    const animateOnScroll = document.querySelectorAll('.house-card, .project-card, .aide-card, .spec-card, .glass-card, .invest-card, .pricing-card, .usage-card');
     if (animateOnScroll.length > 0) {
         const entranceObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

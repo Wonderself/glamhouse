@@ -1821,3 +1821,11 @@ select { margin-bottom: 20px; }
     padding: 14px 0;
 }
 .marquee-text { color: #7a7368; font-weight: 600; font-size: 0.78rem; letter-spacing: 2.4px; }
+
+/* Bande CTA : même voix typographique que les titres de section */
+.cta-band h2 {
+    font-family: var(--font-serif); font-weight: 300; font-size: 2.6rem;
+    line-height: 1.15; letter-spacing: -0.01em; max-width: 20ch; margin: 0 auto 16px;
+}
+.cta-band h2 em { font-style: italic; color: var(--terracotta); }
+@media (max-width: 640px) { .cta-band h2 { font-size: 1.8rem; } }
