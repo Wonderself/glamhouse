@@ -2,6 +2,18 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-09-02 (quinquies) — Formulaire de contact + nouveau logo
+
+**Formulaire de contact.** La ligne « contact@glamhouse.net » est remplacée par un vrai formulaire, dans une section `#contact` sur l'accueil (là où pointait déjà le lien CONTACT de la navigation). Nom, mail, téléphone facultatif, message, et surtout un **menu d'objets pré-enregistrés** couvrant les demandes courantes : modèles, devis, aides et financement, terrain et mairie, délais, fondations, achat groupé, location saisonnière, garantie, partenariat — plus **« Autre »**, qui révèle un champ libre. Validation avant envoi, message de confirmation. Les autres pages renvoient vers ce formulaire.
+
+À noter : un gestionnaire générique interceptait *tous* les `<form>` de la page pour afficher « Bien reçu ! ». Il aurait écrasé le comportement du formulaire de contact et du configurateur — ils en sont désormais exclus.
+
+**Nouveau logo.** Dessiné en SVG, texte vectorisé depuis Outfit Bold (la police de titres du site), donc net à toute taille et sans dépendance à une police.
+- **La marque** : un module plein anthracite, traversé de quatre tasseaux verticaux couleur bois — la claire-voie qui est la signature du produit. Simple, géométrique, lisible jusqu'à 20 px.
+- **Deux couleurs seulement** : l'anthracite `#2C2C2C` du site et le bois `#C9A87C`, qui est exactement la teinte « sable » du configurateur. **Aucun rose.**
+- Trois fichiers : `logo.svg` (bloc complet), `logo-mark.svg` (marque seule, servant aussi de favicon — le site n'en avait aucun) et `logo-inverse.svg` pour fond sombre.
+- Le SVG étant transparent, la pastille blanche qui entourait l'ancien logo dans le pied de page disparaît : c'était le contournement du fond blanc du JPEG.
+
 ## 2026-09-02 (quater) — Audit de conformité + relecture de tous les textes
 
 **Audit de conformité mesuré.** Un script compare désormais, page par page, les styles calculés de la navigation, du logo, des liens, du CTA et du pied de page contre `index.html` pris comme référence. Il a trouvé les écarts que l'œil ratait :

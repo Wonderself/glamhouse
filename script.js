@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 3. GESTION DES FORMULAIRES (Simulation) ---
-    const forms = document.querySelectorAll('form');
+    // Le configurateur et le formulaire de contact ont leur propre logique.
+    const forms = document.querySelectorAll('form:not(#contactForm):not(#wizard)');
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -1044,6 +1045,39 @@ document.addEventListener('DOMContentLoaded', () => {
         wizard.addEventListener('submit', function (e) { e.preventDefault(); });
 
         show(1);
+    })();
+
+
+    // --- FORMULAIRE DE CONTACT ---
+    (function () {
+        var form = document.getElementById('contactForm');
+        if (!form) return;
+        var objet = document.getElementById('ctObjet');
+        var autreWrap = document.getElementById('ctAutreWrap');
+        var autre = document.getElementById('ctAutre');
+        var done = document.getElementById('ctDone');
+
+        objet.addEventListener('change', function () {
+            var isAutre = objet.value === 'autre';
+            autreWrap.hidden = !isAutre;
+            if (isAutre) autre.focus();
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var champs = [document.getElementById('ctNom'), document.getElementById('ctMail'), objet, document.getElementById('ctMessage')];
+            if (objet.value === 'autre') champs.push(autre);
+            var premierInvalide = null;
+            champs.forEach(function (el) {
+                var ok = el.value.trim() !== '' && (el.type !== 'email' || /\S+@\S+\.\S+/.test(el.value));
+                el.style.borderColor = ok ? '' : '#c0392b';
+                if (!ok && !premierInvalide) premierInvalide = el;
+            });
+            if (premierInvalide) { premierInvalide.focus(); return; }
+
+            done.hidden = false;
+            form.querySelector('button[type="submit"]').disabled = true;
+        });
     })();
 
 });

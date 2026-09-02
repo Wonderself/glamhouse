@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlamHouse | Studio et Duplex, habitat modulaire écologique</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+<link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -14,7 +15,7 @@
 
     <nav class="navbar">
         <div class="logo-container">
-            <a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a>
+            <a href="index.html"><img src="assets/logo.svg" alt="GlamHouse" class="nav-logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="motion-lumiere-siboni.html">LE DESIGNER</a></li>
@@ -473,6 +474,64 @@
         </div>
     </section>
 
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title edito-title">
+                <span class="edito-kicker">Nous écrire</span>
+                <h2>Une question ? <em>Posez-la</em>.</h2>
+                <p>Pour une étude chiffrée, passez plutôt par le configurateur — c'est plus rapide.</p>
+            </div>
+
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="contact-grid">
+                    <div>
+                        <label for="ctNom">Nom</label>
+                        <input type="text" id="ctNom" name="nom" autocomplete="name" required>
+                    </div>
+                    <div>
+                        <label for="ctMail">Mail</label>
+                        <input type="email" id="ctMail" name="mail" autocomplete="email" required>
+                    </div>
+                    <div>
+                        <label for="ctTel">Téléphone <span class="opt">(facultatif)</span></label>
+                        <input type="tel" id="ctTel" name="tel" autocomplete="tel">
+                    </div>
+                    <div>
+                        <label for="ctObjet">Objet</label>
+                        <select id="ctObjet" name="objet" required>
+                            <option value="">Choisissez un objet…</option>
+                            <option>Informations sur les modèles Studio et Duplex</option>
+                            <option>Demande de devis ou d'étude chiffrée</option>
+                            <option>Aides, subventions et financement</option>
+                            <option>Terrain et démarches en mairie</option>
+                            <option>Délais, livraison et installation</option>
+                            <option>Fondations et préparation du terrain</option>
+                            <option>Achat groupé ou projet collectif</option>
+                            <option>Location saisonnière et rentabilité</option>
+                            <option>Garantie et service après-vente</option>
+                            <option>Partenariat, presse ou recrutement</option>
+                            <option value="autre">Autre — je précise ci-dessous</option>
+                        </select>
+                    </div>
+                    <div class="full" id="ctAutreWrap" hidden>
+                        <label for="ctAutre">Précisez l'objet</label>
+                        <input type="text" id="ctAutre" name="objet_autre">
+                    </div>
+                    <div class="full">
+                        <label for="ctMessage">Votre message</label>
+                        <textarea id="ctMessage" name="message" required></textarea>
+                    </div>
+                </div>
+                <div class="contact-foot">
+                    <p class="contact-privacy"><i class="fas fa-lock"></i> Vos informations restent confidentielles.</p>
+                    <button type="submit" class="btn-primary btn-lg">ENVOYER</button>
+                </div>
+                <p class="contact-done" id="ctDone" hidden><i class="fas fa-circle-check"></i> Message envoyé — nous vous répondons sous 48 h.</p>
+            </form>
+        </div>
+    </section>
+
     <!-- CTA FINALE -->
     <section class="cta-band">
         <div class="container">
@@ -482,11 +541,11 @@
         </div>
     </section>
 
-    <footer class="site-footer" id="contact">
+    <footer class="site-footer">
         <div class="container text-center">
-            <div class="footer-logo-wrap"><img src="assets/logo.jpg" alt="Logo GlamHouse" class="footer-logo"></div>
+            <div class="footer-logo-wrap footer-logo-plain"><img src="assets/logo.svg" alt="GlamHouse" class="footer-logo"></div>
             <p class="footer-tagline">Habitats modulaires dessinés par Daniel Siboni, fabriqués en France, installés chez vous en 6 à 8 semaines.</p>
-            <p class="footer-contact">Une question avant de vous lancer ? <a href="mailto:contact@glamhouse.net">contact@glamhouse.net</a></p>
+            <p class="footer-contact">Une question avant de vous lancer ? <a href="#contact">Écrivez-nous →</a></p>
             <div class="footer-nav">
                 <a href="motion-lumiere-siboni.html">Le Designer</a>
                 <a href="construction.html">Construction</a>

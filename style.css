@@ -1836,3 +1836,53 @@ select { margin-bottom: 20px; }
 .logo-container a { display: block; }
 .footer-contact { font-size: 0.9rem; color: #7a7a7a; margin-bottom: 26px; }
 .footer-contact a { color: var(--terracotta); font-weight: 600; }
+
+/* =========================================================
+   FORMULAIRE DE CONTACT
+   ========================================================= */
+.contact-section { background: var(--cream-card); padding: 90px 0; border-top: var(--gk-border); }
+.contact-form {
+    max-width: 780px; margin: 0 auto; background: var(--white);
+    border: var(--gk-border); border-radius: var(--gk-radius); box-shadow: var(--gk-shadow);
+    padding: 34px 38px 32px;
+}
+.contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.contact-grid .full { grid-column: 1 / -1; }
+.contact-grid label {
+    display: block; font-size: 0.8rem; font-weight: 600; color: #6b6b6b; margin-bottom: 6px;
+}
+.contact-grid label .opt { font-weight: 400; color: #9a9a9a; }
+.contact-grid input, .contact-grid select, .contact-grid textarea {
+    width: 100%; padding: 13px 14px; border: var(--gk-border); border-radius: var(--gk-radius);
+    font-family: var(--font-body); font-size: 0.95rem; background: var(--cream-card);
+    color: var(--charcoal); margin: 0;
+}
+.contact-grid textarea { min-height: 130px; resize: vertical; height: auto; }
+.contact-grid input:focus, .contact-grid select:focus, .contact-grid textarea:focus {
+    outline: none; border-color: var(--charcoal);
+}
+.contact-foot {
+    display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    flex-wrap: wrap; margin-top: 24px;
+}
+.contact-privacy { font-size: 0.82rem; color: #7a7a7a; margin: 0; }
+.contact-privacy i { color: var(--terracotta); margin-right: 7px; }
+.contact-done {
+    margin: 20px 0 0; padding: 14px 16px; border-radius: var(--gk-radius);
+    background: #e8f5e9; color: #2e7d32; font-weight: 600; font-size: 0.92rem; text-align: center;
+}
+.contact-done i { margin-right: 8px; }
+
+@media (max-width: 640px) {
+    .contact-form { padding: 26px 20px 24px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-foot { flex-direction: column; align-items: stretch; }
+    .contact-foot .btn-primary { width: 100%; }
+}
+
+/* Nouveau logo vectoriel : fond transparent, plus besoin de pastille blanche */
+.footer-logo-plain { background: none; padding: 0; }
+.nav-logo { height: 44px; width: auto; }
+.footer-logo { height: 42px; width: auto; }
+@media (max-width: 1150px) { .nav-logo { height: 38px; } }
+@media (max-width: 640px) { .nav-logo { height: 34px; } }
