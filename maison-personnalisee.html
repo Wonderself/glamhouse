@@ -18,7 +18,6 @@
             <li class="nav-dropdown"><a href="projets.html">PROJETS</a>
                 <div class="dropdown-menu">
                     <a href="maison-personnalisee.html">Ma Maison Perso</a>
-                    <a href="residence-senior.html">Résidence Senior Normandie</a>
                     <a href="ecovillage.html">ÉcoVillage Moderne</a>
                 </div>
             </li>
@@ -45,7 +44,7 @@
                 </div>
                 <div class="text-block">
                     <h3>Votre Maison, Votre Vision</h3>
-                    <p>Choisissez entre La 20 (plain-pied, 20 m²) et La 30 (deux niveaux, 30 m²), puis personnalisez le revêtement, la couleur et l'agencement selon vos besoins.</p>
+                    <p>Choisissez entre le Studio (plain-pied, 20 m²) et le Duplex (deux niveaux, 30 m²), puis personnalisez le plan, le revêtement, la couleur et l'agencement selon vos besoins.</p>
 
                     <div class="info-banner" style="margin: 25px 0;">
                         <i class="fas fa-lightbulb"></i>
@@ -71,8 +70,8 @@
                     <div class="calc-inputs">
                         <label>Modèle de base</label>
                         <select id="calcModel">
-                            <option value="20000">La 20 — plain-pied 20 m² (20 000€)</option>
-                            <option value="30000">La 30 — deux niveaux 30 m² (30 000€)</option>
+                            <option value="20000">Studio — plain-pied 20 m² (20 000€)</option>
+                            <option value="30000">Duplex — deux niveaux 30 m² (30 000€)</option>
                         </select>
 
                         <label>Fondations & raccordements</label>
@@ -80,11 +79,13 @@
                             <option value="8000">Plots béton standard (8 000€)</option>
                             <option value="15000">Dalle béton complète (15 000€)</option>
                             <option value="22000">Vide sanitaire (22 000€)</option>
+                            <option value="15000">Je ne sais pas encore — estimation standard</option>
                         </select>
 
                         <label>Votre situation</label>
                         <select id="calcSituation">
                             <option value="primo">Primo-accédant</option>
+                            <option value="jardin">J'ajoute une unité dans mon jardin</option>
                             <option value="renovation">Remplacement habitat ancien</option>
                             <option value="secondaire">Résidence secondaire</option>
                             <option value="locatif">Investissement locatif</option>
@@ -103,8 +104,8 @@
                     <div class="calc-result">
                         <p style="color: #888; margin-bottom: 5px;">Prix total estimé</p>
                         <div class="total-price" id="totalPrice">28 000 €</div>
-                        <p style="color: #888; margin: 15px 0 5px;">Après déduction des aides</p>
-                        <div class="total-after" id="totalAfter">22 000 €</div>
+                        <p class="calc-after-label">Après déduction des aides</p>
+                        <div class="total-after total-after-xl" id="totalAfter">22 000 €</div>
                         <div class="calc-savings" id="calcSavings">
                             <i class="fas fa-piggy-bank"></i> Économie estimée : 6 000 €
                         </div>

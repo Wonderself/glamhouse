@@ -2,6 +2,32 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-09-02 — Refonte de la présentation + allègement du site
+
+**Allègement**
+- **Résidence Senior entièrement retirée** : page `residence-senior.html` supprimée, ainsi que ses entrées de menu, sa carte sur `projets.html`, sa colonne dans le tableau comparatif, son option dans les formulaires et sa ligne dans le Dockerfile. `projets.html` compare désormais 2 formules (Maison Perso / ÉcoVillage). L'onglet « Senior / Retraité » de la page Aides est conservé : il concerne un profil d'acheteur (APA, CARSAT, ANAH), pas la formule supprimée.
+
+**Nommage & textes**
+- **La 20 → Studio** et **La 30 → Duplex** partout sur les pages actives (les identifiants techniques `la20`/`la30` et les noms de fichiers sont inchangés).
+- Masthead : « Été 2026 » → « 2026 ».
+- Formulaire : « Email professionnel » → « Mail ».
+- Page Aides : « Le Dossier que Nous Montons pour le Maire » devient **« Ce que vous devez faire avec la mairie »**, reformulé à la deuxième personne — les démarches que *vous* menez, nous fournissant les pièces.
+
+**Simulateurs**
+- Fondations : ajout du choix **« Je ne sais pas encore — estimation standard »**.
+- Situation / profil : ajout du cas **« J'ajoute une unité dans mon jardin »** sur `maison-personnalisee.html` et sur `aides.html`, avec la mention « unité ≤ 20 m² : déclaration préalable, pas de permis ».
+- Le montant « Après déduction des aides » passe de 1,8 rem à 3,2 rem (c'est le chiffre que les gens viennent chercher).
+
+**Plans**
+- Les planches `planche-house-20/30.png` étant identiques, les vrais plans en ont été détourés : `assets/plan-studio.png` (plan RDC 4 × 5 m) et `assets/plan-duplex.png` (RDC + étage + rooftop).
+- Le configurateur de la page d'accueil gagne une vue **Plan** à côté de Vidéo / Mix bois / Uni.
+
+**Refonte de la présentation** (structure inspirée des landing pages de studios de jardin, palette GlamHouse conservée)
+- CTA permanent « Configurer mon projet » dans la navbar, repris dans le hero, les cartes maison, le footer et une bande CTA finale.
+- Nouvelles sections : bandeau de réassurance (4 atouts), **grille d'usages** (6 cartes — la section ajoutée en remplacement de Résidence Senior), parcours numéroté en 5 étapes, bande de chiffres clés, FAQ en accordéon.
+- **Formulaire remplacé par un configurateur en 5 étapes** : tuiles cliquables qui font avancer d'elles-mêmes, barre de progression « Votre projet n / 5 », boutons « Continuer › » / « ‹ Retour », récapitulatif avant les coordonnées, mention de confidentialité, écran de confirmation. L'ancien formulaire du footer est remplacé par un renvoi vers le configurateur.
+- Système visuel homogène : rayon 8 px, bordures 1 px (2 px pour les éléments sélectionnés), respiration verticale généreuse.
+
 ## 2026-07-28 (sexies) — Vidéo La 20 : orbite d'arrivée + entrée dans la maison
 
 - Remplace le rallongement en image figée (quinquies, insatisfaisant) par du vrai contenu généré avec fal.ai (Veo 3) : `assets/videos/tiny-20.mp4` commence désormais par une orbite drone à 360° autour de la maison avant d'arriver face à l'entrée, et se termine par une avancée caméra à travers la porte vitrée qui révèle l'intérieur (séjour, cuisine, plafond bois). Durée totale 20,3s. Raccords vérifiés image par image aux deux points de coupe.

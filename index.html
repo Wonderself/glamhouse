@@ -22,6 +22,7 @@
             <li><a href="projets.html">PROJETS</a></li>
             <li><a href="versions.html">ARCHIVES</a></li>
             <li><a href="#contact">CONTACT</a></li>
+            <li><a href="#configurateur" class="nav-cta">Configurer mon projet</a></li>
         </ul>
         <div class="hamburger">
             <span class="bar"></span>
@@ -49,13 +50,40 @@
                 <p style="font-size: 0.8rem; opacity: 0.8;">Maisons passives, écologiques, recyclables, écoresponsables. Dans le respect total de la nature.</p>
             </div>
             <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="#maisons" class="btn-primary btn-lg">DÉCOUVRIR LES MAISONS →</a>
+                <a href="#configurateur" class="btn-primary btn-lg">CONFIGURER MON PROJET</a>
+                <a href="#maisons" class="btn-outline btn-lg" style="border-color:#fff; color:#fff;">VOIR LES MODÈLES</a>
             </div>
         </div>
     </header>
 
+    <!-- RÉASSURANCE -->
+    <section class="trust-bar">
+        <div class="container trust-grid">
+            <div class="trust-item">
+                <i class="fas fa-drafting-compass"></i>
+                <b>Daniel Siboni</b>
+                <span>Design signé</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-key"></i>
+                <b>100%</b>
+                <span>Clé en main</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-truck-fast"></i>
+                <b>1,5 mois</b>
+                <span>De la commande à la remise des clés</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-industry"></i>
+                <b>Française</b>
+                <span>Fabrication en atelier ÉCOLABEL</span>
+            </div>
+        </div>
+    </section>
+
     <div class="edito-masthead" aria-hidden="true">
-        <span>Glamhouse</span><i>·</i><span>Été 2026</span>
+        <span>Glamhouse</span><i>·</i><span>2026</span>
     </div>
 
     <!-- LES DEUX MAISONS -->
@@ -72,14 +100,16 @@
                         <video class="mm mm-video active" autoplay muted loop playsinline preload="metadata">
                             <source src="assets/videos/tiny-20.mp4" type="video/mp4">
                         </video>
-                        <img class="mm mm-image" src="assets/gen/la20-bois-noir.jpg" alt="La 20 — aperçu du revêtement choisi">
+                        <img class="mm mm-image" src="assets/gen/la20-bois-noir.jpg" alt="Studio — aperçu du revêtement choisi">
+                        <img class="mm mm-plan" src="assets/plan-studio.png" alt="Studio — plan du rez-de-chaussée, 4 × 5 m">
                         <span class="maison-no">N° 01</span>
                     </figure>
                     <div class="maison-config">
                         <div class="config-row">
-                            <span class="config-label">Revêtement</span>
+                            <span class="config-label">Vue</span>
                             <div class="config-pills">
                                 <button type="button" class="pill active" data-revet="video">Vidéo</button>
+                                <button type="button" class="pill" data-revet="plan">Plan</button>
                                 <button type="button" class="pill" data-revet="bois">Mix bois</button>
                                 <button type="button" class="pill" data-revet="uni">Uni</button>
                             </div>
@@ -95,7 +125,7 @@
                     </div>
                     <div class="maison-info">
                         <div class="maison-head">
-                            <h3>La 20</h3>
+                            <h3>Studio</h3>
                             <span class="maison-price">20 000 €</span>
                         </div>
                         <p class="maison-desc">20 m² de plain-pied (4 × 5 m) où chaque centimètre travaille : séjour lumineux au canapé-lit, cuisine ouverte, salle d'eau complète, coin repas.</p>
@@ -104,7 +134,7 @@
                             <li><b>4 × 5 m</b><small>au sol</small></li>
                             <li><b>Sans permis</b><small>déclaration préalable</small></li>
                         </ul>
-                        <a href="#contact" class="maison-link">Demander une étude →</a>
+                        <a href="#configurateur" class="maison-link">Demander une étude →</a>
                     </div>
                 </article>
                 <article class="maison-card" data-house="la30">
@@ -112,14 +142,16 @@
                         <video class="mm mm-video active" autoplay muted loop playsinline preload="metadata">
                             <source src="assets/videos/triplex.mp4" type="video/mp4">
                         </video>
-                        <img class="mm mm-image" src="assets/gen/la30-bois-noir.jpg" alt="La 30 — aperçu du revêtement choisi">
+                        <img class="mm mm-image" src="assets/gen/la30-bois-noir.jpg" alt="Duplex — aperçu du revêtement choisi">
+                        <img class="mm mm-plan" src="assets/plan-duplex.png" alt="Duplex — plans rez-de-chaussée, étage et rooftop">
                         <span class="maison-no">N° 02</span>
                     </figure>
                     <div class="maison-config">
                         <div class="config-row">
-                            <span class="config-label">Revêtement</span>
+                            <span class="config-label">Vue</span>
                             <div class="config-pills">
                                 <button type="button" class="pill active" data-revet="video">Vidéo</button>
+                                <button type="button" class="pill" data-revet="plan">Plan</button>
                                 <button type="button" class="pill" data-revet="bois">Mix bois</button>
                                 <button type="button" class="pill" data-revet="uni">Uni</button>
                             </div>
@@ -135,7 +167,7 @@
                     </div>
                     <div class="maison-info">
                         <div class="maison-head">
-                            <h3>La 30</h3>
+                            <h3>Duplex</h3>
                             <span class="maison-price">30 000 €</span>
                         </div>
                         <p class="maison-desc">Même empreinte au sol, plus une chambre de 10 m² à l'étage face à sa terrasse de 10 m². Le séjour cathédrale — 4,2 m sous plafond — lui donne la respiration d'une vraie maison.</p>
@@ -144,11 +176,104 @@
                             <li><b>2</b><small>niveaux</small></li>
                             <li><b>10 m²</b><small>terrasse face chambre · déclaration préalable</small></li>
                         </ul>
-                        <a href="#contact" class="maison-link">Demander une étude →</a>
+                        <a href="#configurateur" class="maison-link">Demander une étude →</a>
                     </div>
                 </article>
             </div>
-            <p class="finitions-note">Chaque maison, à votre goût — choisissez le revêtement et la couleur directement sur chaque carte ci-dessus pour voir le résultat.</p>
+            <p class="finitions-note">Chaque maison, à votre goût — choisissez la vue, le revêtement et la couleur directement sur chaque carte ci-dessus pour voir le résultat.</p>
+        </div>
+    </section>
+
+    <!-- USAGES -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title edito-title">
+                <span class="edito-kicker">Usages</span>
+                <h2>Une maison, <em>plusieurs vies</em>.</h2>
+                <p>Le même module, selon ce que vous en faites. Dites-nous votre usage, nous adaptons l'agencement.</p>
+            </div>
+            <div class="usage-grid">
+                <a href="#configurateur" class="usage-card">
+                    <img src="assets/maison1.jpg" alt="Chambre d'amis">
+                    <div class="usage-card-body">
+                        <h4>Chambre d'amis</h4>
+                        <p>Recevoir sans encombrer la maison — salle d'eau et coin nuit indépendants.</p>
+                    </div>
+                </a>
+                <a href="#configurateur" class="usage-card">
+                    <img src="assets/photo2.jpg" alt="Bureau de jardin">
+                    <div class="usage-card-body">
+                        <h4>Bureau de jardin</h4>
+                        <p>Le télétravail à dix mètres de chez vous, au calme et à la lumière.</p>
+                    </div>
+                </a>
+                <a href="#configurateur" class="usage-card">
+                    <img src="assets/maison2.jpg" alt="Studio à louer">
+                    <div class="usage-card-body">
+                        <h4>Studio à louer</h4>
+                        <p>Un revenu complémentaire sur un terrain que vous possédez déjà.</p>
+                    </div>
+                </a>
+                <a href="#configurateur" class="usage-card">
+                    <img src="assets/maison3.jpg" alt="Logement d'appoint">
+                    <div class="usage-card-body">
+                        <h4>Logement d'appoint</h4>
+                        <p>Un grand ado, un parent proche — l'indépendance sans quitter le terrain familial.</p>
+                    </div>
+                </a>
+                <a href="#configurateur" class="usage-card">
+                    <img src="assets/photo3.jpeg" alt="Location courte durée">
+                    <div class="usage-card-body">
+                        <h4>Location courte durée</h4>
+                        <p>Écotourisme et séjours nature : un module en zone touristique se remplit vite.</p>
+                    </div>
+                </a>
+                <a href="#configurateur" class="usage-card">
+                    <img src="assets/ref-la20.jpg" alt="Résidence principale">
+                    <div class="usage-card-body">
+                        <h4>Résidence principale</h4>
+                        <p>Vivre petit, mieux dessiné — et ouvrir droit aux aides de l'État.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARCOURS -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="section-title edito-title">
+                <span class="edito-kicker">Le parcours</span>
+                <h2>De l'idée aux clés, <em>en cinq étapes</em>.</h2>
+                <p>Environ 1,5 mois entre la signature et votre installation.</p>
+            </div>
+            <div class="steps-row">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h4>Votre projet</h4>
+                    <p>Vous configurez en ligne : modèle, usage, terrain. Nous rappelons sous 48 h.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h4>Étude &amp; plans</h4>
+                    <p>Étude personnalisée avec l'architecte, plans validés par vous.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h4>Démarches</h4>
+                    <p>Déclaration préalable en mairie — nous préparons les pièces du dossier.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">4</div>
+                    <h4>Fabrication</h4>
+                    <p>Ossature bois découpée en atelier français, pré-câblée et contrôlée.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">5</div>
+                    <h4>Installation</h4>
+                    <p>Livraison, assemblage sur fondations, raccordements, remise des clés.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -178,6 +303,16 @@
         </div>
     </section>
 
+    <!-- CHIFFRES -->
+    <section class="proof-band">
+        <div class="container proof-grid">
+            <div><b>20 m²</b><span>Sans permis de construire</span></div>
+            <div><b>1,5 mois</b><span>Délai moyen d'installation</span></div>
+            <div><b>10 ans</b><span>Garantie décennale</span></div>
+            <div><b>Dès 20 000 €</b><span>Avant aides de l'État</span></div>
+        </div>
+    </section>
+
     <!-- AIDES — bandeau discret -->
     <section class="aides-banner">
         <div class="container aides-banner-inner">
@@ -186,28 +321,178 @@
         </div>
     </section>
 
+    <!-- CONFIGURATEUR -->
+    <section class="config-section" id="configurateur">
+        <div class="container">
+            <div class="section-title edito-title">
+                <span class="edito-kicker">Votre projet</span>
+                <h2>Configurez <em>votre maison</em>.</h2>
+                <p>Cinq questions, deux minutes. Nous revenons vers vous sous 48 h avec une étude chiffrée.</p>
+            </div>
+
+            <form class="wizard" id="wizard" novalidate>
+                <div class="wizard-head">
+                    <span class="wizard-kicker" id="wizardStepLabel">Votre projet 1 / 5</span>
+                    <div class="wizard-progress"><span id="wizardBar"></span></div>
+                </div>
+
+                <!-- 1 -->
+                <div class="wz-step active" data-step="1">
+                    <h3>Quel modèle vous intéresse ?</h3>
+                    <p class="hint">Aucun choix n'est définitif — vous pourrez tout ajuster avec l'architecte.</p>
+                    <div class="tile-grid">
+                        <button type="button" class="tile" data-field="modele" data-value="Studio 20 m²">
+                            <i class="fas fa-cube"></i><b>Studio</b><small>20 m² · plain-pied</small>
+                        </button>
+                        <button type="button" class="tile" data-field="modele" data-value="Duplex 30 m²">
+                            <i class="fas fa-layer-group"></i><b>Duplex</b><small>30 m² · deux niveaux</small>
+                        </button>
+                        <button type="button" class="tile" data-field="modele" data-value="Je ne sais pas encore">
+                            <i class="fas fa-circle-question"></i><b>Je ne sais pas</b><small>On en parle ensemble</small>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="wz-step" data-step="2">
+                    <h3>À quoi va-t-elle servir ?</h3>
+                    <p class="hint">Cela détermine l'agencement intérieur et les équipements.</p>
+                    <div class="tile-grid">
+                        <button type="button" class="tile" data-field="usage" data-value="Chambre d'amis"><i class="fas fa-bed"></i><b>Chambre d'amis</b></button>
+                        <button type="button" class="tile" data-field="usage" data-value="Bureau de jardin"><i class="fas fa-laptop"></i><b>Bureau de jardin</b></button>
+                        <button type="button" class="tile" data-field="usage" data-value="Studio à louer"><i class="fas fa-key"></i><b>Studio à louer</b></button>
+                        <button type="button" class="tile" data-field="usage" data-value="Logement d'appoint"><i class="fas fa-house-user"></i><b>Logement d'appoint</b></button>
+                        <button type="button" class="tile" data-field="usage" data-value="Résidence principale"><i class="fas fa-house"></i><b>Résidence principale</b></button>
+                        <button type="button" class="tile" data-field="usage" data-value="Autre / je ne sais pas"><i class="fas fa-circle-question"></i><b>Autre</b></button>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="wz-step" data-step="3">
+                    <h3>Où souhaitez-vous l'installer ?</h3>
+                    <p class="hint">Un module de 20 m² relève d'une simple déclaration préalable en mairie.</p>
+                    <div class="tile-grid">
+                        <button type="button" class="tile" data-field="terrain" data-value="Dans mon jardin"><i class="fas fa-tree"></i><b>Dans mon jardin</b><small>J'ajoute une unité</small></button>
+                        <button type="button" class="tile" data-field="terrain" data-value="Sur un terrain que je possède"><i class="fas fa-map-location-dot"></i><b>Sur mon terrain</b><small>Terrain déjà acquis</small></button>
+                        <button type="button" class="tile" data-field="terrain" data-value="Pas encore de terrain"><i class="fas fa-magnifying-glass-location"></i><b>Pas encore de terrain</b><small>À trouver</small></button>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="wz-step" data-step="4">
+                    <h3>Quelles fondations envisagez-vous ?</h3>
+                    <p class="hint">Si vous ne savez pas, ce n'est pas un problème — nous étudions le terrain.</p>
+                    <div class="tile-grid">
+                        <button type="button" class="tile" data-field="fondations" data-value="Plots béton"><i class="fas fa-grip-vertical"></i><b>Plots béton</b><small>Économique</small></button>
+                        <button type="button" class="tile" data-field="fondations" data-value="Dalle béton complète"><i class="fas fa-square"></i><b>Dalle béton</b><small>Standard</small></button>
+                        <button type="button" class="tile" data-field="fondations" data-value="Vide sanitaire"><i class="fas fa-layer-group"></i><b>Vide sanitaire</b><small>Premium</small></button>
+                        <button type="button" class="tile" data-field="fondations" data-value="Je ne sais pas"><i class="fas fa-circle-question"></i><b>Je ne sais pas</b><small>À déterminer ensemble</small></button>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="wz-step" data-step="5">
+                    <h3>Vos coordonnées</h3>
+                    <p class="hint">Nous vous rappelons sous 48 h avec une première estimation.</p>
+                    <div class="wizard-recap" id="wizardRecap"></div>
+                    <div class="wizard-fields">
+                        <div>
+                            <label for="wzPrenom">Prénom</label>
+                            <input type="text" id="wzPrenom" name="prenom" autocomplete="given-name" required>
+                        </div>
+                        <div>
+                            <label for="wzNom">Nom</label>
+                            <input type="text" id="wzNom" name="nom" autocomplete="family-name" required>
+                        </div>
+                        <div>
+                            <label for="wzMail">Mail</label>
+                            <input type="email" id="wzMail" name="mail" autocomplete="email" required>
+                        </div>
+                        <div>
+                            <label for="wzTel">Téléphone</label>
+                            <input type="tel" id="wzTel" name="tel" autocomplete="tel">
+                        </div>
+                        <div class="full">
+                            <label for="wzMessage">Votre projet en quelques mots (facultatif)</label>
+                            <textarea id="wzMessage" name="message"></textarea>
+                        </div>
+                    </div>
+                    <p class="wizard-privacy"><i class="fas fa-lock"></i> Vos informations restent confidentielles et ne servent qu'à préparer votre étude.</p>
+                </div>
+
+                <!-- Confirmation -->
+                <div class="wz-step" data-step="6">
+                    <div class="wizard-done">
+                        <i class="fas fa-circle-check"></i>
+                        <h3>Merci, c'est envoyé.</h3>
+                        <p class="hint">Nous revenons vers vous sous 48 h avec une étude chiffrée de votre projet.</p>
+                    </div>
+                </div>
+
+                <div class="wizard-nav" id="wizardNav">
+                    <button type="button" class="wizard-back" id="wizardBack" hidden>‹ Retour</button>
+                    <button type="button" class="wizard-next" id="wizardNext">Continuer ›</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="section-title edito-title">
+                <span class="edito-kicker">Questions</span>
+                <h2>Ce qu'on nous demande <em>le plus souvent</em>.</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button type="button" class="faq-q">Faut-il un permis de construire ?</button>
+                    <div class="faq-a"><p>Jusqu'à 20 m² d'emprise au sol, une déclaration préalable de travaux suffit — délai d'instruction d'un mois environ. Au-delà, un permis de construire est nécessaire (2 à 3 mois). Nous préparons les pièces du dossier dans les deux cas.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-q">Combien de temps entre la commande et l'installation ?</button>
+                    <div class="faq-a"><p>Comptez environ 1,5 mois : la maison est préfabriquée en atelier pendant que les démarches avancent, puis assemblée sur place en quelques jours.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-q">Quelles fondations sont nécessaires ?</button>
+                    <div class="faq-a"><p>Trois solutions selon le terrain : plots béton (économique), dalle complète (standard) ou vide sanitaire (premium). Si vous ne savez pas encore, nous étudions le terrain avant de trancher.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-q">Quelles aides puis-je obtenir ?</button>
+                    <div class="faq-a"><p>Selon votre situation : MaPrimeRénov', Éco-PTZ, TVA réduite à 5,5%, exonération de taxe foncière, aides locales. Le détail dispositif par dispositif est sur notre page Aides.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-q">La maison est-elle garantie ?</button>
+                    <div class="faq-a"><p>Oui : garantie décennale et assurance dommages-ouvrage, comme pour toute construction. La fabrication est réalisée en atelier certifié ÉCOLABEL.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-q">Puis-je acheter à plusieurs ?</button>
+                    <div class="faq-a"><p>Oui. Vous pouvez vous regrouper à 2, 3 ou 4 sur un même terrain et partager les frais de fondations et de raccordements — jusqu'à 15% d'économie.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINALE -->
+    <section class="cta-band">
+        <div class="container">
+            <h2>Prêt à gagner des mètres carrés ?</h2>
+            <p>Configurez votre maison en deux minutes — nous revenons vers vous sous 48 h.</p>
+            <a href="#configurateur" class="btn-primary btn-lg">CONFIGURER MON PROJET</a>
+        </div>
+    </section>
+
     <footer id="contact">
         <div class="container">
             <div class="footer-layout">
                 <div class="footer-form">
                     <h3>Démarrer votre Projet</h3>
-                    <p>Configuration sur mesure de votre maison.</p>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Nom complet" required>
-                            <input type="email" placeholder="Email professionnel" required>
-                        </div>
-                        <select>
-                            <option value="">Type de projet...</option>
-                            <option value="module20">La 20</option>
-                            <option value="module30">La 30</option>
-                            <option value="invest">Investissement locatif</option>
-                            <option value="collectif">Projet collectif (résidence, écovillage…)</option>
-                            <option value="partenariat">Partenariat / Groupe Immo</option>
-                        </select>
-                        <textarea placeholder="Détaillez votre demande..."></textarea>
-                        <button type="submit" class="btn-submit">ENVOYER LA DEMANDE</button>
-                    </form>
+                    <p>Configurez votre maison en cinq questions — étude chiffrée sous 48 h.</p>
+                    <a href="#configurateur" class="btn-primary btn-lg" style="margin-top: 18px;">CONFIGURER MON PROJET</a>
+                    <p style="margin-top: 26px; font-size: 0.9rem; color: #888;">
+                        Une question avant de vous lancer ?<br>
+                        <a href="mailto:contact@glamhouse.net" style="color: var(--terracotta); font-weight: 600;">contact@glamhouse.net</a>
+                    </p>
                 </div>
 
                 <div class="footer-info">

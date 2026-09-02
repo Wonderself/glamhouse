@@ -158,10 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let aidsText = '<strong>Aides estimées :</strong><br>';
 
         // MaPrimeRénov
-        if (situation === 'primo' || situation === 'renovation') {
+        if (situation === 'primo' || situation === 'renovation' || situation === 'jardin') {
             const mpr = zone === 'C' ? 10000 : zone === 'B2' ? 8000 : zone === 'B1' ? 6000 : 4000;
             aids += mpr;
-            aidsText += `• MaPrimeRénov' : ${mpr.toLocaleString()}€<br>`;
+            aidsText += `• MaPrimeRénov' : ${mpr.toLocaleString('fr-FR')}€<br>`;
+        }
+
+        if (situation === 'jardin') {
+            aidsText += '• Unité ≤ 20 m² : déclaration préalable, pas de permis<br>';
         }
 
         // Éco-PTZ
@@ -170,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // TVA 5.5%
         const tvaEco = Math.round(total * 0.145); // difference between 20% and 5.5%
         aids += Math.min(tvaEco, 8000);
-        aidsText += `• TVA réduite 5,5% : ~${Math.min(tvaEco, 8000).toLocaleString()}€<br>`;
+        aidsText += `• TVA réduite 5,5% : ~${Math.min(tvaEco, 8000).toLocaleString('fr-FR')}€<br>`;
 
         // Exonération taxe foncière
         aidsText += '• Exonération taxe foncière : 2 ans minimum<br>';
@@ -183,9 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const afterAids = total - aids;
 
-        document.getElementById('totalPrice').textContent = total.toLocaleString() + ' €';
-        document.getElementById('totalAfter').textContent = afterAids.toLocaleString() + ' €';
-        document.getElementById('calcSavings').innerHTML = '<i class="fas fa-piggy-bank"></i> Économie estimée : ' + aids.toLocaleString() + ' €';
+        document.getElementById('totalPrice').textContent = total.toLocaleString('fr-FR') + ' €';
+        document.getElementById('totalAfter').textContent = afterAids.toLocaleString('fr-FR') + ' €';
+        document.getElementById('calcSavings').innerHTML = '<i class="fas fa-piggy-bank"></i> Économie estimée : ' + aids.toLocaleString('fr-FR') + ' €';
         document.getElementById('aidesDetail').innerHTML = aidsText;
     };
 
@@ -208,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (mpr > 0) {
             totalAides += mpr;
-            breakdown += `<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>MaPrimeRénov' :</strong> ${mpr.toLocaleString()}€</p>`;
+            breakdown += `<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>MaPrimeRénov' :</strong> ${mpr.toLocaleString('fr-FR')}€</p>`;
         }
 
         // Éco-PTZ
@@ -217,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // TVA 5.5%
         const tva = Math.round(budget * 0.145);
         totalAides += Math.min(tva, 8000);
-        breakdown += `<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>TVA 5,5% :</strong> ~${Math.min(tva, 8000).toLocaleString()}€</p>`;
+        breakdown += `<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>TVA 5,5% :</strong> ~${Math.min(tva, 8000).toLocaleString('fr-FR')}€</p>`;
 
         // Exonération TF
         breakdown += '<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>Exonération taxe foncière :</strong> 2-5 ans</p>';
@@ -238,10 +242,11 @@ document.addEventListener('DOMContentLoaded', () => {
             totalAides += 5000;
             breakdown += '<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>Habitat participatif :</strong> ~3 000€</p>';
             totalAides += 3000;
-        } else if (projet === 'senior') {
-            totalAides += 5000;
-            breakdown += '<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>Habitat inclusif :</strong> 180€/mois</p>';
-            breakdown += '<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>DETR commune :</strong> subvention terrain</p>';
+        }
+
+        // Unité ajoutée dans le jardin d'un logement existant
+        if (profile === 'jardin') {
+            breakdown += '<p style="margin: 5px 0;"><i class="fas fa-check" style="color: #4caf50; margin-right: 8px;"></i><strong>Unité ≤ 20 m² :</strong> déclaration préalable, pas de permis</p>';
         }
 
         // Aides locales
@@ -250,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         breakdown += '</div>';
 
-        document.getElementById('totalAides').textContent = totalAides.toLocaleString() + '€';
+        document.getElementById('totalAides').textContent = totalAides.toLocaleString('fr-FR') + '€';
         document.getElementById('totalAides').style.color = '#2e7d32';
         document.getElementById('aidesBreakdown').innerHTML = breakdown;
     };
@@ -449,7 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         'roadmap-p3': [
             { text: "50 maisons/an — 2ème atelier ouvert", done: false },
-            { text: 'Résidence Senior Normandie inaugurée', done: false },
             { text: 'ÉcoVillage terrain acquis, premiers modules posés', done: false },
             { text: 'Premiers loyers distribués aux token holders', done: false },
             { text: 'Levée de fonds Série A (si nécessaire)', done: false },
@@ -909,19 +913,18 @@ document.addEventListener('DOMContentLoaded', () => {
         var house = card.getAttribute('data-house');
         var video = card.querySelector('.mm-video');
         var image = card.querySelector('.mm-image');
+        var plan = card.querySelector('.mm-plan');
         var revetPills = card.querySelectorAll('[data-revet]');
         var couleurBtns = card.querySelectorAll('[data-couleur]');
         var currentRevet = 'video';
         var currentCouleur = 'noir';
 
         function render() {
-            if (currentRevet === 'video') {
-                video.classList.add('active');
-                image.classList.remove('active');
-            } else {
+            video.classList.toggle('active', currentRevet === 'video');
+            plan.classList.toggle('active', currentRevet === 'plan');
+            image.classList.toggle('active', currentRevet !== 'video' && currentRevet !== 'plan');
+            if (currentRevet !== 'video' && currentRevet !== 'plan') {
                 image.src = 'assets/gen/' + house + '-' + currentRevet + '-' + currentCouleur + '.jpg';
-                image.classList.add('active');
-                video.classList.remove('active');
             }
         }
 
@@ -937,7 +940,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', function() {
                 currentCouleur = btn.getAttribute('data-couleur');
                 couleurBtns.forEach(function(b) { b.classList.toggle('active', b === btn); });
-                if (currentRevet === 'video') {
+                if (currentRevet === 'video' || currentRevet === 'plan') {
                     currentRevet = 'bois';
                     revetPills.forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-revet') === 'bois'); });
                 }
@@ -945,5 +948,102 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // --- FAQ accordéon ---
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            btn.parentElement.classList.toggle('open');
+        });
+    });
+
+    // --- CONFIGURATEUR multi-étapes ---
+    (function () {
+        var wizard = document.getElementById('wizard');
+        if (!wizard) return;
+
+        var steps = wizard.querySelectorAll('.wz-step');
+        var bar = document.getElementById('wizardBar');
+        var label = document.getElementById('wizardStepLabel');
+        var backBtn = document.getElementById('wizardBack');
+        var nextBtn = document.getElementById('wizardNext');
+        var nav = document.getElementById('wizardNav');
+        var recap = document.getElementById('wizardRecap');
+
+        var LAST_QUESTION = 5;
+        var current = 1;
+        var answers = {};
+
+        function show(step) {
+            current = step;
+            steps.forEach(function (s) {
+                s.classList.toggle('active', Number(s.getAttribute('data-step')) === step);
+            });
+
+            if (step > LAST_QUESTION) {
+                nav.hidden = true;
+                bar.style.width = '100%';
+                label.textContent = 'Demande envoyée';
+                return;
+            }
+
+            bar.style.width = (step / LAST_QUESTION * 100) + '%';
+            label.textContent = 'Votre projet ' + step + ' / ' + LAST_QUESTION;
+            backBtn.hidden = step === 1;
+            nextBtn.textContent = step === LAST_QUESTION ? 'Finaliser ma demande' : 'Continuer ›';
+
+            if (step === LAST_QUESTION) renderRecap();
+        }
+
+        function renderRecap() {
+            var parts = [];
+            if (answers.modele) parts.push('<b>Modèle :</b> ' + answers.modele);
+            if (answers.usage) parts.push('<b>Usage :</b> ' + answers.usage);
+            if (answers.terrain) parts.push('<b>Emplacement :</b> ' + answers.terrain);
+            if (answers.fondations) parts.push('<b>Fondations :</b> ' + answers.fondations);
+            recap.innerHTML = parts.length ? parts.join(' &nbsp;·&nbsp; ') : 'Projet à définir ensemble.';
+        }
+
+        // Sélection d'une tuile : mémorise et avance
+        wizard.querySelectorAll('.tile').forEach(function (tile) {
+            tile.addEventListener('click', function () {
+                var field = tile.getAttribute('data-field');
+                answers[field] = tile.getAttribute('data-value');
+
+                var group = tile.parentElement.querySelectorAll('.tile');
+                group.forEach(function (t) { t.classList.toggle('selected', t === tile); });
+
+                if (current < LAST_QUESTION) {
+                    setTimeout(function () { show(current + 1); }, 180);
+                }
+            });
+        });
+
+        nextBtn.addEventListener('click', function () {
+            if (current < LAST_QUESTION) {
+                show(current + 1);
+                return;
+            }
+
+            var required = ['wzPrenom', 'wzNom', 'wzMail'];
+            var firstInvalid = null;
+            required.forEach(function (id) {
+                var el = document.getElementById(id);
+                var ok = el.value.trim() !== '' && (el.type !== 'email' || /\S+@\S+\.\S+/.test(el.value));
+                el.style.borderColor = ok ? '' : '#c0392b';
+                if (!ok && !firstInvalid) firstInvalid = el;
+            });
+            if (firstInvalid) { firstInvalid.focus(); return; }
+
+            show(LAST_QUESTION + 1);
+        });
+
+        backBtn.addEventListener('click', function () {
+            if (current > 1) show(current - 1);
+        });
+
+        wizard.addEventListener('submit', function (e) { e.preventDefault(); });
+
+        show(1);
+    })();
 
 });
