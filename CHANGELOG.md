@@ -2,6 +2,22 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-09-02 (quater) — Audit de conformité + relecture de tous les textes
+
+**Audit de conformité mesuré.** Un script compare désormais, page par page, les styles calculés de la navigation, du logo, des liens, du CTA et du pied de page contre `index.html` pris comme référence. Il a trouvé les écarts que l'œil ratait :
+- `versions.html` (Archives) ne chargeait **pas** `style.css` du tout : sa barre était une barre maison (`.archbar`), liens 16 px non capitalisés, logo 52 px, sans pied de page. Elle utilise maintenant la vraie navbar et le footer commun.
+- La page Designer avait une navbar 8 px plus courte : l'image du logo était en `inline`, ce qui laissait un espace fantôme de ligne de base. `.nav-logo { display: block }` règle le problème sur tout le site.
+- Le pied de page de l'accueil était structurellement différent (2 colonnes avec formulaire) de celui des autres pages. Il n'y a plus qu'un seul footer, partout, avec la ligne de contact.
+
+Les 8 pages sont désormais **conformes sur tous les points mesurés**.
+
+**Relecture des textes.**
+- **Marque unifiée** : « MyGlamHouse » (11 occurrences) → **GlamHouse**, partout, y compris les titres d'onglet, désormais au format `Page | GlamHouse`.
+- **Contradiction de délai corrigée** : le site promettait « 1,5 mois » à 13 endroits alors que le calendrier détaillé de `construction.html` court jusqu'à « Semaine 8+ » (~2 mois), et que deux pages annonçaient « 1,5 à 4 mois ». Tout est aligné sur **6 à 8 semaines**, ce que dit réellement le calendrier, avec « jusqu'à 4 mois pour un projet sur mesure » là où la nuance existe.
+- **Erreur factuelle** : « Transport et assemblage sur site (1,5 à 4 mois) » — l'assemblage prend des jours, pas des mois. Corrigé en « 2 à 5 jours », conforme à l'étape 4 du calendrier.
+- **Archives** : le libellé « Version retenue » n'était plus exact (le site actuel n'est plus la maquette Lumière). Reformulé en « Piste retenue », et l'introduction dit maintenant que le site est *né* de cette piste.
+- Formulations reprises : « un max d'aides État » → « le maximum d'aides publiques » ; « Nous Contacter » → « Configurer mon projet » (cohérent avec le CTA unique) ; « Maison Perso » → « Maison individuelle » dans le tableau comparatif ; titres en Casse De Titre repassés en casse normale (« Votre Maison, Votre Vision », « Zones Recommandées pour un Terrain Pas Cher », « Rapidité et Propreté », etc.).
+
 ## 2026-09-02 (ter) — Harmonisation en profondeur : le vrai coupable
 
 **Le bug qui expliquait tout.** Cinq pages (`projets`, `maison-personnalisee`, `ecovillage`, `aides`, `construction`) ne chargeaient pas **Fraunces** — la serif qui porte toute la typographie éditoriale. Leurs titres retombaient silencieusement sur Georgia. Le balisage était bon, la police manquait : d'où l'impression que rien n'avait changé. Toutes les pages chargent désormais le même jeu (Fraunces avec ses italiques, Outfit, Plus Jakarta Sans).

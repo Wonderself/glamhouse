@@ -1829,3 +1829,10 @@ select { margin-bottom: 20px; }
 }
 .cta-band h2 em { font-style: italic; color: var(--terracotta); }
 @media (max-width: 640px) { .cta-band h2 { font-size: 1.8rem; } }
+
+/* Logo en bloc : supprime l'espace fantôme de ligne de base sous l'image,
+   pour que la navbar ait exactement la même hauteur sur toutes les pages. */
+.nav-logo { display: block; }
+.logo-container a { display: block; }
+.footer-contact { font-size: 0.9rem; color: #7a7a7a; margin-bottom: 26px; }
+.footer-contact a { color: var(--terracotta); font-weight: 600; }

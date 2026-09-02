@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MYGLAMHOUSE — Archives design</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Archives design | GlamHouse</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -16,7 +17,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1300px;margin:0 auto;padding:clamp(30px,5vw,60px) clamp(20px,4vw,56px)}
+.wrap{max-width:1300px;margin:0 auto;padding:150px clamp(20px,4vw,56px) clamp(30px,5vw,60px)}
 .top{text-align:center;margin-bottom:clamp(50px,8vh,90px)}
 .top .brand{font-weight:700;letter-spacing:.35em;font-size:.85rem;display:inline-block;margin-bottom:30px}
 .top .brand em{font-style:normal;color:var(--terra)}
@@ -61,68 +62,77 @@ a{color:inherit;text-decoration:none}
 .card--ultra .go{background:#C6FF3D;color:#04060A}
 .card--ultra .go:hover{background:#EAF2EC}
 
-.archbar{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
-  padding:16px clamp(20px,4vw,56px);background:#FFFFFF;border-bottom:1px solid rgba(44,44,44,.12)}
-.archbar img{height:52px;display:block}
-.archbar nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;font-size:.82rem;
-  text-transform:uppercase;letter-spacing:.08em;font-weight:600}
-.archbar nav a{color:var(--ink)}
-.archbar nav a:hover{color:var(--terra)}
-.archbar .cta{background:var(--terra);color:#fff;padding:11px 20px;border-radius:8px;
-  letter-spacing:.06em;white-space:nowrap}
-.archbar .cta:hover{background:#b58b80}
 .foot{text-align:center;margin-top:clamp(50px,8vh,90px);color:var(--mute);font-size:.85rem}
 .foot a{text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
 
-<div class="archbar">
-  <a href="index.html"><img src="assets/logo.jpg" alt="GlamHouse"></a>
-  <nav>
-    <a href="motion-lumiere-siboni.html">Le Designer</a>
-    <a href="construction.html">Construction</a>
-    <a href="projets.html">Projets</a>
-    <a href="versions.html" style="color:var(--terra)">Archives</a>
-    <a href="index.html#contact">Contact</a>
-    <a class="cta" href="index.html#configurateur">Configurer mon projet</a>
-  </nav>
-</div>
+<nav class="navbar">
+  <div class="logo-container"><a href="index.html"><img src="assets/logo.jpg" alt="MYGLAMHOUSE" class="nav-logo"></a></div>
+  <ul class="nav-links">
+    <li><a href="motion-lumiere-siboni.html">LE DESIGNER</a></li>
+    <li><a href="construction.html">CONSTRUCTION</a></li>
+    <li><a href="projets.html">PROJETS</a></li>
+    <li><a href="versions.html" style="color:var(--terracotta)">ARCHIVES</a></li>
+    <li><a href="index.html#contact">CONTACT</a></li>
+    <li><a href="index.html#configurateur" class="nav-cta">Configurer mon projet</a></li>
+  </ul>
+  <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+</nav>
 
 <div class="wrap">
   <div class="top">
     <span class="brand">GLAM<em>HOUSE</em></span>
     <h1>Les versions <em style="font-style:italic;color:var(--terra)">explorées</em>.</h1>
-    <p>Le site actuel retient la direction claire et éditoriale. Les trois pistes travaillées en amont restent consultables ici, à titre d'archives.</p>
+    <p>Le site actuel est né de la piste claire et éditoriale. Les trois maquettes travaillées en amont restent consultables ici, à titre d'archives.</p>
   </div>
 
   <div class="grid">
     <a class="card card--lumiere" href="motion-lumiere.html">
-      <span class="card__label">★ Version retenue — Lumière Kinétique</span>
+      <span class="card__label">★ Piste retenue — Lumière</span>
       <h2>Lumière</h2>
-      <p>Nature-luxe, typographie serif, fond clair — désormais enrichie du dynamisme d'Ultra : plan d'architecte animé, films, marquees cinétiques, compteurs.</p>
+      <p>Nature-luxe, typographie serif, fond clair : c'est la direction que reprend le site actuel. Plan d'architecte animé, films, bandeaux cinétiques, compteurs.</p>
       <span class="go">Entrer →</span>
     </a>
 
     <a class="card card--noir" href="motion-noir.html">
       <span class="card__label">Archive — Futuriste</span>
       <h2>Noir</h2>
-      <p>Palette noir &amp; ambre, détails HUD, dossier défilant à l'horizontale. Conservée comme référence, non retenue.</p>
+      <p>Palette noir et ambre, détails HUD, dossier défilant à l'horizontale. Conservée comme référence, non retenue.</p>
       <span class="go">Consulter →</span>
     </a>
 
     <a class="card card--ultra" href="motion-ultra.html">
       <span class="card__label">Archive — Cinétique</span>
       <h2>ULTRA</h2>
-      <p>Trop sombre pour la marque, mais son langage de mouvement vit désormais dans Lumière. Conservée comme référence.</p>
+      <p>Trop sombre pour la marque, mais son langage de mouvement a nourri la version retenue. Conservée comme référence.</p>
       <span class="go">Consulter →</span>
     </a>
   </div>
 
-  <div class="foot">
-    <a href="index.html">← Retour au site</a>
-  </div>
 </div>
 
+<footer class="site-footer">
+  <div class="container text-center">
+    <div class="footer-logo-wrap"><img src="assets/logo.jpg" alt="Logo GlamHouse" class="footer-logo"></div>
+    <p class="footer-tagline">Habitats modulaires dessinés par Daniel Siboni, fabriqués en France, installés chez vous en 6 à 8 semaines.</p>
+    <p class="footer-contact">Une question avant de vous lancer ? <a href="mailto:contact@glamhouse.net">contact@glamhouse.net</a></p>
+    <div class="footer-nav">
+      <a href="motion-lumiere-siboni.html">Le Designer</a>
+      <a href="construction.html">Construction</a>
+      <a href="projets.html">Projets</a>
+      <a href="aides.html">Aides</a>
+      <a href="versions.html">Archives</a>
+    </div>
+    <div class="footer-legal">
+      <a href="#">Mentions Légales</a>
+      <a href="#">Politique de Confidentialité</a>
+      <span>© 2023-2026 GlamHouse.net</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
