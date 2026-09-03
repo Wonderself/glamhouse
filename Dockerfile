@@ -11,6 +11,7 @@ COPY index.html /usr/share/nginx/html/
 COPY admin.html /usr/share/nginx/html/
 COPY aides.html /usr/share/nginx/html/
 COPY construction.html /usr/share/nginx/html/
+COPY contact.html /usr/share/nginx/html/
 COPY projets.html /usr/share/nginx/html/
 COPY maison-personnalisee.html /usr/share/nginx/html/
 COPY ecovillage.html /usr/share/nginx/html/

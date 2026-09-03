@@ -2,6 +2,14 @@
 
 Historique des évolutions notables du site MyGlamHouse. Format libre, du plus récent au plus ancien.
 
+## 2026-09-02 (sexies) — Page contact dédiée
+
+- **`contact.html`** : page à part entière, avec le hero éditorial des pages internes, le formulaire au propre (nom, mail, téléphone facultatif, objet parmi douze demandes courantes + « Autre » avec champ libre, message), et trois raccourcis sous le formulaire vers le configurateur, les aides et la construction — pour éviter d'écrire quand la réponse est déjà en ligne.
+- Le formulaire quitte l'accueil : CONTACT pointe désormais vers la page, dans la navigation et dans les pieds de page de toutes les pages. Ajout au Dockerfile.
+- **Aucune adresse mail nulle part** sur le site — le contact passe uniquement par le formulaire.
+- Les trois pages d'archives pointaient encore vers `index.html#contact`, une ancre qui n'existe plus : elles renvoient vers la page contact.
+- Typographie française : espace insécable avant `? ! ; :` dans tous les titres (29 corrigés) — au passage, cela règle les « ? » qui tombaient seuls en fin de ligne.
+
 ## 2026-09-02 (quinquies) — Formulaire de contact + nouveau logo
 
 **Formulaire de contact.** La ligne « contact@glamhouse.net » est remplacée par un vrai formulaire, dans une section `#contact` sur l'accueil (là où pointait déjà le lien CONTACT de la navigation). Nom, mail, téléphone facultatif, message, et surtout un **menu d'objets pré-enregistrés** couvrant les demandes courantes : modèles, devis, aides et financement, terrain et mairie, délais, fondations, achat groupé, location saisonnière, garantie, partenariat — plus **« Autre »**, qui révèle un champ libre. Validation avant envoi, message de confirmation. Les autres pages renvoient vers ce formulaire.
